@@ -51,6 +51,7 @@ byte times = 0;
 #include "mqtt.h"
 #include "fota.h"
 #include "datos.h"
+#include "debug.h"
 
 
 
@@ -66,15 +67,23 @@ void setup() {
   setup_wifi(); //llamada a la funcion de config. del WiFi
 
   FuncionActualizacion(); //LLamamos a la funcion para que actualice el programa
+
+  debugFunction ("Establecimiento de MQTT");
+  mqttSetup (); //Llamada a la funcion de setup de mqtt
   
-  client.setServer(mqtt_server, 1883); // Establecimiento de la conexion al mqtt
-  client.setCallback(callback); 
-  dht.setup(5, DHTesp::DHT11); // Connect DHT sensor to GPIO 17
+  dht.setup(DHT_PIN, DHTesp::DHT11); // Connect DHT sensor to GPIO 17
+
+  if(debug){
+    debugFunction ("Datos para debug");
+    tomaDatos(datos);
+    serializa_datos_JSON ().toCharArray (msg,512); // Serializacion de los datos del archivo json para su publicacion
+    }
+  
 
 }// END SETUP
 
 void loop() {
-
+  
   if (!client.connected()) { // Comprobacion y reconexion (en caso de fallo) del cliente mqtt
     reconnect();
   }
@@ -94,8 +103,7 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
   
   tomaDatos(datos); //actualiza los valores de "datos"
   
-
-//  serializa_datos_JSON2 (datos).toCharArray (msg,512); // Serializacion de los datos del archivo json para su publicacion
+ serializa_datos_JSON ().toCharArray (msg,512); // Serializacion de los datos del archivo json para su publicacion
  client.publish("infind/GRUPO1/datos", msg, true); //publicacion del mensaje "datos" como retenido
   
   

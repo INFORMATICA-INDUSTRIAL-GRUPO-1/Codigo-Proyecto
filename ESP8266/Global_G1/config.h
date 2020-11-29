@@ -20,6 +20,7 @@
 
 #include <Arduino.h>
 
+extern bool debug;
 
 ////////////////////Funciones//////////////////////////////
 //// CONFIGURACION DE LOS PARÁMETROS DEL SERVIDOR DE ACTUALIZACIONES FOTA///////////////////////
@@ -29,7 +30,9 @@
                                                        // Name of firmware
 #define HTTP_OTA_VERSION      String(__FILE__).substring(String(__FILE__).lastIndexOf('\\')+1) + ".nodemcu" 
 
-
+extern byte DHT_PIN;
+extern byte SWITCH_PIN;
+extern byte LED_PIN;
 
 //extern struct Config;
 extern const char* ssid ;

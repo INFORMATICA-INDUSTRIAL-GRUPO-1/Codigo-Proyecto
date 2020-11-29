@@ -21,6 +21,7 @@
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 #include "mqtt.h"
+#include "debug.h";
 #include "wifi.h"
 #include "datos.h"
 ////////////////////Declaraciones//////////////////////////////
@@ -80,7 +81,7 @@ if(strcmp(topic,"infind/GRUPO1/led/cmd")==0) //Comprobacion topic para led
 
   free(mensaje); // libero memoria
 
-}
+}// END CALLBACK
 
 
 
@@ -88,12 +89,13 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
   // Loop until we're reconnected
   while (!client.connected()) { // intenta reconectar el mqtt (hasta exito)
     Serial.print("Attempting MQTT connection...");
-    // Create a random client ID
+    // Create client ID based on ChipID number
     String clientId = "ESP8266Client-";
     datos.chipId= ESP.getChipId (); // Asegura que el chipId sea el correcto antes de utilizarlo en cada reconexion;
-    clientId += String(datos.chipId) ; // establece el id del cliente mqtt (uno nuevo en cada reconexion)
+    clientId += String(datos.chipId) ; // establece el id del cliente mqtt
+    debugFunction (clientId.c_str());
     // Attempt to connect
-    if (client.connect(clientId.c_str(),"infind/GRUPO1/conexion",0 ,true ,"{\"online\":false}" )) { //Establece la conexion al mqtt y configura LWT conexion=false  //ej:  boolean rc = mqttClient.connect("myClientID", willTopic, willQoS, willRetain, willMessage); 
+    if (client.connect(clientId.c_str(),"infind/GRUPO1/conexion",0 ,true ,"{\"online\":false}" )) { //Establece la conexion al mqtt y configura LWT: "conexion:false"  //ej:  boolean rc = mqttClient.connect("myClientID", willTopic, willQoS, willRetain, willMessage); 
       Serial.println("connected");
       // Once connected, publish an announcement...
       char* stateMessage = "{\"online\":true}"; // formateo del mensaje de conexion
@@ -111,4 +113,14 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       delay(5000);
     }
   }
-}
+}// END RECONECT
+
+
+
+void mqttSetup (){
+  debugFunction ("mqttServer:");
+  debugFunction (mqtt_server);
+  client.setServer(mqtt_server, 1883); // Establecimiento de la conexion al mqtt
+  client.setCallback(callback); 
+  
+  }

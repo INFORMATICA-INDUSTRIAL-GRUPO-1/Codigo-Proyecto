@@ -6,7 +6,7 @@
 #include <Arduino.h>
 #include "DHTesp.h"
 #include <ArduinoJson.h>
-#include <Arduino_JSON.h>
+//#include <Arduino_JSON.h>
 #include <PubSubClient.h>
 
 
@@ -18,7 +18,9 @@
 extern DHTesp dht;
 extern PubSubClient client;
 extern char msg[512];
+extern String ip;
 struct registro_datos { //Struct "datos" contiene los parámetros recogidos por los sensores
+  
   String chipId;
   unsigned long tiempo;
   float Vcc;
@@ -35,7 +37,7 @@ extern struct registro_datos datos ;
 
 //Funciones
 
-String serializa_datos_JSON2 (struct registro_datos datos);
+String serializa_datos_JSON ();//struct registro_datos datos
 
 float voltageSense ();
 

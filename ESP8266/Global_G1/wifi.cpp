@@ -22,12 +22,13 @@
 #include <ESP8266WiFi.h>
 #include <Arduino.h>
 #include "config.h"
+#include "debug.h"
 
 
 #include "wifi.h"
 ////////////////////Declaraciones//////////////////////////////
 WiFiClient espClient; 
-const char* ip = "";
+String ip = "0.0.0.0";
 long rssi = 0;
 ////////////////////Funciones//////////////////////////////
 
@@ -52,8 +53,10 @@ void setup_wifi() { // Funcion de conexion dal WiFi
   ip=WiFi.localIP().toString().c_str();
   Serial.println("");
   Serial.println("WiFi connected");
+  ip= WiFi.localIP().toString().c_str();
   Serial.println("IP address: ");
   Serial.println(ip);
+  debugFunction (ip);
 }
 
 

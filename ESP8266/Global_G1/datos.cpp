@@ -19,10 +19,11 @@
 #include <Arduino.h>
 #include "DHTesp.h"
 #include <ArduinoJson.h>
-#include <Arduino_JSON.h>
+//#include <Arduino_JSON.h>
 #include <PubSubClient.h>
 
 #include "datos.h"
+#include "debug.h"
 #include "config.h"
 #include "wifi.h"
 #include "mqtt.h"
@@ -37,30 +38,37 @@ DHTesp dht;       //instancia el objeto DHTesp como dht
 registro_datos datos ;  // instancia el struct "datos"
 
 ///////FUNCIONES//////////////////////////////////////////
-   String serializa_datos_JSON2 () // Funcion de formateo a json y luego Serializacion
+   String serializa_datos_JSON () // Funcion de formateo a json y luego Serializacion
 {
-  JSONVar jsonRoot; // crea obj json para "datos"
-  JSONVar DHT11; // crea un subobjeto json para "DHT11"
-  JSONVar WIFI; // crea un subobjeto json para "WiFi"
+  StaticJsonDocument <512> jsonRoot; // crea obj json para "datos"
   
+  
+  String jsonString = "";
   
     //FORMATEO DE "DATOS" A json
+
+  jsonRoot["CHIPID"]= datos.chipId; 
   jsonRoot["Uptime"]= datos.tiempo; 
   jsonRoot["Vcc"]= datos.Vcc;
-  DHT11["temp"] = datos.temperatura;
-  DHT11["hum"] = datos.humedad;
- jsonRoot["LED"]=datos.led;
-
-  WIFI["SSid"]=datos.SSID_wifi;  
+  JsonObject DHT_11=jsonRoot.createNestedObject("DHT11"); // crea un subobjeto json para "DHT11"
+  DHT_11["temp"] = datos.temperatura;
+  DHT_11["hum"] = datos.humedad;
+  jsonRoot["LED"]=datos.led;
+  jsonRoot["SWITCH"]=datos.switchState;
+  JsonObject _WIFI=jsonRoot.createNestedObject("Wifi"); // crea un subobjeto json para "WiFi"
+  _WIFI["SSid"]=datos.SSID_wifi;  
   //String IP_str = IpAddress2String(datos.IP_wifi); 
-  WIFI["IP"]= datos.IP_wifi;  
-  WIFI["RSSI"]=datos.RSSI_wifi;
+  _WIFI["IP"]= datos.IP_wifi;  
+  _WIFI["RSSI"]=datos.RSSI_wifi;
 
-  jsonRoot["DHT11"]= DHT11; // añade el subobjeto "DHT11" json al json "root"
-  jsonRoot["Wifi"]= WIFI; // añade el subobjeto "WiFi" json al json "root"
+ // jsonRoot["DHT11"]= DHT11; // añade el subobjeto "DHT11" json al json "root"
+ // jsonRoot["Wifi"]= WIFI; // añade el subobjeto "WiFi" json al json "root"
 
   //Serial.print (jsonRoot); // Debug Serial
-  return JSON.stringify(jsonRoot); // Devuelve la Serializacion del json "root" creado
+  serializeJson(jsonRoot,jsonString);
+
+  debugFunction (jsonString);
+  return jsonString; // Devuelve la Serializacion del json "root" creado
 }
 
 
@@ -83,14 +91,16 @@ void tomaDatos (struct registro_datos &datos) // funcion que toma los datos de l
   datos.temperatura=dht.getTemperature(); // Toma de la tempreatura en el sensor DHT11
   datos.humedad=dht.getHumidity(); // Toma de la humedad en el sensor DHT11
   datos.SSID_wifi= ssid; //Toma del SSid del WiFi
-  datos.IP_wifi  =ip ; // Toma de la IP del ESP 8266 
+  datos.IP_wifi  = ip ; // Toma de la IP del ESP 8266 
   datos.RSSI_wifi= ssidReq (); // Toma del RSSI del WiFi
-  
+  debugFunction (ip);
   }
 
 void ledCmd (int valor)  // Funcion que tiene como entrada un valor entero [0-100], lo Remapea entre [0-1023] y publicacion del estado actual del led
 {
-  JSONVar jsonRoot;  // crea un archivo json para la recepcion del nuevo estado del led
+  
+  StaticJsonDocument<100> jsonRoot;  // crea un archivo json para la recepcion del nuevo estado del led
+  
   //mapeo de valor 0-100 =>> 0-1023 =>> se invierte para obtener 100=full led , 0= off led
   if (valor > 100)   //restringe valor entre (0 upto 100)
       valor = 100;
@@ -106,8 +116,10 @@ void ledCmd (int valor)  // Funcion que tiene como entrada un valor entero [0-10
   
   datos.led = valor; // Guarda el ultimo valor recibido
   jsonRoot["led"]= valor;//Convierte el estado del led a json para ACK al broker mqtt
-  
-  JSON.stringify(jsonRoot).toCharArray (msg,512); //formateo del json para publicarlo
+
+  serializeJson(jsonRoot,msg);
+
+  debugFunction (msg);
   client.publish("infind/GRUPO1/led/status", msg); //publicacion del estado del led
 
   }

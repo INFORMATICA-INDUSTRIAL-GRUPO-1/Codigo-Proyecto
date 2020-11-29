@@ -18,11 +18,21 @@
 #include <Arduino.h>
 #include "config.h"
 
+/////////////////////GPIO's///////////////////////////////////////////////////////////
+
+byte DHT_PIN=5; ///Pin de conexion de datos del DHT11
+byte SWITCH_PIN=16; //Pin de conexion del swich
+byte LED_PIN=BUILTIN_LED; // Led de la placa
+
+////////////////////////////Debug Por Puerto Serie////////////////////////////////////
+bool debug = true;
+
+
 ///////////////////// WiFi CONFIGURATION////////////////////////////////////////////////////
 // Update these with values suitable for your network.
-const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "12345678"; // CLAVE DE LA RED WIFI
-const char* mqtt_server = "192.168.0.169" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
+const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
+const char* mqtt_server = "192.168.0.24" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
 
 
 

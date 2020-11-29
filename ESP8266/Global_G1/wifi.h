@@ -8,7 +8,7 @@
 #include "config.h"
 
 extern WiFiClient espClient; 
-extern const char* ip;
+extern String ip;
 
 void setup_wifi();
 

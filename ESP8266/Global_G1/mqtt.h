@@ -13,12 +13,15 @@
 
 //Externalizacion de variables
 extern PubSubClient client;
-extern WiFiClient espClient; 
+extern WiFiClient espClient;
+extern const char* mqtt_server; 
 
 //Funciones
 void callback(char* topic, byte* payload, unsigned int length);
 
 void reconnect();
+
+void mqttSetup ();
 
 
 #endif
