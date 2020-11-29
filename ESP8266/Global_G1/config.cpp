@@ -30,8 +30,8 @@ bool debug = true;
 
 ///////////////////// WiFi CONFIGURATION////////////////////////////////////////////////////
 // Update these with values suitable for your network.
-const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
+const char* ssid = "wifiSSID"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "123456789"; // CLAVE DE LA RED WIFI
 const char* mqtt_server = "192.168.0.24" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
 
 
