@@ -87,7 +87,7 @@ void setup_wifi() { // Funcion de conexion dal WiFi
    // char APSSID [20];
    // strcat (AP_ssid, datos.chipId) 
     //AP_ssid += datos.chipId 
-    wifiManager.autoConnect("ESP_mishuevos", "lostuyos");
+    wifiManager.autoConnect("ESP", "12345678");
     debugFunction ("Connected",1);
     
     }
