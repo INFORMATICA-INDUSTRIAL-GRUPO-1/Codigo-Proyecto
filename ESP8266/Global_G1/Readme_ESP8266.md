@@ -25,6 +25,7 @@ Changelog:
              00-Código perteneciente al ejercicio TAREA GRUPAL CON FOTA
 
 KnowBugs:
+
     *0.0.0.01alpha:
                  00-Utiliza las dos librerias json (Cambiar la funcion SerializaDatosJSON_2 => Para que haga uso de la libreria "ArduinoJson" en lugar de "Arduino_JSON")
     
