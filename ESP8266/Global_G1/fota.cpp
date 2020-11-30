@@ -19,7 +19,7 @@
 #include <Arduino.h>
 
 #include <ESP8266httpUpdate.h>
-
+#include "debug.h"
 #include "fota.h"
 #include "config.h"
 ////////////////////Declaraciones//////////////////////////////
@@ -30,10 +30,17 @@
 
 void FuncionActualizacion()
 {
-  Serial.println( "---------ACTUALIZADO V4-----------" );  
-  Serial.println( "Comprobando actualización:" );
-  Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH);
-  Serial.println( "--------------------------" );  
+  debugFunction ("--------------------",1);
+  debugFunction ("Comprobando actualización:",1);
+  debugFunction ("--------------------",1);
+  debugFunction ("--------------------",1);
+  debugFunction ("/d",0);
+  debugFunction (HTTP_OTA_ADDRESS,0);
+  debugFunction (":",0);
+  debugFunction (String(HTTP_OTA_PORT),0);
+  debugFunction (HTTP_OTA_PATH,0);
+  debugFunction ("",1);
+  debugFunction ("--------------------",1);  
   ESPhttpUpdate.setLedPin(16,LOW);
   ESPhttpUpdate.onStart(inicio_OTA);
   ESPhttpUpdate.onError(error_OTA);

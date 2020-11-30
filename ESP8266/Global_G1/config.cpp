@@ -23,20 +23,25 @@
 byte DHT_PIN=5; ///Pin de conexion de datos del DHT11
 byte SWITCH_PIN=16; //Pin de conexion del swich
 byte LED_PIN=BUILTIN_LED; // Led de la placa
+byte BUTTON_PIN = 0; // Boton de Flash de la placa ESP8266
 
 ////////////////////////////Debug Por Puerto Serie////////////////////////////////////
 bool debug = true;
 
 
-///////////////////// WiFi CONFIGURATION////////////////////////////////////////////////////
-// Update these with values suitable for your network.
-const char* ssid = "wifiSSID"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "123456789"; // CLAVE DE LA RED WIFI
-const char* mqtt_server = "192.168.0.24" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
+///////////////////// WiFi & MQTT CONFIGURATION////////////////////////////////////////////////////
 
+const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = ""; // CLAVE DE LA RED WIFI
+const char* mqtt_server = "iot.ac.uma.es" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
+int mqtt_port = 1883;
+const char* mqtt_user = "infind";
+const char* mqtt_psw = "zancudo";
 
+const char* AP_ssid = "ESP8266_"; //"ESP8266_ChipId" SSid del AccesPoint para wificonfig
+const char* AP_password = "ESP8266"; //psw del AccesPoint para wificonfig
 
-
+byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesPoint"
 /////////////////Parametros ////////////////////
 
 int dataSampRate = 5*60; // Tiempo entre publicaciones de los datos en SEGUNDOS

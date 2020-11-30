@@ -20,19 +20,27 @@
 
 
 #include <ESP8266WiFi.h>
+#include <DNSServer.h>
+#include <ESP8266WebServer.h >
+#include <WiFiManager.h>
+
 #include <Arduino.h>
 #include "config.h"
+#include "datos.h"
 #include "debug.h"
 
 
 #include "wifi.h"
 ////////////////////Declaraciones//////////////////////////////
-WiFiClient espClient; 
+WiFiClient espClient; // cliente wifi Para conexion generica
+WiFiManager wifiManager; // crea un AccesPoint (nueva red wifi) para configurar la red wifi (de trabajo) desde otro dispositivo
 String ip = "0.0.0.0";
 long rssi = 0;
 ////////////////////Funciones//////////////////////////////
 
 void setup_wifi() { // Funcion de conexion dal WiFi
+  byte attempt = 0; // inicializo una variable que cuenta los intentos de conexion al wifi(de trabajo)
+
 
   delay(10);
   // We start by connecting to a WiFi network
@@ -44,8 +52,16 @@ void setup_wifi() { // Funcion de conexion dal WiFi
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
+    attempt ++;
     delay(500);
     Serial.print(".");
+    if (attempt >= max_reconnect) // comprueba los intentos de reconexion => si superior a umbral =>> configura un AP 
+      debugFunction ("AP-enabled",1);
+      debugFunction ("New Wifi created:", 0);
+      debugFunction (String(AP_ssid)+String(datos.chipId),0);
+      WiFiConfig ();
+
+    
   }
 
   randomSeed(micros());
@@ -56,7 +72,7 @@ void setup_wifi() { // Funcion de conexion dal WiFi
   ip= WiFi.localIP().toString().c_str();
   Serial.println("IP address: ");
   Serial.println(ip);
-  debugFunction (ip);
+  debugFunction (ip,1);
 }
 
 
@@ -65,3 +81,13 @@ void setup_wifi() { // Funcion de conexion dal WiFi
   rssi = WiFi.RSSI();
   return rssi;
   }
+
+
+  void WiFiConfig (){
+   // char APSSID [20];
+   // strcat (AP_ssid, datos.chipId) 
+    //AP_ssid += datos.chipId 
+    wifiManager.autoConnect("ESP_mishuevos", "lostuyos");
+    debugFunction ("Connected",1);
+    
+    }

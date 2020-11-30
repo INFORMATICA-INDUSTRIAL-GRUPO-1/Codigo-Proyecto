@@ -68,13 +68,13 @@ void setup() {
 
   FuncionActualizacion(); //LLamamos a la funcion para que actualice el programa
 
-  debugFunction ("Establecimiento de MQTT");
+  debugFunction ("Establecimiento de MQTT",1);
   mqttSetup (); //Llamada a la funcion de setup de mqtt
   
   dht.setup(DHT_PIN, DHTesp::DHT11); // Connect DHT sensor to GPIO 17
 
   if(debug){
-    debugFunction ("Datos para debug");
+    debugFunction ("Datos para debug",0);
     tomaDatos(datos);
     serializa_datos_JSON ().toCharArray (msg,512); // Serializacion de los datos del archivo json para su publicacion
     }

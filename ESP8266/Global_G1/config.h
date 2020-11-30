@@ -38,7 +38,12 @@ extern byte LED_PIN;
 extern const char* ssid ;
 extern const char* password;
 extern const char* mqtt_server;
-
+extern int mqtt_port;
+extern const char* mqtt_user;
+extern const char* mqtt_psw;
+extern const char* AP_ssid;
+extern const char* AP_password;
+extern byte max_reconnect;
 
 /////////////////Parametros ////////////////////
 

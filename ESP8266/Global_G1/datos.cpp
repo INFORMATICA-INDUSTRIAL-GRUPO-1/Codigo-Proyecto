@@ -67,7 +67,7 @@ registro_datos datos ;  // instancia el struct "datos"
   //Serial.print (jsonRoot); // Debug Serial
   serializeJson(jsonRoot,jsonString);
 
-  debugFunction (jsonString);
+  debugFunction (jsonString,1);
   return jsonString; // Devuelve la Serializacion del json "root" creado
 }
 
@@ -93,7 +93,7 @@ void tomaDatos (struct registro_datos &datos) // funcion que toma los datos de l
   datos.SSID_wifi= ssid; //Toma del SSid del WiFi
   datos.IP_wifi  = ip ; // Toma de la IP del ESP 8266 
   datos.RSSI_wifi= ssidReq (); // Toma del RSSI del WiFi
-  debugFunction (ip);
+  debugFunction (ip,1);
   }
 
 void ledCmd (int valor)  // Funcion que tiene como entrada un valor entero [0-100], lo Remapea entre [0-1023] y publicacion del estado actual del led
@@ -119,7 +119,7 @@ void ledCmd (int valor)  // Funcion que tiene como entrada un valor entero [0-10
 
   serializeJson(jsonRoot,msg);
 
-  debugFunction (msg);
+  debugFunction (msg,1);
   client.publish("infind/GRUPO1/led/status", msg); //publicacion del estado del led
 
   }

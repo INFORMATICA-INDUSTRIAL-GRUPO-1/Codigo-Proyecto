@@ -93,18 +93,25 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
     String clientId = "ESP8266Client-";
     datos.chipId= ESP.getChipId (); // Asegura que el chipId sea el correcto antes de utilizarlo en cada reconexion;
     clientId += String(datos.chipId) ; // establece el id del cliente mqtt
-    debugFunction (clientId.c_str());
+    debugFunction (clientId.c_str(),1);
+    char* JSon_Msg="";
+    sprintf (JSon_Msg,"{\"CHIPID\":\" ",datos.chipId.c_str(),"\", \" online \": \"false\"} ");
+       debugFunction("mqtt:set LWill to :",1);
+      debugFunction(JSon_Msg,1);
     // Attempt to connect
-    if (client.connect(clientId.c_str(),"infind/GRUPO1/conexion",0 ,true ,"{\"online\":false}" )) { //Establece la conexion al mqtt y configura LWT: "conexion:false"  //ej:  boolean rc = mqttClient.connect("myClientID", willTopic, willQoS, willRetain, willMessage); 
-      Serial.println("connected");
+    if (client.connect(clientId.c_str(),mqtt_user,mqtt_psw,"infind/GRUPO1/conexion",0 ,true ,(const char*)JSon_Msg )) { //Establece la conexion al mqtt y configura LWT: "conexion:false"  //ej:  boolean rc = mqttClient.connect("myClientID", willTopic, willQoS, willRetain, willMessage); 
+       JSon_Msg="";
+       sprintf (JSon_Msg,"{\"CHIPID\":\" ",datos.chipId.c_str(),"\", \" online \": \"true\"} ");
+      debugFunction("mqtt:connected",1);
+      debugFunction(JSon_Msg,1);
       // Once connected, publish an announcement...
-      char* stateMessage = "{\"online\":true}"; // formateo del mensaje de conexion
+   
      
       // ... and resubscribe
       client.setBufferSize(512); // Tamaño bufer 512bytes
       //client.subscribe("infind/GRUPO1/datos"); // Subscripcion al topic "datos"
      client.subscribe("infind/GRUPO1/led/cmd");  // Subscripcion al topic "led/cmd"
-      client.publish("infind/GRUPO1/conexion",(const char*)stateMessage,true); //publica el estado de la conexion=true en el topic "conexion"
+      client.publish("infind/GRUPO1/conexion",(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
     } else { // fallo en la conexion mqtt
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -118,9 +125,9 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
 
 
 void mqttSetup (){
-  debugFunction ("mqttServer:");
-  debugFunction (mqtt_server);
-  client.setServer(mqtt_server, 1883); // Establecimiento de la conexion al mqtt
+  debugFunction ("mqttServer:",0);
+  debugFunction (mqtt_server,1);
+  client.setServer(mqtt_server, mqtt_port); // Establecimiento de la conexion al mqtt
   client.setCallback(callback); 
   
   }
