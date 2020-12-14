@@ -1,0 +1,55 @@
+Que est ahecho
+
+	ESP
+	*Comunicacion serie
+	*Control Led
+	*FOTA
+	*Datos
+	*Estructura proyecto	
+	*Topics
+	*boton
+	*wifi cambia parametros
+
+	NODERED
+	*base datos configurada	
+	*Estructura dashboard
+	*Control dashboard
+	*
+
+	TELEGRAM
+	*bot (temperatura, humedad (funciones extra))	
+	* temperatura
+	*humedad
+	*alertas (umbral)
+	*media datos
+	*led control
+	*led estado
+	* 
+	ROBOT
+	*comunicacion serie
+
+
+Por hacer
+
+	ESP
+	*SPIFF / EPROM  (final)
+	*datos robot (mqtt)     
+	*tiempo actualizacion led (MANU 14/12)
+	*Topic Config
+	*comprobar subscripciones topics
+	NODERED
+	*parte general  (MATHIAS 14/12)
+	*tiempo actualizacion led (MANU 14/12)
+	*tiempo actualizacion fota 
+	*datos robot ¿db? (hablarlo) 
+	*csv (hablarlo)
+	*control db (filtros) (Pablo R 14/12)
+	*topic STATUS IDtelegram
+	*sesion nodered SEGURIDAD
+
+	TELEGRAM
+	*control potencia led (Antonio 14/12)
+	*mas parametros (Antonio 14/12) (preguntar PROFESOR)
+
+	ROBOT
+	*datos (hablar funcionalidades datos)
