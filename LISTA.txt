@@ -53,3 +53,6 @@ Por hacer
 
 	ROBOT
 	*datos (hablar funcionalidades datos)
+
+
+hola wena tarde
