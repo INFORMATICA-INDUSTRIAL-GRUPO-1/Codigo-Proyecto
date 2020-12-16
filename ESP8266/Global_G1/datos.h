@@ -43,7 +43,7 @@ float voltageSense ();
 
 void tomaDatos (struct registro_datos &datos);
 
-void ledCmd (int valor);
+void led_mqtt ();
 
 
 #endif

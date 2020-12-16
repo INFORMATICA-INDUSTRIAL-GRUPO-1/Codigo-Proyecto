@@ -8,7 +8,7 @@
 //
 //
 // Fecha de creacion: 28/11/2020
-// Ultima modificacion: 7/12/2020 (Manuel Valle Delgado)
+// Ultima modificacion: 16/12/2020 (Manuel Valle Delgado)
 // 
 // Pestaña:Global
 // Descripcion del codigo
@@ -113,6 +113,7 @@ void loop() {
       pulsos(); //Interpreta los pulsos de la interrupcion.
       ultima_pulsacion = millis(); //Guarda en p1 el tiempo de la ultima pulsacion.
       funcion_flash(); //Interpreta, con el "codigo pulso", que hacer en la placa (ON/OFF, FOTA...)
+      led_mqtt(); // Publica el valor del led actualizado.
       ready_led = false; //Variable para no volver a entrar en el IF.
   }
   
@@ -149,12 +150,12 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
   
  serializa_datos_JSON ().toCharArray (msg,512); // Serializacion de los datos del archivo json para su publicacion
  client.publish("infind/GRUPO1/datos", msg, true); //publicacion del mensaje "datos" como retenido
+ Serial.print("Temp:");
+ Serial.println(datos.temperatura);
   
   
 }//END DATOS 
    
-  
-
 
 
   

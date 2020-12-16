@@ -69,9 +69,9 @@ void setup_wifi() { // Funcion de conexion dal WiFi
   ip=WiFi.localIP().toString().c_str();
   Serial.println("");
   Serial.println("WiFi connected");
-  ip= WiFi.localIP().toString().c_str();
+  ip= WiFi.localIP().toString().c_str(); //Repetido?
   Serial.println("IP address: ");
-  Serial.println(ip);
+  //Serial.println(ip);
   debugFunction (ip,1);
 }
 

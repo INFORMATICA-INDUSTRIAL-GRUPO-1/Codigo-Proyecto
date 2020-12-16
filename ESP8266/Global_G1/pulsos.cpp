@@ -1,3 +1,21 @@
+// Programa Asignatura INFORMATICA INDUSTRIAL Grupo1
+// Codigo ESP8266
+// Version V.0.0.02
+// Autores
+//
+//
+//
+//
+//
+// Fecha de creacion: 28/11/2020
+// Ultima modificacion: 7/12/2020 (Manuel Valle Delgado)
+// 
+// Pestaña:pulsos
+// Descripcion del codigo:
+// Dependiendo de la duración de la pulsación, realizará disintas tareas.
+// Aquí se encuentran las 2 funciones encargadas de darles sentido a las pulsaciones.
+
+
 #include <Arduino.h> //libreria de arduino
 #include "interrupciones.h"
 
@@ -8,7 +26,6 @@ void pulsos() //Interpreta los pulsos del boton y la duración de la pulsacion.
 {   
     unsigned long ahora = millis();
     unsigned long espera = ahora - ultima_pulsacion;
-    
     if (duracion < 1500 && espera <= 300)//"pulsacion doble"
     {
         pulsacion = 2;

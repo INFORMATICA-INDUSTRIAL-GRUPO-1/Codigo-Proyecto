@@ -20,10 +20,14 @@
 
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
-#include "mqtt.h"
+
 #include "debug.h";
-#include "wifi.h"
 #include "datos.h"
+#include "mqtt.h"
+#include "pulsos.h"
+#include "wifi.h"
+
+
 ////////////////////Declaraciones//////////////////////////////
 
 PubSubClient client(espClient);
@@ -62,8 +66,8 @@ if(strcmp(topic,"infind/GRUPO1/led/cmd")==0) //Comprobacion topic para led
     {
      int valor = root["level"];
      Serial.print("Mensaje OK, level = ");
-     Serial.println(valor);
-     ledCmd (valor);
+     Serial.println(led_valor1);
+     //ledCmd (valor);   RECIBIR DATOS DESDE MQTT PARA CAMBIAR LED
     }
     else
     {
