@@ -96,6 +96,9 @@ void tomaDatos (struct registro_datos &datos) // funcion que toma los datos de l
   debugFunction (ip,1);
   }
 
+
+/*------------------------------------ OJO CAMBIAR ESTA FUNCION POR NUEVA CONTROL LED ------------------------------------*/
+
 void ledCmd (int valor)  // Funcion que tiene como entrada un valor entero [0-100], lo Remapea entre [0-1023] y publicacion del estado actual del led
 {
   
@@ -123,3 +126,5 @@ void ledCmd (int valor)  // Funcion que tiene como entrada un valor entero [0-10
   client.publish("infind/GRUPO1/led/status", msg); //publicacion del estado del led
 
   }
+
+  
