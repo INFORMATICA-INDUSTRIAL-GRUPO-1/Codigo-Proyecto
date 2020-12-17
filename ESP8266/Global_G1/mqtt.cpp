@@ -21,7 +21,8 @@
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 
-#include "debug.h";
+#include "config.h"
+#include "debug.h"
 #include "datos.h"
 #include "mqtt.h"
 #include "pulsos.h"
@@ -51,7 +52,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
   }
   Serial.println();
 
-if(strcmp(topic,"infind/GRUPO1/led/cmd")==0) //Comprobacion topic para led
+  if(strcmp(topic,"infind/GRUPO1/led/cmd")==0) //Comprobacion topic para led
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
@@ -64,10 +65,11 @@ if(strcmp(topic,"infind/GRUPO1/led/cmd")==0) //Comprobacion topic para led
     }
     else if(root.containsKey("level"))  // comprobar si existe el campo/clave que estamos buscando
     {
-     int valor = root["level"];
+     int valor_led_mqtt = root["level"];
      Serial.print("Mensaje OK, level = ");
-     Serial.println(led_valor1);
-     //ledCmd (valor);   RECIBIR DATOS DESDE MQTT PARA CAMBIAR LED
+     Serial.println(valor_led_mqtt);
+     led_valor1 = valor_led_mqtt;
+     led_mqtt();
     }
     else
     {
@@ -83,6 +85,30 @@ if(strcmp(topic,"infind/GRUPO1/led/cmd")==0) //Comprobacion topic para led
     Serial.println("Error: Topic desconocido");
   }
 
+if(strcmp(topic,"infind/GRUPO1/config")==0) //Comprobacion topic para led
+  {
+      StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
+    // Deserialize the JSON document
+    DeserializationError error = deserializeJson(root, mensaje);
+
+    // Compruebo si no hubo error
+    if (error) {
+      Serial.print("Error deserializeJson() failed: ");
+      Serial.println(error.c_str());
+    }
+    else if(root.containsKey("tiempo"))  // comprobar si existe el campo/clave que estamos buscando
+    {
+     int ledspeed_mqtt = root["tiempo"];
+     Serial.print("Mensaje OK, level = ");
+     Serial.println(ledspeed_mqtt);
+     ledspeed = ledspeed_mqtt;
+    }
+    else
+    {
+      Serial.print("Error : ");
+      Serial.println("\"level\" key not found in JSON");
+    }
+  }
   free(mensaje); // libero memoria
 
 }// END CALLBACK
@@ -114,7 +140,8 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       // ... and resubscribe
       client.setBufferSize(512); // Tamaño bufer 512bytes
       //client.subscribe("infind/GRUPO1/datos"); // Subscripcion al topic "datos"
-     client.subscribe("infind/GRUPO1/led/cmd");  // Subscripcion al topic "led/cmd"
+      client.subscribe("infind/GRUPO1/led/cmd");  // Subscripcion al topic "led/cmd"
+      client.subscribe("infind/GRUPO1/config");
       client.publish("infind/GRUPO1/conexion",(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
     } else { // fallo en la conexion mqtt
       Serial.print("failed, rc=");

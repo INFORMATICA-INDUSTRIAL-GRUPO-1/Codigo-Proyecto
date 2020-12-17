@@ -48,5 +48,5 @@ byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesP
 
 int dataSampRate = 5*60; // Tiempo entre publicaciones de los datos en SEGUNDOS
 int fotaSampRate = 0; // Tiempo entre busqueda de nuevas actualizaciones en MINUTOS (0 para deshabilitar la comprobacion por tiempo)
-int ledSpeed = 0 ; // Velocidad a la que se modifica los cambios en la intensidad del led
+int ledspeed = 10 ; // Velocidad a la que se modifica los cambios en la intensidad del led
  

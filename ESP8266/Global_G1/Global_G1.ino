@@ -122,7 +122,7 @@ void loop() {
   else if (led_valor1 < 0)
       led_valor1 = 0;
 
-  if (now >= lastLed + 10) //if_1 (entra cada 10 ms)
+  if (now >= lastLed + ledspeed) //if_1 (entra cada 10 ms)
   {    
     if (inten_Led != led_valor1) //if_2
     {

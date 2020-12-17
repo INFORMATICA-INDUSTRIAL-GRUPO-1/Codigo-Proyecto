@@ -50,6 +50,6 @@ extern byte max_reconnect;
 
 extern int dataSampRate ; //En Segundos
 extern int fotaSampRate ;//En minutos
-extern int ledSpeed;
+extern int ledspeed;
 
 #endif
