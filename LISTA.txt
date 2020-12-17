@@ -31,7 +31,7 @@ Que est ahecho
 
 Por hacer
 
-	ESP
+ESP
 	*SPIFF / EPROM  (final)
 	*datos robot (mqtt)     
 	*tiempo actualizacion led (MANU 14/12)
@@ -41,17 +41,17 @@ Por hacer
 NODERED
 	*parte general  (MATHIAS 14/12)
 	*tiempo actualizacion led (MANU 14/12)
-	*tiempo actualizacion fota 
+	*tiempo actualizacion fota (Pablo V 14/12)
 	*datos robot ¿db? (hablarlo) 
 	*csv (hablarlo)
-	*control db (filtros) 
+	*control db (filtros)  (esta medio heho por antonio para telegram)
 	*topic STATUS IDtelegram
-	*sesion nodered SEGURIDAD (Pablo 17/12)
+	*sesion nodered SEGURIDAD (Pablo R17/12)
 
-	TELEGRAM
+TELEGRAM
 	*control potencia led (Antonio 14/12)
-	*mas parametros (Antonio 14/12) (preguntar PROFESOR)
+	*mas parametros (Antonio 14/12) 
 
-	ROBOT
+ROBOT
 	*datos (hablar funcionalidades datos)
 
