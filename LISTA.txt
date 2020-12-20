@@ -9,12 +9,13 @@ Que est ahecho
 	*Topics
 	*boton
 	*wifi cambia parametros
+	*tiempo actualizacion led (MANU 14/12)
 
 	NODERED
 	*base datos configurada	
 	*Estructura dashboard
 	*Control dashboard
-	*
+	*tiempo actualizacion led (MANU 14/12)
 
 	TELEGRAM
 	*bot (temperatura, humedad (funciones extra))	
@@ -33,14 +34,12 @@ Por hacer
 
 ESP
 	*SPIFF / EPROM  (final)
-	*datos robot (mqtt)     
-	*tiempo actualizacion led (MANU 14/12)
+	*datos robot (mqtt)
 	*Topic Config
 	*comprobar subscripciones topics
 	
 NODERED
 	*parte general  (MATHIAS 14/12)
-	*tiempo actualizacion led (MANU 14/12)
 	*tiempo actualizacion fota (Pablo V 14/12)
 	*datos robot ¿db? (hablarlo) 
 	*csv (hablarlo)

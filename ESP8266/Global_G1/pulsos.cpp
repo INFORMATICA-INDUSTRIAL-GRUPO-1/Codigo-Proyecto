@@ -22,6 +22,7 @@
 unsigned long ultima_pulsacion;
 int pulsacion = 0;
 
+
 void pulsos() //Interpreta los pulsos del boton y la duración de la pulsacion.
 {   
     unsigned long ahora = millis();
@@ -46,11 +47,14 @@ void pulsos() //Interpreta los pulsos del boton y la duración de la pulsacion.
 int led_valor1 = 10; //valor de prueba
 int led_valor2; //variable que guarda el valor de luminosidad.
 
+
 void funcion_flash()
 {
   switch (pulsacion)
   {
     case 1:
+      digitalWrite(16,!digitalRead(16)); //Escribe en el segundo led el estado contrario.
+      
       if (led_valor1 != 0)//Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
       {
          led_valor2 = led_valor1;
@@ -63,11 +67,12 @@ void funcion_flash()
     break;
     
     case 2:
-      led_valor1 = 100;
+     digitalWrite(16,LOW); //solucion chapucera
+     led_valor1 = 100;
     break;
 
     case 100:
-      //FOTA
+     //FOTA
     break;
   }//switch
 }//funcion
