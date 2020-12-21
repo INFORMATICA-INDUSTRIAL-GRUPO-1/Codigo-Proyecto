@@ -68,8 +68,8 @@ byte times = 0;
 void setup() {
  // Configuracion Inicial del ESP8266
   pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
-  pinMode(16, OUTPUT); //Inicializa el pin 2 (GPIO 16) como pin de salida.
-  digitalWrite(16, LOW);
+  pinMode(SWITCH_PIN, OUTPUT); //Inicializa el pin 2 (GPIO 16) como pin de salida.
+  digitalWrite(SWITCH_PIN, LOW);
   pinMode(BUTTON_PIN, INPUT_PULLUP);//se declara el boton como entrada
   attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), RTI, CHANGE); //activacion de la interrupcion 
   Serial.begin(115200); // Puerto serie Establecimiento
@@ -117,7 +117,7 @@ void loop() {
 
   if (ready_switch)
   {
-    digitalWrite(16,switch_valor);
+    digitalWrite(SWITCH_PIN,switch_valor);
     switch_mqtt();
     ready_switch = false;
   }

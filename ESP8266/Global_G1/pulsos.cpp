@@ -56,7 +56,7 @@ void funcion_flash()
   switch (pulsacion)
   {
     case 1:
-      switch_valor = !digitalRead(16);
+      switch_valor = !digitalRead(SWITCH_PIN);
       ready_switch = true; 
       if (led_valor1 != 0)//Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
       {

@@ -33,6 +33,7 @@ extern bool debug;
 extern byte DHT_PIN;
 extern byte SWITCH_PIN;
 extern byte LED_PIN;
+extern byte SWITCH_PIN; 
 
 //extern struct Config;
 extern const char* ssid ;
