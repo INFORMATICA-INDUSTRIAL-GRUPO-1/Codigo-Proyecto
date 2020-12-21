@@ -1,3 +1,69 @@
+<<<<<<< HEAD
+Que est ahecho
+
+	ESP
+	*Comunicacion serie
+	*Control Led
+	*FOTA
+	*Datos
+	*Estructura proyecto	
+	*Topics
+	*boton
+	*wifi cambia parametros
+	*tiempo actualizacion led (MANU 14/12)
+	*tiempo actualizacion fota (Pablo V 14/12)
+
+	NODERED
+	*base datos configurada	
+	*Estructura dashboard
+	*Control dashboard
+	*tiempo actualizacion led (MANU 14/12)
+	*sesion nodered SEGURIDAD (Pablo R17/12)
+	*Mostrar Ultimo Dato 
+
+	TELEGRAM
+	*bot (temperatura, humedad (funciones extra))	
+	* temperatura
+	*humedad
+	*alertas (umbral)
+	*media datos
+	*led control
+	*led estado
+	*control potencia led (Antonio 14/12)
+
+	ROBOT
+	*comunicacion serie
+
+
+POR HACER
+
+	*Repaso total (PABLO R 21/12)
+	*Plantear memoria (PABLO R 21/12)
+
+ESP
+	*SPIFF / EPROM  (final)
+	*Topic Config (MATHIAS 21/12)
+		*Arreglar sprintf (MATHIAS 21/12)
+	*comprobar subscripciones topics
+	
+	
+NODERED
+	*parte general [ (MATHIAS 14/12) Y PABLO R (PERO POQUITO)]
+	*datos robot ¿Guardar en dataBase? (hablarlo) 
+	*descargar archivo csv (hablarlo) (ANTONIO 21/12)
+	*topic STATUS ID telegram
+	*identificacion de placas para control individual
+	*Administracion de topics (Manuel 21/12)
+
+
+TELEGRAM
+	*Calcular media y configurar rango (Antonio 21/12) 
+ 
+ROBOT
+	*programar comportamiento (PABLO V y MANU 21/12)
+		*datos (hablar funcionalidades datos)
+	
+=======
 Que est ahecho
 
 	ESP
@@ -54,3 +120,4 @@ TELEGRAM
 ROBOT
 	*datos (hablar funcionalidades datos)
 
+>>>>>>> 5a8d530df41424a57f2a25dcd532800bf87204ca
