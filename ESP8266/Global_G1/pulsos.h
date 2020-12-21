@@ -14,6 +14,9 @@ void pulsos(); //Interpreta los pulsos del boton y la duración de la pulsacion.
 extern int led_valor1;
 extern int led_valor2;
 
+extern int switch_valor;
+extern bool ready_switch;
+
 void funcion_flash(); 
 
 #endif //se declara una unica vez
