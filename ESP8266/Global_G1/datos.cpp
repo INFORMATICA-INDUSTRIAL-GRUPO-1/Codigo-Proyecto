@@ -49,7 +49,8 @@ registro_datos datos ;  // instancia el struct "datos"
   
   
   String jsonString = "";
-  
+  Serial.println ("Reset jsonString (linea en blanco)");
+  Serial.println (jsonString);
     //FORMATEO DE "DATOS" A json
 
   jsonRoot["CHIPID"]= datos.chipId; 

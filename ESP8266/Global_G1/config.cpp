@@ -32,14 +32,14 @@ bool debug = true;
 
 ///////////////////// WiFi & MQTT CONFIGURATION////////////////////////////////////////////////////
 
-//const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
-//const char* password = ""; // CLAVE DE LA RED WIFI
+const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
 //const char* ssid = "Martin Router King"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "laclaveestenerdinero666"; // CLAVE DE LA RED WIFI
 //const char* ssid = "TP_LINK_ENCHUFE"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = ""; // CLAVE DE LA RED WIFI
-const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "pablovera"; // CLAVE DE LA RED WIFI
+//const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
+//const char* password = "pablovera"; // CLAVE DE LA RED WIFI
 const char* mqtt_server = "iot.ac.uma.es" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
 int mqtt_port = 1883;
 const char* mqtt_user = "infind";
