@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-Que est ahecho
+Que esta hecho
 
 	ESP
 	*Comunicacion serie
@@ -63,61 +62,3 @@ ROBOT
 	*programar comportamiento (PABLO V y MANU 21/12)
 		*datos (hablar funcionalidades datos)
 	
-=======
-Que est ahecho
-
-	ESP
-	*Comunicacion serie
-	*Control Led
-	*FOTA
-	*Datos
-	*Estructura proyecto	
-	*Topics
-	*boton
-	*wifi cambia parametros
-	*tiempo actualizacion led (MANU 14/12)
-
-	NODERED
-	*base datos configurada	
-	*Estructura dashboard
-	*Control dashboard
-	*tiempo actualizacion led (MANU 14/12)
-
-	TELEGRAM
-	*bot (temperatura, humedad (funciones extra))	
-	* temperatura
-	*humedad
-	*alertas (umbral)
-	*media datos
-	*led control
-	*led estado
-	* 
-	ROBOT
-	*comunicacion serie
-
-
-Por hacer
-
-ESP
-	*SPIFF / EPROM  (final)
-	*datos robot (mqtt)
-	*Topic Config
-	*comprobar subscripciones topics
-	
-NODERED
-	*parte general  (MATHIAS 14/12)
-	*tiempo actualizacion fota (Pablo V 14/12)
-	*datos robot ¿db? (hablarlo) 
-	*csv (hablarlo)
-	*control db (filtros)  (esta medio heho por antonio para telegram)
-	*topic STATUS IDtelegram
-	*sesion nodered SEGURIDAD (Pablo R17/12)
-
-TELEGRAM
-	*control potencia led (Antonio 14/12)
-	*mas parametros (Antonio 14/12) 
-
-ROBOT
-	*datos (hablar funcionalidades datos)
-
->>>>>>> 5a8d530df41424a57f2a25dcd532800bf87204ca
