@@ -85,6 +85,42 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     Serial.println("Error: Topic desconocido");
   }
 
+    if(strcmp(topic,"infind/GRUPO1/switch/cmd")==0) //Comprobacion topic para led
+  {
+      StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
+    // Deserialize the JSON document
+    DeserializationError error = deserializeJson(root, mensaje);
+
+    // Compruebo si no hubo error
+    if (error) {
+      Serial.print("Error deserializeJson() failed: ");
+      Serial.println(error.c_str());
+    }
+    else if(root.containsKey("level"))  // comprobar si existe el campo/clave que estamos buscando
+    {
+     int valor_switch_mqtt = root["level"];
+     Serial.print("Mensaje OK, level = ");
+     Serial.println(valor_switch_mqtt);
+     if(valor_switch_mqtt)
+        switch_valor = 0;
+     else
+        switch_valor = 1;
+     ready_switch = true;
+    }
+    else
+    {
+      Serial.print("Error : ");
+      Serial.println("\"level\" key not found in JSON");
+    }
+    
+  }
+  else //Topic erroneo 
+  {
+    Serial.print("Topic:");
+    Serial.println(topic);
+    Serial.println("Error: Topic desconocido");
+  }
+
 if(strcmp(topic,"infind/GRUPO1/config")==0) //Comprobacion topic para led
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
@@ -167,6 +203,7 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       //client.subscribe("infind/GRUPO1/datos"); // Subscripcion al topic "datos"
       client.subscribe("infind/GRUPO1/led/cmd");  // Subscripcion al topic "led/cmd"
       client.subscribe("infind/GRUPO1/config");
+      client.subscribe("infind/GRUPO1/switch/cmd");
       client.subscribe("infind/GRUPO1/FOTA");
       client.publish("infind/GRUPO1/conexion",(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
     } else { // fallo en la conexion mqtt

@@ -114,7 +114,13 @@ void loop() {
       led_mqtt(); // Publica el valor del led actualizado.
       ready_led = false; //Variable para no volver a entrar en el IF.
   }
-  
+
+  if (ready_switch)
+  {
+    digitalWrite(16,switch_valor);
+    switch_mqtt();
+    ready_switch = false;
+  }
   if (led_valor1 > 100)   //restringe valor entre 0 upto 100
         led_valor1 = 100;
   else if (led_valor1 < 0)

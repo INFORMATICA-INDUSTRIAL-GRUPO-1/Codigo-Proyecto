@@ -113,7 +113,22 @@ void led_mqtt()  // Funcion que tiene como entrada un valor entero [0-100], lo R
   debugFunction (msg,1);
   client.publish("infind/GRUPO1/led/status", msg); //publicacion del estado del led
 
-  }
+}
+
+void switch_mqtt()
+{
+   StaticJsonDocument<100> jsonRoot;
+   if(switch_valor)
+      datos.Switch = 0;
+   else
+      datos.Switch = 1;
+  jsonRoot["Switch"] = datos.Switch;//Convierte el estado del led a json para ACK al broker mqtt
+
+  serializeJson(jsonRoot,msg);
+
+  debugFunction (msg,1);
+  client.publish("infind/GRUPO1/switch/status", msg); //publicacion del estado del led
+}
 
   void actualiza_mqtt()
 {

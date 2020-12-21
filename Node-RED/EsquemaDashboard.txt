@@ -12,8 +12,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "CONTROL DEL ROBOT",
         "info": "",
-        "x": 150,
-        "y": 1400,
+        "x": 130,
+        "y": 2380,
         "wires": []
     },
     {
@@ -22,8 +22,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "GESTION DE BASE DE DATOS",
         "info": "En la base de datos se almacenarán datos de los \nsensores y actuadores, incluido el estado recibido de\nlos leds. Se pueden almacenar también errores y\navisos que se hayan producido\n\nRECORDAR fechar todos los datos que se introduzcan\n\nOrganizar colecciones de datos",
-        "x": 170,
-        "y": 1900,
+        "x": 150,
+        "y": 2880,
         "wires": []
     },
     {
@@ -32,8 +32,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "SENSORES",
         "info": "",
-        "x": 290,
-        "y": 1440,
+        "x": 270,
+        "y": 2420,
         "wires": []
     },
     {
@@ -42,8 +42,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "ACTUADORES",
         "info": "",
-        "x": 300,
-        "y": 1560,
+        "x": 280,
+        "y": 2540,
         "wires": []
     },
     {
@@ -52,8 +52,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "DIALOGO",
         "info": "",
-        "x": 280,
-        "y": 1720,
+        "x": 260,
+        "y": 2700,
         "wires": []
     },
     {
@@ -62,8 +62,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "MOSTRAR ULTIMAS CARGAS Y DESCARGAS DE LA BASE DE DATOS",
         "info": "",
-        "x": 480,
-        "y": 1940,
+        "x": 460,
+        "y": 2920,
         "wires": []
     },
     {
@@ -72,8 +72,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "DATOS ACTUALES",
         "info": "",
-        "x": 370,
-        "y": 1480,
+        "x": 350,
+        "y": 2460,
         "wires": []
     },
     {
@@ -82,8 +82,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "HISTORICO DATOS SENSORES",
         "info": "",
-        "x": 410,
-        "y": 1520,
+        "x": 390,
+        "y": 2500,
         "wires": []
     },
     {
@@ -92,8 +92,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "VALORES DE ACTUACION ACTUALES",
         "info": "",
-        "x": 440,
-        "y": 1600,
+        "x": 420,
+        "y": 2580,
         "wires": []
     },
     {
@@ -102,8 +102,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "CONTROLES",
         "info": "",
-        "x": 350,
-        "y": 1680,
+        "x": 330,
+        "y": 2660,
         "wires": []
     },
     {
@@ -112,8 +112,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "MENSAJES RECIBIDOS",
         "info": "",
-        "x": 390,
-        "y": 1760,
+        "x": 370,
+        "y": 2740,
         "wires": []
     },
     {
@@ -122,8 +122,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "MENSAJES ENVIADOS",
         "info": "",
-        "x": 390,
-        "y": 1800,
+        "x": 370,
+        "y": 2780,
         "wires": []
     },
     {
@@ -132,8 +132,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "IDEA SOBRE EL TAB CON EL CONTROL DEL ROBOT",
         "info": "Estaría muy interesante ser capaces de poner una\nimagen o un esquema grande del robot. Se marcaría\nla ubicacion de los sensores y motores. Al lado de \ncada dispositivo se puede mostrar su valor. De esta\nforma tendríamos una representacion mucho mas vistosa\ne intuitiva. No quita que pongamos también los datos \ntodos juntos en otro grupo o algo asi.",
-        "x": 480,
-        "y": 1400,
+        "x": 460,
+        "y": 2380,
         "wires": []
     },
     {
@@ -142,8 +142,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "HISTÓRICO DATOS ACTUACION",
         "info": "",
-        "x": 420,
-        "y": 1640,
+        "x": 400,
+        "y": 2620,
         "wires": []
     },
     {
@@ -152,8 +152,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "POSIBLES FUNCIONALIDADES ACCESIBLES DIRECTAMENTE DESDE DASHBOARD",
         "info": "",
-        "x": 530,
-        "y": 1980,
+        "x": 510,
+        "y": 2960,
         "wires": []
     },
     {
@@ -162,8 +162,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "CONSULTA CANTIDAD DE DATOS",
         "info": "",
-        "x": 420,
-        "y": 2020,
+        "x": 400,
+        "y": 3000,
         "wires": []
     },
     {
@@ -172,8 +172,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "CONSULTA DATOS INTERVALO DE TIEMPO",
         "info": "",
-        "x": 470,
-        "y": 2100,
+        "x": 450,
+        "y": 3080,
         "wires": []
     },
     {
@@ -182,8 +182,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "GRAFICAR DATOS",
         "info": "",
-        "x": 370,
-        "y": 2060,
+        "x": 350,
+        "y": 3040,
         "wires": []
     },
     {
@@ -192,8 +192,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "ACCESO DIRECTO A SELECCION: ULTIMO DIA, SEMANA, HORA, MES...",
         "info": "",
-        "x": 630,
-        "y": 2140,
+        "x": 610,
+        "y": 3120,
         "wires": []
     },
     {
@@ -202,8 +202,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "POSIBILIDAD DE INDICAR EL RANGO DESEADO",
         "info": "TENER DIFERENTES INDICADORES DE RANGO\nPARA DIAS\nPARA HORAS\nPARA MESES\n..\n",
-        "x": 550,
-        "y": 2180,
+        "x": 530,
+        "y": 3160,
         "wires": []
     },
     {
@@ -212,8 +212,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "VOLCADO EN FICHERO CSV",
         "info": "",
-        "x": 430,
-        "y": 2220,
+        "x": 410,
+        "y": 3200,
         "wires": []
     },
     {
@@ -302,8 +302,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "AJUSTE DE INTERVALO DE ENVIO DE MENSAJES",
         "info": "",
-        "x": 400,
-        "y": 1440,
+        "x": 380,
+        "y": 2420,
         "wires": []
     },
     {
@@ -312,8 +312,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "BOTON PARA ACTUALIZACION FOTA",
         "info": "En el trabajo se describe como una de las posibles \nmaneras de implementar la actualización, será enviar \nun topic y poco más.\n\nMe refiero a un botón en el dashboard, esta\nfuncionalidad es paralela a la de pulsar FLASH en la\nplaca.\n",
-        "x": 350,
-        "y": 1480,
+        "x": 330,
+        "y": 2460,
         "wires": []
     },
     {
@@ -322,8 +322,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "ELEGIR PLACA EN LA QUE ACTUAR",
         "info": "",
-        "x": 410,
-        "y": 1120,
+        "x": 390,
+        "y": 2100,
         "wires": []
     },
     {
@@ -342,8 +342,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "INTERRUPTOR",
         "info": "",
-        "x": 400,
-        "y": 1160,
+        "x": 380,
+        "y": 2140,
         "wires": []
     },
     {
@@ -352,8 +352,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "PWM",
         "info": "",
-        "x": 370,
-        "y": 1280,
+        "x": 350,
+        "y": 2260,
         "wires": []
     },
     {
@@ -362,8 +362,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "CONTROLADORES PARA LOS LED",
         "info": "Botón para el interruptor\n\nControl numerico (mejor slider vertical) para el led",
-        "x": 470,
-        "y": 1400,
+        "x": 450,
+        "y": 2380,
         "wires": []
     },
     {
@@ -382,8 +382,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "ESTADO",
         "info": "",
-        "x": 440,
-        "y": 1200,
+        "x": 420,
+        "y": 2180,
         "wires": []
     },
     {
@@ -392,8 +392,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "HISTORICO",
         "info": "",
-        "x": 450,
-        "y": 1240,
+        "x": 430,
+        "y": 2220,
         "wires": []
     },
     {
@@ -402,8 +402,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "ESTADO",
         "info": "",
-        "x": 440,
-        "y": 1320,
+        "x": 420,
+        "y": 2300,
         "wires": []
     },
     {
@@ -412,8 +412,8 @@
         "z": "3ae6b0d5.0c62f",
         "name": "HISTORICO",
         "info": "",
-        "x": 450,
-        "y": 1360,
+        "x": 430,
+        "y": 2340,
         "wires": []
     },
     {
@@ -456,7 +456,7 @@
         "qos": "",
         "retain": "",
         "broker": "1ce505da.6bd69a",
-        "x": 770,
+        "x": 890,
         "y": 760,
         "wires": []
     },
@@ -464,11 +464,11 @@
         "id": "1a2e103e.5d27a",
         "type": "function",
         "z": "3ae6b0d5.0c62f",
-        "name": "num2json",
+        "name": "num2json (level)",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 560,
+        "x": 580,
         "y": 760,
         "wires": [
             [
@@ -532,7 +532,7 @@
         "type": "debug",
         "z": "3ae6b0d5.0c62f",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -615,11 +615,11 @@
         "id": "a49d444c.0edd08",
         "type": "function",
         "z": "3ae6b0d5.0c62f",
-        "name": "num2json",
+        "name": "num2json (tiempo)",
         "func": "var value=msg.payload;\nmsg.payload={\"tiempo\" : value }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 520,
+        "x": 550,
         "y": 920,
         "wires": [
             [
@@ -666,6 +666,184 @@
                 "a49d444c.0edd08"
             ]
         ]
+    },
+    {
+        "id": "4aeb478d.cc44b8",
+        "type": "mqtt in",
+        "z": "3ae6b0d5.0c62f",
+        "name": "",
+        "topic": "infind/GRUPO1/switch/status",
+        "qos": "2",
+        "broker": "1ce505da.6bd69a",
+        "x": 200,
+        "y": 1040,
+        "wires": [
+            [
+                "1572f4dd.54064b",
+                "9a1a6ac8.9209c8"
+            ]
+        ]
+    },
+    {
+        "id": "31ad3259.c10b4e",
+        "type": "debug",
+        "z": "3ae6b0d5.0c62f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1010,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "1572f4dd.54064b",
+        "type": "json",
+        "z": "3ae6b0d5.0c62f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 550,
+        "y": 1040,
+        "wires": [
+            [
+                "aaeb911c.bda05"
+            ]
+        ]
+    },
+    {
+        "id": "aaeb911c.bda05",
+        "type": "change",
+        "z": "3ae6b0d5.0c62f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.Switch",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 1040,
+        "wires": [
+            [
+                "31ad3259.c10b4e"
+            ]
+        ]
+    },
+    {
+        "id": "9809598f.863d58",
+        "type": "mqtt out",
+        "z": "3ae6b0d5.0c62f",
+        "name": "",
+        "topic": "infind/GRUPO1/switch/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "1ce505da.6bd69a",
+        "x": 780,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "2cb7d672.c3184a",
+        "type": "function",
+        "z": "3ae6b0d5.0c62f",
+        "name": "num2json (level)",
+        "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 520,
+        "y": 1180,
+        "wires": [
+            [
+                "9809598f.863d58",
+                "40776010.296cd"
+            ]
+        ]
+    },
+    {
+        "id": "9a1a6ac8.9209c8",
+        "type": "debug",
+        "z": "3ae6b0d5.0c62f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 410,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "aefe60a.e66aba",
+        "type": "ui_switch",
+        "z": "3ae6b0d5.0c62f",
+        "name": "",
+        "label": "ON/OFF Switch",
+        "tooltip": "",
+        "group": "6c432fa8.7c4bf",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 240,
+        "y": 1180,
+        "wires": [
+            [
+                "2cb7d672.c3184a",
+                "b0fe484a.fc6748"
+            ]
+        ]
+    },
+    {
+        "id": "b0fe484a.fc6748",
+        "type": "debug",
+        "z": "3ae6b0d5.0c62f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 430,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "40776010.296cd",
+        "type": "debug",
+        "z": "3ae6b0d5.0c62f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 730,
+        "y": 1240,
+        "wires": []
     },
     {
         "id": "1ce505da.6bd69a",

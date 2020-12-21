@@ -31,6 +31,7 @@ struct registro_datos { //Struct "datos" contiene los parámetros recogidos por 
   String SSID_wifi;
   String IP_wifi;
   int RSSI_wifi;
+  int Switch;
   };
 
 extern struct registro_datos datos ;
@@ -44,6 +45,8 @@ float voltageSense ();
 void tomaDatos (struct registro_datos &datos);
 
 void led_mqtt ();
+
+void switch_mqtt();
 
 void actualiza_mqtt();
 #endif
