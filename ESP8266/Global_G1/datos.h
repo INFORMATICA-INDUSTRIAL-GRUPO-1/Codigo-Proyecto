@@ -45,5 +45,5 @@ void tomaDatos (struct registro_datos &datos);
 
 void led_mqtt ();
 
-
+void actualiza_mqtt();
 #endif

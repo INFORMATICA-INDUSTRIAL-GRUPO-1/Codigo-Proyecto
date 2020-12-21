@@ -33,6 +33,8 @@
 // Declarar aqui las variables globales//
 unsigned long lastMsg = 0;
 
+// FOTA
+unsigned long lastFOTA = 0;
 
 //Regulacion Led:
 
@@ -136,7 +138,12 @@ void loop() {
       Serial.println();*/
       }//if_2
     }//if_1
-
+if((now-lastFOTA > fotaSampRate*60000) && (fotaSampRate != 0)||(actualiza==1))
+{
+  FuncionActualizacion();
+  lastFOTA=now;
+  actualiza=0;
+}
 if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por defecto) =>> Asigna los valores y Publica el topic datos
 {
   lastMsg = now;

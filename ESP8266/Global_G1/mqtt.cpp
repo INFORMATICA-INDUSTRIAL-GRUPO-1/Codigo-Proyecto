@@ -108,7 +108,32 @@ if(strcmp(topic,"infind/GRUPO1/config")==0) //Comprobacion topic para led
       Serial.print("Error : ");
       Serial.println("\"level\" key not found in JSON");
     }
+    
   }
+   else if(strcmp(topic,"infind/GRUPO1/FOTA")==0)
+  {
+      StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
+    // Deserialize the JSON document
+    DeserializationError error = deserializeJson(root, mensaje);
+
+    // Compruebo si no hubo error
+    if (error) {
+      Serial.print("Error deserializeJson() failed: ");
+      Serial.println(error.c_str());
+    }
+    else if(root.containsKey("actualiza"))  // comprobar si existe el campo/clave que estamos buscando
+    {
+     actualiza = root["actualiza"];
+     Serial.print("Mensaje OK, actualiza = ");
+     Serial.println(actualiza);
+     
+    }
+    else
+    {
+      Serial.print("Error : ");
+      Serial.println("\"actualiza\" key not found in JSON");
+    }
+  } 
   free(mensaje); // libero memoria
 
 }// END CALLBACK
@@ -142,6 +167,7 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       //client.subscribe("infind/GRUPO1/datos"); // Subscripcion al topic "datos"
       client.subscribe("infind/GRUPO1/led/cmd");  // Subscripcion al topic "led/cmd"
       client.subscribe("infind/GRUPO1/config");
+      client.subscribe("infind/GRUPO1/FOTA");
       client.publish("infind/GRUPO1/conexion",(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
     } else { // fallo en la conexion mqtt
       Serial.print("failed, rc=");

@@ -2,7 +2,7 @@
 #define pulsos_h
 #include <Arduino.h> //libreria de arduino
 #include "interrupciones.h"
-
+#include "fota.h"
 
 extern unsigned long ultima_pulsacion;
 extern int pulsacion; 

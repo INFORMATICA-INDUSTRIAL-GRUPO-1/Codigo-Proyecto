@@ -18,6 +18,7 @@
 
 #include <Arduino.h> //libreria de arduino
 #include "interrupciones.h"
+#include "pulsos.h"
 
 unsigned long ultima_pulsacion;
 int pulsacion = 0;
@@ -72,7 +73,7 @@ void funcion_flash()
     break;
 
     case 100:
-     //FOTA
+     FuncionActualizacion();//FOTA
     break;
   }//switch
 }//funcion

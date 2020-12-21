@@ -115,4 +115,15 @@ void led_mqtt()  // Funcion que tiene como entrada un valor entero [0-100], lo R
 
   }
 
-  
+  void actualiza_mqtt()
+{
+  StaticJsonDocument<100> jsonRoot;
+ 
+   
+  jsonRoot["ultimaFOTA"] = 1;//Envía una señal para indicar que se va a actualizar
+
+  serializeJson(jsonRoot,msg);
+
+  debugFunction (msg,1);
+  client.publish("infind/GRUPO1/FOTA/actualizado", msg);
+}

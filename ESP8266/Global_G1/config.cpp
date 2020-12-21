@@ -38,6 +38,8 @@ bool debug = true;
 //const char* password = "laclaveestenerdinero666"; // CLAVE DE LA RED WIFI
 //const char* ssid = "TP_LINK_ENCHUFE"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = ""; // CLAVE DE LA RED WIFI
+const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "pablovera"; // CLAVE DE LA RED WIFI
 const char* mqtt_server = "iot.ac.uma.es" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
 int mqtt_port = 1883;
 const char* mqtt_user = "infind";
@@ -53,4 +55,4 @@ int dataSampRate = 5*60; // Tiempo entre publicaciones de los datos en SEGUNDOS
 int fotaSampRate = 0; // Tiempo entre busqueda de nuevas actualizaciones en MINUTOS (0 para deshabilitar la comprobacion por tiempo)
 int ledspeed = 10 ; // Velocidad a la que se modifica los cambios en la intensidad del led
 
- 
+int actualiza = 0; 
