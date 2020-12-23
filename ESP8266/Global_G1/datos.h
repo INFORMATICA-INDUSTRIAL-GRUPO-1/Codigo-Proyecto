@@ -13,6 +13,8 @@
 #include "config.h"
 #include "wifi.h"
 #include "mqtt.h"
+#include "robot_2sens.h"
+#include "robot_5sens.h"
 
 //Externalizacion de variables
 extern DHTesp dht;
@@ -49,4 +51,8 @@ void led_mqtt ();
 void switch_mqtt();
 
 void actualiza_mqtt();
+
+void sensores2_mqtt();
+
+//void sesnores5_mqtt();
 #endif

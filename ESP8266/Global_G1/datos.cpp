@@ -142,3 +142,36 @@ void switch_mqtt()
   debugFunction (msg,1);
   client.publish("infind/GRUPO1/FOTA/actualizado", msg);
 }
+
+void sensores2_mqtt ()
+{
+  StaticJsonDocument<100> jsonRoot;
+
+  JsonObject Sensores=jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores"
+  Sensores["1"] = sensor1;
+  Sensores["2"] = sensor2;
+
+  serializeJson(jsonRoot,msg);
+
+  debugFunction (msg,1);
+  client.publish("infind/GRUPO1/PIERO/Sensores", msg);
+ 
+}
+
+/*void sensores5_mqtt()
+{
+  StaticJsonDocument<256> jsonRoot;
+
+  JsonObject Sensores=jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores"
+  Sensores["1"] = sensor1;
+  Sensores["2"] = sensor2;
+  Sensores["3"] = sensor3;
+  Sensores["4"] = sensor4;
+  Sensores["5"] = sensor5;
+  
+
+  serializeJson(jsonRoot,msg);
+
+  debugFunction (msg,1);
+  client.publish("infind/GRUPO1/PIERO/Sensores", msg);
+}*/

@@ -48,7 +48,7 @@ bool ledState = false;
 byte times = 0;
 
 
-
+unsigned long lastSensores = 0;
 
 
 
@@ -62,7 +62,8 @@ byte times = 0;
 #include "debug.h"
 #include "pulsos.h"
 #include "interrupciones.h"
-
+#include "robot_2sens.h"
+#include "robot_5sens.h"
 
 
 void setup() {
@@ -161,7 +162,30 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
  client.publish("infind/GRUPO1/datos", msg, true); //publicacion del mensaje "datos" como retenido
  Serial.print("Temp:");
  Serial.println(datos.temperatura);
-  
+
+if (now - lastSensores > 500)
+{
+  if (Serial.available() > 0) {
+    // read the incoming byte:
+    incomingByte = Serial.read();
+    switch (incomingByte)
+    {
+        case 251:
+       // if (Serial.available() > 0)
+        
+          sensor1=Serial.read();
+          Serial.printf("Hola: %d \n",sensor1);
+        //}
+        break;
+        case 252:
+        sensor2=Serial.read();
+        Serial.printf("%d %d \n", sensor1,sensor2);
+        break;
+    }//switch
+  }//if
+  sensores2_mqtt();// envio a mqtt lectura sensores
+  lastSensores = now;//variable para actualizacion
+}
   
 }//END DATOS 
    
