@@ -162,10 +162,10 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
  client.publish("infind/GRUPO1/datos", msg, true); //publicacion del mensaje "datos" como retenido
  Serial.print("Temp:");
  Serial.println(datos.temperatura);
-
-if (now - lastSensores > 500)
-{
-  if (Serial.available() > 0) {
+  
+}//END DATOS 
+   
+if (Serial.available() > 0) {
     // read the incoming byte:
     incomingByte = Serial.read();
     switch (incomingByte)
@@ -180,16 +180,12 @@ if (now - lastSensores > 500)
         case 252:
         sensor2=Serial.read();
         Serial.printf("%d %d \n", sensor1,sensor2);
+        sensores2_mqtt();// envio a mqtt lectura sensores
+        lastSensores = now;//variable para actualizacion
         break;
     }//switch
   }//if
-  sensores2_mqtt();// envio a mqtt lectura sensores
-  lastSensores = now;//variable para actualizacion
-}
   
-}//END DATOS 
-   
-
 
   
 }// END LOOP
