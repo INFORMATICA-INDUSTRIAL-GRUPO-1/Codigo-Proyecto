@@ -162,7 +162,7 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
  client.publish("infind/GRUPO1/datos", msg, true); //publicacion del mensaje "datos" como retenido
  Serial.print("Temp:");
  Serial.println(datos.temperatura);
-  
+
 }//END DATOS 
    
 if (Serial.available() > 0) {
