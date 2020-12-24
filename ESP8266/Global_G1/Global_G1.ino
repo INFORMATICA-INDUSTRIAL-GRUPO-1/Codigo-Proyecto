@@ -105,7 +105,6 @@ void loop() {
   
 // END comprobacion y reconexion
 
-/*-------------------------  LedCmd  ------------------------*/
 
   if (ready_led)
   {
@@ -127,7 +126,7 @@ void loop() {
   else if (led_valor1 < 0)
       led_valor1 = 0;
 
-  if (now >= lastLed + ledspeed) //if_1 (entra cada 10 ms)
+  if (now >= lastLed + ledspeed) //if_1
   {    
     if (inten_Led != led_valor1) //if_2
     {
@@ -139,10 +138,6 @@ void loop() {
       valor_maped = 1023-(inten_Led*10.23);// Remapeo de valor [0-1023] e inversion para que el 100% se corresponda a led encendido y 0% =>> led apagado
       analogWrite (BUILTIN_LED,valor_maped); // Escribe en el puerto BUILTIN_LED el valor remapeado
       lastLed = now;
-    /*-------------------------  Debug  ------------------------
-      Serial.print("Valor_actual: "); //Debug Serial
-      Serial.println(inten_Led);
-      Serial.println();*/
       }//if_2
     }//if_1
 if((now-lastFOTA > fotaSampRate*60000) && (fotaSampRate != 0)||(actualiza==1))
@@ -151,6 +146,7 @@ if((now-lastFOTA > fotaSampRate*60000) && (fotaSampRate != 0)||(actualiza==1))
   lastFOTA=now;
   actualiza=0;
 }
+
 if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por defecto) =>> Asigna los valores y Publica el topic datos
 {
   lastMsg = now;
@@ -164,7 +160,9 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
  Serial.println(datos.temperatura);
 
 }//END DATOS 
-   
+
+
+
 if (Serial.available() > 0) {
     // read the incoming byte:
     incomingByte = Serial.read();
@@ -174,18 +172,23 @@ if (Serial.available() > 0) {
        // if (Serial.available() > 0)
         
           sensor1=Serial.read();
-          Serial.printf("Hola: %d \n",sensor1);
+          //Serial.printf("Hola: %d \n",sensor1);
         //}
         break;
         case 252:
         sensor2=Serial.read();
-        Serial.printf("%d %d \n", sensor1,sensor2);
-        sensores2_mqtt();// envio a mqtt lectura sensores
-        lastSensores = now;//variable para actualizacion
+        
+        //Serial.printf("%d %d \n", sensor1,sensor2);
         break;
     }//switch
+    
+   if(now - lastSensores > 500)
+   { 
+   sensores2_mqtt();// envio a mqtt lectura sensores
+   lastSensores = now;//variable para actualizacion
+   }
   }//if
-  
+
 
   
 }// END LOOP
