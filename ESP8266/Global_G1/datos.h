@@ -13,6 +13,8 @@
 #include "config.h"
 #include "wifi.h"
 #include "mqtt.h"
+#include "robot_2sens.h"
+#include "robot_5sens.h"
 
 //Externalizacion de variables
 extern DHTesp dht;
@@ -31,6 +33,7 @@ struct registro_datos { //Struct "datos" contiene los parámetros recogidos por 
   String SSID_wifi;
   String IP_wifi;
   int RSSI_wifi;
+  int Switch;
   };
 
 extern struct registro_datos datos ;
@@ -43,7 +46,13 @@ float voltageSense ();
 
 void tomaDatos (struct registro_datos &datos);
 
-void ledCmd (int valor);
+void led_mqtt ();
 
+void switch_mqtt();
 
+void actualiza_mqtt();
+
+void sensores2_mqtt();
+
+//void sesnores5_mqtt();
 #endif

@@ -19,6 +19,8 @@
 #include <Arduino.h>
 
 #include <ESP8266httpUpdate.h>
+#include "datos.h"
+#include "mqtt.h"
 #include "debug.h"
 #include "fota.h"
 #include "config.h"
@@ -71,6 +73,7 @@ void final_OTA()
 
 void inicio_OTA()
 {
+  actualiza_mqtt();
   Serial.println("Nuevo Firmware encontrado. Actualizando...");
 }
 
@@ -91,4 +94,3 @@ void progreso_OTA(int x, int todo)
     Serial.println(cadena);
   }
 }
-

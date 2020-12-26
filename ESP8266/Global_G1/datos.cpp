@@ -1,6 +1,6 @@
 // Programa Asignatura INFORMATICA INDUSTRIAL Grupo1
 // Codigo ESP8266
-// Version V.0.0.01a
+// Version V.0.0.02
 // Autores
 //
 //
@@ -8,6 +8,7 @@
 //
 //
 // Fecha de creacion: 28/11/2020
+// Ultima modificacion: 16/12/2020 (Manuel Valle Delgado)
 // 
 // Pestaña:datos.cpp
 // Descripcion del codigo
@@ -22,11 +23,15 @@
 //#include <Arduino_JSON.h>
 #include <PubSubClient.h>
 
+
 #include "datos.h"
 #include "debug.h"
 #include "config.h"
-#include "wifi.h"
 #include "mqtt.h"
+#include "pulsos.h"
+#include "wifi.h"
+
+
 ////////////////////Declaraciones//////////////////////////////
 
 
@@ -96,30 +101,77 @@ void tomaDatos (struct registro_datos &datos) // funcion que toma los datos de l
   debugFunction (ip,1);
   }
 
-void ledCmd (int valor)  // Funcion que tiene como entrada un valor entero [0-100], lo Remapea entre [0-1023] y publicacion del estado actual del led
+void led_mqtt()  // Funcion que tiene como entrada un valor entero [0-100], lo Remapea entre [0-1023] y publicacion del estado actual del led
 {
-  
-  StaticJsonDocument<100> jsonRoot;  // crea un archivo json para la recepcion del nuevo estado del led
-  
-  //mapeo de valor 0-100 =>> 0-1023 =>> se invierte para obtener 100=full led , 0= off led
-  if (valor > 100)   //restringe valor entre (0 upto 100)
-      valor = 100;
-  else if (valor < 0)
-      valor = 0;    
-  
-  int valor_maped=1023-int(valor*10.23); // Remapeo de valor [0-1023] e inversion para que el 100% se corresponda a led encendido y 0% =>> led apagado
-  //Serial.print("Valor_remap: "); //Debug Serial
-  //Serial.println(valor_maped);
-
-  
-  analogWrite (BUILTIN_LED,valor_maped); // Escribe en el puerto BUILTIN_LED el valor remapeado
-  
-  datos.led = valor; // Guarda el ultimo valor recibido
-  jsonRoot["led"]= valor;//Convierte el estado del led a json para ACK al broker mqtt
+ StaticJsonDocument<100> jsonRoot;
+ 
+  datos.led = led_valor1; // Guarda el ultimo valor recibido
+  jsonRoot["led"] = led_valor1;//Convierte el estado del led a json para ACK al broker mqtt
 
   serializeJson(jsonRoot,msg);
 
   debugFunction (msg,1);
   client.publish("infind/GRUPO1/led/status", msg); //publicacion del estado del led
 
-  }
+}
+
+void switch_mqtt()
+{
+   StaticJsonDocument<100> jsonRoot;
+   if(switch_valor)
+      datos.Switch = 0;
+   else
+      datos.Switch = 1;
+  jsonRoot["Switch"] = datos.Switch;//Convierte el estado del led a json para ACK al broker mqtt
+
+  serializeJson(jsonRoot,msg);
+
+  debugFunction (msg,1);
+  client.publish("infind/GRUPO1/switch/status", msg); //publicacion del estado del led
+}
+
+  void actualiza_mqtt()
+{
+  StaticJsonDocument<100> jsonRoot;
+ 
+   
+  jsonRoot["ultimaFOTA"] = 1;//Envía una señal para indicar que se va a actualizar
+
+  serializeJson(jsonRoot,msg);
+
+  debugFunction (msg,1);
+  client.publish("infind/GRUPO1/FOTA/actualizado", msg);
+}
+
+void sensores2_mqtt ()
+{
+  StaticJsonDocument<100> jsonRoot;
+
+  JsonObject Sensores=jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores"
+  Sensores["1"] = sensor1;
+  Sensores["2"] = sensor2;
+
+  serializeJson(jsonRoot,msg);
+
+  debugFunction (msg,1);
+  client.publish("infind/GRUPO1/PIERO/Sensores", msg);
+ 
+}
+
+/*void sensores5_mqtt()
+{
+  StaticJsonDocument<256> jsonRoot;
+
+  JsonObject Sensores=jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores"
+  Sensores["1"] = sensor1;
+  Sensores["2"] = sensor2;
+  Sensores["3"] = sensor3;
+  Sensores["4"] = sensor4;
+  Sensores["5"] = sensor5;
+  
+
+  serializeJson(jsonRoot,msg);
+
+  debugFunction (msg,1);
+  client.publish("infind/GRUPO1/PIERO/Sensores", msg);
+}*/

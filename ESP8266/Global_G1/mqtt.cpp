@@ -20,10 +20,15 @@
 
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
-#include "mqtt.h"
-#include "debug.h";
-#include "wifi.h"
+
+#include "config.h"
+#include "debug.h"
 #include "datos.h"
+#include "mqtt.h"
+#include "pulsos.h"
+#include "wifi.h"
+
+
 ////////////////////Declaraciones//////////////////////////////
 
 PubSubClient client(espClient);
@@ -47,7 +52,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
   }
   Serial.println();
 
-if(strcmp(topic,"infind/GRUPO1/led/cmd")==0) //Comprobacion topic para led
+  if(strcmp(topic,"infind/GRUPO1/led/cmd")==0) //Comprobacion topic para led
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
@@ -60,10 +65,11 @@ if(strcmp(topic,"infind/GRUPO1/led/cmd")==0) //Comprobacion topic para led
     }
     else if(root.containsKey("level"))  // comprobar si existe el campo/clave que estamos buscando
     {
-     int valor = root["level"];
+     int valor_led_mqtt = root["level"];
      Serial.print("Mensaje OK, level = ");
-     Serial.println(valor);
-     ledCmd (valor);
+     Serial.println(valor_led_mqtt);
+     led_valor1 = valor_led_mqtt;
+     led_mqtt();
     }
     else
     {
@@ -79,6 +85,91 @@ if(strcmp(topic,"infind/GRUPO1/led/cmd")==0) //Comprobacion topic para led
     Serial.println("Error: Topic desconocido");
   }
 
+    if(strcmp(topic,"infind/GRUPO1/switch/cmd")==0) //Comprobacion topic para led
+  {
+      StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
+    // Deserialize the JSON document
+    DeserializationError error = deserializeJson(root, mensaje);
+
+    // Compruebo si no hubo error
+    if (error) {
+      Serial.print("Error deserializeJson() failed: ");
+      Serial.println(error.c_str());
+    }
+    else if(root.containsKey("level"))  // comprobar si existe el campo/clave que estamos buscando
+    {
+     int valor_switch_mqtt = root["level"];
+     Serial.print("Mensaje OK, level = ");
+     Serial.println(valor_switch_mqtt);
+     if(valor_switch_mqtt)
+        switch_valor = 0;
+     else
+        switch_valor = 1;
+     ready_switch = true;
+    }
+    else
+    {
+      Serial.print("Error : ");
+      Serial.println("\"level\" key not found in JSON");
+    }
+    
+  }
+  else //Topic erroneo 
+  {
+    Serial.print("Topic:");
+    Serial.println(topic);
+    Serial.println("Error: Topic desconocido");
+  }
+
+if(strcmp(topic,"infind/GRUPO1/config")==0) //Comprobacion topic para led
+  {
+      StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
+    // Deserialize the JSON document
+    DeserializationError error = deserializeJson(root, mensaje);
+
+    // Compruebo si no hubo error
+    if (error) {
+      Serial.print("Error deserializeJson() failed: ");
+      Serial.println(error.c_str());
+    }
+    else if(root.containsKey("tiempo"))  // comprobar si existe el campo/clave que estamos buscando
+    {
+     int ledspeed_mqtt = root["tiempo"];
+     Serial.print("Mensaje OK, level = ");
+     Serial.println(ledspeed_mqtt);
+     ledspeed = ledspeed_mqtt;
+    }
+    else
+    {
+      Serial.print("Error : ");
+      Serial.println("\"level\" key not found in JSON");
+    }
+    
+  }
+   else if(strcmp(topic,"infind/GRUPO1/FOTA")==0)
+  {
+      StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
+    // Deserialize the JSON document
+    DeserializationError error = deserializeJson(root, mensaje);
+
+    // Compruebo si no hubo error
+    if (error) {
+      Serial.print("Error deserializeJson() failed: ");
+      Serial.println(error.c_str());
+    }
+    else if(root.containsKey("actualiza"))  // comprobar si existe el campo/clave que estamos buscando
+    {
+     actualiza = root["actualiza"];
+     Serial.print("Mensaje OK, actualiza = ");
+     Serial.println(actualiza);
+     
+    }
+    else
+    {
+      Serial.print("Error : ");
+      Serial.println("\"actualiza\" key not found in JSON");
+    }
+  } 
   free(mensaje); // libero memoria
 
 }// END CALLBACK
@@ -110,7 +201,10 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       // ... and resubscribe
       client.setBufferSize(512); // Tamaño bufer 512bytes
       //client.subscribe("infind/GRUPO1/datos"); // Subscripcion al topic "datos"
-     client.subscribe("infind/GRUPO1/led/cmd");  // Subscripcion al topic "led/cmd"
+      client.subscribe("infind/GRUPO1/led/cmd");  // Subscripcion al topic "led/cmd"
+      client.subscribe("infind/GRUPO1/config");
+      client.subscribe("infind/GRUPO1/switch/cmd");
+      client.subscribe("infind/GRUPO1/FOTA");
       client.publish("infind/GRUPO1/conexion",(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
     } else { // fallo en la conexion mqtt
       Serial.print("failed, rc=");

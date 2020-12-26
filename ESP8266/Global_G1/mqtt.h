@@ -18,6 +18,7 @@ extern const char* mqtt_server;
 extern int mqtt_port; 
 extern const char* mqtt_user;
 extern const char* mqtt_psw;
+extern int actualiza;
 
 //Funciones
 void callback(char* topic, byte* payload, unsigned int length);

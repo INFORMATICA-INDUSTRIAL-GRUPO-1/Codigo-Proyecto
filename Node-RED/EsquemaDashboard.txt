@@ -1,225 +1,225 @@
 [
     {
-        "id": "f72b3cec.56aa9",
+        "id": "cf174dfb.be149",
         "type": "tab",
         "label": "EsquemaDashboard",
-        "disabled": true,
+        "disabled": false,
         "info": ""
     },
     {
-        "id": "f6206c06.2fd32",
+        "id": "65f66491.64a95c",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "CONTROL DEL ROBOT",
         "info": "",
-        "x": 170,
-        "y": 1000,
+        "x": 130,
+        "y": 2380,
         "wires": []
     },
     {
-        "id": "9abb13a1.93d16",
+        "id": "d1ea8ead.5fc93",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "GESTION DE BASE DE DATOS",
         "info": "En la base de datos se almacenarán datos de los \nsensores y actuadores, incluido el estado recibido de\nlos leds. Se pueden almacenar también errores y\navisos que se hayan producido\n\nRECORDAR fechar todos los datos que se introduzcan\n\nOrganizar colecciones de datos",
-        "x": 190,
-        "y": 1500,
+        "x": 150,
+        "y": 2880,
         "wires": []
     },
     {
-        "id": "1d894553.71447b",
+        "id": "a5fdf624.1c8e48",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "SENSORES",
         "info": "",
-        "x": 310,
-        "y": 1040,
+        "x": 270,
+        "y": 2420,
         "wires": []
     },
     {
-        "id": "35868efc.ef3f12",
+        "id": "24c788a2.7ccc88",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "ACTUADORES",
         "info": "",
-        "x": 320,
-        "y": 1160,
+        "x": 280,
+        "y": 2540,
         "wires": []
     },
     {
-        "id": "d7842c20.e436b",
+        "id": "dd7306b8.b4fe48",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "DIALOGO",
         "info": "",
-        "x": 300,
-        "y": 1320,
+        "x": 260,
+        "y": 2700,
         "wires": []
     },
     {
-        "id": "debdc40a.8f1ec8",
+        "id": "3b549d86.858a42",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "MOSTRAR ULTIMAS CARGAS Y DESCARGAS DE LA BASE DE DATOS",
         "info": "",
-        "x": 500,
-        "y": 1540,
+        "x": 460,
+        "y": 2920,
         "wires": []
     },
     {
-        "id": "9ef91e8.7c7fae",
+        "id": "cfb5a453.54e338",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "DATOS ACTUALES",
         "info": "",
-        "x": 390,
-        "y": 1080,
+        "x": 350,
+        "y": 2460,
         "wires": []
     },
     {
-        "id": "ce3da4ed.652608",
+        "id": "4f5b3178.258a9",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "HISTORICO DATOS SENSORES",
         "info": "",
-        "x": 430,
-        "y": 1120,
+        "x": 390,
+        "y": 2500,
         "wires": []
     },
     {
-        "id": "74cf6218.31b7fc",
+        "id": "62a81dc5.2ae8e4",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "VALORES DE ACTUACION ACTUALES",
         "info": "",
-        "x": 460,
-        "y": 1200,
+        "x": 420,
+        "y": 2580,
         "wires": []
     },
     {
-        "id": "8911f5de.d06858",
+        "id": "b249573f.c29178",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "CONTROLES",
         "info": "",
-        "x": 370,
-        "y": 1280,
+        "x": 330,
+        "y": 2660,
         "wires": []
     },
     {
-        "id": "a3bf7112.16bad",
+        "id": "fb4f4457.617e98",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "MENSAJES RECIBIDOS",
         "info": "",
-        "x": 410,
-        "y": 1360,
+        "x": 370,
+        "y": 2740,
         "wires": []
     },
     {
-        "id": "3df6e000.bf22a",
+        "id": "940861ba.88a47",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "MENSAJES ENVIADOS",
         "info": "",
-        "x": 410,
-        "y": 1400,
+        "x": 370,
+        "y": 2780,
         "wires": []
     },
     {
-        "id": "507ec62c.980438",
+        "id": "77c7f431.8a04bc",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "IDEA SOBRE EL TAB CON EL CONTROL DEL ROBOT",
         "info": "Estaría muy interesante ser capaces de poner una\nimagen o un esquema grande del robot. Se marcaría\nla ubicacion de los sensores y motores. Al lado de \ncada dispositivo se puede mostrar su valor. De esta\nforma tendríamos una representacion mucho mas vistosa\ne intuitiva. No quita que pongamos también los datos \ntodos juntos en otro grupo o algo asi.",
-        "x": 500,
-        "y": 1000,
+        "x": 460,
+        "y": 2380,
         "wires": []
     },
     {
-        "id": "ce202ff8.56734",
+        "id": "a11f3686.0086a8",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "HISTÓRICO DATOS ACTUACION",
         "info": "",
-        "x": 440,
-        "y": 1240,
+        "x": 400,
+        "y": 2620,
         "wires": []
     },
     {
-        "id": "8523df8.a3da32",
+        "id": "78a47a3.9e52584",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "POSIBLES FUNCIONALIDADES ACCESIBLES DIRECTAMENTE DESDE DASHBOARD",
         "info": "",
-        "x": 550,
-        "y": 1580,
+        "x": 510,
+        "y": 2960,
         "wires": []
     },
     {
-        "id": "7c6a6dd2.a6e6d4",
+        "id": "372b8d24.463302",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "CONSULTA CANTIDAD DE DATOS",
         "info": "",
-        "x": 440,
-        "y": 1620,
+        "x": 400,
+        "y": 3000,
         "wires": []
     },
     {
-        "id": "e073e1b9.4571d",
+        "id": "60819116.5d0e7",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "CONSULTA DATOS INTERVALO DE TIEMPO",
         "info": "",
-        "x": 490,
-        "y": 1700,
+        "x": 450,
+        "y": 3080,
         "wires": []
     },
     {
-        "id": "da8cab0c.8b0008",
+        "id": "f48ec4f7.2176f8",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "GRAFICAR DATOS",
         "info": "",
-        "x": 390,
-        "y": 1660,
+        "x": 350,
+        "y": 3040,
         "wires": []
     },
     {
-        "id": "b6ee5946.2e5b58",
+        "id": "47febba8.9b4a34",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "ACCESO DIRECTO A SELECCION: ULTIMO DIA, SEMANA, HORA, MES...",
         "info": "",
-        "x": 650,
-        "y": 1740,
+        "x": 610,
+        "y": 3120,
         "wires": []
     },
     {
-        "id": "1f66e994.91d016",
+        "id": "1a5b2953.3bc427",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "POSIBILIDAD DE INDICAR EL RANGO DESEADO",
         "info": "TENER DIFERENTES INDICADORES DE RANGO\nPARA DIAS\nPARA HORAS\nPARA MESES\n..\n",
-        "x": 570,
-        "y": 1780,
+        "x": 530,
+        "y": 3160,
         "wires": []
     },
     {
-        "id": "81002587.bcc7f8",
+        "id": "d9a3aa1.7172c58",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "VOLCADO EN FICHERO CSV",
         "info": "",
-        "x": 450,
-        "y": 1820,
+        "x": 410,
+        "y": 3200,
         "wires": []
     },
     {
-        "id": "47e1f3e5.ebcadc",
+        "id": "18331220.cbe0fe",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "PROYECTO BÁSICO (DHTS Y CONTROL LED)",
         "info": "Funcionalidad Básica del proyecto:\n\nMostrar info de varios sensores a la vez y poder\nadministrarlo desde el dashboard.\n\nControl del led y la lectura de su estado.\n\nInterruptor led, control y lectura (boton FLASH).\n\nControl de tiempo de intervalo de envío entre\nmensajes.",
         "x": 240,
@@ -227,9 +227,9 @@
         "wires": []
     },
     {
-        "id": "46c392f1.9f103c",
+        "id": "e5dbd7e1.000f38",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "MOSTRAR LOS VALORES ACTUALES DE LOS SENSORES",
         "info": "Incluir la hora de la ultima actualizacion",
         "x": 520,
@@ -237,9 +237,9 @@
         "wires": []
     },
     {
-        "id": "c270bf17.4efa9",
+        "id": "9e43b2c7.b7d03",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "MOSTRAR UN ÚNICO HISTORICO CON LOS DATOS DE TODOS LOS SENSORES",
         "info": "",
         "x": 600,
@@ -247,9 +247,9 @@
         "wires": []
     },
     {
-        "id": "239eeb9b.1d1634",
+        "id": "8c4b21f0.1aa72",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "INTRODUCIR CONTROLES E INDICADORES PARA SELECCIONAR UN SENSOR Y MOSTRARLO",
         "info": "Se pretende tener dos tipos de controladores, uno \nnumérico y otro con una lista que incluya temperatura\ny humedad. \n\nEl objetivo es tener un indicador que muestre el tipo\nde dato que quieras del sensor que quieras. \n\nCreo que puede ser una aplicación interesante\n(Pablo R)",
         "x": 640,
@@ -257,9 +257,9 @@
         "wires": []
     },
     {
-        "id": "a3d4b5dd.1788b8",
+        "id": "95aa0d0f.af83f",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "SENSORES",
         "info": "",
         "x": 310,
@@ -267,9 +267,9 @@
         "wires": []
     },
     {
-        "id": "23303661.1e4f7a",
+        "id": "611082f2.8234fc",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "LEDS",
         "info": "",
         "x": 290,
@@ -277,99 +277,99 @@
         "wires": []
     },
     {
-        "id": "23f3c3db.2acbac",
+        "id": "97727ec7.f9a47",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "INTERRUPTOR",
         "info": "",
-        "x": 440,
-        "y": 440,
+        "x": 360,
+        "y": 460,
         "wires": []
     },
     {
-        "id": "21d4290.93338d8",
+        "id": "abf69fa.b11e46",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "PWM",
         "info": "",
-        "x": 410,
-        "y": 480,
+        "x": 330,
+        "y": 500,
         "wires": []
     },
     {
-        "id": "bcd70adf.8447a8",
+        "id": "79d227c8.c529f8",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "AJUSTE DE INTERVALO DE ENVIO DE MENSAJES",
         "info": "",
-        "x": 440,
-        "y": 840,
+        "x": 380,
+        "y": 2420,
         "wires": []
     },
     {
-        "id": "98b513fb.cf2af",
+        "id": "8ea7c5fc.06bcf8",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "BOTON PARA ACTUALIZACION FOTA",
         "info": "En el trabajo se describe como una de las posibles \nmaneras de implementar la actualización, será enviar \nun topic y poco más.\n\nMe refiero a un botón en el dashboard, esta\nfuncionalidad es paralela a la de pulsar FLASH en la\nplaca.\n",
-        "x": 390,
-        "y": 880,
+        "x": 330,
+        "y": 2460,
         "wires": []
     },
     {
-        "id": "5c3d67c9.09b618",
+        "id": "1c1807d7.bf24e8",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "ELEGIR PLACA EN LA QUE ACTUAR",
         "info": "",
-        "x": 450,
-        "y": 520,
+        "x": 390,
+        "y": 2100,
         "wires": []
     },
     {
-        "id": "b2117216.23842",
+        "id": "ebcdfaf2.f91508",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "MOSTRAR TODOS JUNTOS IDENTIFICADOS",
         "info": "",
-        "x": 480,
-        "y": 400,
+        "x": 400,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "8fc11709.79fc78",
+        "id": "5eb92b53.7aa214",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "INTERRUPTOR",
         "info": "",
-        "x": 440,
-        "y": 560,
+        "x": 380,
+        "y": 2140,
         "wires": []
     },
     {
-        "id": "788f34ba.77f82c",
+        "id": "2ca37134.8350fe",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "PWM",
         "info": "",
-        "x": 410,
-        "y": 680,
+        "x": 350,
+        "y": 2260,
         "wires": []
     },
     {
-        "id": "3a77c0f2.b6717",
+        "id": "f338c302.5208",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "CONTROLADORES PARA LOS LED",
         "info": "Botón para el interruptor\n\nControl numerico (mejor slider vertical) para el led",
-        "x": 510,
-        "y": 800,
+        "x": 450,
+        "y": 2380,
         "wires": []
     },
     {
-        "id": "b8b7e043.e3c47",
+        "id": "3b3fafca.0da46",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "ALARMA  PARA VALORES DE LOS SENSORES",
         "info": "",
         "x": 480,
@@ -377,43 +377,560 @@
         "wires": []
     },
     {
-        "id": "683cd039.86c17",
+        "id": "a9211ec2.a30ae",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "ESTADO",
         "info": "",
-        "x": 480,
-        "y": 600,
+        "x": 420,
+        "y": 2180,
         "wires": []
     },
     {
-        "id": "f0ff5a24.01def8",
+        "id": "a9f53478.2da378",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "HISTORICO",
         "info": "",
-        "x": 490,
-        "y": 640,
+        "x": 430,
+        "y": 2220,
         "wires": []
     },
     {
-        "id": "deb71f07.68bd1",
+        "id": "add66b5a.56ace8",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "ESTADO",
         "info": "",
-        "x": 480,
-        "y": 720,
+        "x": 420,
+        "y": 2300,
         "wires": []
     },
     {
-        "id": "6edb1d7a.df6394",
+        "id": "200e5849.39fc58",
         "type": "comment",
-        "z": "f72b3cec.56aa9",
+        "z": "cf174dfb.be149",
         "name": "HISTORICO",
         "info": "",
-        "x": 490,
+        "x": 430,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "46c00796.ea24b8",
+        "type": "mqtt in",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "topic": "infind/GRUPO1/led/status",
+        "qos": "2",
+        "broker": "1ce505da.6bd69a",
+        "x": 230,
+        "y": 580,
+        "wires": [
+            [
+                "c9cef15e.376cf",
+                "bb7b5975.f417a8"
+            ]
+        ]
+    },
+    {
+        "id": "c9cef15e.376cf",
+        "type": "debug",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 550,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "4c651f87.8af8d",
+        "type": "mqtt out",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "topic": "infind/GRUPO1/led/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "1ce505da.6bd69a",
+        "x": 890,
         "y": 760,
         "wires": []
+    },
+    {
+        "id": "377fbb66.70af34",
+        "type": "function",
+        "z": "cf174dfb.be149",
+        "name": "num2json (level)",
+        "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 760,
+        "wires": [
+            [
+                "4c651f87.8af8d"
+            ]
+        ]
+    },
+    {
+        "id": "c10dcf74.6d9e5",
+        "type": "ui_slider",
+        "z": "cf174dfb.be149",
+        "name": "sliderLed",
+        "label": "",
+        "tooltip": "",
+        "group": "6c432fa8.7c4bf",
+        "order": 2,
+        "width": "1",
+        "height": "18",
+        "passthru": true,
+        "outs": "end",
+        "topic": "value",
+        "min": 0,
+        "max": "100",
+        "step": "1",
+        "x": 220,
+        "y": 740,
+        "wires": [
+            [
+                "2327b1ab.8855ae",
+                "377fbb66.70af34"
+            ]
+        ]
+    },
+    {
+        "id": "2327b1ab.8855ae",
+        "type": "ui_numeric",
+        "z": "cf174dfb.be149",
+        "name": "numericLed",
+        "label": "%(PWM) Led",
+        "tooltip": "",
+        "group": "6c432fa8.7c4bf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "step": "1",
+        "x": 210,
+        "y": 800,
+        "wires": [
+            [
+                "c10dcf74.6d9e5"
+            ]
+        ]
+    },
+    {
+        "id": "228b2182.1fd15e",
+        "type": "debug",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1050,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "bb7b5975.f417a8",
+        "type": "json",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 590,
+        "y": 580,
+        "wires": [
+            [
+                "bbcdb044.bf3b1"
+            ]
+        ]
+    },
+    {
+        "id": "bbcdb044.bf3b1",
+        "type": "change",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.led",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 580,
+        "wires": [
+            [
+                "228b2182.1fd15e"
+            ]
+        ]
+    },
+    {
+        "id": "dfcd43bf.1788b",
+        "type": "function",
+        "z": "cf174dfb.be149",
+        "name": "num2bool",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "54e63462.79051c",
+        "type": "mqtt out",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "topic": "infind/GRUPO1/config",
+        "qos": "",
+        "retain": "",
+        "broker": "1ce505da.6bd69a",
+        "x": 780,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "ba827c63.9819f",
+        "type": "function",
+        "z": "cf174dfb.be149",
+        "name": "num2json (tiempo)",
+        "func": "var value=msg.payload;\nmsg.payload={\"tiempo\" : value }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 920,
+        "wires": [
+            [
+                "54e63462.79051c"
+            ]
+        ]
+    },
+    {
+        "id": "ab408c8a.9e269",
+        "type": "inject",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "topic": "",
+        "payload": "40",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 230,
+        "y": 920,
+        "wires": [
+            [
+                "ba827c63.9819f"
+            ]
+        ]
+    },
+    {
+        "id": "4a945cb7.62b4c4",
+        "type": "inject",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 230,
+        "y": 960,
+        "wires": [
+            [
+                "ba827c63.9819f"
+            ]
+        ]
+    },
+    {
+        "id": "4aa44d57.9736d4",
+        "type": "mqtt in",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "topic": "infind/GRUPO1/switch/status",
+        "qos": "2",
+        "broker": "1ce505da.6bd69a",
+        "x": 200,
+        "y": 1040,
+        "wires": [
+            [
+                "7e476194.a272f",
+                "1ac773a.f4ccd8c"
+            ]
+        ]
+    },
+    {
+        "id": "fef32bfd.8780f8",
+        "type": "debug",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1010,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "7e476194.a272f",
+        "type": "json",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 550,
+        "y": 1040,
+        "wires": [
+            [
+                "97a84a2e.a0d7b8"
+            ]
+        ]
+    },
+    {
+        "id": "97a84a2e.a0d7b8",
+        "type": "change",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.Switch",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 1040,
+        "wires": [
+            [
+                "fef32bfd.8780f8"
+            ]
+        ]
+    },
+    {
+        "id": "60261114.3276e",
+        "type": "mqtt out",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "topic": "infind/GRUPO1/switch/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "1ce505da.6bd69a",
+        "x": 780,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "fd711416.00f8c8",
+        "type": "function",
+        "z": "cf174dfb.be149",
+        "name": "num2json (level)",
+        "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 520,
+        "y": 1180,
+        "wires": [
+            [
+                "60261114.3276e",
+                "bfbf208d.bfb6"
+            ]
+        ]
+    },
+    {
+        "id": "1ac773a.f4ccd8c",
+        "type": "debug",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 410,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "5d964b43.3915b4",
+        "type": "ui_switch",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "label": "ON/OFF Switch",
+        "tooltip": "",
+        "group": "6c432fa8.7c4bf",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 240,
+        "y": 1180,
+        "wires": [
+            [
+                "fd711416.00f8c8",
+                "a496adf1.b4e85"
+            ]
+        ]
+    },
+    {
+        "id": "a496adf1.b4e85",
+        "type": "debug",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 430,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "bfbf208d.bfb6",
+        "type": "debug",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 730,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "ef53cc88.5355",
+        "type": "mqtt in",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "topic": "infind/GRUPO1/PIERO/Sensores",
+        "qos": "2",
+        "broker": "1ce505da.6bd69a",
+        "x": 210,
+        "y": 1360,
+        "wires": [
+            [
+                "9bc5e97a.2728c8"
+            ]
+        ]
+    },
+    {
+        "id": "c877410a.200f9",
+        "type": "debug",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 910,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "9bc5e97a.2728c8",
+        "type": "json",
+        "z": "cf174dfb.be149",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 550,
+        "y": 1360,
+        "wires": [
+            [
+                "c877410a.200f9"
+            ]
+        ]
+    },
+    {
+        "id": "1ce505da.6bd69a",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "iot.ac.uma.es",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "6c432fa8.7c4bf",
+        "type": "ui_group",
+        "z": "",
+        "name": "Led Control",
+        "tab": "cce02ef3.c57a9",
+        "order": 1,
+        "disp": true,
+        "width": "4",
+        "collapse": false
+    },
+    {
+        "id": "cce02ef3.c57a9",
+        "type": "ui_tab",
+        "z": "",
+        "name": "ESP_8266",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     }
 ]
