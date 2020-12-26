@@ -29,7 +29,7 @@ Que esta hecho
 	*led control
 	*led estado
 	*control potencia led (Antonio 14/12)
-
+	*Calcular media y configurar rango (Antonio 21/12) 
 	ROBOT
 	*comunicacion serie
 
@@ -56,7 +56,7 @@ NODERED
 
 
 TELEGRAM
-	*Calcular media y configurar rango (Antonio 21/12) 
+	*Conseguir que envie el fichero excel por telegram(26/11)
  
 ROBOT
 	*programar comportamiento (PABLO V y MANU 21/12)
