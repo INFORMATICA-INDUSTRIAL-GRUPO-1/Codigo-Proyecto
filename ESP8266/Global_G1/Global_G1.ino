@@ -105,6 +105,7 @@ void loop() {
   
 // END comprobacion y reconexion
 
+/*-------------------------  CONTROL LED  ------------------------*/
 
   if (ready_led)
   {
@@ -140,12 +141,17 @@ void loop() {
       lastLed = now;
       }//if_2
     }//if_1
+
+/*-------------------------  FOTA  ------------------------*/
+    
 if((now-lastFOTA > fotaSampRate*60000) && (fotaSampRate != 0)||(actualiza==1))
 {
   FuncionActualizacion();
   lastFOTA=now;
   actualiza=0;
 }
+
+/*-------------------------  ENVIO DATOS  ------------------------*/
 
 if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por defecto) =>> Asigna los valores y Publica el topic datos
 {
@@ -154,41 +160,22 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
   
   tomaDatos(datos); //actualiza los valores de "datos"
   
- serializa_datos_JSON ().toCharArray (msg,512); // Serializacion de los datos del archivo json para su publicacion
- client.publish("infind/GRUPO1/datos", msg, true); //publicacion del mensaje "datos" como retenido
- Serial.print("Temp:");
- Serial.println(datos.temperatura);
+  serializa_datos_JSON ().toCharArray (msg,512); // Serializacion de los datos del archivo json para su publicacion
+  client.publish("infind/GRUPO1/datos", msg, true); //publicacion del mensaje "datos" como retenido
+  Serial.print("Temp:");
+  Serial.println(datos.temperatura);
 
 }//END DATOS 
 
+/*-------------------------  ENVIO SENSORES ROBOT  ------------------------*/
 
-
-if (Serial.available() > 0) {
-    // read the incoming byte:
-    incomingByte = Serial.read();
-    switch (incomingByte)
-    {
-        case 251:
-       // if (Serial.available() > 0)
-        
-          sensor1=Serial.read();
-          //Serial.printf("Hola: %d \n",sensor1);
-        //}
-        break;
-        case 252:
-        sensor2=Serial.read();
-        
-        //Serial.printf("%d %d \n", sensor1,sensor2);
-        break;
-    }//switch
-    
-   if(now - lastSensores > 500)
+  sensores_arduino(); //lee los datos de los sensores constantemente para que no se acumulen en el buffer.
+  
+  if(dato_sensor && now - lastSensores > 1000)
    { 
-   sensores2_mqtt();// envio a mqtt lectura sensores
-   lastSensores = now;//variable para actualizacion
+     sensores5_mqtt();// envio a mqtt lectura sensores
+     lastSensores = now;//variable para actualizacion
    }
-  }//if
-
 
   
 }// END LOOP

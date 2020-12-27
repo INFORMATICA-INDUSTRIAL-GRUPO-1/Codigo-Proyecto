@@ -1,15 +1,17 @@
-#include "robot_2sens.h"
+/*#include "robot_2sens.h"
 
 int sensor1;
 int sensor2;
 
- 
 int incomingByte=0;
+
+bool dato_sensor; 
 
 void sensores_arduino ()
 {
   if (Serial.available() > 0) {
     // read the incoming byte:
+    dato_sensor = true;
     incomingByte = Serial.read();
     switch (incomingByte)
     {
@@ -26,4 +28,7 @@ void sensores_arduino ()
         break;
     }//switch
   }//if
-}//funcion
+
+  else
+  dato_sensor = false;
+}//funcion*/
