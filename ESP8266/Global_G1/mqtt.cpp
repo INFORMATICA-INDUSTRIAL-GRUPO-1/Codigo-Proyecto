@@ -185,14 +185,14 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
     datos.chipId= ESP.getChipId (); // Asegura que el chipId sea el correcto antes de utilizarlo en cada reconexion;
     clientId += String(datos.chipId) ; // establece el id del cliente mqtt
     debugFunction (clientId.c_str(),1);
-    char* JSon_Msg="";
-    sprintf (JSon_Msg,"{\"CHIPID\":\" ",datos.chipId.c_str(),"\", \" online \": \"false\"} ");
+    char JSon_Msg[64];
+    sprintf (JSon_Msg,"{\"CHIPID\":\"%s\",\"online\":\"false\"} ",datos.chipId.c_str());
        debugFunction("mqtt:set LWill to :",1);
       debugFunction(JSon_Msg,1);
     // Attempt to connect
     if (client.connect(clientId.c_str(),mqtt_user,mqtt_psw,"infind/GRUPO1/conexion",0 ,true ,(const char*)JSon_Msg )) { //Establece la conexion al mqtt y configura LWT: "conexion:false"  //ej:  boolean rc = mqttClient.connect("myClientID", willTopic, willQoS, willRetain, willMessage); 
-       JSon_Msg="";
-       sprintf (JSon_Msg,"{\"CHIPID\":\" ",datos.chipId.c_str(),"\", \" online \": \"true\"} ");
+      
+       sprintf (JSon_Msg,"{\"CHIPID\":\"%s\",\"online\":\"true\"} ",datos.chipId.c_str());
       debugFunction("mqtt:connected",1);
       debugFunction(JSon_Msg,1);
       // Once connected, publish an announcement...
