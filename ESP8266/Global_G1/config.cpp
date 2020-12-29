@@ -48,6 +48,32 @@ const char* AP_ssid = "ESP8266_"; //"ESP8266_ChipId" SSid del AccesPoint para wi
 const char* AP_password = "ESP8266"; //psw del AccesPoint para wificonfig
 
 byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesPoint"
+
+/////////////////TOPICS MQTT ////////////////////
+byte grupo = 1;
+byte placa = 1;
+char TOP_generic[48] ="infind/GRUPO%i/ESP%i/%s";
+
+char TOP_conexion[48] = "conexion"; 
+            
+char TOP_datos[48] = "datos"; 
+
+char TOP_config[48] = "config"; 
+
+char TOP_ledCmd[48] = "led/cmd";  
+
+char TOP_ledStatus[48] = "led/status"; 
+
+char TOP_switchCmd[48] = "switch/cmd"; 
+
+char TOP_switchStatus[48] = "switch/status"; 
+
+char TOP_FOTA[48] = "FOTA";
+
+char TOP_FOTA_updt[48] = "FOTA/actualizado"; 
+
+char TOP_sensores[48] = "PIERO/Sensores"; 
+
 /////////////////Parametros ////////////////////
 
 int dataSampRate = 5*60; // Tiempo entre publicaciones de los datos en SEGUNDOS

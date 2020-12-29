@@ -52,7 +52,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
   }
   Serial.println();
 
-  if(strcmp(topic,"infind/GRUPO1/led/cmd")==0) //Comprobacion topic para led
+  if(strcmp(topic,TOP_ledCmd)==0) //Comprobacion topic para led
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
@@ -85,7 +85,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     Serial.println("Error: Topic desconocido");
   }
 
-    if(strcmp(topic,"infind/GRUPO1/switch/cmd")==0) //Comprobacion topic para led
+    if(strcmp(topic,TOP_switchCmd)==0) //Comprobacion topic para led
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
@@ -121,7 +121,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     Serial.println("Error: Topic desconocido");
   }
 
-if(strcmp(topic,"infind/GRUPO1/config")==0) //Comprobacion topic para led
+if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
@@ -146,7 +146,7 @@ if(strcmp(topic,"infind/GRUPO1/config")==0) //Comprobacion topic para led
     }
     
   }
-   else if(strcmp(topic,"infind/GRUPO1/FOTA")==0)
+   else if(strcmp(topic,TOP_FOTA)==0)
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
@@ -182,15 +182,15 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
     Serial.print("Attempting MQTT connection...");
     // Create client ID based on ChipID number
     String clientId = "ESP8266Client-";
+    char JSon_Msg[64];
     datos.chipId= ESP.getChipId (); // Asegura que el chipId sea el correcto antes de utilizarlo en cada reconexion;
     clientId += String(datos.chipId) ; // establece el id del cliente mqtt
     debugFunction (clientId.c_str(),1);
-    char JSon_Msg[64];
     sprintf (JSon_Msg,"{\"CHIPID\":\"%s\",\"online\":\"false\"} ",datos.chipId.c_str());
        debugFunction("mqtt:set LWill to :",1);
       debugFunction(JSon_Msg,1);
     // Attempt to connect
-    if (client.connect(clientId.c_str(),mqtt_user,mqtt_psw,"infind/GRUPO1/conexion",0 ,true ,(const char*)JSon_Msg )) { //Establece la conexion al mqtt y configura LWT: "conexion:false"  //ej:  boolean rc = mqttClient.connect("myClientID", willTopic, willQoS, willRetain, willMessage); 
+    if (client.connect(clientId.c_str(),mqtt_user,mqtt_psw,TOP_conexion,0 ,true ,(const char*)JSon_Msg )) { //Establece la conexion al mqtt y configura LWT: "conexion:false"  //ej:  boolean rc = mqttClient.connect("myClientID", willTopic, willQoS, willRetain, willMessage); 
       
        sprintf (JSon_Msg,"{\"CHIPID\":\"%s\",\"online\":\"true\"} ",datos.chipId.c_str());
       debugFunction("mqtt:connected",1);
@@ -201,11 +201,11 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       // ... and resubscribe
       client.setBufferSize(512); // Tamaño bufer 512bytes
       //client.subscribe("infind/GRUPO1/datos"); // Subscripcion al topic "datos"
-      client.subscribe("infind/GRUPO1/led/cmd");  // Subscripcion al topic "led/cmd"
-      client.subscribe("infind/GRUPO1/config");
-      client.subscribe("infind/GRUPO1/switch/cmd");
-      client.subscribe("infind/GRUPO1/FOTA");
-      client.publish("infind/GRUPO1/conexion",(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
+      client.subscribe(TOP_ledCmd);  // Subscripcion al topic "led/cmd"
+      client.subscribe(TOP_config);
+      client.subscribe(TOP_switchCmd);
+      client.subscribe(TOP_FOTA);
+      client.publish(TOP_conexion,(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
     } else { // fallo en la conexion mqtt
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -225,3 +225,55 @@ void mqttSetup (){
   client.setCallback(callback); 
   
   }
+
+void mqttTopics(){ // Funcion que establece los topics de conexion. Añade el numero de grupo y el numero de placa a cada topic
+// Topic Raiz "infind/GRUPO%i/ESP%i/%s" en donde %i indican (numero de grupo y numero de placa resp.) y %s indica el topic en cuestion (pej: datos, conexion, etc.)
+
+String aux; // almacenamiento temporal del topic
+
+  aux=TOP_conexion;
+  memset(TOP_conexion, 0, sizeof(TOP_conexion));// Resetea la variable que contiene el topic
+  sprintf(TOP_conexion, TOP_generic ,grupo,placa,aux.c_str()); // Añade el topic raiz , el numero de grupo, numero de placa y el topic en cuestion
+  Serial.println("Topic_Conexion:");
+  Serial.println(TOP_conexion);
+
+  aux=TOP_datos;
+  memset(TOP_datos, 0, sizeof(TOP_datos));
+  sprintf(TOP_datos,TOP_generic,grupo,placa,aux.c_str());
+  Serial.println(TOP_datos);
+  
+  aux=TOP_config;
+  memset(TOP_config, 0, sizeof(TOP_config));
+  sprintf(TOP_config,TOP_generic,grupo,placa,aux.c_str());
+
+  aux=TOP_ledCmd;
+  memset(TOP_ledCmd, 0, sizeof(TOP_ledCmd));
+  sprintf(TOP_ledCmd,TOP_generic,grupo,placa,aux.c_str());
+
+  aux=TOP_ledStatus;
+  memset(TOP_ledStatus, 0, sizeof(TOP_ledStatus));
+  sprintf(TOP_ledStatus,TOP_generic,grupo,placa,aux.c_str());
+
+  aux=TOP_switchCmd;
+  memset(TOP_switchCmd, 0, sizeof(TOP_switchCmd));
+  sprintf(TOP_switchCmd,TOP_generic,grupo,placa,aux.c_str());
+  
+  aux=TOP_switchStatus;
+  memset(TOP_switchStatus, 0, sizeof(TOP_switchStatus));
+  sprintf(TOP_switchStatus,TOP_generic,grupo,placa,aux.c_str());
+
+  aux=TOP_FOTA;
+  memset(TOP_FOTA, 0, sizeof(TOP_FOTA)); 
+  sprintf(TOP_FOTA,TOP_generic,grupo,placa,aux.c_str());
+
+  aux=TOP_FOTA_updt;
+  memset(TOP_FOTA_updt, 0, sizeof(TOP_FOTA_updt)); 
+  sprintf(TOP_FOTA_updt,TOP_generic,grupo,placa,aux.c_str());
+
+  aux=TOP_sensores;
+  memset(TOP_sensores, 0, sizeof(TOP_sensores)); 
+  sprintf(TOP_sensores,TOP_generic,grupo,placa,aux.c_str());
+
+  }
+
+  

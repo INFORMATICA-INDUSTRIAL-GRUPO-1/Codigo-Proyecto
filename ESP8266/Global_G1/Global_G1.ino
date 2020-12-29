@@ -80,7 +80,7 @@ void setup() {
 
   debugFunction ("Establecimiento de MQTT",1);
   mqttSetup (); //Llamada a la funcion de setup de mqtt
-  
+  mqttTopics(); // carga los topics 
   dht.setup(DHT_PIN, DHTesp::DHT11); // Connect DHT sensor to GPIO 17
 
   if(debug){
@@ -161,7 +161,7 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
   tomaDatos(datos); //actualiza los valores de "datos"
   
   serializa_datos_JSON ().toCharArray (msg,512); // Serializacion de los datos del archivo json para su publicacion
-  client.publish("infind/GRUPO1/datos", msg, true); //publicacion del mensaje "datos" como retenido
+  client.publish(TOP_datos, msg, true); //publicacion del mensaje "datos" como retenido
   Serial.print("Temp:");
   Serial.println(datos.temperatura);
 

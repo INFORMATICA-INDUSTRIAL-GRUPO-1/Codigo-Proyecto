@@ -46,6 +46,21 @@ extern const char* AP_ssid;
 extern const char* AP_password;
 extern byte max_reconnect;
 
+/////////////////TOPICS MQTT ////////////////////
+extern byte grupo;
+extern byte placa;
+extern char TOP_generic[48];
+extern char TOP_conexion[48];
+extern char TOP_datos[48];
+extern char TOP_config[48];
+extern char TOP_ledCmd[48];
+extern char TOP_ledStatus[48];
+extern char TOP_switchCmd[48];
+extern char TOP_switchStatus[48];
+extern char TOP_FOTA[48];
+extern char TOP_FOTA_updt[48];
+extern char TOP_sensores[48];
+
 /////////////////Parametros ////////////////////
 
 

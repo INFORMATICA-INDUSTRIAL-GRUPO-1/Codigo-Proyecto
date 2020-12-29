@@ -111,7 +111,7 @@ void led_mqtt()  // Funcion que tiene como entrada un valor entero [0-100], lo R
   serializeJson(jsonRoot,msg);
 
   debugFunction (msg,1);
-  client.publish("infind/GRUPO1/led/status", msg); //publicacion del estado del led
+  client.publish(TOP_ledStatus, msg); //publicacion del estado del led
 
 }
 
@@ -127,7 +127,7 @@ void switch_mqtt()
   serializeJson(jsonRoot,msg);
 
   debugFunction (msg,1);
-  client.publish("infind/GRUPO1/switch/status", msg); //publicacion del estado del led
+  client.publish(TOP_switchStatus, msg); //publicacion del estado del led
 }
 
   void actualiza_mqtt()
@@ -140,7 +140,7 @@ void switch_mqtt()
   serializeJson(jsonRoot,msg);
 
   debugFunction (msg,1);
-  client.publish("infind/GRUPO1/FOTA/actualizado", msg);
+  client.publish(TOP_FOTA_updt, msg);
 }
 
 /*void sensores2_mqtt ()
@@ -173,5 +173,5 @@ void sensores5_mqtt()
   serializeJson(jsonRoot,msg);
 
   debugFunction (msg,1);
-  client.publish("infind/GRUPO1/PIERO/Sensores", msg);
+  client.publish(TOP_sensores, msg);
 }
