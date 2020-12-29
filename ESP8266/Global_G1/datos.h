@@ -52,7 +52,7 @@ void switch_mqtt();
 
 void actualiza_mqtt();
 
-//void sensores2_mqtt();
-void sensores5_mqtt();
+void sensores2_mqtt();
+//void sensores5_mqtt();
 
 #endif

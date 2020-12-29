@@ -1,4 +1,4 @@
-/*#include "robot_2sens.h"
+#include "robot_2sens.h"
 
 int sensor1;
 int sensor2;
@@ -19,16 +19,16 @@ void sensores_arduino ()
        // if (Serial.available() > 0)
         
           sensor1=Serial.read();
-          Serial.printf("Hola: %d \n",sensor1);
+          //Serial.printf("Hola: %d \n",sensor1);
         //}
         break;
         case 252:
         sensor2=Serial.read();
-        Serial.printf("%d %d \n", sensor1,sensor2);
+        //Serial.printf("%d %d \n", sensor1,sensor2);
         break;
     }//switch
   }//if
 
   else
   dato_sensor = false;
-}//funcion*/
+}//funcion

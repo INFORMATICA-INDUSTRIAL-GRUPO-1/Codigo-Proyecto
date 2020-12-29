@@ -9,7 +9,7 @@
 
 #include "wifi.h"
 #include "datos.h"
-
+#include "cont_vel.h"
 
 //Externalizacion de variables
 extern PubSubClient client;
@@ -19,7 +19,7 @@ extern int mqtt_port;
 extern const char* mqtt_user;
 extern const char* mqtt_psw;
 extern int actualiza;
-
+extern int orden;
 /////////////////TOPICS MQTT ////////////////////
 extern byte grupo;
 extern byte placa;

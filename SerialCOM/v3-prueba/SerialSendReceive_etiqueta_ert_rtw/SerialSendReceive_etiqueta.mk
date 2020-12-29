@@ -2,7 +2,7 @@
 ## Makefile generated for component 'SerialSendReceive_etiqueta'. 
 ## 
 ## Makefile     : SerialSendReceive_etiqueta.mk
-## Generated on : Wed Dec 23 20:53:49 2020
+## Generated on : Mon Dec 28 13:45:14 2020
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/SerialSendReceive_etiqueta.elf
 ## Product type : executable
 ## 
@@ -220,7 +220,7 @@ DEFINES = $(DEFINES_) $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinobase/src/MW_SerialRead.cpp C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinobase/src/MW_SerialWrite.cpp $(START_DIR)/SerialSendReceive_etiqueta_ert_rtw/SerialSendReceive_etiqueta.c $(START_DIR)/SerialSendReceive_etiqueta_ert_rtw/SerialSendReceive_etiqueta_data.c $(START_DIR)/SerialSendReceive_etiqueta_ert_rtw/rtGetInf.c $(START_DIR)/SerialSendReceive_etiqueta_ert_rtw/rtGetNaN.c $(START_DIR)/SerialSendReceive_etiqueta_ert_rtw/rt_nonfinite.c $(MATLAB_ROOT)/rtw/c/src/ext_mode/common/updown.c $(MATLAB_ROOT)/rtw/c/src/ext_mode/common/ext_work.c $(MATLAB_ROOT)/toolbox/coder/rtiostream/src/utils/rtiostream_utils.c $(START_DIR)/Sensores_VL53L0X_I2C_wrapper.cpp C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinotarget/registry/../src/MW_ArduinoHWInit.cpp C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinobase/src/io_wrappers.cpp C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinotarget/registry/../scheduler/src/arduinoAVRScheduler.cpp $(MATLAB_ROOT)/rtw/c/src/ext_mode/common/rtiostream_interface.c C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/shared/externalmode_daemon/src/ext_svr_daemon.c C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinotarget/registry/../src/rtiostream_serial_daemon.cpp C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/shared/externalmode_daemon/src/daemon_checksum.c
+SRCS = C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinobase/src/MW_SerialRead.cpp C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinobase/src/MW_SerialWrite.cpp $(START_DIR)/SerialSendReceive_etiqueta_ert_rtw/SerialSendReceive_etiqueta.c $(START_DIR)/SerialSendReceive_etiqueta_ert_rtw/SerialSendReceive_etiqueta_data.c $(START_DIR)/SerialSendReceive_etiqueta_ert_rtw/rtGetInf.c $(START_DIR)/SerialSendReceive_etiqueta_ert_rtw/rtGetNaN.c $(START_DIR)/SerialSendReceive_etiqueta_ert_rtw/rt_nonfinite.c $(MATLAB_ROOT)/rtw/c/src/ext_mode/common/updown.c $(MATLAB_ROOT)/rtw/c/src/ext_mode/common/ext_work.c $(MATLAB_ROOT)/toolbox/coder/rtiostream/src/utils/rtiostream_utils.c C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinotarget/registry/../src/MW_ArduinoHWInit.cpp C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinobase/src/io_wrappers.cpp C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinotarget/registry/../scheduler/src/arduinoAVRScheduler.cpp $(MATLAB_ROOT)/rtw/c/src/ext_mode/common/rtiostream_interface.c C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/shared/externalmode_daemon/src/ext_svr_daemon.c C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinotarget/registry/../src/rtiostream_serial_daemon.cpp C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/shared/externalmode_daemon/src/daemon_checksum.c
 
 MAIN_SRC = $(START_DIR)/SerialSendReceive_etiqueta_ert_rtw/ert_main.c
 
@@ -230,7 +230,7 @@ ALL_SRCS = $(SRCS) $(MAIN_SRC)
 ## OBJECTS
 ###########################################################################
 
-OBJS = MW_SerialRead.o MW_SerialWrite.o SerialSendReceive_etiqueta.o SerialSendReceive_etiqueta_data.o rtGetInf.o rtGetNaN.o rt_nonfinite.o updown.o ext_work.o rtiostream_utils.o Sensores_VL53L0X_I2C_wrapper.o MW_ArduinoHWInit.o io_wrappers.o arduinoAVRScheduler.o rtiostream_interface.o ext_svr_daemon.o rtiostream_serial_daemon.o daemon_checksum.o
+OBJS = MW_SerialRead.o MW_SerialWrite.o SerialSendReceive_etiqueta.o SerialSendReceive_etiqueta_data.o rtGetInf.o rtGetNaN.o rt_nonfinite.o updown.o ext_work.o rtiostream_utils.o MW_ArduinoHWInit.o io_wrappers.o arduinoAVRScheduler.o rtiostream_interface.o ext_svr_daemon.o rtiostream_serial_daemon.o daemon_checksum.o
 
 MAIN_OBJ = ert_main.o
 
@@ -579,10 +579,6 @@ ext_work.o : $(MATLAB_ROOT)/rtw/c/src/ext_mode/common/ext_work.c
 
 rtiostream_utils.o : $(MATLAB_ROOT)/toolbox/coder/rtiostream/src/utils/rtiostream_utils.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
-
-
-Sensores_VL53L0X_I2C_wrapper.o : $(START_DIR)/Sensores_VL53L0X_I2C_wrapper.cpp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
 MW_ArduinoHWInit.o : C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinotarget/registry/../src/MW_ArduinoHWInit.cpp

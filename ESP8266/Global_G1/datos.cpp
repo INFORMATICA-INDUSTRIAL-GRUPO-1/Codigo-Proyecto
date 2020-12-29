@@ -143,7 +143,7 @@ void switch_mqtt()
   client.publish(TOP_FOTA_updt, msg);
 }
 
-/*void sensores2_mqtt ()
+void sensores2_mqtt ()
 {
   StaticJsonDocument<100> jsonRoot;
 
@@ -153,12 +153,12 @@ void switch_mqtt()
 
   serializeJson(jsonRoot,msg);
 
-  debugFunction (msg,1);
+  //debugFunction (msg,1);
   client.publish("infind/GRUPO1/PIERO/Sensores", msg);
  
-}*/
+}
 
-void sensores5_mqtt()
+/*void sensores5_mqtt()
 {
   StaticJsonDocument<256> jsonRoot;
 
@@ -174,4 +174,4 @@ void sensores5_mqtt()
 
   debugFunction (msg,1);
   client.publish(TOP_sensores, msg);
-}
+}*/

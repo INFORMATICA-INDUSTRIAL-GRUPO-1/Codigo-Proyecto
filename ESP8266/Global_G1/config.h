@@ -60,6 +60,7 @@ extern char TOP_switchStatus[48];
 extern char TOP_FOTA[48];
 extern char TOP_FOTA_updt[48];
 extern char TOP_sensores[48];
+extern char TOP_Movimiento[48];
 
 /////////////////Parametros ////////////////////
 

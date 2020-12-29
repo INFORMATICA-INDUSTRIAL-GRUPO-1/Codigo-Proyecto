@@ -44,13 +44,13 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
   char *mensaje=(char *)malloc(length+1); // reservo memoria para copia del mensaje
   strncpy(mensaje,(char*)payload,length); // copio el mensaje en cadena de caracteres
   
-  Serial.print("Message arrived ["); //DEBUG por puerto Serie
-  Serial.print(topic);
-  Serial.print("] ");
-  for (int i = 0; i < length; i++) {
-    Serial.print((char)payload[i]);
-  }
-  Serial.println();
+  //Serial.print("Message arrived ["); //DEBUG por puerto Serie
+  //Serial.print(topic);
+  //Serial.print("] ");
+  //for (int i = 0; i < length; i++) {
+    //Serial.print((char)payload[i]);
+  //}
+  //Serial.println();
 
   if(strcmp(topic,TOP_ledCmd)==0) //Comprobacion topic para led
   {
@@ -78,12 +78,12 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     }
     
   }
-  else //Topic erroneo 
+  /*else //Topic erroneo 
   {
     Serial.print("Topic:");
     Serial.println(topic);
     Serial.println("Error: Topic desconocido");
-  }
+  }*/
 
     if(strcmp(topic,TOP_switchCmd)==0) //Comprobacion topic para led
   {
@@ -114,12 +114,12 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     }
     
   }
-  else //Topic erroneo 
+  /*else //Topic erroneo 
   {
     Serial.print("Topic:");
     Serial.println(topic);
     Serial.println("Error: Topic desconocido");
-  }
+  }*/
 
 if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
   {
@@ -146,7 +146,7 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
     }
     
   }
-   else if(strcmp(topic,TOP_FOTA)==0)
+  if(strcmp(topic,TOP_FOTA)==0)
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
@@ -163,6 +163,30 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
      Serial.print("Mensaje OK, actualiza = ");
      Serial.println(actualiza);
      
+    }
+    else
+    {
+      Serial.print("Error : ");
+      Serial.println("\"actualiza\" key not found in JSON");
+    }
+  } 
+  if(strcmp(topic,"infind/GRUPO1/PIERO/Movimiento")==0)
+  {
+      StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
+    // Deserialize the JSON document
+    DeserializationError error = deserializeJson(root, mensaje);
+
+    // Compruebo si no hubo error
+    if (error) {
+      Serial.print("Error deserializeJson() failed: ");
+      Serial.println(error.c_str());
+    }
+    else if(root.containsKey("orden"))  // comprobar si existe el campo/clave que estamos buscando
+    {
+     orden = root["orden"];
+     //Serial.print("Mensaje OK, orden = ");
+     //Serial.println(orden);
+     velocidad();
     }
     else
     {
@@ -205,6 +229,8 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       client.subscribe(TOP_config);
       client.subscribe(TOP_switchCmd);
       client.subscribe(TOP_FOTA);
+      client.subscribe("infind/GRUPO1/PIERO/Movimiento");
+     
       client.publish(TOP_conexion,(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
     } else { // fallo en la conexion mqtt
       Serial.print("failed, rc=");

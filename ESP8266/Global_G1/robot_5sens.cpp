@@ -1,3 +1,4 @@
+/*
 #include "robot_5sens.h"
 
 int sensor1;
@@ -40,4 +41,4 @@ void sensores_arduino ()
   }//if
   else
     dato_sensor = false;
-}//funcion
+}//funcion*/
