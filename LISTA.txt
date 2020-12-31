@@ -32,6 +32,7 @@ Que esta hecho
 	*Calcular media y configurar rango (Antonio 21/12) 
 	ROBOT
 	*comunicacion serie
+	*programar comportamiento (PABLO V y MANU 21/12)
 
 
 POR HACER
@@ -59,6 +60,8 @@ TELEGRAM
 	*Conseguir que envie el fichero excel por telegram(26/11)
  
 ROBOT
-	*programar comportamiento (PABLO V y MANU 21/12)
+	
 		*datos (hablar funcionalidades datos)
+		*Programar obstaculos(forma manual)
+		*Programar via telegram modo automatico(simulink)
 	
