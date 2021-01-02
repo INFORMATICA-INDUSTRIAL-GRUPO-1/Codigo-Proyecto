@@ -33,7 +33,7 @@ struct registro_datos { //Struct "datos" contiene los parámetros recogidos por 
   String SSID_wifi;
   String IP_wifi;
   int RSSI_wifi;
-  int Switch;
+  bool Switch;
   };
 
 extern struct registro_datos datos ;

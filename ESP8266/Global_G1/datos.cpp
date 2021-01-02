@@ -119,9 +119,9 @@ void switch_mqtt()
 {
    StaticJsonDocument<100> jsonRoot;
    if(switch_valor)
-      datos.Switch = 0;
+      datos.Switch = false;
    else
-      datos.Switch = 1;
+      datos.Switch = true;
   jsonRoot["Switch"] = datos.Switch;//Convierte el estado del led a json para ACK al broker mqtt
 
   serializeJson(jsonRoot,msg);
