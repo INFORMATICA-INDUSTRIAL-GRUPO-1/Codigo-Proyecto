@@ -64,7 +64,7 @@ unsigned long lastSensores = 0;
 #include "interrupciones.h"
 #include "robot_2sens.h"
 #include "robot_5sens.h"
-
+#include "cont_vel.h"
 
 void setup() {
  // Configuracion Inicial del ESP8266
