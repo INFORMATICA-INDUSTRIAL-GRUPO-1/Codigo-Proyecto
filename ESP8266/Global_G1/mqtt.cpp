@@ -254,9 +254,10 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       client.subscribe(TOP_config);
       client.subscribe(TOP_switchCmd);
       client.subscribe(TOP_FOTA);
+      client.subscribe("infind/GRUPO1/ESP0/broadcast"); // subscripcion a topic de broadcast
       client.subscribe("infind/GRUPO1/PIERO/Movimiento");
       client.subscribe("infind/GRUPO1/PIERO/Modo");
-     
+      client.publish("infind/GRUPO1/ESP0/ack",(const char*)JSon_Msg,true); //publica el estado de la conexion el topic "ack" del broadcast
       client.publish(TOP_conexion,(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
     } else { // fallo en la conexion mqtt
       Serial.print("failed, rc=");

@@ -85,9 +85,7 @@ void setup() {
 
   if(debug){
     debugFunction ("Datos para debug",0);
-    tomaDatos(datos);
-    serializa_datos_JSON ().toCharArray (msg,512); // Serializacion de los datos del archivo json para su publicacion
-    client.publish(TOP_datos, msg, true); //publicacion del mensaje "datos" como retenido al Inicializar la placa
+    
     }
   
 
@@ -99,6 +97,9 @@ void loop() {
   if (!client.connected()) // Comprobacion y reconexion (en caso de fallo) del cliente mqtt
   { 
     reconnect();
+    tomaDatos(datos);
+    serializa_datos_JSON ().toCharArray (msg,512); // Serializacion de los datos del archivo json para su publicacion
+    client.publish(TOP_datos, msg, true); //publicacion del mensaje "datos" como retenido al Inicializar la placa
   }
   client.loop(); // look for new message in MQTTprotocol
 
