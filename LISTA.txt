@@ -1,6 +1,6 @@
 Que esta hecho
 
-	ESP
+ESP
 	*Comunicacion serie
 	*Control Led
 	*FOTA
@@ -11,16 +11,18 @@ Que esta hecho
 	*wifi cambia parametros
 	*tiempo actualizacion led (MANU 14/12)
 	*tiempo actualizacion fota (Pablo V 14/12)
+	*Arreglar sprintf 		(MATHIAS 21/12)
 
-	NODERED
+NODERED
 	*base datos configurada	
 	*Estructura dashboard
 	*Control dashboard
 	*tiempo actualizacion led (MANU 14/12)
 	*sesion nodered SEGURIDAD (Pablo R17/12)
-	*Mostrar Ultimo Dato 
+	*Mostrar Ultimo Dato
+	*identificacion de placas para control individual 
 
-	TELEGRAM
+TELEGRAM
 	*bot (temperatura, humedad (funciones extra))	
 	* temperatura
 	*humedad
@@ -30,38 +32,37 @@ Que esta hecho
 	*led estado
 	*control potencia led (Antonio 14/12)
 	*Calcular media y configurar rango (Antonio 21/12) 
-	ROBOT
+	
+ROBOT
 	*comunicacion serie
 	*programar comportamiento (PABLO V y MANU 21/12)
+	*datos (hablar funcionalidades datos)
+	*Programar obstaculos (forma manual)
 
 
 POR HACER
 
-	*Repaso total (PABLO R 21/12)
-	*Plantear memoria (PABLO R 21/12)
+	*Repaso total 			(PABLO R 21/12)
+	*Plantear memoria 		(PABLO R 21/12)
 
 ESP
-	*SPIFF / EPROM  (final)
-	*Topic Config (MATHIAS 21/12)
-		*Arreglar sprintf (MATHIAS 21/12)
-	*comprobar subscripciones topics
-	
-	
-NODERED
-	*parte general [ (MATHIAS 14/12) Y PABLO R (PERO POQUITO)]
-	*datos robot ¿Guardar en dataBase? (hablarlo) 
-	*descargar archivo csv (hablarlo) (ANTONIO 21/12)
-	*topic STATUS ID telegram
-	*identificacion de placas para control individual
-	*Administracion de topics (Manuel 21/12)
+	*SPIFF / EPROM  			(final)
+	*Topic Config 			(MATHIAS 21/12)
+	*comprobar subscripciones topics	
 
+NODERED
+	*parte general 			(MATHIAS 14/12)
+	*datos robot ¿Guardar en dataBase? (Opcional) 
+	*descargar archivo csv  (ANTONIO 21/12) (no way)(F)
+	
+	*Automatizar identificacion de placas (MATHIAS 07/1)
+	*Administracion de topics
 
 TELEGRAM
-	*Conseguir que envie el fichero excel por telegram(26/11)
- 
+	*administrar diferentes placas 	(ANTONIO 07/1)
+ 	*topic STATUS ID telegram  - identificacion para evitar problemas de simultaneidad 
+
 ROBOT
-	
-		*datos (hablar funcionalidades datos)
-		*Programar obstaculos(forma manual)
-		*Programar via telegram modo automatico(simulink)
+	*Programar via telegram modo automatico (simulink) (MANU07/1)
+	*Mostrar en node red los datos que genera 	(PABLO V 07/1)
 	

@@ -30,9 +30,10 @@ bool debug = true;
 
 
 ///////////////////// WiFi & MQTT CONFIGURATION////////////////////////////////////////////////////
-
-const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
+const char* ssid = "MOVISTAR_1F74"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "vK3yLb5r6i7W5zM3nYNE"; // CLAVE DE LA RED WIFI
+//const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
+//const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
 //const char* ssid = "Martin Router King"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = ""; // CLAVE DE LA RED WIFI
 //const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
@@ -51,7 +52,7 @@ byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesP
 
 /////////////////TOPICS MQTT ////////////////////
 byte grupo = 1;
-byte placa = 1;
+byte placa = 5;
 char TOP_generic[48] ="infind/GRUPO%i/ESP%i/%s";
 
 char TOP_conexion[48] = "conexion"; 
