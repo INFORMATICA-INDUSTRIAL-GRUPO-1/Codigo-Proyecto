@@ -30,7 +30,12 @@ bool debug = true;
 
 
 ///////////////////// WiFi & MQTT CONFIGURATION////////////////////////////////////////////////////
+<<<<<<< HEAD
 
+=======
+const char* ssid = "MOVISTAR_1F74"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "vK3yLb5r6i7W5zM3nYNE"; // CLAVE DE LA RED WIFI
+>>>>>>> 39a7a62bb0a163128cad686c786743629cda4c93
 //const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
 //const char* ssid = "Martin Router King"; // PONER EL NOMBRE DE LA RED WIFI
@@ -39,8 +44,11 @@ bool debug = true;
 //const char* password = "Srmonline";// CLAVE DE LA RED WIFI
 //const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "pablovera"; // CLAVE DE LA RED WIFI
+<<<<<<< HEAD
 const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
 const char* password = "12345678"; // CLAVE DE LA RED WIFI
+=======
+>>>>>>> 39a7a62bb0a163128cad686c786743629cda4c93
 const char* mqtt_server = "iot.ac.uma.es" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
 int mqtt_port = 1883;
 const char* mqtt_user = "infind";
@@ -53,7 +61,11 @@ byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesP
 
 /////////////////TOPICS MQTT ////////////////////
 byte grupo = 1;
+<<<<<<< HEAD
 byte placa = 4;
+=======
+byte placa = 5;
+>>>>>>> 39a7a62bb0a163128cad686c786743629cda4c93
 char TOP_generic[48] ="infind/GRUPO%i/ESP%i/%s";
 
 char TOP_conexion[48] = "conexion"; 
