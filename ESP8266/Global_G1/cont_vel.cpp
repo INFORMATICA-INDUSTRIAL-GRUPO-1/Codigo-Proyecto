@@ -33,14 +33,13 @@ void velocidad()
     switch (orden)
     {
       case 8:
-       if (!obs_izq && !obs_dcha)
+       if (!obs_izq && !obs_dcha && !obs_cent)
        {
         vel_envio[0]=88;
         vel_envio[1]=87;
        }
+
         
-      
-      
       break;
       case 4:
         if (!obs_izq)
@@ -48,7 +47,6 @@ void velocidad()
           vel_envio[0]=88;
           vel_envio[1]=65;
         }
-        
         
       
       break;

@@ -157,21 +157,3 @@ void sensores2_mqtt ()
   client.publish("infind/GRUPO1/PIERO/Sensores", msg);
  
 }
-
-/*void sensores5_mqtt()
-{
-  StaticJsonDocument<256> jsonRoot;
-
-  JsonObject Sensores = jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores"
-  
-  Sensores["1"] = sensor1; //US IZQ
-  Sensores["2"] = sensor2; //LASER IZQ
-  Sensores["3"] = sensor3; //LASER CENTRO
-  Sensores["4"] = sensor4; //LASER DER
-  Sensores["5"] = sensor5; //US DER
-  
-  serializeJson(jsonRoot,msg);
-
-  debugFunction (msg,1);
-  client.publish(TOP_sensores, msg);
-}*/
