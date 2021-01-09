@@ -18,8 +18,9 @@
 
 
 
-////////////////////Seccion librerias y pestañas//////////////////////////////
-//Librerias//
+/*-------------------------  PESTAÑAS Y LIBRERIAS  ------------------------*/ 
+ 
+////////////////////////LIBRERIAS///////////////////////////////////
 // Incluir aqui las librerias//
 
 #include <ESP8266WiFi.h>
@@ -29,31 +30,26 @@
 #include <ArduinoJson.h>
 
 
-////////////////////Seccion variables globales//////////////////////////////
+////////////////////Seccion VARIABLES GLOBALES//////////////////////////////
 // Declarar aqui las variables globales//
+// Envio de datos
 unsigned long lastMsg = 0;
 
 // FOTA
 unsigned long lastFOTA = 0;
 
 //Regulacion Led:
-
 unsigned long lastLed = 0;
-int inten_Led = 0; //Valor de escritura en el Led.
-int valor_maped = 0; //[0 1023] (primera inicializacion)
-
-
-
+int inten_Led = 0;        //Valor de escritura en el Led.
+int valor_maped = 0;      //[0 1023] (primera inicializacion)
 bool ledState = false;
 byte times = 0;
-
 
 unsigned long lastSensores = 0;
 
 
-
-//Pestañas//
-// Incluir aqui las pestañas//
+//////////////////////////////////PESTAÑAS/////////////////////////////////
+// Incluir aqui las pestañas ".h"//
 #include "config.h"
 #include "wifi.h"
 #include "mqtt.h"
@@ -64,49 +60,55 @@ unsigned long lastSensores = 0;
 #include "interrupciones.h"
 #include "robot_2sens.h"
 #include "robot_5sens.h"
+#include "cont_vel.h"
 
 
+/*-------------------------  SETUP  ------------------------*/
 void setup() {
  // Configuracion Inicial del ESP8266
-  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
-  pinMode(SWITCH_PIN, OUTPUT); //Inicializa el pin 2 (GPIO 16) como pin de salida.
+  pinMode(BUILTIN_LED, OUTPUT);       // Initialize the BUILTIN_LED pin as an output
+  pinMode(SWITCH_PIN, OUTPUT);        //Inicializa el pin 2 (GPIO 16) como pin de salida.
   digitalWrite(SWITCH_PIN, LOW);
-  pinMode(BUTTON_PIN, INPUT_PULLUP);//se declara el boton como entrada
+  pinMode(BUTTON_PIN, INPUT_PULLUP);  //se declara el boton como entrada
   attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), RTI, CHANGE); //activacion de la interrupcion 
-  Serial.begin(115200); // Puerto serie Establecimiento
-  setup_wifi(); //llamada a la funcion de config. del WiFi
+  Serial.begin(115200);               // Puerto serie Establecimiento
+  setup_wifi();                       //llamada a la funcion de config. del WiFi
 
-  FuncionActualizacion(); //LLamamos a la funcion para que actualice el programa
+  //Primera actualización
+  FuncionActualizacion();             //LLamamos a la funcion para que actualice el programa
 
+  //Configuracion Server MQTT y topics
   debugFunction ("Establecimiento de MQTT",1);
-  mqttSetup (); //Llamada a la funcion de setup de mqtt
-  mqttTopics(); // carga los topics 
-  dht.setup(DHT_PIN, DHTesp::DHT11); // Connect DHT sensor to GPIO 17
+  mqttSetup ();                       //Llamada a la funcion de setup de mqtt
+  mqttTopics();                       // carga los topics 
+  dht.setup(DHT_PIN, DHTesp::DHT11);  // Connect DHT sensor to GPIO 17
 
-  if(debug){
-    debugFunction ("Datos para debug",0);
-    tomaDatos(datos);
-    serializa_datos_JSON ().toCharArray (msg,512); // Serializacion de los datos del archivo json para su publicacion
+  //Indicador de la activación del modo debug (Se activa en config)
+  if(debug){                          //establecer manualmente debug en true para activarlo      
+    debugFunction ("Datos para debug",0); //texto enviado para el debug
     }
   
+}        // END SETUP
 
-}// END SETUP
 
 /*-------------------------  LOOP  ------------------------*/
 void loop() {
   
-  if (!client.connected()) // Comprobacion y reconexion (en caso de fallo) del cliente mqtt
+  if (!client.connected())                          // Comprobacion y reconexion (en caso de fallo) del cliente mqtt
   { 
     reconnect();
+    tomaDatos(datos);
+    serializa_datos_JSON ().toCharArray (msg,512);  // Serializacion de los datos del archivo json para su publicacion
+    client.publish(TOP_datos, msg, true);           //publicacion del mensaje "datos" como retenido al Inicializar la placa
   }
-  client.loop(); // look for new message in MQTTprotocol
+  client.loop();                                    // look for new message in MQTTprotocol
 
-  unsigned long now = millis(); // Toma del tiempo actual en ms
+  unsigned long now = millis();                     // Toma del tiempo actual en ms
   
 // END comprobacion y reconexion
 
-/*-------------------------  CONTROL LED  ------------------------*/
 
+/*-------------------------  CONTROL LED  ------------------------*/
   if (ready_led)
   {
       pulsos(); //Interpreta los pulsos de la interrupcion.

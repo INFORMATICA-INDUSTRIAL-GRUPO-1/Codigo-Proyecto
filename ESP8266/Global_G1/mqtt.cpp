@@ -44,14 +44,14 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
   char *mensaje=(char *)malloc(length+1); // reservo memoria para copia del mensaje
   strncpy(mensaje,(char*)payload,length); // copio el mensaje en cadena de caracteres
   
-  //Serial.print("Message arrived ["); //DEBUG por puerto Serie
-  //Serial.print(topic);
-  //Serial.print("] ");
-  //for (int i = 0; i < length; i++) {
-    //Serial.print((char)payload[i]);
-  //}
-  //Serial.println();
-
+ /* Serial.print("Message arrived ["); //DEBUG por puerto Serie
+  Serial.print(topic);
+  Serial.print("] ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+*/
   if(strcmp(topic,TOP_ledCmd)==0) //Comprobacion topic para led
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
@@ -194,6 +194,31 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       Serial.println("\"actualiza\" key not found in JSON");
     }
   } 
+  if(strcmp(topic,"infind/GRUPO1/PIERO/Modo")==0)
+  {
+      StaticJsonDocument<128> root; // el tamaño tiene que ser adecuado para el mensaje
+    // Deserialize the JSON document
+    DeserializationError error = deserializeJson(root, mensaje);
+
+    // Compruebo si no hubo error
+    if (error) {
+      Serial.print("Error deserializeJson() failed: ");
+      Serial.println(error.c_str());
+    }
+    else if(root.containsKey("Modo"))  // comprobar si existe el campo/clave que estamos buscando
+    {
+     modo = root["Modo"];
+     //Serial.print("Mensaje OK, orden = ");
+     //Serial.println(orden);
+     control_modo();
+    
+    }
+    else
+    {
+      Serial.print("Error : ");
+      Serial.println("\"modo\" key not found in JSON");
+    }
+  } 
   free(mensaje); // libero memoria
 
 }// END CALLBACK
@@ -210,13 +235,13 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
     datos.chipId= ESP.getChipId (); // Asegura que el chipId sea el correcto antes de utilizarlo en cada reconexion;
     clientId += String(datos.chipId) ; // establece el id del cliente mqtt
     debugFunction (clientId.c_str(),1);
-    sprintf (JSon_Msg,"{\"CHIPID\":\"%s\",\"online\":\"false\"} ",datos.chipId.c_str());
+    sprintf (JSon_Msg,"{\"CHIPID\":\"%s\",\"online\":\"false\",\"grupo\":\"%i\",\"placa\":\"%i\"}",datos.chipId.c_str(),grupo,placa);
        debugFunction("mqtt:set LWill to :",1);
       debugFunction(JSon_Msg,1);
     // Attempt to connect
     if (client.connect(clientId.c_str(),mqtt_user,mqtt_psw,TOP_conexion,0 ,true ,(const char*)JSon_Msg )) { //Establece la conexion al mqtt y configura LWT: "conexion:false"  //ej:  boolean rc = mqttClient.connect("myClientID", willTopic, willQoS, willRetain, willMessage); 
       
-       sprintf (JSon_Msg,"{\"CHIPID\":\"%s\",\"online\":\"true\"} ",datos.chipId.c_str());
+       sprintf (JSon_Msg,"{\"CHIPID\":\"%s\",\"online\":\"true\",\"grupo\":\"%i\",\"placa\":\"%i\"}",datos.chipId.c_str(),grupo,placa);
       debugFunction("mqtt:connected",1);
       debugFunction(JSon_Msg,1);
       // Once connected, publish an announcement...
@@ -229,8 +254,10 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       client.subscribe(TOP_config);
       client.subscribe(TOP_switchCmd);
       client.subscribe(TOP_FOTA);
+      client.subscribe("infind/GRUPO1/ESP0/broadcast"); // subscripcion a topic de broadcast
       client.subscribe("infind/GRUPO1/PIERO/Movimiento");
-     
+      client.subscribe("infind/GRUPO1/PIERO/Modo");
+      client.publish("infind/GRUPO1/ESP0/ack",(const char*)JSon_Msg,true); //publica el estado de la conexion el topic "ack" del broadcast
       client.publish(TOP_conexion,(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
     } else { // fallo en la conexion mqtt
       Serial.print("failed, rc=");

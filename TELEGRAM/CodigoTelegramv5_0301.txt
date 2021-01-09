@@ -1,0 +1,1853 @@
+[
+    {
+        "id": "acf855d7.4846e8",
+        "type": "tab",
+        "label": "TELEGRAM",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e8f2fe13.1b051",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "ultimo registro",
+        "func": "msg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "f5abfb2a.5f6058"
+            ]
+        ]
+    },
+    {
+        "id": "63d84077.3be7d",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1030,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7b92d5e1.f4c93c",
+        "type": "inject",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "f5abfb2a.5f6058"
+            ]
+        ]
+    },
+    {
+        "id": "18912602.9eee2a",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "mensaje respuesta temperatura",
+        "func": "var temp=msg.payload[0].DHT11.temp\nvar fecha=msg.payload[0].date\nmsg.payload.chatId=flow.get('Usuario' || 0);\nmsg.payload.type=\"message\";\nmsg.payload.content=\"La temperatura es de \"+temp+\"ºC.\\nEste dato fue obtenido el \"+fecha+\"\";\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 970,
+        "y": 660,
+        "wires": [
+            [
+                "7e930c52.818494"
+            ]
+        ]
+    },
+    {
+        "id": "2992ec4.3340114",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/Temperatura",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 130,
+        "y": 600,
+        "wires": [
+            [
+                "70cc8f0e.a728b"
+            ]
+        ]
+    },
+    {
+        "id": "550a029e.af04ac",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/help",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 250,
+        "y": 340,
+        "wires": [
+            [
+                "32dc0205.bf8f0e"
+            ]
+        ]
+    },
+    {
+        "id": "7e930c52.818494",
+        "type": "telegram sender",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "bot": "54e8ef56.3ba2a",
+        "x": 1270,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c16c71d6.29692",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "+ fecha",
+        "func": "msg.payload.date = new Date();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 80,
+        "wires": [
+            [
+                "1070d1b1.c29d0e"
+            ]
+        ]
+    },
+    {
+        "id": "e351f64.8645308",
+        "type": "json",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 40,
+        "wires": [
+            [
+                "6b8efb4a.4455a4",
+                "c16c71d6.29692"
+            ]
+        ]
+    },
+    {
+        "id": "6b8efb4a.4455a4",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 550,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "bc647db4.02f23",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/apaga",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 130,
+        "y": 1020,
+        "wires": [
+            [
+                "a4dbb453.656938"
+            ]
+        ]
+    },
+    {
+        "id": "14237388.7f19cc",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/enciende",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 200,
+        "y": 1200,
+        "wires": [
+            [
+                "558b451a.5c409c"
+            ]
+        ]
+    },
+    {
+        "id": "66cdda60.51f804",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Identifica si llega mensaje de intensidad",
+        "func": "//guardo información de telegram\n//monto mensaje para dispositivo\nmsg.telegram=msg.payload;\nvar intensidad= msg.payload.content\nvar id = String(new Date().getTime());\nif(intensidad> 0 || intensidad<=100){\n    msg.payload={\"level\":intensidad,\"id\":id};\n    msg.topic=\"infind/GRUPO1/led/cmd\";\n// información para la función que registra la operación\nmsg.orden=true;\nmsg.id=id;\nreturn msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 1080,
+        "wires": [
+            [
+                "be729124.22d9d",
+                "70f19cea.03f274"
+            ]
+        ]
+    },
+    {
+        "id": "49d0801f.f2719",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/estado",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 150,
+        "y": 880,
+        "wires": [
+            [
+                "b7c7a931.fe0228",
+                "23d59169.4af8ae"
+            ]
+        ]
+    },
+    {
+        "id": "b7c7a931.fe0228",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "estado en variable flow",
+        "func": "//recupero estado almacenado en flow\nvar respuesta=flow.get(\"estado\") || {\"orden\":\"No definido\",\"id\":0};\n//monto respuesta telegram\nmsg.payload.content=\"Estado del LED : \"+respuesta.led+\"\\n\";\n//var fecha2= JSON(respuesta.id);\n//var fecha = new Date(fecha2);\n//var hora=fecha.toLocaleTimeString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n//var dia =fecha.toLocaleDateString('es-ES', { timeZone: 'Europe/Madrid' });\n//msg.payload.content+=\"Consultado : \"+hora+\" (\"+dia+\")\";\nreturn msg; // send message to telegram\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 960,
+        "wires": [
+            [
+                "342d6ff8.433a4",
+                "ef42360.6fc97c8"
+            ]
+        ]
+    },
+    {
+        "id": "80a0e4fd.eec4f8",
+        "type": "comment",
+        "z": "acf855d7.4846e8",
+        "name": "Respuesta del dispositivo",
+        "info": "",
+        "x": 170,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "b005cb0f.1534d8",
+        "type": "comment",
+        "z": "acf855d7.4846e8",
+        "name": "Control del LED",
+        "info": "",
+        "x": 140,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "32dc0205.bf8f0e",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "mensaje bienvenida",
+        "func": "if(msg.payload.content.substring(0,1)!=\"/\")\n{\n msg.payload.content=\"Hola \"+msg.originalMessage.from.first_name+\" soy un bot ejecutando en NodeRED diseñado por el Grupo 1 de  Informática Industrial!Puedo responderte a estos comandos:\\n\";\n msg.payload.content+=\"/led - Te indico los distintos comandos relacionados con el control del estado del LED\\n\";\n msg.payload.content+=\"/Sensores - Te indico los distintos comandos relacionados con los sensores que tenemos disponibles\\n\";\n msg.payload.content+=\"/ListaComandos - Te indico todos los comandos disponibles.\\n\";\n msg.payload.content+=\"/ComandosRobot - Te indico todos los comandos relacionados con el control del robot PIERO\\n\";\n return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 340,
+        "wires": [
+            [
+                "7e930c52.818494",
+                "f84e0673.9000b8"
+            ]
+        ]
+    },
+    {
+        "id": "b3173a63.ea4cd8",
+        "type": "telegram sender",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "bot": "54e8ef56.3ba2a",
+        "x": 1190,
+        "y": 1800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7226f3e8.68ef9c",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "func": "msg.payload={};\n\nmsg.payload.chatId=-1001354631151;\nmsg.payload.type=\"message\";\nmsg.payload.content=\"El bot publica correctamente\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 1800,
+        "wires": [
+            [
+                "b3173a63.ea4cd8"
+            ]
+        ]
+    },
+    {
+        "id": "dc220e3a.4b2c6",
+        "type": "inject",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 680,
+        "y": 1800,
+        "wires": [
+            [
+                "7226f3e8.68ef9c"
+            ]
+        ]
+    },
+    {
+        "id": "143b3d75.6af3f3",
+        "type": "mqtt in",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "topic": "infind/GRUPO1/datos",
+        "qos": "2",
+        "broker": "2153e9d2.a2ed96",
+        "x": 140,
+        "y": 40,
+        "wires": [
+            [
+                "e351f64.8645308"
+            ]
+        ]
+    },
+    {
+        "id": "1070d1b1.c29d0e",
+        "type": "mongodb out",
+        "z": "acf855d7.4846e8",
+        "mongodb": "f6aa35a5.912c28",
+        "name": "",
+        "collection": "II1",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "store",
+        "x": 797,
+        "y": 109,
+        "wires": []
+    },
+    {
+        "id": "70f19cea.03f274",
+        "type": "mqtt out",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "topic": "infind/GRUPO1/led/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 1130,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "f5abfb2a.5f6058",
+        "type": "mongodb in",
+        "z": "acf855d7.4846e8",
+        "mongodb": "f6aa35a5.912c28",
+        "name": "",
+        "collection": "II1",
+        "operation": "find",
+        "x": 680,
+        "y": 200,
+        "wires": [
+            [
+                "63d84077.3be7d"
+            ]
+        ]
+    },
+    {
+        "id": "e4c5bac3.5a7968",
+        "type": "mongodb in",
+        "z": "acf855d7.4846e8",
+        "mongodb": "f6aa35a5.912c28",
+        "name": "",
+        "collection": "II1",
+        "operation": "find",
+        "x": 640,
+        "y": 660,
+        "wires": [
+            [
+                "18912602.9eee2a"
+            ]
+        ]
+    },
+    {
+        "id": "3e94fe60.b6d972",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/Humedad",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 120,
+        "y": 740,
+        "wires": [
+            [
+                "c910aec0.6652d"
+            ]
+        ]
+    },
+    {
+        "id": "c953f026.3c5f4",
+        "type": "inject",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "e8f2fe13.1b051"
+            ]
+        ]
+    },
+    {
+        "id": "70cc8f0e.a728b",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Indica Orden Temperatura",
+        "func": "//Filtro la base de datos y almaceno el chatId\nflow.set('Usuario',msg.payload.chatId)\nmsg.payload = {};\nmsg.sort = {\"date\" : -1};\nmsg.limit = 1;\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 660,
+        "wires": [
+            [
+                "e4c5bac3.5a7968"
+            ]
+        ]
+    },
+    {
+        "id": "5f4eafce.43c9b",
+        "type": "mqtt in",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "topic": "infind/GRUPO1/led/status",
+        "qos": "2",
+        "broker": "2153e9d2.a2ed96",
+        "x": 150,
+        "y": 1440,
+        "wires": [
+            [
+                "5d646fc4.b39b3",
+                "52716fd5.6ff5"
+            ]
+        ]
+    },
+    {
+        "id": "be729124.22d9d",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Registra orden/espera respuesta",
+        "func": "/*\nEsta función recibe dos tipos de mensajes. Cuando se ordena un cambio en el led, \nque se trata en la parte then del if. Y cuando se recibe la confirmación del cambio, \nque se trata en la parte else del if.\nEn el primer caso (then), programamos un timeout de 3 segundos que dará un mensaje \nde error si no se recibe la confirmación. Y guardamos la información necesaria para \nhacer las gestiones posteriores.\nEn el segundo caso (else) se compruena si había una confirmación pendiente, se cancela el \ntemporizador de timeout y se da el mensaje correspondiente.\n\nEsto es un ejemplo de uso de temporizadores y almacenamiento en el contexto de un nodo función.\nTambién se muestra cómo asignar un estado al nodo.\n*/\n\n//Estas funciones son básicamente por si hubiera usuarios simultáneos\nfunction localiza_operacion(lista_operaciones, id)\n{\n    for(var i=0; i<lista_operaciones.length; i++)\n    {\n        if(lista_operaciones[i].id==id) return i;\n    }\n    return -1;\n}\n\nfunction elimina_operacion(lista_operaciones, index)\n{\n    lista_operaciones.splice(index,1);\n    context.set(\"lista_operaciones\",lista_operaciones);\n}\n\n\nif(msg.orden)\n{ // es una orden\n    var id_operacion = msg.id;\n    node.status({fill:\"yellow\", shape:\"ring\", text:\"Wait\"}); // estado del nodo\n    var id_timeout= setTimeout(function(id){    // timeout de 3 segundos\n        // is expira el temporizador, el dispositivo no responde\n        node.warn(\"ATENCION: Operacion \"+id+\" timeout\")\n        node.status({fill:\"red\", shape:\"ring\", text:\"Timeout\"});\n        //busca operación en la lista\n        var lista_operaciones = context.get(\"lista_operaciones\") || [];\n        var index=localiza_operacion(lista_operaciones, id)\n        if(index>=0)\n        {\n            msg.payload=lista_operaciones[index].telegram_info; // restaurar info telegram (chatid)\n            msg.payload.content=\"Error timeout: dispositivo no responde (id:\"+id+\")\";\n            elimina_operacion(lista_operaciones, index);\n            node.send(msg); // envía mensaje a telegram\n        }\n        else\n            node.warn(\"ATENCION: Operacion \"+id+\" no está en la lista\") \n    }, 10000, id_operacion); \n    //añade operación a la lista\n    var lista_operaciones = context.get(\"lista_operaciones\") || [];\n    var nueva_operacion = \n      {\"id\":id_operacion, \"id_timeout\":id_timeout,\"telegram_info\":msg.telegram};\n    lista_operaciones.push(nueva_operacion);\n    context.set(\"lista_operaciones\",lista_operaciones);\n    node.warn(\"Registrada nueva operación \"+id_operacion);\n    msg.payload=msg.telegram;\n    msg.payload.content=\"Orden enviada (id:\"+id_operacion+\")\";\n    return msg;\n}\nelse\n{ // es una confirmación\n    //busca operación con esta id en la lista\n    var id=msg.payload.id;\n    var lista_operaciones = context.get(\"lista_operaciones\") || [];\n    var index=localiza_operacion(lista_operaciones, id)\n    if(index>=0) // orden localizada\n    {\n        clearTimeout(lista_operaciones[index].id_timeout); // cancelo el temporizador\n        var status=msg.payload.led;\n        msg.payload=lista_operaciones[index].telegram_info; // restaura info telegram (chatid)\n        msg.payload.content=\"Respuesta del dispositivo a la orden (id:\"+id+\"), LED : \"+status;\n        elimina_operacion(lista_operaciones, index)\n        node.warn(\"Procesada respuesta operación \"+id);\n        setTimeout(function(){  // cambio estado del nodo 1.5s después para que se vea el estado anterior\n            node.status({fill:\"green\", shape:\"ring\", text:\"Ok\"});\n        }, 10000);\n        return msg; // enviar mensaje a telegram\n    }\n    else\n        node.warn(\"ATENCION: Operacion \"+id+\" no está en la lista\")\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 880,
+        "y": 1180,
+        "wires": [
+            [
+                "c593d258.44e6f",
+                "ef42360.6fc97c8"
+            ]
+        ]
+    },
+    {
+        "id": "23826186.58dd4e",
+        "type": "change",
+        "z": "acf855d7.4846e8",
+        "name": "guarda estado",
+        "rules": [
+            {
+                "t": "set",
+                "p": "estado",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 1440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9cee2e02.a0327",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 630,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "5d646fc4.b39b3",
+        "type": "json",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 410,
+        "y": 1400,
+        "wires": [
+            [
+                "be729124.22d9d",
+                "23826186.58dd4e",
+                "9cee2e02.a0327"
+            ]
+        ]
+    },
+    {
+        "id": "f84e0673.9000b8",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 870,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "84492443.41f588",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "mensaje respuesta humedad",
+        "func": "var hum=msg.payload[0].DHT11.hum\nvar fecha=msg.payload[0].date\nmsg.payload.chatId=flow.get('Usuario' || 0);\nmsg.payload.type=\"message\";\nmsg.payload.content=\"La humedad relativa es de \"+hum+\"%.\\nEste dato fue obtenido el \"+fecha+\"\";\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 940,
+        "y": 740,
+        "wires": [
+            [
+                "7e930c52.818494"
+            ]
+        ]
+    },
+    {
+        "id": "575a0457.62d67c",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Humedad mayor que 90 %",
+        "func": "var humedad = msg.payload.DHT11.hum\nif(humedad >= 95)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Alerta! La humedad ha alcanzado un valor de \"+humedad+ \" % \\n\";\n\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1000,
+        "y": 40,
+        "wires": [
+            [
+                "de2aec1a.95203"
+            ]
+        ]
+    },
+    {
+        "id": "de2aec1a.95203",
+        "type": "telegram sender",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "bot": "54e8ef56.3ba2a",
+        "x": 1383.8964538574219,
+        "y": 43.88884782791138,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a063fc52.863d2",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Temperatura mayor que 25ºC",
+        "func": "var temperatura = msg.payload.DHT11.Temp\n\nif(temperatura >= 30)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Uy! Ten cuidado que hace una temperatura de  \"+temperatura+ \"ºC. No olvides hidratarte! \\n\";\n\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1060,
+        "y": 100,
+        "wires": [
+            [
+                "3f7f4fc.79bf7b"
+            ]
+        ]
+    },
+    {
+        "id": "3f7f4fc.79bf7b",
+        "type": "telegram sender",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "bot": "54e8ef56.3ba2a",
+        "x": 1349.8965911865234,
+        "y": 133.8888063430786,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bbe7f431.2b72a8",
+        "type": "comment",
+        "z": "acf855d7.4846e8",
+        "name": "CHAT DIFUSIÓN TELEGRAM",
+        "info": "",
+        "x": 780,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "52716fd5.6ff5",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 410,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "c593d258.44e6f",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1130,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "23d59169.4af8ae",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 470,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "af815e93.df5bb",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/consulta",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "70cc8f0e.a728b",
+                "c910aec0.6652d"
+            ]
+        ]
+    },
+    {
+        "id": "6861516.9eb3bb",
+        "type": "mongodb in",
+        "z": "acf855d7.4846e8",
+        "mongodb": "f6aa35a5.912c28",
+        "name": "",
+        "collection": "II1",
+        "operation": "find",
+        "x": 640,
+        "y": 740,
+        "wires": [
+            [
+                "84492443.41f588"
+            ]
+        ]
+    },
+    {
+        "id": "c910aec0.6652d",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Indica Orden Humedad",
+        "func": "//Filtro la base de datos y almaceno el chatId\nflow.set('Usuario',msg.payload.chatId)\nmsg.payload = {};\nmsg.sort = {\"date\" : -1};\nmsg.limit = 1;\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 740,
+        "wires": [
+            [
+                "6861516.9eb3bb"
+            ]
+        ]
+    },
+    {
+        "id": "342d6ff8.433a4",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 730,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "4e63f967.6e2988",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/media",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 110,
+        "y": 800,
+        "wires": [
+            [
+                "8300a595.8112b8"
+            ]
+        ]
+    },
+    {
+        "id": "128d48d2.753997",
+        "type": "mongodb in",
+        "z": "acf855d7.4846e8",
+        "mongodb": "f6aa35a5.912c28",
+        "name": "",
+        "collection": "II1",
+        "operation": "find",
+        "x": 720,
+        "y": 800,
+        "wires": [
+            [
+                "723ae25e.36c04c",
+                "3bb86ab6.e42886"
+            ]
+        ]
+    },
+    {
+        "id": "723ae25e.36c04c",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "mensaje respuesta media",
+        "func": "\nvar humedadmedia=0;\nvar temperaturamedia=0;\nvar valorestotales= msg.payload.length;\n for (var i = 0; i < msg.payload.length; i++)\n{\n    humedadmedia=humedadmedia + msg.payload[i].DHT11.hum;\n    temperaturamedia=temperaturamedia+msg.payload[i].DHT11.temp;\n}\ntemperaturamedia=temperaturamedia/i;\nhumedadmedia=humedadmedia/i;\nmsg.payload = {};\nmsg.payload.chatId=flow.get('Usuario' || 0);\nmsg.payload.type=\"message\";\nmsg.payload.content=\"Segun una estimación entre los datos recibidos en un periodo de treinta minutos, la humedad relativa media es de \"+humedadmedia+\"% y la temperatura media es de \"+temperaturamedia+\"ºC.\\n El numero de datos totales estimados fue de \"+valorestotales+\"\"; \n\n\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1030,
+        "y": 800,
+        "wires": [
+            [
+                "7e930c52.818494",
+                "5a5369c6.7da1c8"
+            ]
+        ]
+    },
+    {
+        "id": "3bb86ab6.e42886",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 970,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "8300a595.8112b8",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Consulta intervalo 5 y 15 mins",
+        "func": "var ms_per_minute = 60000;\n//obtiene el timestamp actual\nvar now_ms = new Date().getTime();\nflow.set('Usuario',msg.payload.chatId)\n//crear objeto con hora de hace 5 mins\nvar oneminago = new Date(now_ms-ms_per_minute);\n\nvar treintaminsago = new Date(now_ms-30*ms_per_minute);\n\n\n// selecciona fecha posterior o igual a 5 mins\nmsg.payload ={\"$and\": [{\"date\": {\"$lte\": oneminago}}, {\"date\": {\"$gte\": treintaminsago}}]}; \nmsg.sort = {\"date\":1} ;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 410,
+        "y": 800,
+        "wires": [
+            [
+                "128d48d2.753997"
+            ]
+        ]
+    },
+    {
+        "id": "5a5369c6.7da1c8",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1270,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "558b451a.5c409c",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Mensaje a Usuario",
+        "func": "\n msg.payload.content=\"Has seleccionado encender el led. Porfavor, responde a este mensaje, indicando de 0 a 100, la intensidad con la que quieres encender el led. Si quieres encenderlo al máximo, tu mensaje sería: 100\";\n return msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 410,
+        "y": 1180,
+        "wires": [
+            [
+                "ef42360.6fc97c8"
+            ]
+        ]
+    },
+    {
+        "id": "d8d595ae.42a778",
+        "type": "telegram receiver",
+        "z": "acf855d7.4846e8",
+        "name": "uWubot",
+        "bot": "54e8ef56.3ba2a",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 130,
+        "y": 1080,
+        "wires": [
+            [
+                "66cdda60.51f804"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a4dbb453.656938",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Apaga el led",
+        "func": "//guardo información de telegram\nmsg.telegram=msg.payload;\n//monto mensaje para dispositivo\nvar id = String(new Date().getTime());\nif(msg.originalMessage.text==\"/apaga\" || msg.originalMessage.text==\"/apaga@UwU87bot\")\n{\n    msg.payload={\"level\":0,\"id\":id};\n    msg.topic=\"infind/GRUPO1/led/cmd\";\n// información para la función que registra la operación\nmsg.orden=true;\nmsg.id=id;\nreturn msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 1020,
+        "wires": [
+            [
+                "70f19cea.03f274",
+                "be729124.22d9d"
+            ]
+        ]
+    },
+    {
+        "id": "cec74165.c3f62",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/Sensores",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 240,
+        "y": 400,
+        "wires": [
+            [
+                "7576d63f.5eb588"
+            ]
+        ]
+    },
+    {
+        "id": "7576d63f.5eb588",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Funcion Sensores info",
+        "func": "\n msg.payload.content=\"Hola \"+msg.originalMessage.from.first_name+\". Te indico que comandos te indican informacion sobre los sensores. \\n\";\n msg.payload.content+=\"/Temperatura - te indica el ultimo dato respecto a la temperatura registrada por el DHT-11\\n\";\n msg.payload.content+=\"/Humedad    - te indica el ultimo dato respecto a la humedad registrada por el DHT-11\\n\";\n msg.payload.content+=\"/consulta   - Te indico simultaneamente el ultimo dato registrado por cada sensor.\\n\";\n msg.payload.content+=\"/media   - Te indico la media de la humedad y la temperatura registrada la ultima media hora.\\n\";\n msg.payload.content+=\"/ConsultaHistorica - Te permito realizar una consulta con respecto a dias atras, donde te informaré sobre distintos aspectos de la humedad y la temperatura registrados en el periodo que me indiques.\\n\"\n msg.payload.content+=\"/ConsultaHistorica - Te genero un excel con respecto a dias atras, donde te informaré sobre distintos aspectos de la humedad y la temperatura registrados en el periodo que me indiques.\\n\"\n return msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "7e930c52.818494"
+            ]
+        ]
+    },
+    {
+        "id": "97d3f66.906eb08",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/ListaComandos",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 220,
+        "y": 460,
+        "wires": [
+            [
+                "5c774441.9caeec"
+            ]
+        ]
+    },
+    {
+        "id": "5c774441.9caeec",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Funcion Lista Comandos",
+        "func": "\n msg.payload.content=\"Hola \"+msg.originalMessage.from.first_name+\". Te indico todos los comandos de los que dispongo... Usa este poder sabiamente. \\n\";\n msg.payload.content+=\"/Sensores - Te indico los distintos comandos relacionados con los sensores que tenemos disponibles\\n\";\n msg.payload.content+=\"/Temperatura - te indica el ultimo dato respecto a la temperatura registrada por el DHT-11\\n\";\n msg.payload.content+=\"/Humedad    - te indica el ultimo dato respecto a la humedad registrada por el DHT-11\\n\";\n msg.payload.content+=\"/consulta   - Te indico simultaneamente el ultimo dato registrado por cada sensor.\\n\";\n msg.payload.content+=\"/media   - Te indico la media de la humedad y la temperatura registrada la ultima media hora.\\n\";\n msg.payload.content+=\"/led - Te indico los distintos comandos relacionados con el control del estado del LED\\n\";\n msg.payload.content+=\"/enciende - enciende el led rojo a la intensidad que me indiques\\n\";\n msg.payload.content+=\"/apaga    - apaga el led rojo\\n\";\n msg.payload.content+=\"/estado   - Te indico el ultimo estado del led, indicando 0 que esta apagado, y 100 que esta encendido con maxima luminosidad.\\n\";\n msg.payload.content+=\"/ConsultaHistorica - Te permito realizar una consulta con respecto a dias atras, donde te informaré sobre distintos aspectos de la humedad y la temperatura registrados en el periodo que me indiques.\\n\"\n msg.payload.content+=\"/PieroManual - te permite controlar el robot de forma manual mediante diferentes órdenes\\n\";\n msg.payload.content+=\"/PieroAutomatico   -Activa el modo de funcionamiento automático de PIERO, donde el solo se encargará de evitar obstáculos.\\n\";\n msg.payload.content+=\"/Salir    - al activarlo, PIERO pasa a modo reposo.\\n\";\n return msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 530,
+        "y": 460,
+        "wires": [
+            [
+                "7e930c52.818494"
+            ]
+        ]
+    },
+    {
+        "id": "53a4320e.09233c",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Funcion Control Led",
+        "func": "\n msg.payload.content=\"Hola \"+msg.originalMessage.from.first_name+\". Te indico que comandos te ayudan a controlar el estado del led. \\n\";\n msg.payload.content+=\"/enciende - enciende el led rojo a la intensidad que me indiques\\n\";\n msg.payload.content+=\"/apaga    - apaga el led rojo\\n\";\n msg.payload.content+=\"/estado   - Te indico el ultimo estado del led, indicando 0 que esta apagado, y 100 que esta encendido con maxima luminosidad.\\n\";\n return msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 520,
+        "y": 580,
+        "wires": [
+            [
+                "7e930c52.818494"
+            ]
+        ]
+    },
+    {
+        "id": "bafeab6a.a0b708",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/led",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 330,
+        "y": 580,
+        "wires": [
+            [
+                "53a4320e.09233c"
+            ]
+        ]
+    },
+    {
+        "id": "840e78db.251bf8",
+        "type": "telegram sender",
+        "z": "acf855d7.4846e8",
+        "name": "show keyboard",
+        "bot": "54e8ef56.3ba2a",
+        "x": 660,
+        "y": 2000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71b3674.d0d9f98",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Creamos pregunta para el keyboard",
+        "func": "\ncontext.global.keyboard = { pending : true };\n\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [\n      ['Ayer'],\n      ['Hace siete dias'],\n      ['Hace dos dias']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : true\n  })\n};\n\nmsg.payload.content = '¿Con que antigüedad deseas realizar la consulta?';\nmsg.payload.options = opts;\nreturn [ msg ];\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 310,
+        "y": 2020,
+        "wires": [
+            [
+                "840e78db.251bf8"
+            ]
+        ]
+    },
+    {
+        "id": "e0d40ec7.a12fb",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "/excel",
+        "command": "/excel",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": true,
+        "useRegex": false,
+        "x": 70,
+        "y": 2100,
+        "wires": [
+            [
+                "71b3674.d0d9f98",
+                "88bf6bbe.f29308"
+            ],
+            [
+                "79036b3e.1f3d34"
+            ]
+        ]
+    },
+    {
+        "id": "79036b3e.1f3d34",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Respondemos",
+        "func": "// fecha por defecto es hoy\nvar now_ms = new Date().getTime();\nvar ahora = new Date();\nvar ms_per_minute = 60000;\nvar desde2;\n\nif (context.global.keyboard.pending) {\n    context.global.keyboard.pending = false;\n    \n    if(msg.payload.content === 'Ayer') {\n        desde2=ahora.getTime()-ms_per_minute*1440; //un dia tiene 1440 minutos\n    }\n    else if(msg.payload.content === 'Hace dos dias')     {\n        desde2=ahora.getTime()-ms_per_minute*1440*2; //un dia tiene 1440 minutos. Dos dias, el doble. \n    }\n    else if(msg.payload.content === 'Hace siete dias')   {\n        desde2=ahora.getTime()-ms_per_minute*1440*7 //numero de min de 1 dia * 7 dias\n    }\n}\n\n\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(desde2);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),0,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),23,59,59,999);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"_id\": 0,\n        \"date\": 1,\n        \"temperatura\": \"$DHT11.temp\",\n        \"humedad\": \"$DHT11.hum\",\n        }\n    },\n    { \"$sort\": {\"date\": 1} }\n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 2160,
+        "wires": [
+            [
+                "8dda2628.8c4418"
+            ]
+        ]
+    },
+    {
+        "id": "8dda2628.8c4418",
+        "type": "mongodb in",
+        "z": "acf855d7.4846e8",
+        "mongodb": "f6aa35a5.912c28",
+        "name": "",
+        "collection": "II1",
+        "operation": "aggregate",
+        "x": 580,
+        "y": 2160,
+        "wires": [
+            [
+                "ce44ca75.6db588",
+                "52bf0958.887f68"
+            ]
+        ]
+    },
+    {
+        "id": "ce44ca75.6db588",
+        "type": "csv",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "sep": ";",
+        "hdrin": "",
+        "hdrout": true,
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "date, temperatura, humedad",
+        "skip": 0,
+        "x": 1030,
+        "y": 2180,
+        "wires": [
+            [
+                "aa6ce93.655f918",
+                "8a1e868.3b9f478"
+            ]
+        ]
+    },
+    {
+        "id": "aa6ce93.655f918",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1070,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "f3f4246e.3891c8",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1290,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "52bf0958.887f68",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 770,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "ef42360.6fc97c8",
+        "type": "telegram sender",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "bot": "54e8ef56.3ba2a",
+        "x": 1010,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5976ca0b.222574",
+        "type": "telegram sender",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "bot": "54e8ef56.3ba2a",
+        "x": 1570,
+        "y": 2280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "88bf6bbe.f29308",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Guarda Usuario",
+        "func": "//Filtro la base de datos y almaceno el chatId\nflow.set('Usuario',msg.payload.chatId)\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 2240,
+        "wires": [
+            [
+                "66fdfb0.45bdd04"
+            ]
+        ]
+    },
+    {
+        "id": "66fdfb0.45bdd04",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 610,
+        "y": 2240,
+        "wires": []
+    },
+    {
+        "id": "84ce8cbd.70e7e",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "/ConsultaHistorica",
+        "command": "/ConsultaHistorica",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": true,
+        "useRegex": false,
+        "x": 130,
+        "y": 2420,
+        "wires": [
+            [
+                "78a63963.eef668",
+                "f01d3a0.b32aec8"
+            ],
+            [
+                "20ca8d8b.dbfb12"
+            ]
+        ]
+    },
+    {
+        "id": "78a63963.eef668",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Creamos pregunta para el keyboard",
+        "func": "\ncontext.global.keyboard = { pending : true };\n\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [\n      ['Ayer','Hoy'],\n      ['Hace siete dias'],\n      ['Hace dos dias']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : true\n  })\n};\n\nmsg.payload.content = '¿Con que antigüedad deseas realizar la consulta?';\nmsg.payload.options = opts;\nreturn [ msg ];\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 410,
+        "y": 2340,
+        "wires": [
+            [
+                "9d12a4c3.57cbb8"
+            ]
+        ]
+    },
+    {
+        "id": "9d12a4c3.57cbb8",
+        "type": "telegram sender",
+        "z": "acf855d7.4846e8",
+        "name": "show keyboard",
+        "bot": "54e8ef56.3ba2a",
+        "x": 680,
+        "y": 2340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "20ca8d8b.dbfb12",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Respondemos",
+        "func": "// fecha por defecto es hoy\nvar now_ms = new Date().getTime();\nvar ahora = new Date();\nvar ms_per_minute = 60000;\nvar desde2;\n\nif (context.global.keyboard.pending) {\n    context.global.keyboard.pending = false;\n    \n    if(msg.payload.content === 'Ayer') {\n        desde2=ahora.getTime()-ms_per_minute*1440; //un dia tiene 1440 minutos\n    }\n    else if(msg.payload.content==='Hoy'){\n        \n        desde2=ahora;\n    }\n    else if(msg.payload.content === 'Hace dos dias')     {\n        desde2=ahora.getTime()-ms_per_minute*1440*2; //un dia tiene 1440 minutos. Dos dias, el doble. \n    }\n    else if(msg.payload.content === 'Hace siete dias')   {\n        desde2=ahora.getTime()-ms_per_minute*1440*7 //numero de min de 1 dia * 7 dias\n    }\n}\n\n\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(desde2);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),0,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),23,59,59,999);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"temperatura\": \"$DHT11.temp\",\n        \"humedad\":\"$DHT11.hum\"\n        }\n    },\n    { \"$group\": {\n        \"_id\": 0,\n        \"Tmedia\":{\"$avg\":\"$temperatura\"},\n        \"Tmax\":  {\"$max\":\"$temperatura\"},\n        \"Tmin\":  {\"$min\":\"$temperatura\"},\n        \"Hmedia\":{\"$avg\":\"$humedad\"},\n        \"Hmax\":  {\"$max\":\"$humedad\"},\n        \"Hmin\":  {\"$min\":\"$humedad\"},\n        \"datos\": {\"$sum\":1}\n    }}\n];\n\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 2440,
+        "wires": [
+            [
+                "c3e1c0fc.af8ce"
+            ]
+        ]
+    },
+    {
+        "id": "c3e1c0fc.af8ce",
+        "type": "mongodb in",
+        "z": "acf855d7.4846e8",
+        "mongodb": "f6aa35a5.912c28",
+        "name": "",
+        "collection": "II1",
+        "operation": "aggregate",
+        "x": 620,
+        "y": 2440,
+        "wires": [
+            [
+                "3b39e5b0.ea78da",
+                "fbd94006.06591"
+            ]
+        ]
+    },
+    {
+        "id": "3b39e5b0.ea78da",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "mensaje respuesta agreg",
+        "func": "var tmedia=msg.payload[0].Tmedia\nvar tmax= msg.payload[0].Tmax\nvar tmin= msg.payload[0].Tmin\nvar hmedia=msg.payload[0].Hmedia\nvar hmax= msg.payload[0].Hmax\nvar hmin= msg.payload[0].Hmin\nvar datos= msg.payload[0].datos\n\nmsg.payload.chatId=flow.get('Usuario' || 0);\nmsg.payload.type=\"message\";\nmsg.payload.content=\"La temperatura media es de \"+tmedia+\"ºC.\\nLa temperatura maxima fue de \"+tmax+\"ºC y la minima fue de \"+tmin+\"ºC.\\nRespecto a la humedad, la humedad media es de \"+hmedia+\". La humedad maxima fue de \"+hmax+\"% y la humedad minima fue de \"+hmin+\"%. Se han consultado un total de \"+datos+\" datos.\\n\";\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 2440,
+        "wires": [
+            [
+                "5976ca0b.222574"
+            ]
+        ]
+    },
+    {
+        "id": "fbd94006.06591",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 930,
+        "y": 2360,
+        "wires": []
+    },
+    {
+        "id": "f01d3a0.b32aec8",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Guarda Usuario",
+        "func": "//Filtro la base de datos y almaceno el chatId\nflow.set('Usuario',msg.payload.chatId)\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 2520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f6f2158.10222",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "/PieroManual",
+        "command": "/PieroManual",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": true,
+        "useRegex": false,
+        "x": 110,
+        "y": 2720,
+        "wires": [
+            [
+                "51409a03.0b4134",
+                "6c61b7e5.ce61d8",
+                "351c7bec.ae1494"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "51409a03.0b4134",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Creamos pregunta para el keyboard",
+        "func": "\ncontext.global.keyboard = { pending : true };\n\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [\n      ['W'],\n      ['A','S','D'],\n      ['STOP'],\n      ['/Salir']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : false\n  })\n};\n\nmsg.payload.content = 'W - Avanza hacia delante\\n A - Gira hacia la izquierda\\n D- Gira hacia la derecha \\n S- Reduce velocidad \\n Stop- Para el PIERO\\n -/Salir-Salir del modo de conduccion manual';\nmsg.payload.options = opts;\nreturn [ msg ];\n\n\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 490,
+        "y": 2740,
+        "wires": [
+            [
+                "2cddda9b.11eb36",
+                "775932f3.75c40c"
+            ]
+        ]
+    },
+    {
+        "id": "775932f3.75c40c",
+        "type": "telegram sender",
+        "z": "acf855d7.4846e8",
+        "name": "show keyboard",
+        "bot": "54e8ef56.3ba2a",
+        "x": 860,
+        "y": 2740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e9a5ab9f.8e7b48",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Robot Movimiento",
+        "func": "// fecha por defecto es hoy\n\nif (context.global.keyboard.pending) {\n    \n    if(msg.payload.content === 'W') {\n        msg.payload={};\n        msg.payload={\"orden\": 8};\n        return msg;\n\n    }\n    else if(msg.payload.content==='A'){\n        msg.payload={};\n        msg.payload={\"orden\": 4};\n        return msg;\n    }\n    else if(msg.payload.content === 'S')     {\n        msg.payload={};\n        msg.payload={\"orden\": 2};\n        return msg;\n    }\n    else if(msg.payload.content === 'D')   {\n        msg.payload={};\n        msg.payload={\"orden\": 6};\n        return msg;\n    }\n    else if(msg.payload.content === 'STOP')   {\n        msg.payload={};\n        msg.payload={\"orden\": 0};\n        return msg;\n    }\n    else if(msg.payload.content === '/Salir')   {\n        msg.payload={};\n        msg.payload={\"orden\": 0};\n        context.global.keyboard.pending = false;\n        return msg;\n        \n    }\n}\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 410,
+        "y": 2900,
+        "wires": [
+            [
+                "da33911.c12be7",
+                "225a0cd.ab9f7f4"
+            ]
+        ]
+    },
+    {
+        "id": "6c61b7e5.ce61d8",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Guarda Usuario",
+        "func": "//Filtro la base de datos y almaceno el chatId\nflow.set('Usuario',msg.payload.chatId)\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 2680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da33911.c12be7",
+        "type": "mqtt out",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "topic": "infind/GRUPO1/PIERO/Movimiento",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 700,
+        "y": 3040,
+        "wires": []
+    },
+    {
+        "id": "2cddda9b.11eb36",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 870,
+        "y": 2680,
+        "wires": []
+    },
+    {
+        "id": "4f7c84dc.b5733c",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "/Salir",
+        "command": "/Salir",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": true,
+        "useRegex": false,
+        "x": 130,
+        "y": 3160,
+        "wires": [
+            [
+                "f1334d25.3311f",
+                "508443a.df269bc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f1334d25.3311f",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Creamos pregunta para el keyboard",
+        "func": "\ncontext.global.keyboard = { pending : true };\n\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [\n      ['Si','/PieroManual']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : true\n  })\n};\n\nmsg.payload.content = '¿Desea parar?';\nmsg.payload.options = opts;\nreturn [ msg ];\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 410,
+        "y": 3160,
+        "wires": [
+            [
+                "e8c912ad.243f8"
+            ]
+        ]
+    },
+    {
+        "id": "e8c912ad.243f8",
+        "type": "telegram sender",
+        "z": "acf855d7.4846e8",
+        "name": "show keyboard",
+        "bot": "54e8ef56.3ba2a",
+        "x": 740,
+        "y": 3160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "508443a.df269bc",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Guarda Usuario",
+        "func": "//Filtro la base de datos y almaceno el chatId\nflow.set('Usuario',msg.payload.chatId)\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 3060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af1d2686.08f0b8",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Robot Movimiento",
+        "func": "// fecha por defecto es hoy\n\nif (context.global.keyboard.pending) {\n    \n    \n    if(msg.payload.content === 'W') {\n        msg.payload={};\n        msg2={};\n        msg.payload={\"orden\": 8};\n        msg2.payload.chatId=flow.get('Usuario' || 0);\n        msg2.payload.type=\"message\";\n    }\n    else if(msg.payload.content==='A'){\n        msg.payload={};\n        msg.payload={\"orden\": 4};\n        msg2.payload.chatId=flow.get('Usuario' || 0);\n    }\n    else if(msg.payload.content === 'S')     {\n        msg.payload={};\n        msg.payload={\"orden\": 2};\n        msg2=msg;\n    }\n    else if(msg.payload.content === 'D')   {\n        msg.payload={};\n        msg.payload={\"orden\": 6};\n    }\n    else if(msg.payload.content === 'STOP')   {\n        msg.payload={};\n        msg.payload={\"orden\": 0};\n    }\n    else if(msg.payload.content === 'FIN')   {\n        msg.payload={};\n        msg.payload={\"orden\": 0};\n        context.global.keyboard.pending = true;\n    }\n}\n\nreturn [msg,msg2];\n\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 630,
+        "y": 2680,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6ff0a58c.5b337c",
+        "type": "telegram receiver",
+        "z": "acf855d7.4846e8",
+        "name": "uWubot",
+        "bot": "54e8ef56.3ba2a",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 130,
+        "y": 2880,
+        "wires": [
+            [
+                "e9a5ab9f.8e7b48",
+                "4422703e.58e3d",
+                "e1249c08.d3141"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "351c7bec.ae1494",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 410,
+        "y": 2600,
+        "wires": []
+    },
+    {
+        "id": "4422703e.58e3d",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Modo Funcionamiento Robot",
+        "func": "//guardo información de telegram\nmsg.telegram=msg.payload;\n//monto mensaje para dispositivo\nvar id = String(new Date().getTime());\nif(msg.originalMessage.text==\"/PieroManual\" || msg.originalMessage.text==\"/PieroManual@UwU87bot\")\n{\n    msg.payload={\"Modo\":1};\n    msg.topic=\"infind/GRUPO1/PIERO/Modo\"\n// información para la función que registra la operación\nmsg.orden=true;\nmsg.id=id;\nreturn msg\n}\nelse if(msg.payload.content==\"/Salir\")\n{\n    msg.payload={\"Modo\":0};\n    msg.topic=\"infind/GRUPO1/PIERO/Modo\"\n    return msg\n}\nelse if(msg.payload.content==\"/PieroAutomatico\")\n{\n    msg.payload={\"Modo\":2};\n    msg.topic=\"infind/GRUPO1/PIERO/Modo\"\n    return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 2820,
+        "wires": [
+            [
+                "43bb0eb.06cbaf",
+                "95fba783.6daa28"
+            ]
+        ]
+    },
+    {
+        "id": "43bb0eb.06cbaf",
+        "type": "mqtt out",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "topic": "infind/GRUPO1/PIERO/Modo",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 780,
+        "y": 2820,
+        "wires": []
+    },
+    {
+        "id": "24eae0ca.c1154",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/start",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 330,
+        "y": 280,
+        "wires": [
+            [
+                "32dc0205.bf8f0e"
+            ]
+        ]
+    },
+    {
+        "id": "93724f67.b2abf",
+        "type": "telegram command",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "command": "/ComandosRobot",
+        "bot": "54e8ef56.3ba2a",
+        "strict": false,
+        "hasresponse": false,
+        "useRegex": false,
+        "x": 220,
+        "y": 520,
+        "wires": [
+            [
+                "3965a31e.c1490c"
+            ]
+        ]
+    },
+    {
+        "id": "3965a31e.c1490c",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "Funcion Sensores info",
+        "func": "\n msg.payload.content=\"Hola \"+msg.originalMessage.from.first_name+\". Te indico que comandos te indican informacion sobre los sensores. \\n\";\n msg.payload.content+=\"/PieroManual - te permite controlar el robot de forma manual mediante diferentes órdenes\\n\";\n msg.payload.content+=\"/PieroAutomatico   -Activa el modo de funcionamiento automático de PIERO, donde el solo se encargará de evitar obstáculos.\\n\";\n msg.payload.content+=\"/Salir    - al activarlo, PIERO pasa a modo reposo.\\n\";\n return msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 520,
+        "y": 520,
+        "wires": [
+            [
+                "7e930c52.818494"
+            ]
+        ]
+    },
+    {
+        "id": "fc1e8aac.164918",
+        "type": "ui_template",
+        "z": "acf855d7.4846e8",
+        "group": "51160091.56faf",
+        "name": "",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "format": "<style>\n.button {\n    text-align: center;\n    font: bold 17px Arial;\n    text-decoration: none;\n    background-color: #339966;\n    color: white;\n    padding: 8px 10px;\n    border: 2px solid #CCCCCC;\n  }\n  \n  .button:hover\n  {\n   background-color: #26734d;\n  }\n\n</style>\n<a href=\"/registros\" class=\"button\">Descarga registros en CSV (EXCEL)</a>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 300,
+        "y": 1940,
+        "wires": [
+            [
+                "db2af23c.c8472"
+            ]
+        ]
+    },
+    {
+        "id": "db2af23c.c8472",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "7d7ef0b5.17b82",
+        "type": "http request",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "",
+        "x": 850,
+        "y": 1920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9800027d.10a78",
+        "type": "http response",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Disposition": "attachment; filename=registros.csv"
+        },
+        "x": 1050,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "e1249c08.d3141",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 310,
+        "y": 2980,
+        "wires": []
+    },
+    {
+        "id": "da274946.2dafe8",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1590,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "8a1e868.3b9f478",
+        "type": "function",
+        "z": "acf855d7.4846e8",
+        "name": "mensaje respuesta excel",
+        "func": "msg.payload.chatId=flow.get('Usuario' || 0);\nmsg.payload.type='document';\nmsg.payload.content='\\ufeff'+msg.payload;\n//msg.payload.document='/prueba.pdf'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1270,
+        "y": 2180,
+        "wires": [
+            [
+                "5976ca0b.222574",
+                "da274946.2dafe8"
+            ]
+        ]
+    },
+    {
+        "id": "225a0cd.ab9f7f4",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 719,
+        "y": 2939,
+        "wires": []
+    },
+    {
+        "id": "95fba783.6daa28",
+        "type": "debug",
+        "z": "acf855d7.4846e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 720.765625,
+        "y": 2880.75,
+        "wires": []
+    },
+    {
+        "id": "54e8ef56.3ba2a",
+        "type": "telegram bot",
+        "z": "",
+        "botname": "InfInd_PVSbot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "2153e9d2.a2ed96",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "iot infind",
+        "broker": "iot.ac.uma.es",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "f6aa35a5.912c28",
+        "type": "mongodb",
+        "z": "",
+        "hostname": "iot.ac.uma.es",
+        "port": "27017",
+        "db": "II1",
+        "name": ""
+    },
+    {
+        "id": "51160091.56faf",
+        "type": "ui_group",
+        "z": "",
+        "name": "Grupo descarga",
+        "tab": "b065721d.85d2f",
+        "disp": true,
+        "width": "8",
+        "collapse": false
+    },
+    {
+        "id": "b065721d.85d2f",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Ejemplo descarga",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
