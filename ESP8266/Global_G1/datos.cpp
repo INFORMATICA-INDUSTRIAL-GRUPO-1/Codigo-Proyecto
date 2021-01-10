@@ -101,12 +101,12 @@ void tomaDatos (struct registro_datos &datos) // funcion que toma los datos de l
   debugFunction (ip,1);
   }
 
-void led_mqtt()  // Funcion que tiene como entrada un valor entero [0-100], lo Remapea entre [0-1023] y publicacion del estado actual del led
+void led_mqtt()                       // Funcion que tiene como entrada un valor entero [0-100], lo Remapea entre [0-1023] y publicacion del estado actual del led
 {
- StaticJsonDocument<100> jsonRoot;
+  StaticJsonDocument<100> jsonRoot;
  
-  datos.led = led_valor1; // Guarda el ultimo valor recibido
-  jsonRoot["led"] = led_valor1;//Convierte el estado del led a json para ACK al broker mqtt
+  datos.led = led_valor1;             // Guarda el ultimo valor recibido
+  jsonRoot["led"] = led_valor1;       //Convierte el estado del led a json para ACK al broker mqtt
 
   serializeJson(jsonRoot,msg);
 
@@ -122,12 +122,12 @@ void switch_mqtt()
       datos.Switch = false;
    else
       datos.Switch = true;
-  jsonRoot["Switch"] = datos.Switch;//Convierte el estado del led a json para ACK al broker mqtt
+  jsonRoot["Switch"] = datos.Switch;      //Convierte el estado del led a json para ACK al broker mqtt
 
   serializeJson(jsonRoot,msg);
 
   debugFunction (msg,1);
-  client.publish(TOP_switchStatus, msg); //publicacion del estado del led
+  client.publish(TOP_switchStatus, msg);  //publicacion del estado del led
 }
 
   void actualiza_mqtt()

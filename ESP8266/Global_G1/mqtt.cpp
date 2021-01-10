@@ -15,7 +15,6 @@
 //
 
 ////////////////////Seccion librerias y pestañas//////////////////////////////
-
 #include <Arduino.h>
 
 #include <PubSubClient.h>
@@ -30,7 +29,6 @@
 
 
 ////////////////////Declaraciones//////////////////////////////
-
 PubSubClient client(espClient);
 
 

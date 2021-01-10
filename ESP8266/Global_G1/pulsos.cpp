@@ -20,63 +20,64 @@
 #include "interrupciones.h"
 #include "pulsos.h"
 
+
+/*-------------------------  PULSOS  ------------------------*/
+// Interpreta el tipo de pulsacion que se realiza
 unsigned long ultima_pulsacion;
 int pulsacion = 0;
 
-
-void pulsos() //Interpreta los pulsos del boton y la duración de la pulsacion.
+void pulsos()                                 //Interpreta los pulsos del boton y la duración de la pulsacion.
 {   
     unsigned long ahora = millis();
     unsigned long espera = ahora - ultima_pulsacion;
-    if (duracion < 1500 && espera <= 300)//"pulsacion doble"
+    if (duracion < 1500 && espera <= 300)     //"pulsacion doble"
     {
         pulsacion = 2;
     }//if
-     else if (duracion < 1500)//pulsacion corta
+     else if (duracion < 1500)                //pulsacion corta
     {
         pulsacion = 1;
     }//else if
        
-    if (duracion >= 1500)//pulsacion larga.
+    if (duracion >= 1500)                     //pulsacion larga.
     {
         pulsacion = 100;
     }
-    
-}//funcion
+}                 //Fin pulsos
 
+/*-------------------------  CONTROL LED  ------------------------*/
+int led_valor1 = 10;            //valor de prueba
+int led_valor2;                 //variable que guarda el valor de luminosidad del primer led.
 
-int led_valor1 = 10; //valor de prueba
-int led_valor2; //variable que guarda el valor de luminosidad del primer led.
-
-int switch_valor; //variable que guarda el valor del estado del segundo led.
+int switch_valor;               //variable que guarda el valor del estado del segundo led.
 bool ready_switch = false;
 
 void funcion_flash()
 {
   switch (pulsacion)
   {
-    case 1:
+    case 1:                       // Pulsación Corta
       switch_valor = !digitalRead(SWITCH_PIN);
       ready_switch = true; 
-      if (led_valor1 != 0)//Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
+      if (led_valor1 != 0)        // Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
       {
-         led_valor2 = led_valor1;
-         led_valor1 = 0;
+         led_valor2 = led_valor1; // Variable de reserva
+         led_valor1 = 0;          // Estado apagado del led
       }//if
-      else//Led apagado: se enciende con el valor de intensidad guardado.
+      else                        // Led apagado: se enciende con el valor de intensidad guardado.
       {
         led_valor1 = led_valor2;
       }//else
     break;
     
-    case 2:
+    case 2:                       // Pulsación doble
      switch_valor = LOW;
      ready_switch = true;
      led_valor1 = 100;
     break;
 
-    case 100:
-     FuncionActualizacion();//FOTA
+    case 100:                     // Pulsación larga
+     FuncionActualizacion();      // Actualización mediante FOTA
     break;
   }//switch
 }//funcion

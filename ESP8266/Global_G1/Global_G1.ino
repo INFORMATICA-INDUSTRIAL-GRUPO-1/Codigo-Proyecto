@@ -22,7 +22,6 @@
  
 ////////////////////////LIBRERIAS///////////////////////////////////
 // Incluir aqui las librerias//
-
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include "DHTesp.h"
@@ -67,20 +66,20 @@ unsigned long lastSensores = 0;
 void setup() {
  // Configuracion Inicial del ESP8266
   pinMode(BUILTIN_LED, OUTPUT);       // Initialize the BUILTIN_LED pin as an output
-  pinMode(SWITCH_PIN, OUTPUT);        //Inicializa el pin 2 (GPIO 16) como pin de salida.
+  pinMode(SWITCH_PIN, OUTPUT);        // Inicializa el pin 2 (GPIO 16) como pin de salida.
   digitalWrite(SWITCH_PIN, LOW);
-  pinMode(BUTTON_PIN, INPUT_PULLUP);  //se declara el boton como entrada
-  attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), RTI, CHANGE); //activacion de la interrupcion 
+  pinMode(BUTTON_PIN, INPUT_PULLUP);  //Se declara el boton como entrada
+  attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), RTI, CHANGE); //Activacion de la interrupcion 
   Serial.begin(115200);               // Puerto serie Establecimiento
-  setup_wifi();                       //llamada a la funcion de config. del WiFi
+  setup_wifi();                       // Llamada a la funcion de config. del WiFi
 
   //Primera actualización
   FuncionActualizacion();             //LLamamos a la funcion para que actualice el programa
 
   //Configuracion Server MQTT y topics
   debugFunction ("Establecimiento de MQTT",1);
-  mqttSetup ();                       //Llamada a la funcion de setup de mqtt
-  mqttTopics();                       // carga los topics 
+  mqttSetup ();                       // Llamada a la funcion de setup de mqtt
+  mqttTopics();                       // Carga los topics 
   dht.setup(DHT_PIN, DHTesp::DHT11);  // Connect DHT sensor to GPIO 17
 
   //Indicador de la activación del modo debug (Se activa en config)
@@ -109,13 +108,13 @@ void loop() {
 
 
 /*-------------------------  CONTROL LED  ------------------------*/
-  if (ready_led)
+  if (ready_led)                    // Se llama la interrupcion para asegurar que no se captan rebotes en la pulsacion
   {
-      pulsos(); //Interpreta los pulsos de la interrupcion.
-      ultima_pulsacion = millis(); //Guarda en p1 el tiempo de la ultima pulsacion.
-      funcion_flash(); //Interpreta, con el "codigo pulso", que hacer en la placa (ON/OFF, FOTA...)
-      led_mqtt(); // Publica el valor del led actualizado.
-      ready_led = false; //Variable para no volver a entrar en el IF.
+      pulsos();                     // Interpreta los pulsos de la interrupcion.
+      ultima_pulsacion = millis();  // Guarda en p1 el tiempo de la ultima pulsacion.
+      funcion_flash();              // Interpreta, con el "codigo pulso", que hacer en la placa (ON/OFF, FOTA...)
+      led_mqtt();                   // Publica el valor del led actualizado. (Función en DATOS)
+      ready_led = false;            // Variable para no volver a entrar en el IF.
   }
 
   if (ready_switch)
@@ -124,22 +123,23 @@ void loop() {
     switch_mqtt();
     ready_switch = false;
   }
-  if (led_valor1 > 100)   //restringe valor entre 0 upto 100
+  
+  if (led_valor1 > 100)               // Restringe valor entre 0 y 100
         led_valor1 = 100;
   else if (led_valor1 < 0)
       led_valor1 = 0;
 
-  if (now >= lastLed + ledspeed) //if_1
+  if (now >= lastLed + ledspeed)      //if_1  ledspeed recibido por mqtt(por defecto 10)
   {    
-    if (inten_Led != led_valor1) //if_2
+    if (inten_Led != led_valor1)      //if_2
     {
-      if (inten_Led < led_valor1) //aumenta 1 cuando es menor
+      if (inten_Led < led_valor1)     //aumenta 1 cuando es menor
           inten_Led++;
       else if (inten_Led > led_valor1) //disminuye 1 cuando es mayor
           inten_Led--;
         
-      valor_maped = 1023-(inten_Led*10.23);// Remapeo de valor [0-1023] e inversion para que el 100% se corresponda a led encendido y 0% =>> led apagado
-      analogWrite (BUILTIN_LED,valor_maped); // Escribe en el puerto BUILTIN_LED el valor remapeado
+      valor_maped = 1023-(inten_Led*10.23);     // Remapeo de valor [0-1023] e inversion para que el 100% se corresponda a led encendido y 0% =>> led apagado
+      analogWrite (BUILTIN_LED,valor_maped);    // Escribe en el puerto BUILTIN_LED el valor remapeado
       lastLed = now;
       }//if_2
     }//if_1
