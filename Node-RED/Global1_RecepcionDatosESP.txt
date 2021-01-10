@@ -1,46 +1,46 @@
 [
     {
-        "id": "fef8f9b7.bbc528",
+        "id": "dfbe2ee2.777e7",
         "type": "tab",
         "label": "Recepcion datos",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "d7fbd313.1e38a",
+        "id": "b4c57bcc.115ea8",
         "type": "mqtt in",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "topic": "infind/GRUPO1/ESP1/datos",
         "qos": "2",
-        "broker": "cd5dbf9e.ebb57",
-        "x": 369.8958053588867,
-        "y": 513.8888802528381,
+        "broker": "b25567ea.2cea98",
+        "x": 340,
+        "y": 500,
         "wires": [
             [
-                "be191f51.3e8fd",
-                "5c4b07b1.bd0aa8"
+                "7944ed43.3f5d74",
+                "f06065cc.01f378"
             ]
         ]
     },
     {
-        "id": "b24aeedb.474a3",
+        "id": "6cddabae.1af684",
         "type": "debug",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 1026.896183013916,
-        "y": 289.8890280723572,
+        "x": 930,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "be191f51.3e8fd",
+        "id": "7944ed43.3f5d74",
         "type": "json",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "property": "payload",
         "action": "",
@@ -49,14 +49,14 @@
         "y": 493.888906955719,
         "wires": [
             [
-                "9250a728.bf4bc8"
+                "74435f15.27838"
             ]
         ]
     },
     {
-        "id": "5c4b07b1.bd0aa8",
+        "id": "f06065cc.01f378",
         "type": "debug",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -68,74 +68,74 @@
         "wires": []
     },
     {
-        "id": "6abe0e4f.a42de",
+        "id": "424bf197.9c2f7",
         "type": "mqtt in",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "topic": "infind/GRUPO1/ESP2/datos",
         "qos": "2",
-        "broker": "cd5dbf9e.ebb57",
-        "x": 368.8958625793457,
-        "y": 1438.8889899253845,
+        "broker": "b25567ea.2cea98",
+        "x": 360,
+        "y": 1440,
         "wires": [
             [
-                "ad11eb24.dcaf48",
-                "8a750aa0.ad5bd8"
+                "c96a3c05.e432d",
+                "500a1579.5c729c"
             ]
         ]
     },
     {
-        "id": "f3a262ab.07909",
+        "id": "2f8d713c.1deb4e",
         "type": "mqtt in",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "topic": "infind/GRUPO1/ESP3/datos",
         "qos": "2",
-        "broker": "cd5dbf9e.ebb57",
+        "broker": "b25567ea.2cea98",
         "x": 356.89581298828125,
         "y": 2356.8891406059265,
         "wires": [
             [
-                "b165c79b.3ca198"
+                "981dfc29.bc3dc"
             ]
         ]
     },
     {
-        "id": "3b2b9545.343e8a",
+        "id": "10f788fb.5185e7",
         "type": "mqtt in",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "topic": "infind/GRUPO1/ESP4/datos",
         "qos": "2",
-        "broker": "cd5dbf9e.ebb57",
-        "x": 227.89581680297852,
-        "y": 3417.8893847465515,
+        "broker": "b25567ea.2cea98",
+        "x": 240,
+        "y": 3280,
         "wires": [
             [
-                "bdaa7679.509ee8"
+                "5fa88e8e.26263"
             ]
         ]
     },
     {
-        "id": "ebdba446.b89418",
+        "id": "eef94ba3.186268",
         "type": "mqtt in",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "topic": "infind/GRUPO1/ESP5/datos",
         "qos": "2",
-        "broker": "cd5dbf9e.ebb57",
+        "broker": "b25567ea.2cea98",
         "x": 339.8958549499512,
         "y": 4454.889558792114,
         "wires": [
             [
-                "f19d1d92.bd7e"
+                "666985f9.b9611c"
             ]
         ]
     },
     {
-        "id": "9250a728.bf4bc8",
+        "id": "74435f15.27838",
         "type": "function",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "+ fecha",
         "func": "msg.payload.date = new Date();\nreturn msg;",
         "outputs": 1,
@@ -144,44 +144,46 @@
         "y": 494.00003814697266,
         "wires": [
             [
-                "b24aeedb.474a3",
-                "54b26d.3bd11d94",
-                "aae6fbe0.a1f1e8",
-                "2336c2f3.0e2aae",
-                "f8ed6426.ea1058",
-                "e8c12a.71ba8ed8",
-                "4258744c.f88aec",
-                "19caa359.ef25ed",
-                "9288a0cb.ed865",
-                "cd6a714b.c5ef5",
-                "76326528.aff50c",
-                "9c0860a9.e55e2",
-                "db64487b.ca9468",
-                "67ca7841.7d6a48"
+                "6cddabae.1af684",
+                "31098158.36a7be",
+                "4b16c261.1b372c",
+                "c8f038db.3609b8",
+                "cf057899.f88248",
+                "5442b230.9071fc",
+                "cb7ba8aa.4927a8",
+                "a56d929d.ff5ba",
+                "d7c3b473.7f88b8",
+                "dbf6e3a8.91b62",
+                "ff50d19c.dfa59",
+                "14ef5242.0ef8fe",
+                "c372db2a.a07358",
+                "bef4b488.e38458",
+                "7b2aad60.0959c4",
+                "1847fb90.82ac94"
             ]
         ]
     },
     {
-        "id": "54b26d.3bd11d94",
+        "id": "31098158.36a7be",
         "type": "mongodb out",
-        "z": "fef8f9b7.bbc528",
-        "mongodb": "3284a27d.270ace",
+        "z": "dfbe2ee2.777e7",
+        "mongodb": "b1e5fae2.4dc578",
         "name": "",
         "collection": "DATOS_ESP1",
-        "payonly": false,
+        "payonly": true,
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 1104.833839416504,
-        "y": 323.48283338546753,
+        "x": 730,
+        "y": 640,
         "wires": []
     },
     {
-        "id": "31f91eaf.fec7a2",
+        "id": "95bc0da2.58268",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
-        "group": "edf863bd.f55b",
+        "group": "f9e3efc6.4bd9e",
         "order": 9,
         "width": 0,
         "height": 0,
@@ -203,11 +205,11 @@
         "wires": []
     },
     {
-        "id": "907c75c0.658408",
+        "id": "ee99d494.697a58",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
-        "group": "edf863bd.f55b",
+        "group": "f9e3efc6.4bd9e",
         "order": 10,
         "width": 0,
         "height": 0,
@@ -229,9 +231,9 @@
         "wires": []
     },
     {
-        "id": "aae6fbe0.a1f1e8",
+        "id": "4b16c261.1b372c",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -251,14 +253,14 @@
         "y": 486.4305725097656,
         "wires": [
             [
-                "907c75c0.658408"
+                "ee99d494.697a58"
             ]
         ]
     },
     {
-        "id": "2336c2f3.0e2aae",
+        "id": "c8f038db.3609b8",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -278,14 +280,14 @@
         "y": 528.8888854980469,
         "wires": [
             [
-                "31f91eaf.fec7a2"
+                "95bc0da2.58268"
             ]
         ]
     },
     {
-        "id": "f8ed6426.ea1058",
+        "id": "cf057899.f88248",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -305,15 +307,15 @@
         "y": 308.88889932632446,
         "wires": [
             [
-                "84d33c43.78645"
+                "8cb5b116.f52f8"
             ]
         ]
     },
     {
-        "id": "84d33c43.78645",
+        "id": "8cb5b116.f52f8",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -326,9 +328,9 @@
         "wires": []
     },
     {
-        "id": "e8c12a.71ba8ed8",
+        "id": "5442b230.9071fc",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -348,15 +350,15 @@
         "y": 351.88889169692993,
         "wires": [
             [
-                "df181cd2.f4f15"
+                "ca330425.bea3d8"
             ]
         ]
     },
     {
-        "id": "df181cd2.f4f15",
+        "id": "ca330425.bea3d8",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -369,9 +371,9 @@
         "wires": []
     },
     {
-        "id": "4258744c.f88aec",
+        "id": "cb7ba8aa.4927a8",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -391,15 +393,15 @@
         "y": 404.88888025283813,
         "wires": [
             [
-                "58ffaf36.1a76a"
+                "c9d0e591.66c228"
             ]
         ]
     },
     {
-        "id": "58ffaf36.1a76a",
+        "id": "c9d0e591.66c228",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 7,
         "width": 0,
         "height": 0,
@@ -412,10 +414,10 @@
         "wires": []
     },
     {
-        "id": "5cdbd517.479b7c",
+        "id": "fa11dff1.7b157",
         "type": "ui_led",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 13,
         "width": 0,
         "height": 0,
@@ -441,11 +443,11 @@
         "wires": []
     },
     {
-        "id": "befad2bd.e2b3b",
+        "id": "cb2e6df2.136e2",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "Led",
-        "group": "edf863bd.f55b",
+        "group": "f9e3efc6.4bd9e",
         "order": 12,
         "width": 0,
         "height": 0,
@@ -467,9 +469,9 @@
         "wires": []
     },
     {
-        "id": "76326528.aff50c",
+        "id": "ff50d19c.dfa59",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -489,14 +491,14 @@
         "y": 557.8889107704163,
         "wires": [
             [
-                "befad2bd.e2b3b"
+                "cb2e6df2.136e2"
             ]
         ]
     },
     {
-        "id": "9c0860a9.e55e2",
+        "id": "14ef5242.0ef8fe",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -516,14 +518,14 @@
         "y": 606.8889107704163,
         "wires": [
             [
-                "5cdbd517.479b7c"
+                "fa11dff1.7b157"
             ]
         ]
     },
     {
-        "id": "19caa359.ef25ed",
+        "id": "a56d929d.ff5ba",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -543,15 +545,15 @@
         "y": 620.2222890853882,
         "wires": [
             [
-                "ee827f76.37375"
+                "4b05f7f5.c3d988"
             ]
         ]
     },
     {
-        "id": "ee827f76.37375",
+        "id": "4b05f7f5.c3d988",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 15,
         "width": 0,
         "height": 0,
@@ -564,9 +566,9 @@
         "wires": []
     },
     {
-        "id": "9288a0cb.ed865",
+        "id": "d7c3b473.7f88b8",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -586,15 +588,15 @@
         "y": 693.2222909927368,
         "wires": [
             [
-                "fa2b490c.4925d8"
+                "d8038689.b31328"
             ]
         ]
     },
     {
-        "id": "fa2b490c.4925d8",
+        "id": "d8038689.b31328",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 16,
         "width": 0,
         "height": 0,
@@ -607,9 +609,9 @@
         "wires": []
     },
     {
-        "id": "cd6a714b.c5ef5",
+        "id": "dbf6e3a8.91b62",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -629,16 +631,16 @@
         "y": 767.2222938537598,
         "wires": [
             [
-                "731a5c89.43e454",
-                "320354c1.e5611c"
+                "144e1e30.62a762",
+                "b5a78690.4be0a8"
             ]
         ]
     },
     {
-        "id": "731a5c89.43e454",
+        "id": "144e1e30.62a762",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 17,
         "width": 0,
         "height": 0,
@@ -651,10 +653,10 @@
         "wires": []
     },
     {
-        "id": "21929340.a4311c",
+        "id": "e9e9224c.b987",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 14,
         "width": 0,
         "height": 0,
@@ -667,9 +669,9 @@
         "wires": []
     },
     {
-        "id": "320354c1.e5611c",
+        "id": "b5a78690.4be0a8",
         "type": "function",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "remapeo de RSSI a intensidad de señal",
         "func": "\nvar remap = 100-(-1* msg.payload);\nmsg.payload = remap;\nreturn msg;",
         "outputs": 1,
@@ -678,16 +680,16 @@
         "y": 942.2222218513489,
         "wires": [
             [
-                "e541f9ed.bb2da8"
+                "8bb333b0.6fbfc"
             ]
         ]
     },
     {
-        "id": "e541f9ed.bb2da8",
+        "id": "8bb333b0.6fbfc",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "Intensidad Señal",
-        "group": "edf863bd.f55b",
+        "group": "f9e3efc6.4bd9e",
         "order": 18,
         "width": 0,
         "height": 0,
@@ -709,10 +711,10 @@
         "wires": []
     },
     {
-        "id": "a50f803a.465cd",
+        "id": "569034d1.b2ad4c",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 4,
         "width": "6",
         "height": "1",
@@ -725,10 +727,10 @@
         "wires": []
     },
     {
-        "id": "a94290ed.30b2d",
+        "id": "ee8af667.64b438",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 8,
         "width": 0,
         "height": 0,
@@ -741,9 +743,9 @@
         "wires": []
     },
     {
-        "id": "777f64ec.de81fc",
+        "id": "2536613b.34c90e",
         "type": "debug",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -755,9 +757,9 @@
         "wires": []
     },
     {
-        "id": "ad11eb24.dcaf48",
+        "id": "c96a3c05.e432d",
         "type": "json",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "property": "payload",
         "action": "",
@@ -766,14 +768,14 @@
         "y": 1447.5233407020569,
         "wires": [
             [
-                "7bf4deb9.a4647"
+                "6e0121ef.54874"
             ]
         ]
     },
     {
-        "id": "8a750aa0.ad5bd8",
+        "id": "500a1579.5c729c",
         "type": "debug",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -785,9 +787,9 @@
         "wires": []
     },
     {
-        "id": "7bf4deb9.a4647",
+        "id": "6e0121ef.54874",
         "type": "function",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "+ fecha",
         "func": "msg.payload.date = new Date();\nreturn msg;",
         "outputs": 1,
@@ -796,44 +798,46 @@
         "y": 1447.6344718933105,
         "wires": [
             [
-                "777f64ec.de81fc",
-                "f2c5c206.9617c",
-                "e25cc39f.ad234",
-                "b185641.fe4ac98",
-                "3d2105a9.8ea89a",
-                "63c12955.a05698",
-                "509927d5.0d09b8",
-                "362b619.d58a19e",
-                "dfa4aa16.e0b198",
-                "f6fa6655.dbca48",
-                "6748c265.075aec",
-                "6846058a.e4319c",
-                "a65a21bc.a7e28",
-                "88d6ff7.f7ba1"
+                "2536613b.34c90e",
+                "ddc797c7.bbb0f8",
+                "22f1c815.e961c8",
+                "e3d5f3f.4963d1",
+                "c35f6fc.aacaa9",
+                "368fa60a.9defba",
+                "7a24239c.fa112c",
+                "fd6733d2.2eed2",
+                "204729fa.6cadd6",
+                "a6b65cff.ce063",
+                "ba6709df.de34b8",
+                "ae161a34.c29f48",
+                "bb48ae82.ded79",
+                "ebded682.b67608",
+                "7737b766.1b7848",
+                "debb2c91.418ea"
             ]
         ]
     },
     {
-        "id": "f2c5c206.9617c",
+        "id": "ddc797c7.bbb0f8",
         "type": "mongodb out",
-        "z": "fef8f9b7.bbc528",
-        "mongodb": "3284a27d.270ace",
+        "z": "dfbe2ee2.777e7",
+        "mongodb": "b1e5fae2.4dc578",
         "name": "",
         "collection": "DATOS_ESP2",
-        "payonly": false,
+        "payonly": true,
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 1101.4455261230469,
-        "y": 1183.1174688339233,
+        "x": 690,
+        "y": 1560,
         "wires": []
     },
     {
-        "id": "e45b24da.f09e58",
+        "id": "a6a45a2b.1ec748",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
-        "group": "6d2a5b5b.5cecd4",
+        "group": "cf4b8da5.d5393",
         "order": 9,
         "width": 0,
         "height": 0,
@@ -855,11 +859,11 @@
         "wires": []
     },
     {
-        "id": "c9c031be.f3f7f",
+        "id": "8ed3afeb.d1eb8",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
-        "group": "6d2a5b5b.5cecd4",
+        "group": "cf4b8da5.d5393",
         "order": 10,
         "width": 0,
         "height": 0,
@@ -881,9 +885,9 @@
         "wires": []
     },
     {
-        "id": "e25cc39f.ad234",
+        "id": "22f1c815.e961c8",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -903,14 +907,14 @@
         "y": 1440.0650062561035,
         "wires": [
             [
-                "c9c031be.f3f7f"
+                "8ed3afeb.d1eb8"
             ]
         ]
     },
     {
-        "id": "b185641.fe4ac98",
+        "id": "e3d5f3f.4963d1",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -930,14 +934,14 @@
         "y": 1482.5233192443848,
         "wires": [
             [
-                "e45b24da.f09e58"
+                "a6a45a2b.1ec748"
             ]
         ]
     },
     {
-        "id": "3d2105a9.8ea89a",
+        "id": "c35f6fc.aacaa9",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -957,15 +961,15 @@
         "y": 1262.5233330726624,
         "wires": [
             [
-                "f4624384.c1b4b"
+                "3e507679.736cfa"
             ]
         ]
     },
     {
-        "id": "f4624384.c1b4b",
+        "id": "3e507679.736cfa",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -978,9 +982,9 @@
         "wires": []
     },
     {
-        "id": "63c12955.a05698",
+        "id": "368fa60a.9defba",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1000,15 +1004,15 @@
         "y": 1305.5233254432678,
         "wires": [
             [
-                "d976829d.d1d08"
+                "8291c515.199038"
             ]
         ]
     },
     {
-        "id": "d976829d.d1d08",
+        "id": "8291c515.199038",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -1021,9 +1025,9 @@
         "wires": []
     },
     {
-        "id": "509927d5.0d09b8",
+        "id": "7a24239c.fa112c",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1043,15 +1047,15 @@
         "y": 1358.523313999176,
         "wires": [
             [
-                "1fa3dd2d.78d523"
+                "e631a63d.224838"
             ]
         ]
     },
     {
-        "id": "1fa3dd2d.78d523",
+        "id": "e631a63d.224838",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 7,
         "width": 0,
         "height": 0,
@@ -1064,10 +1068,10 @@
         "wires": []
     },
     {
-        "id": "9f5713a1.3c467",
+        "id": "5be27d90.9389b4",
         "type": "ui_led",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 13,
         "width": 0,
         "height": 0,
@@ -1093,11 +1097,11 @@
         "wires": []
     },
     {
-        "id": "ca28aa95.ee1fd8",
+        "id": "e491368.26e33c8",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "Led",
-        "group": "6d2a5b5b.5cecd4",
+        "group": "cf4b8da5.d5393",
         "order": 12,
         "width": 0,
         "height": 0,
@@ -1119,9 +1123,9 @@
         "wires": []
     },
     {
-        "id": "6748c265.075aec",
+        "id": "ba6709df.de34b8",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1141,14 +1145,14 @@
         "y": 1533.5233297348022,
         "wires": [
             [
-                "ca28aa95.ee1fd8"
+                "e491368.26e33c8"
             ]
         ]
     },
     {
-        "id": "6846058a.e4319c",
+        "id": "ae161a34.c29f48",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1168,14 +1172,14 @@
         "y": 1582.5233297348022,
         "wires": [
             [
-                "9f5713a1.3c467"
+                "5be27d90.9389b4"
             ]
         ]
     },
     {
-        "id": "362b619.d58a19e",
+        "id": "fd6733d2.2eed2",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1195,15 +1199,15 @@
         "y": 1627.856689453125,
         "wires": [
             [
-                "d7a65d79.2e109"
+                "21e60ee6.0c36f2"
             ]
         ]
     },
     {
-        "id": "d7a65d79.2e109",
+        "id": "21e60ee6.0c36f2",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 15,
         "width": 0,
         "height": 0,
@@ -1216,9 +1220,9 @@
         "wires": []
     },
     {
-        "id": "dfa4aa16.e0b198",
+        "id": "204729fa.6cadd6",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1238,15 +1242,15 @@
         "y": 1695.856689453125,
         "wires": [
             [
-                "3b7c018.66aecfe"
+                "f94b47f1.db7518"
             ]
         ]
     },
     {
-        "id": "3b7c018.66aecfe",
+        "id": "f94b47f1.db7518",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 16,
         "width": 0,
         "height": 0,
@@ -1259,9 +1263,9 @@
         "wires": []
     },
     {
-        "id": "f6fa6655.dbca48",
+        "id": "a6b65cff.ce063",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1281,16 +1285,16 @@
         "y": 1770.856689453125,
         "wires": [
             [
-                "487a377b.275d08",
-                "6abfad3e.6fbcd4"
+                "f374f759.201208",
+                "43213d6b.603a14"
             ]
         ]
     },
     {
-        "id": "487a377b.275d08",
+        "id": "f374f759.201208",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 17,
         "width": 0,
         "height": 0,
@@ -1303,10 +1307,10 @@
         "wires": []
     },
     {
-        "id": "bc28de05.95781",
+        "id": "5041ca2.8837934",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 14,
         "width": 0,
         "height": 0,
@@ -1319,9 +1323,9 @@
         "wires": []
     },
     {
-        "id": "6abfad3e.6fbcd4",
+        "id": "43213d6b.603a14",
         "type": "function",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "remapeo de RSSI a intensidad de señal",
         "func": "\nvar remap = 100-(-1* msg.payload);\nmsg.payload = remap;\nreturn msg;",
         "outputs": 1,
@@ -1330,16 +1334,16 @@
         "y": 1856.8566317558289,
         "wires": [
             [
-                "1ab79999.264c46"
+                "e074674c.c25698"
             ]
         ]
     },
     {
-        "id": "1ab79999.264c46",
+        "id": "e074674c.c25698",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "Intensidad Señal",
-        "group": "6d2a5b5b.5cecd4",
+        "group": "cf4b8da5.d5393",
         "order": 18,
         "width": 0,
         "height": 0,
@@ -1361,10 +1365,10 @@
         "wires": []
     },
     {
-        "id": "86aa69ed.be2028",
+        "id": "89816256.1f526",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -1377,10 +1381,10 @@
         "wires": []
     },
     {
-        "id": "3c308141.1e4dae",
+        "id": "a078e193.7b27c",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 8,
         "width": 0,
         "height": 0,
@@ -1393,23 +1397,23 @@
         "wires": []
     },
     {
-        "id": "8c1a5644.f9be18",
+        "id": "2ccf760b.40f2ba",
         "type": "debug",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 988.5078010559082,
-        "y": 2145.523389339447,
+        "x": 890,
+        "y": 2100,
         "wires": []
     },
     {
-        "id": "b165c79b.3ca198",
+        "id": "981dfc29.bc3dc",
         "type": "json",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "property": "payload",
         "action": "",
@@ -1418,14 +1422,14 @@
         "y": 2349.523268222809,
         "wires": [
             [
-                "7f11a4af.dae65c"
+                "b6cff804.8380d8"
             ]
         ]
     },
     {
-        "id": "7f11a4af.dae65c",
+        "id": "b6cff804.8380d8",
         "type": "function",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "+ fecha",
         "func": "msg.payload.date = new Date();\nreturn msg;",
         "outputs": 1,
@@ -1434,31 +1438,33 @@
         "y": 2349.6343994140625,
         "wires": [
             [
-                "8c1a5644.f9be18",
-                "4d74b758.2e62d8",
-                "eba00a9.2e9eef8",
-                "88f23e5f.2fafd",
-                "33dd7b6b.f62fb4",
-                "d8d7374f.e59978",
-                "beda7d5f.175e",
-                "ec53498.aef56b8",
-                "e79f4f06.6273d",
-                "4b3c7090.bd1d5",
-                "397c27f.c4bdfd8",
-                "468c0926.be0358",
-                "75bac2c5.cc52ec",
-                "296e41d2.8eaa3e"
+                "2ccf760b.40f2ba",
+                "e4b97394.f2088",
+                "9f9a2777.813e18",
+                "4ed8a3a0.aba30c",
+                "7a0b3f57.199ad",
+                "e3818354.64702",
+                "57598032.54df6",
+                "d070528f.ed97f",
+                "28a2ba1a.e2fa16",
+                "700f252.dfef0dc",
+                "bb51f5a6.863be8",
+                "2cfee8d1.c4eb98",
+                "eec5d650.b2ce68",
+                "e5ac4e42.31a5f",
+                "d45aa63.dc12158",
+                "dfab4497.34da98"
             ]
         ]
     },
     {
-        "id": "4d74b758.2e62d8",
+        "id": "e4b97394.f2088",
         "type": "mongodb out",
-        "z": "fef8f9b7.bbc528",
-        "mongodb": "3284a27d.270ace",
+        "z": "dfbe2ee2.777e7",
+        "mongodb": "b1e5fae2.4dc578",
         "name": "",
         "collection": "DATOS_ESP3",
-        "payonly": false,
+        "payonly": true,
         "upsert": false,
         "multi": false,
         "operation": "store",
@@ -1467,11 +1473,11 @@
         "wires": []
     },
     {
-        "id": "f3b0bd83.b7bdf",
+        "id": "3ab5a0d2.4b4ee",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
-        "group": "55e62896.330568",
+        "group": "aa89d538.98ce98",
         "order": 9,
         "width": 0,
         "height": 0,
@@ -1493,11 +1499,11 @@
         "wires": []
     },
     {
-        "id": "a9143c2f.f7bf",
+        "id": "1ebff982.47cb96",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
-        "group": "55e62896.330568",
+        "group": "aa89d538.98ce98",
         "order": 10,
         "width": 0,
         "height": 0,
@@ -1519,9 +1525,9 @@
         "wires": []
     },
     {
-        "id": "eba00a9.2e9eef8",
+        "id": "9f9a2777.813e18",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1541,14 +1547,14 @@
         "y": 2342.0649337768555,
         "wires": [
             [
-                "a9143c2f.f7bf"
+                "1ebff982.47cb96"
             ]
         ]
     },
     {
-        "id": "88f23e5f.2fafd",
+        "id": "4ed8a3a0.aba30c",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1568,14 +1574,14 @@
         "y": 2384.5232467651367,
         "wires": [
             [
-                "f3b0bd83.b7bdf"
+                "3ab5a0d2.4b4ee"
             ]
         ]
     },
     {
-        "id": "33dd7b6b.f62fb4",
+        "id": "7a0b3f57.199ad",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1595,15 +1601,15 @@
         "y": 2164.5232605934143,
         "wires": [
             [
-                "4cd54bf0.a7d134"
+                "33a9600f.c224"
             ]
         ]
     },
     {
-        "id": "4cd54bf0.a7d134",
+        "id": "33a9600f.c224",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -1616,9 +1622,9 @@
         "wires": []
     },
     {
-        "id": "d8d7374f.e59978",
+        "id": "e3818354.64702",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1638,15 +1644,15 @@
         "y": 2207.52325296402,
         "wires": [
             [
-                "c9665eba.ff69f"
+                "ac0e38f8.a158d8"
             ]
         ]
     },
     {
-        "id": "c9665eba.ff69f",
+        "id": "ac0e38f8.a158d8",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -1659,9 +1665,9 @@
         "wires": []
     },
     {
-        "id": "beda7d5f.175e",
+        "id": "57598032.54df6",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1681,15 +1687,15 @@
         "y": 2260.523241519928,
         "wires": [
             [
-                "2a7e66bc.5a7eea"
+                "468f877c.69f488"
             ]
         ]
     },
     {
-        "id": "2a7e66bc.5a7eea",
+        "id": "468f877c.69f488",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 7,
         "width": 0,
         "height": 0,
@@ -1702,10 +1708,10 @@
         "wires": []
     },
     {
-        "id": "eaea10fc.b1987",
+        "id": "97a6cd0d.49dea",
         "type": "ui_led",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 13,
         "width": 0,
         "height": 0,
@@ -1731,11 +1737,11 @@
         "wires": []
     },
     {
-        "id": "d619e62d.45c648",
+        "id": "ffd7ca5d.fdf968",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "Led",
-        "group": "55e62896.330568",
+        "group": "aa89d538.98ce98",
         "order": 12,
         "width": 0,
         "height": 0,
@@ -1757,9 +1763,9 @@
         "wires": []
     },
     {
-        "id": "397c27f.c4bdfd8",
+        "id": "bb51f5a6.863be8",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1779,14 +1785,14 @@
         "y": 2435.523257255554,
         "wires": [
             [
-                "d619e62d.45c648"
+                "ffd7ca5d.fdf968"
             ]
         ]
     },
     {
-        "id": "468c0926.be0358",
+        "id": "2cfee8d1.c4eb98",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1806,14 +1812,14 @@
         "y": 2484.523257255554,
         "wires": [
             [
-                "eaea10fc.b1987"
+                "97a6cd0d.49dea"
             ]
         ]
     },
     {
-        "id": "ec53498.aef56b8",
+        "id": "d070528f.ed97f",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1833,15 +1839,15 @@
         "y": 2529.856616973877,
         "wires": [
             [
-                "6a7f4045.02346"
+                "f5d73412.be0938"
             ]
         ]
     },
     {
-        "id": "6a7f4045.02346",
+        "id": "f5d73412.be0938",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 15,
         "width": 0,
         "height": 0,
@@ -1854,9 +1860,9 @@
         "wires": []
     },
     {
-        "id": "e79f4f06.6273d",
+        "id": "28a2ba1a.e2fa16",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1876,15 +1882,15 @@
         "y": 2597.856616973877,
         "wires": [
             [
-                "e4a712d2.aa0fa"
+                "75127b5.423ce84"
             ]
         ]
     },
     {
-        "id": "e4a712d2.aa0fa",
+        "id": "75127b5.423ce84",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 16,
         "width": 0,
         "height": 0,
@@ -1897,9 +1903,9 @@
         "wires": []
     },
     {
-        "id": "4b3c7090.bd1d5",
+        "id": "700f252.dfef0dc",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -1919,16 +1925,16 @@
         "y": 2672.856616973877,
         "wires": [
             [
-                "e45ab44.aef8048",
-                "b8fbfcea.f2ac8"
+                "d67787ac.762d38",
+                "eede66dc.c395e8"
             ]
         ]
     },
     {
-        "id": "e45ab44.aef8048",
+        "id": "d67787ac.762d38",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 17,
         "width": 0,
         "height": 0,
@@ -1941,10 +1947,10 @@
         "wires": []
     },
     {
-        "id": "c3ebe50d.604cd8",
+        "id": "56f09b0f.b81c54",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 14,
         "width": 0,
         "height": 0,
@@ -1957,9 +1963,9 @@
         "wires": []
     },
     {
-        "id": "b8fbfcea.f2ac8",
+        "id": "eede66dc.c395e8",
         "type": "function",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "remapeo de RSSI a intensidad de señal",
         "func": "\nvar remap = 100-(-1* msg.payload);\nmsg.payload = remap;\nreturn msg;",
         "outputs": 1,
@@ -1968,16 +1974,16 @@
         "y": 2758.856559276581,
         "wires": [
             [
-                "b0128396.553d2"
+                "eba1aea7.327d"
             ]
         ]
     },
     {
-        "id": "b0128396.553d2",
+        "id": "eba1aea7.327d",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "Intensidad Señal",
-        "group": "55e62896.330568",
+        "group": "aa89d538.98ce98",
         "order": 18,
         "width": 0,
         "height": 0,
@@ -1999,10 +2005,10 @@
         "wires": []
     },
     {
-        "id": "eb4551c7.6d107",
+        "id": "fca2b5f3.be5b58",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -2015,10 +2021,10 @@
         "wires": []
     },
     {
-        "id": "331aa8d1.679378",
+        "id": "57124c80.cba684",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 8,
         "width": 0,
         "height": 0,
@@ -2031,23 +2037,23 @@
         "wires": []
     },
     {
-        "id": "89714cd4.8bd39",
+        "id": "4e7829cc.4292b8",
         "type": "debug",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 844.5078010559082,
-        "y": 3204.5235114097595,
+        "x": 790,
+        "y": 3120,
         "wires": []
     },
     {
-        "id": "bdaa7679.509ee8",
+        "id": "5fa88e8e.26263",
         "type": "json",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "property": "payload",
         "action": "",
@@ -2056,14 +2062,14 @@
         "y": 3408.5233902931213,
         "wires": [
             [
-                "3b001a7e.fc7a56"
+                "1a78b218.35c29e"
             ]
         ]
     },
     {
-        "id": "3b001a7e.fc7a56",
+        "id": "1a78b218.35c29e",
         "type": "function",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "+ fecha",
         "func": "msg.payload.date = new Date();\nreturn msg;",
         "outputs": 1,
@@ -2072,44 +2078,46 @@
         "y": 3408.634521484375,
         "wires": [
             [
-                "89714cd4.8bd39",
-                "5424910.e24027",
-                "8b03de37.0ed87",
-                "2b462706.de2a08",
-                "56f1fdee.11b7e4",
-                "f70af387.17492",
-                "caec7589.0862d8",
-                "b10ffc3f.64f17",
-                "4a694a30.515fb4",
-                "512282bc.77fbbc",
-                "ccb863d0.2b48d",
-                "623cc816.913568",
-                "86b60b72.8187f8",
-                "c0d42f35.90d41"
+                "4e7829cc.4292b8",
+                "b129efea.42b94",
+                "eecb5860.a68a78",
+                "de10403.81a09c",
+                "c9169a54.b058a8",
+                "d25ebe4c.a924e",
+                "54b00aad.be7354",
+                "aa7039d.6298bc8",
+                "195f6015.ff62f",
+                "ca815337.7ebd1",
+                "71e3593e.a43b68",
+                "b572a725.c9c508",
+                "d2ee6395.afdf7",
+                "f3da839c.1482d",
+                "9abf1f34.4b3c3",
+                "17b30a49.850286"
             ]
         ]
     },
     {
-        "id": "5424910.e24027",
+        "id": "b129efea.42b94",
         "type": "mongodb out",
-        "z": "fef8f9b7.bbc528",
-        "mongodb": "3284a27d.270ace",
+        "z": "dfbe2ee2.777e7",
+        "mongodb": "b1e5fae2.4dc578",
         "name": "",
         "collection": "DATOS_ESP4",
-        "payonly": false,
+        "payonly": true,
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 922.4454574584961,
-        "y": 3238.11731672287,
+        "x": 450,
+        "y": 3540,
         "wires": []
     },
     {
-        "id": "b30e6d1a.e5342",
+        "id": "3cec0730.3d3298",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
-        "group": "42252611.bc3948",
+        "group": "fcfaeb32.7407d8",
         "order": 9,
         "width": 0,
         "height": 0,
@@ -2131,11 +2139,11 @@
         "wires": []
     },
     {
-        "id": "2341152a.f7934a",
+        "id": "e26d9adf.6dfc48",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
-        "group": "42252611.bc3948",
+        "group": "fcfaeb32.7407d8",
         "order": 10,
         "width": 0,
         "height": 0,
@@ -2157,9 +2165,9 @@
         "wires": []
     },
     {
-        "id": "8b03de37.0ed87",
+        "id": "eecb5860.a68a78",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2179,14 +2187,14 @@
         "y": 3401.065055847168,
         "wires": [
             [
-                "2341152a.f7934a"
+                "e26d9adf.6dfc48"
             ]
         ]
     },
     {
-        "id": "2b462706.de2a08",
+        "id": "de10403.81a09c",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2206,14 +2214,14 @@
         "y": 3443.523368835449,
         "wires": [
             [
-                "b30e6d1a.e5342"
+                "3cec0730.3d3298"
             ]
         ]
     },
     {
-        "id": "56f1fdee.11b7e4",
+        "id": "c9169a54.b058a8",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2233,15 +2241,15 @@
         "y": 3223.523382663727,
         "wires": [
             [
-                "627c3e40.3537f"
+                "3d759ff3.c7523"
             ]
         ]
     },
     {
-        "id": "627c3e40.3537f",
+        "id": "3d759ff3.c7523",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -2254,9 +2262,9 @@
         "wires": []
     },
     {
-        "id": "f70af387.17492",
+        "id": "d25ebe4c.a924e",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2276,15 +2284,15 @@
         "y": 3266.5233750343323,
         "wires": [
             [
-                "f98f26d9.f9b498"
+                "d067247e.c87d98"
             ]
         ]
     },
     {
-        "id": "f98f26d9.f9b498",
+        "id": "d067247e.c87d98",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -2297,9 +2305,9 @@
         "wires": []
     },
     {
-        "id": "caec7589.0862d8",
+        "id": "54b00aad.be7354",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2319,15 +2327,15 @@
         "y": 3319.5233635902405,
         "wires": [
             [
-                "6399f6a2.91dee8"
+                "f06c84a1.e4e908"
             ]
         ]
     },
     {
-        "id": "6399f6a2.91dee8",
+        "id": "f06c84a1.e4e908",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 7,
         "width": 0,
         "height": 0,
@@ -2340,10 +2348,10 @@
         "wires": []
     },
     {
-        "id": "8f39504d.09d63",
+        "id": "b8c65707.36e748",
         "type": "ui_led",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 13,
         "width": 0,
         "height": 0,
@@ -2369,11 +2377,11 @@
         "wires": []
     },
     {
-        "id": "a47d2692.176ee8",
+        "id": "562e763d.b2d548",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "Led",
-        "group": "42252611.bc3948",
+        "group": "fcfaeb32.7407d8",
         "order": 12,
         "width": 0,
         "height": 0,
@@ -2395,9 +2403,9 @@
         "wires": []
     },
     {
-        "id": "ccb863d0.2b48d",
+        "id": "71e3593e.a43b68",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2417,14 +2425,14 @@
         "y": 3494.5233793258667,
         "wires": [
             [
-                "a47d2692.176ee8"
+                "562e763d.b2d548"
             ]
         ]
     },
     {
-        "id": "623cc816.913568",
+        "id": "b572a725.c9c508",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2444,14 +2452,14 @@
         "y": 3543.5233793258667,
         "wires": [
             [
-                "8f39504d.09d63"
+                "b8c65707.36e748"
             ]
         ]
     },
     {
-        "id": "b10ffc3f.64f17",
+        "id": "aa7039d.6298bc8",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2471,15 +2479,15 @@
         "y": 3588.8567390441895,
         "wires": [
             [
-                "ecab7c7f.43984"
+                "19740b4e.2a6c25"
             ]
         ]
     },
     {
-        "id": "ecab7c7f.43984",
+        "id": "19740b4e.2a6c25",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 15,
         "width": 0,
         "height": 0,
@@ -2492,9 +2500,9 @@
         "wires": []
     },
     {
-        "id": "4a694a30.515fb4",
+        "id": "195f6015.ff62f",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2514,15 +2522,15 @@
         "y": 3656.8567390441895,
         "wires": [
             [
-                "46af41c1.939a8"
+                "487a8491.5b652c"
             ]
         ]
     },
     {
-        "id": "46af41c1.939a8",
+        "id": "487a8491.5b652c",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 16,
         "width": 0,
         "height": 0,
@@ -2535,9 +2543,9 @@
         "wires": []
     },
     {
-        "id": "512282bc.77fbbc",
+        "id": "ca815337.7ebd1",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2557,16 +2565,16 @@
         "y": 3731.8567390441895,
         "wires": [
             [
-                "bde49955.14bf58",
-                "2d044680.ac399a"
+                "a17ff647.674158",
+                "e5c54079.42801"
             ]
         ]
     },
     {
-        "id": "bde49955.14bf58",
+        "id": "a17ff647.674158",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 17,
         "width": 0,
         "height": 0,
@@ -2579,10 +2587,10 @@
         "wires": []
     },
     {
-        "id": "af0c4887.e53df8",
+        "id": "782ef828.28a208",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 14,
         "width": 0,
         "height": 0,
@@ -2595,9 +2603,9 @@
         "wires": []
     },
     {
-        "id": "2d044680.ac399a",
+        "id": "e5c54079.42801",
         "type": "function",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "remapeo de RSSI a intensidad de señal",
         "func": "\nvar remap = 100-(-1* msg.payload);\nmsg.payload = remap;\nreturn msg;",
         "outputs": 1,
@@ -2606,16 +2614,16 @@
         "y": 3817.8566813468933,
         "wires": [
             [
-                "10ebc126.b631df"
+                "84cfb032.c3bd9"
             ]
         ]
     },
     {
-        "id": "10ebc126.b631df",
+        "id": "84cfb032.c3bd9",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "Intensidad Señal",
-        "group": "42252611.bc3948",
+        "group": "fcfaeb32.7407d8",
         "order": 18,
         "width": 0,
         "height": 0,
@@ -2637,10 +2645,10 @@
         "wires": []
     },
     {
-        "id": "d6a95bd6.b6db98",
+        "id": "f465e92a.e9ed98",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -2653,10 +2661,10 @@
         "wires": []
     },
     {
-        "id": "2da727d8.9e1538",
+        "id": "ff682f1f.8534a",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 8,
         "width": 0,
         "height": 0,
@@ -2669,9 +2677,9 @@
         "wires": []
     },
     {
-        "id": "fa50562a.e167e8",
+        "id": "658e02dd.a1f49c",
         "type": "debug",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -2683,9 +2691,9 @@
         "wires": []
     },
     {
-        "id": "f19d1d92.bd7e",
+        "id": "666985f9.b9611c",
         "type": "json",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "property": "payload",
         "action": "",
@@ -2694,14 +2702,14 @@
         "y": 4446.5232610702515,
         "wires": [
             [
-                "3d228744.ad3e48"
+                "f32be1e1.a5a27"
             ]
         ]
     },
     {
-        "id": "3d228744.ad3e48",
+        "id": "f32be1e1.a5a27",
         "type": "function",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "+ fecha",
         "func": "msg.payload.date = new Date();\nreturn msg;",
         "outputs": 1,
@@ -2710,44 +2718,46 @@
         "y": 4446.634392261505,
         "wires": [
             [
-                "fa50562a.e167e8",
-                "2e276cfd.702724",
-                "e5efe929.867828",
-                "3fdf2e80.689072",
-                "dd785c0e.b4743",
-                "3d546a74.5f1c76",
-                "a84b94bd.dcb428",
-                "22628f76.a1904",
-                "7255cfbd.129b4",
-                "6021502b.fb37f",
-                "32f6719.d957f8e",
-                "9bac5d66.80c1c",
-                "4e3c2fa9.712ad",
-                "f73afdac.4a439"
+                "658e02dd.a1f49c",
+                "5daa7192.7313b",
+                "2e8dcb9a.bbf044",
+                "5d5c96a1.49f0f8",
+                "4cf95e7f.037c1",
+                "fc024b2a.31a128",
+                "e807b629.183628",
+                "bd3a5c61.ea6ad",
+                "d5a17eca.f4286",
+                "9f7dff74.9b4cc",
+                "2253c908.da14a6",
+                "afba0124.cd795",
+                "e7582fc9.e7bdb",
+                "b64cdfb8.26cac",
+                "97cac78e.50fb08",
+                "8beead34.4892"
             ]
         ]
     },
     {
-        "id": "2e276cfd.702724",
+        "id": "5daa7192.7313b",
         "type": "mongodb out",
-        "z": "fef8f9b7.bbc528",
-        "mongodb": "3284a27d.270ace",
+        "z": "dfbe2ee2.777e7",
+        "mongodb": "b1e5fae2.4dc578",
         "name": "",
         "collection": "DATOS_ESP5",
-        "payonly": false,
+        "payonly": true,
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 954.4454956054688,
-        "y": 4276.1171875,
+        "x": 490,
+        "y": 4640,
         "wires": []
     },
     {
-        "id": "94bd150f.dd3158",
+        "id": "c1fa78df.358578",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
-        "group": "3b542659.f2f22a",
+        "group": "5ffd2613.bc6908",
         "order": 9,
         "width": 0,
         "height": 0,
@@ -2769,11 +2779,11 @@
         "wires": []
     },
     {
-        "id": "e5e4f0bf.17c35",
+        "id": "2382fd80.81f152",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
-        "group": "3b542659.f2f22a",
+        "group": "5ffd2613.bc6908",
         "order": 10,
         "width": 0,
         "height": 0,
@@ -2795,9 +2805,9 @@
         "wires": []
     },
     {
-        "id": "e5efe929.867828",
+        "id": "2e8dcb9a.bbf044",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2817,14 +2827,14 @@
         "y": 4439.064926624298,
         "wires": [
             [
-                "e5e4f0bf.17c35"
+                "2382fd80.81f152"
             ]
         ]
     },
     {
-        "id": "3fdf2e80.689072",
+        "id": "5d5c96a1.49f0f8",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2844,14 +2854,14 @@
         "y": 4481.523239612579,
         "wires": [
             [
-                "94bd150f.dd3158"
+                "c1fa78df.358578"
             ]
         ]
     },
     {
-        "id": "dd785c0e.b4743",
+        "id": "4cf95e7f.037c1",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2871,15 +2881,15 @@
         "y": 4261.523253440857,
         "wires": [
             [
-                "d9e20c76.b03cb"
+                "25edf069.6a72f"
             ]
         ]
     },
     {
-        "id": "d9e20c76.b03cb",
+        "id": "25edf069.6a72f",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -2892,9 +2902,9 @@
         "wires": []
     },
     {
-        "id": "3d546a74.5f1c76",
+        "id": "fc024b2a.31a128",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2914,15 +2924,15 @@
         "y": 4304.523245811462,
         "wires": [
             [
-                "cbddfa5f.0bfe18"
+                "859db3.d40ed25"
             ]
         ]
     },
     {
-        "id": "cbddfa5f.0bfe18",
+        "id": "859db3.d40ed25",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -2935,9 +2945,9 @@
         "wires": []
     },
     {
-        "id": "a84b94bd.dcb428",
+        "id": "e807b629.183628",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -2957,15 +2967,15 @@
         "y": 4357.523234367371,
         "wires": [
             [
-                "10187ce8.0c2f43"
+                "7e85d2.f935da3"
             ]
         ]
     },
     {
-        "id": "10187ce8.0c2f43",
+        "id": "7e85d2.f935da3",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 7,
         "width": 0,
         "height": 0,
@@ -2978,10 +2988,10 @@
         "wires": []
     },
     {
-        "id": "a4cc7a39.9ad018",
+        "id": "be7ae2ac.48cff",
         "type": "ui_led",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 13,
         "width": 0,
         "height": 0,
@@ -3007,11 +3017,11 @@
         "wires": []
     },
     {
-        "id": "2b8d193f.86fe26",
+        "id": "1fd74f44.8716d1",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "Led",
-        "group": "3b542659.f2f22a",
+        "group": "5ffd2613.bc6908",
         "order": 12,
         "width": 0,
         "height": 0,
@@ -3033,9 +3043,9 @@
         "wires": []
     },
     {
-        "id": "32f6719.d957f8e",
+        "id": "2253c908.da14a6",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -3055,14 +3065,14 @@
         "y": 4532.523250102997,
         "wires": [
             [
-                "2b8d193f.86fe26"
+                "1fd74f44.8716d1"
             ]
         ]
     },
     {
-        "id": "9bac5d66.80c1c",
+        "id": "afba0124.cd795",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -3082,14 +3092,14 @@
         "y": 4581.523250102997,
         "wires": [
             [
-                "a4cc7a39.9ad018"
+                "be7ae2ac.48cff"
             ]
         ]
     },
     {
-        "id": "22628f76.a1904",
+        "id": "bd3a5c61.ea6ad",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -3109,15 +3119,15 @@
         "y": 4626.85660982132,
         "wires": [
             [
-                "8e756e6f.e94bb"
+                "dff9e3f.f19482"
             ]
         ]
     },
     {
-        "id": "8e756e6f.e94bb",
+        "id": "dff9e3f.f19482",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 15,
         "width": 0,
         "height": 0,
@@ -3130,9 +3140,9 @@
         "wires": []
     },
     {
-        "id": "7255cfbd.129b4",
+        "id": "d5a17eca.f4286",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -3152,15 +3162,15 @@
         "y": 4694.85660982132,
         "wires": [
             [
-                "7d909f8.ebd346"
+                "f0c1f651.4e3378"
             ]
         ]
     },
     {
-        "id": "7d909f8.ebd346",
+        "id": "f0c1f651.4e3378",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 16,
         "width": 0,
         "height": 0,
@@ -3173,9 +3183,9 @@
         "wires": []
     },
     {
-        "id": "6021502b.fb37f",
+        "id": "9f7dff74.9b4cc",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -3195,16 +3205,16 @@
         "y": 4769.85660982132,
         "wires": [
             [
-                "2c1fb498.a39d9c",
-                "4dcfae56.713af"
+                "805369e0.5e5a98",
+                "655bfc9d.482704"
             ]
         ]
     },
     {
-        "id": "2c1fb498.a39d9c",
+        "id": "805369e0.5e5a98",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 17,
         "width": 0,
         "height": 0,
@@ -3217,10 +3227,10 @@
         "wires": []
     },
     {
-        "id": "4b0fac0f.17cd94",
+        "id": "ab5e4169.3652a",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 14,
         "width": 0,
         "height": 0,
@@ -3233,9 +3243,9 @@
         "wires": []
     },
     {
-        "id": "4dcfae56.713af",
+        "id": "655bfc9d.482704",
         "type": "function",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "remapeo de RSSI a intensidad de señal",
         "func": "\nvar remap = 100-(-1* msg.payload);\nmsg.payload = remap;\nreturn msg;",
         "outputs": 1,
@@ -3244,16 +3254,16 @@
         "y": 4855.856552124023,
         "wires": [
             [
-                "995220be.b7272"
+                "77008772.93baa8"
             ]
         ]
     },
     {
-        "id": "995220be.b7272",
+        "id": "77008772.93baa8",
         "type": "ui_gauge",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "Intensidad Señal",
-        "group": "3b542659.f2f22a",
+        "group": "5ffd2613.bc6908",
         "order": 18,
         "width": 0,
         "height": 0,
@@ -3275,10 +3285,10 @@
         "wires": []
     },
     {
-        "id": "30a0c325.38178c",
+        "id": "dcc9499d.47ad38",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -3291,10 +3301,10 @@
         "wires": []
     },
     {
-        "id": "80a0d453.242598",
+        "id": "5950dbe5.d930d4",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 8,
         "width": 0,
         "height": 0,
@@ -3307,9 +3317,9 @@
         "wires": []
     },
     {
-        "id": "bf157f45.ab1a4",
+        "id": "f2c158ee.be4f38",
         "type": "comment",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "RECEPCION DATOS + ULTIMO DATO POR PANTALLA",
         "info": "Funcionalidad Básica del proyecto:\n\nMostrar info de varios sensores a la vez y poder\nadministrarlo desde el dashboard.\n\nControl del led y la lectura de su estado.\n\nInterruptor led, control y lectura (boton FLASH).\n\nControl de tiempo de intervalo de envío entre\nmensajes.",
         "x": 238,
@@ -3317,9 +3327,9 @@
         "wires": []
     },
     {
-        "id": "cff9642b.937148",
+        "id": "eb7d8a81.ed3b68",
         "type": "comment",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "ESP1 Datos",
         "info": "ChipID\nUpTime\nVcc\nTemperatura\nHumedad\nEstado del led (0-100)\nEstado del Switch (true/false)\nSSid\nIP\nRSSI",
         "x": 1360.5078086853027,
@@ -3327,9 +3337,9 @@
         "wires": []
     },
     {
-        "id": "1c4a48d9.9aeaa7",
+        "id": "96719920.041d88",
         "type": "comment",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "ESP2 Datos",
         "info": "ChipID\nUpTime\nVcc\nTemperatura\nHumedad\nEstado del led (0-100)\nEstado del Switch (true/false)\nSSid\nIP\nRSSI",
         "x": 1386.5078105926514,
@@ -3337,9 +3347,9 @@
         "wires": []
     },
     {
-        "id": "3ebfe0ba.2c96c",
+        "id": "3e298a87.0d25e6",
         "type": "comment",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "ESP3 Datos",
         "info": "ChipID\nUpTime\nVcc\nTemperatura\nHumedad\nEstado del led (0-100)\nEstado del Switch (true/false)\nSSid\nIP\nRSSI",
         "x": 1315.5078125,
@@ -3347,9 +3357,9 @@
         "wires": []
     },
     {
-        "id": "bd1f234f.f41dc",
+        "id": "85ef785b.e89048",
         "type": "comment",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "ESP4 Datos",
         "info": "ChipID\nUpTime\nVcc\nTemperatura\nHumedad\nEstado del led (0-100)\nEstado del Switch (true/false)\nSSid\nIP\nRSSI",
         "x": 1192.5078048706055,
@@ -3357,9 +3367,9 @@
         "wires": []
     },
     {
-        "id": "faa9bb94.24bc88",
+        "id": "7d921f8d.2bcf",
         "type": "comment",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "ESP4 Datos",
         "info": "ChipID\nUpTime\nVcc\nTemperatura\nHumedad\nEstado del led (0-100)\nEstado del Switch (true/false)\nSSid\nIP\nRSSI",
         "x": 1240.5078048706055,
@@ -3367,10 +3377,10 @@
         "wires": []
     },
     {
-        "id": "667f1f5.63480e",
+        "id": "8737eaff.0eaa28",
         "type": "ui_led",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 1,
         "width": "1",
         "height": "1",
@@ -3396,10 +3406,10 @@
         "wires": []
     },
     {
-        "id": "67ca7841.7d6a48",
+        "id": "bef4b488.e38458",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -3412,10 +3422,10 @@
         "wires": []
     },
     {
-        "id": "a2cbc503.5691e8",
+        "id": "e8b7b7a3.013278",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 2,
         "width": "5",
         "height": "1",
@@ -3428,9 +3438,9 @@
         "wires": []
     },
     {
-        "id": "db64487b.ca9468",
+        "id": "c372db2a.a07358",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -3450,15 +3460,15 @@
         "y": 228.75005340576172,
         "wires": [
             [
-                "71f3ff2.06435"
+                "6e8f085.45018f8"
             ]
         ]
     },
     {
-        "id": "66d27eca.662f1",
+        "id": "69fd7285.061a3c",
         "type": "ui_led",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 1,
         "width": "1",
         "height": "1",
@@ -3484,10 +3494,10 @@
         "wires": []
     },
     {
-        "id": "88d6ff7.f7ba1",
+        "id": "ebded682.b67608",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -3500,10 +3510,10 @@
         "wires": []
     },
     {
-        "id": "70f06c3d.eda3e4",
+        "id": "11db1528.e004fb",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 2,
         "width": "5",
         "height": "1",
@@ -3516,9 +3526,9 @@
         "wires": []
     },
     {
-        "id": "a65a21bc.a7e28",
+        "id": "bb48ae82.ded79",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -3538,16 +3548,16 @@
         "y": 1181.0862159729004,
         "wires": [
             [
-                "37618d5a.dbc422",
-                "4809e31c.fde89c"
+                "98d9dcf3.11af9",
+                "dc14fb64.7a2998"
             ]
         ]
     },
     {
-        "id": "32fb3f0d.55017",
+        "id": "7fef2bab.799ba4",
         "type": "ui_led",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 1,
         "width": "1",
         "height": "1",
@@ -3573,10 +3583,10 @@
         "wires": []
     },
     {
-        "id": "296e41d2.8eaa3e",
+        "id": "e5ac4e42.31a5f",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -3589,10 +3599,10 @@
         "wires": []
     },
     {
-        "id": "3e758e4c.838512",
+        "id": "23393173.d0f9ce",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 2,
         "width": "5",
         "height": "1",
@@ -3605,9 +3615,9 @@
         "wires": []
     },
     {
-        "id": "75bac2c5.cc52ec",
+        "id": "eec5d650.b2ce68",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -3627,15 +3637,15 @@
         "y": 2073.0859603881836,
         "wires": [
             [
-                "5de043d4.a8364c"
+                "6ab83561.1defbc"
             ]
         ]
     },
     {
-        "id": "6d028f47.51d13",
+        "id": "7fd31164.df4df",
         "type": "ui_led",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 1,
         "width": "1",
         "height": "1",
@@ -3661,10 +3671,10 @@
         "wires": []
     },
     {
-        "id": "c0d42f35.90d41",
+        "id": "f3da839c.1482d",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -3677,10 +3687,10 @@
         "wires": []
     },
     {
-        "id": "ff6624a5.623de8",
+        "id": "ebf58aca.d9da58",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 2,
         "width": "5",
         "height": "1",
@@ -3693,9 +3703,9 @@
         "wires": []
     },
     {
-        "id": "86b60b72.8187f8",
+        "id": "d2ee6395.afdf7",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -3715,15 +3725,15 @@
         "y": 3106.4192123413086,
         "wires": [
             [
-                "6751bba6.00c964"
+                "4dd12643.b5d9f8"
             ]
         ]
     },
     {
-        "id": "cefd2f7d.9106",
+        "id": "bf4c010c.f09dd",
         "type": "ui_led",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 1,
         "width": "1",
         "height": "1",
@@ -3749,10 +3759,10 @@
         "wires": []
     },
     {
-        "id": "f73afdac.4a439",
+        "id": "b64cdfb8.26cac",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -3765,10 +3775,10 @@
         "wires": []
     },
     {
-        "id": "6d592ca9.d06c14",
+        "id": "b5f37b7a.314f58",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 2,
         "width": "5",
         "height": "1",
@@ -3781,9 +3791,9 @@
         "wires": []
     },
     {
-        "id": "4e3c2fa9.712ad",
+        "id": "e7582fc9.e7bdb",
         "type": "change",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "rules": [
             {
@@ -3803,15 +3813,15 @@
         "y": 4173.419456481934,
         "wires": [
             [
-                "7730f968.bc1dc8"
+                "bb83c33a.1a03b"
             ]
         ]
     },
     {
-        "id": "42bede38.2aee9",
+        "id": "519e4b0.6018fb4",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "edf863bd.f55b",
+        "z": "dfbe2ee2.777e7",
+        "group": "f9e3efc6.4bd9e",
         "order": 11,
         "width": 0,
         "height": 0,
@@ -3824,10 +3834,10 @@
         "wires": []
     },
     {
-        "id": "93303fac.f92dd",
+        "id": "ae3f8499.4e3e28",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "6d2a5b5b.5cecd4",
+        "z": "dfbe2ee2.777e7",
+        "group": "cf4b8da5.d5393",
         "order": 11,
         "width": 0,
         "height": 0,
@@ -3840,10 +3850,10 @@
         "wires": []
     },
     {
-        "id": "5b31773e.78b348",
+        "id": "12d68174.ce936f",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "55e62896.330568",
+        "z": "dfbe2ee2.777e7",
+        "group": "aa89d538.98ce98",
         "order": 11,
         "width": 0,
         "height": 0,
@@ -3856,10 +3866,10 @@
         "wires": []
     },
     {
-        "id": "19e03b30.4e5955",
+        "id": "176ae757.f00ea9",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "42252611.bc3948",
+        "z": "dfbe2ee2.777e7",
+        "group": "fcfaeb32.7407d8",
         "order": 11,
         "width": 0,
         "height": 0,
@@ -3872,10 +3882,10 @@
         "wires": []
     },
     {
-        "id": "e910bced.1a354",
+        "id": "f6e60fe6.bdf02",
         "type": "ui_text",
-        "z": "fef8f9b7.bbc528",
-        "group": "3b542659.f2f22a",
+        "z": "dfbe2ee2.777e7",
+        "group": "5ffd2613.bc6908",
         "order": 11,
         "width": 0,
         "height": 0,
@@ -3888,9 +3898,9 @@
         "wires": []
     },
     {
-        "id": "37618d5a.dbc422",
+        "id": "98d9dcf3.11af9",
         "type": "debug",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -3902,9 +3912,9 @@
         "wires": []
     },
     {
-        "id": "4809e31c.fde89c",
+        "id": "dc14fb64.7a2998",
         "type": "json",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3913,15 +3923,15 @@
         "y": 1182.15305519104,
         "wires": [
             [
-                "66d27eca.662f1",
-                "70f06c3d.eda3e4"
+                "69fd7285.061a3c",
+                "11db1528.e004fb"
             ]
         ]
     },
     {
-        "id": "71f3ff2.06435",
+        "id": "6e8f085.45018f8",
         "type": "json",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3930,15 +3940,15 @@
         "y": 217.88888549804688,
         "wires": [
             [
-                "667f1f5.63480e",
-                "a2cbc503.5691e8"
+                "8737eaff.0eaa28",
+                "e8b7b7a3.013278"
             ]
         ]
     },
     {
-        "id": "5de043d4.a8364c",
+        "id": "6ab83561.1defbc",
         "type": "json",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3947,15 +3957,15 @@
         "y": 2053.5556640625,
         "wires": [
             [
-                "32fb3f0d.55017",
-                "3e758e4c.838512"
+                "7fef2bab.799ba4",
+                "23393173.d0f9ce"
             ]
         ]
     },
     {
-        "id": "6751bba6.00c964",
+        "id": "4dd12643.b5d9f8",
         "type": "json",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3964,15 +3974,15 @@
         "y": 3089.666748046875,
         "wires": [
             [
-                "6d028f47.51d13",
-                "ff6624a5.623de8"
+                "7fd31164.df4df",
+                "ebf58aca.d9da58"
             ]
         ]
     },
     {
-        "id": "7730f968.bc1dc8",
+        "id": "bb83c33a.1a03b",
         "type": "json",
-        "z": "fef8f9b7.bbc528",
+        "z": "dfbe2ee2.777e7",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3981,13 +3991,233 @@
         "y": 4153.88916015625,
         "wires": [
             [
-                "cefd2f7d.9106",
-                "6d592ca9.d06c14"
+                "bf4c010c.f09dd",
+                "b5f37b7a.314f58"
             ]
         ]
     },
     {
-        "id": "cd5dbf9e.ebb57",
+        "id": "8beead34.4892",
+        "type": "function",
+        "z": "dfbe2ee2.777e7",
+        "name": "Temperatura mayor que 25ºC",
+        "func": "var temperatura = msg.payload.DHT11.Temp\n\nif(temperatura >= 30)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Uy! Ten cuidado que hace una temperatura de  \"+temperatura+ \"ºC,registrados por el ESP5. No olvides hidratarte! \\n\";\nreturn msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850,
+        "y": 4780,
+        "wires": [
+            [
+                "47627cb7.44cdf4"
+            ]
+        ]
+    },
+    {
+        "id": "97cac78e.50fb08",
+        "type": "function",
+        "z": "dfbe2ee2.777e7",
+        "name": "Humedad mayor que 90 %",
+        "func": "var humedad = msg.payload.DHT11.hum\nif(humedad >= 95)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Alerta!En el ESP 5, se ha registrado un valor de humedad relativa del\"+humedad+ \"% \\n\";\nreturn msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 840,
+        "y": 4720,
+        "wires": [
+            [
+                "47627cb7.44cdf4"
+            ]
+        ]
+    },
+    {
+        "id": "47627cb7.44cdf4",
+        "type": "telegram sender",
+        "z": "dfbe2ee2.777e7",
+        "name": "",
+        "bot": "2a1be692.da76fa",
+        "x": 1270,
+        "y": 4940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "14fee977.2e43c7",
+        "type": "telegram sender",
+        "z": "dfbe2ee2.777e7",
+        "name": "",
+        "bot": "2a1be692.da76fa",
+        "x": 1230,
+        "y": 3900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "17b30a49.850286",
+        "type": "function",
+        "z": "dfbe2ee2.777e7",
+        "name": "Temperatura mayor que 25ºC",
+        "func": "var temperatura = msg.payload.DHT11.Temp\n\nif(temperatura >= 25)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Uy! Ten cuidado que hace una temperatura de  \"+temperatura+ \"ºC,registrados por el ESP4. No olvides hidratarte! \\n\";\nreturn msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 750,
+        "y": 3780,
+        "wires": [
+            [
+                "14fee977.2e43c7"
+            ]
+        ]
+    },
+    {
+        "id": "9abf1f34.4b3c3",
+        "type": "function",
+        "z": "dfbe2ee2.777e7",
+        "name": "Humedad mayor que 90 %",
+        "func": "var humedad = msg.payload.DHT11.hum\nif(humedad >= 90)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Alerta!En el ESP 4, se ha registrado un valor de humedad relativa del\"+humedad+ \"% \\n\";\nreturn msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 840,
+        "y": 3700,
+        "wires": [
+            [
+                "14fee977.2e43c7"
+            ]
+        ]
+    },
+    {
+        "id": "e39a5b3c.a0a718",
+        "type": "telegram sender",
+        "z": "dfbe2ee2.777e7",
+        "name": "",
+        "bot": "2a1be692.da76fa",
+        "x": 1430,
+        "y": 2840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dfab4497.34da98",
+        "type": "function",
+        "z": "dfbe2ee2.777e7",
+        "name": "Temperatura mayor que 25ºC",
+        "func": "var temperatura = msg.payload.DHT11.Temp\n\nif(temperatura >= 30)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Uy! Ten cuidado que hace una temperatura de  \"+temperatura+ \"ºC,registrados por el ESP3. No olvides hidratarte! \\n\";\nreturn msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1010,
+        "y": 2680,
+        "wires": [
+            [
+                "e39a5b3c.a0a718"
+            ]
+        ]
+    },
+    {
+        "id": "d45aa63.dc12158",
+        "type": "function",
+        "z": "dfbe2ee2.777e7",
+        "name": "Humedad mayor que 90 %",
+        "func": "var humedad = msg.payload.DHT11.hum\nif(humedad >= 95)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Alerta!En el ESP 3, se ha registrado un valor de humedad relativa del\"+humedad+ \"% \\n\";\nreturn msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1000,
+        "y": 2620,
+        "wires": [
+            [
+                "e39a5b3c.a0a718"
+            ]
+        ]
+    },
+    {
+        "id": "7737b766.1b7848",
+        "type": "function",
+        "z": "dfbe2ee2.777e7",
+        "name": "Humedad mayor que 90 %",
+        "func": "var humedad = msg.payload.DHT11.hum\nif(humedad >= 95)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Alerta!En el ESP 2, se ha registrado un valor de humedad relativa del\"+humedad+ \"% \\n\";\nreturn msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1000,
+        "y": 1680,
+        "wires": [
+            [
+                "3973d722.c4bc68"
+            ]
+        ]
+    },
+    {
+        "id": "debb2c91.418ea",
+        "type": "function",
+        "z": "dfbe2ee2.777e7",
+        "name": "Temperatura mayor que 25ºC",
+        "func": "var temperatura = msg.payload.DHT11.Temp\n\nif(temperatura >= 30)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Uy! Ten cuidado que hace una temperatura de  \"+temperatura+ \"ºC,registrados por el ESP2. No olvides hidratarte! \\n\";\nreturn msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1010,
+        "y": 1740,
+        "wires": [
+            [
+                "3973d722.c4bc68"
+            ]
+        ]
+    },
+    {
+        "id": "3973d722.c4bc68",
+        "type": "telegram sender",
+        "z": "dfbe2ee2.777e7",
+        "name": "",
+        "bot": "2a1be692.da76fa",
+        "x": 1430,
+        "y": 1900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7b2aad60.0959c4",
+        "type": "function",
+        "z": "dfbe2ee2.777e7",
+        "name": "Humedad mayor que 90 %",
+        "func": "var humedad = msg.payload.DHT11.hum\nif(humedad >= 95)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Alerta!En el ESP 1, se ha registrado un valor de humedad relativa del\"+humedad+ \"% \\n\";\nreturn msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 820,
+        "wires": [
+            [
+                "4462f84e.dadb58"
+            ]
+        ]
+    },
+    {
+        "id": "1847fb90.82ac94",
+        "type": "function",
+        "z": "dfbe2ee2.777e7",
+        "name": "Temperatura mayor que 25ºC",
+        "func": "var temperatura = msg.payload.DHT11.Temp\n\nif(temperatura >= 30)\n{\n    msg.payload={}\n    msg.payload.chatId=-1001354631151;\n    msg.payload.type=\"message\";\n    msg.payload.content=\"Uy! Ten cuidado que hace una temperatura de  \"+temperatura+ \"ºC,registrados por el ESP1. No olvides hidratarte! \\n\";\nreturn msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1210,
+        "y": 880,
+        "wires": [
+            [
+                "4462f84e.dadb58"
+            ]
+        ]
+    },
+    {
+        "id": "4462f84e.dadb58",
+        "type": "telegram sender",
+        "z": "dfbe2ee2.777e7",
+        "name": "",
+        "bot": "2a1be692.da76fa",
+        "x": 1750,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b25567ea.2cea98",
         "type": "mqtt-broker",
         "z": "",
         "name": "",
@@ -4009,7 +4239,7 @@
         "willPayload": ""
     },
     {
-        "id": "3284a27d.270ace",
+        "id": "b1e5fae2.4dc578",
         "type": "mongodb",
         "z": "",
         "hostname": "iot.ac.uma.es",
@@ -4018,62 +4248,86 @@
         "name": ""
     },
     {
-        "id": "edf863bd.f55b",
+        "id": "f9e3efc6.4bd9e",
         "type": "ui_group",
         "z": "",
         "name": "ESP1",
-        "tab": "1a3972d9.6a28bd",
+        "tab": "edb675c.ab1c688",
         "order": 1,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "6d2a5b5b.5cecd4",
+        "id": "cf4b8da5.d5393",
         "type": "ui_group",
         "z": "",
         "name": "ESP2",
-        "tab": "1a3972d9.6a28bd",
+        "tab": "edb675c.ab1c688",
         "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "55e62896.330568",
+        "id": "aa89d538.98ce98",
         "type": "ui_group",
         "z": "",
         "name": "ESP3",
-        "tab": "1a3972d9.6a28bd",
+        "tab": "edb675c.ab1c688",
         "order": 3,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "42252611.bc3948",
+        "id": "fcfaeb32.7407d8",
         "type": "ui_group",
         "z": "",
         "name": "ESP4",
-        "tab": "1a3972d9.6a28bd",
+        "tab": "edb675c.ab1c688",
         "order": 4,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "3b542659.f2f22a",
+        "id": "5ffd2613.bc6908",
         "type": "ui_group",
         "z": "",
         "name": "ESP5",
-        "tab": "1a3972d9.6a28bd",
+        "tab": "edb675c.ab1c688",
         "order": 5,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "1a3972d9.6a28bd",
+        "id": "2a1be692.da76fa",
+        "type": "telegram bot",
+        "z": "",
+        "botname": "UwU87bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "edb675c.ab1c688",
         "type": "ui_tab",
         "z": "",
         "name": "UltimosDatos",
