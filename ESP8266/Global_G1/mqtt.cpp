@@ -66,7 +66,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
      int valor_led_mqtt = root["level"];
      Serial.print("Mensaje OK, level = ");
      Serial.println(valor_led_mqtt);
-     led_valor1 = valor_led_mqtt;
+     led_actual = valor_led_mqtt;
      led_mqtt();
     }
     else

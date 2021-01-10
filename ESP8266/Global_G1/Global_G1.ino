@@ -111,7 +111,7 @@ void loop() {
   if (ready_led)                    // Se llama la interrupcion para asegurar que no se captan rebotes en la pulsacion
   {
       pulsos();                     // Interpreta los pulsos de la interrupcion.
-      ultima_pulsacion = millis();  // Guarda en p1 el tiempo de la ultima pulsacion.
+      ultima_pulsacion = millis();  // Guarda en ultima_pulsación el tiempo de la ultima pulsacion.
       funcion_flash();              // Interpreta, con el "codigo pulso", que hacer en la placa (ON/OFF, FOTA...)
       led_mqtt();                   // Publica el valor del led actualizado. (Función en DATOS)
       ready_led = false;            // Variable para no volver a entrar en el IF.
@@ -124,18 +124,18 @@ void loop() {
     ready_switch = false;
   }
   
-  if (led_valor1 > 100)               // Restringe valor entre 0 y 100
-        led_valor1 = 100;
-  else if (led_valor1 < 0)
-      led_valor1 = 0;
+  if (led_actual > 100)               // Restringe valor entre 0 y 100
+        led_actual = 100;
+  else if (led_actual < 0)
+      led_actual = 0;
 
   if (now >= lastLed + ledspeed)      //if_1  ledspeed recibido por mqtt(por defecto 10)
   {    
-    if (inten_Led != led_valor1)      //if_2
+    if (inten_Led != led_actual)      //if_2
     {
-      if (inten_Led < led_valor1)     //aumenta 1 cuando es menor
+      if (inten_Led < led_actual)     //aumenta 1 cuando es menor
           inten_Led++;
-      else if (inten_Led > led_valor1) //disminuye 1 cuando es mayor
+      else if (inten_Led > led_actual) //disminuye 1 cuando es mayor
           inten_Led--;
         
       valor_maped = 1023-(inten_Led*10.23);     // Remapeo de valor [0-1023] e inversion para que el 100% se corresponda a led encendido y 0% =>> led apagado

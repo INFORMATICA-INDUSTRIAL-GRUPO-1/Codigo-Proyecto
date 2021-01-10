@@ -11,8 +11,8 @@ extern volatile unsigned long duracion; //duda lo de volatile.
 void pulsos(); //Interpreta los pulsos del boton y la duración de la pulsacion.
 
 
-extern int led_valor1;
-extern int led_valor2;
+extern int led_actual;
+extern int led_almacenado;
 
 extern int switch_valor;
 extern bool ready_switch;

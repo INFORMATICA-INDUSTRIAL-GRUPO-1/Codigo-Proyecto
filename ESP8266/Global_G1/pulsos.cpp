@@ -23,7 +23,7 @@
 
 /*-------------------------  PULSOS  ------------------------*/
 // Interpreta el tipo de pulsacion que se realiza
-unsigned long ultima_pulsacion;
+unsigned long ultima_pulsacion = 0;
 int pulsacion = 0;
 
 void pulsos()                                 //Interpreta los pulsos del boton y la duración de la pulsacion.
@@ -46,8 +46,8 @@ void pulsos()                                 //Interpreta los pulsos del boton 
 }                 //Fin pulsos
 
 /*-------------------------  CONTROL LED  ------------------------*/
-int led_valor1 = 10;            //valor de prueba
-int led_valor2;                 //variable que guarda el valor de luminosidad del primer led.
+int led_actual = 100;            //valor de prueba
+int led_almacenado;                 //variable que guarda el valor de luminosidad del primer led.
 
 int switch_valor;               //variable que guarda el valor del estado del segundo led.
 bool ready_switch = false;
@@ -59,21 +59,21 @@ void funcion_flash()
     case 1:                       // Pulsación Corta
       switch_valor = !digitalRead(SWITCH_PIN);
       ready_switch = true; 
-      if (led_valor1 != 0)        // Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
+      if (led_actual != 0)        // Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
       {
-         led_valor2 = led_valor1; // Variable de reserva
-         led_valor1 = 0;          // Estado apagado del led
+         led_almacenado = led_actual; // Variable de reserva
+         led_actual = 0;          // Estado apagado del led
       }//if
       else                        // Led apagado: se enciende con el valor de intensidad guardado.
       {
-        led_valor1 = led_valor2;
+        led_actual = led_almacenado;
       }//else
     break;
     
     case 2:                       // Pulsación doble
      switch_valor = LOW;
      ready_switch = true;
-     led_valor1 = 100;
+     led_actual = 100;
     break;
 
     case 100:                     // Pulsación larga

@@ -105,8 +105,8 @@ void led_mqtt()                       // Funcion que tiene como entrada un valor
 {
   StaticJsonDocument<100> jsonRoot;
  
-  datos.led = led_valor1;             // Guarda el ultimo valor recibido
-  jsonRoot["led"] = led_valor1;       //Convierte el estado del led a json para ACK al broker mqtt
+  datos.led = led_actual;             // Guarda el ultimo valor recibido
+  jsonRoot["led"] = led_actual;       //Convierte el estado del led a json para ACK al broker mqtt
 
   serializeJson(jsonRoot,msg);
 
