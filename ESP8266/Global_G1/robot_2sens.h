@@ -1,4 +1,4 @@
-/*
+
 #ifndef robot_2sens_h
 #define robot_2sens_h
 #include <Arduino.h> //libreria de arduin
@@ -20,4 +20,3 @@ void sensores_arduino();
 
 
 #endif
-*/

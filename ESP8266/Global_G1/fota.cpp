@@ -37,10 +37,8 @@ void FuncionActualizacion()
   debugFunction ("--------------------",1);
   debugFunction ("--------------------",1);
   debugFunction ("/d",0);
-  debugFunction (HTTP_OTA_ADDRESS,0);
+  debugFunction (OTA_URL,0);
   debugFunction (":",0);
-  debugFunction (String(HTTP_OTA_PORT),0);
-  debugFunction (HTTP_OTA_PATH,0);
   debugFunction ("",1);
   debugFunction ("--------------------",1);  
   ESPhttpUpdate.setLedPin(16,LOW);
@@ -48,7 +46,7 @@ void FuncionActualizacion()
   ESPhttpUpdate.onError(error_OTA);
   ESPhttpUpdate.onProgress(progreso_OTA);
   ESPhttpUpdate.onEnd(final_OTA);
-  switch(ESPhttpUpdate.update(HTTP_OTA_ADDRESS, HTTP_OTA_PORT, HTTP_OTA_PATH, HTTP_OTA_VERSION)) {
+  switch(ESPhttpUpdate.update(OTA_URL, HTTP_OTA_VERSION, OTAfingerprint)) {
     case HTTP_UPDATE_FAILED:
       Serial.printf(" HTTP update failed: Error (%d): %s\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str());
       break;

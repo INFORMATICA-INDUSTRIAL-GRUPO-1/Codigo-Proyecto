@@ -24,11 +24,9 @@ extern bool debug;
 
 ////////////////////Funciones//////////////////////////////
 //// CONFIGURACION DE LOS PARÁMETROS DEL SERVIDOR DE ACTUALIZACIONES FOTA///////////////////////
-#define HTTP_OTA_ADDRESS      F("192.168.0.169")       // Address of OTA update server
-#define HTTP_OTA_PATH         F("/esp8266-ota/update") // Path to update firmware
-#define HTTP_OTA_PORT         1880                     // Port of update server
-                                                       // Name of firmware
-#define HTTP_OTA_VERSION      String(__FILE__).substring(String(__FILE__).lastIndexOf('\\')+1) + ".nodemcu" 
+#define OTA_URL "https://iot.ac.uma.es:1880/esp8266-ota/update"// Address of OTA update server
+#define HTTP_OTA_VERSION   String(__FILE__).substring(String(__FILE__).lastIndexOf('\\')+1)+".nodemcu"
+extern String OTAfingerprint;
 
 extern byte DHT_PIN;
 extern byte SWITCH_PIN;
@@ -62,6 +60,7 @@ extern char TOP_FOTA_updt[48];
 extern char TOP_sensores[48];
 extern char TOP_Movimiento[48];
 extern char TOP_Modo[48];
+extern char TOP_Obstaculo[48];
 
 /////////////////Parametros ////////////////////
 

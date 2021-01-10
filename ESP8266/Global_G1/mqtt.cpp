@@ -130,18 +130,47 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       Serial.print("Error deserializeJson() failed: ");
       Serial.println(error.c_str());
     }
-    else if(root.containsKey("tiempo"))  // comprobar si existe el campo/clave que estamos buscando
-    {
-     int ledspeed_mqtt = root["tiempo"];
-     Serial.print("Mensaje OK, level = ");
-     Serial.println(ledspeed_mqtt);
-     ledspeed = ledspeed_mqtt;
-    }
     else
     {
-      Serial.print("Error : ");
-      Serial.println("\"level\" key not found in JSON");
+       if(root.containsKey("tiempo"))  // comprobar si existe el campo/clave que estamos buscando
+      {
+       int ledspeed_mqtt = root["tiempo"];
+       Serial.print("Mensaje OK, level = ");
+       Serial.println(ledspeed_mqtt);
+       ledspeed = ledspeed_mqtt;
+      }
+      else
+      {
+        Serial.print("Error : ");
+        Serial.println("\"level\" key not found in JSON");
+      }
+      if(root.containsKey("actualiza"))  // comprobar si existe el campo/clave que estamos buscando
+      {
+       int fotaSampRate_mqtt = root["actualiza"];
+       debugFunction("Mensaje OK, actualiza = ",1);
+       debugFunction(String(fotaSampRate_mqtt),0);
+       fotaSampRate = fotaSampRate_mqtt;
+      }
+      else
+      {
+        debugFunction("Error : ",1);
+        debugFunction("\"actualiza\" key not found in JSON",1);
+      }
+      
+      if(root.containsKey("envia"))  // comprobar si existe el campo/clave que estamos buscando
+      {
+       int dataSampRate_mqtt = root["envia"];
+       debugFunction("Mensaje OK, envia = ",1);
+       debugFunction(String(dataSampRate_mqtt),0);
+       dataSampRate = dataSampRate_mqtt;
+      }
+      else
+      {
+        debugFunction("Error : ",1);
+        debugFunction("\"actualiza\" key not found in JSON",1);
+      }
     }
+     
     
   }
   if(strcmp(topic,TOP_FOTA)==0)
@@ -168,7 +197,7 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       Serial.println("\"actualiza\" key not found in JSON");
     }
   } 
-  if(strcmp(topic,"infind/GRUPO1/PIERO/Movimiento")==0)
+  if(strcmp(topic,TOP_Movimiento)==0)
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
@@ -192,7 +221,7 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       Serial.println("\"actualiza\" key not found in JSON");
     }
   } 
-  if(strcmp(topic,"infind/GRUPO1/PIERO/Modo")==0)
+  if(strcmp(topic,TOP_Modo)==0)
   {
       StaticJsonDocument<128> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
@@ -253,8 +282,8 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       client.subscribe(TOP_switchCmd);
       client.subscribe(TOP_FOTA);
       client.subscribe("infind/GRUPO1/ESP0/broadcast"); // subscripcion a topic de broadcast
-      client.subscribe("infind/GRUPO1/PIERO/Movimiento");
-      client.subscribe("infind/GRUPO1/PIERO/Modo");
+      client.subscribe(TOP_Movimiento);
+      client.subscribe(TOP_Modo);
       client.publish("infind/GRUPO1/ESP0/ack",(const char*)JSon_Msg,true); //publica el estado de la conexion el topic "ack" del broadcast
       client.publish(TOP_conexion,(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
     } else { // fallo en la conexion mqtt
@@ -325,6 +354,17 @@ String aux; // almacenamiento temporal del topic
   memset(TOP_sensores, 0, sizeof(TOP_sensores)); 
   sprintf(TOP_sensores,TOP_generic,grupo,placa,aux.c_str());
 
+  aux=TOP_Movimiento;
+  memset(TOP_Movimiento, 0, sizeof(TOP_Movimiento)); 
+  sprintf(TOP_Movimiento,TOP_generic,grupo,placa,aux.c_str());
+
+  aux=TOP_Modo;
+  memset(TOP_Modo, 0, sizeof(TOP_Modo)); 
+  sprintf(TOP_Modo,TOP_generic,grupo,placa,aux.c_str());
+
+  aux=TOP_Obstaculo;
+  memset(TOP_Obstaculo, 0, sizeof(TOP_Obstaculo)); 
+  sprintf(TOP_Obstaculo,TOP_generic,grupo,placa,aux.c_str());
   }
 
   

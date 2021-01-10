@@ -1,4 +1,4 @@
-
+/*
 #include "robot_5sens.h"
 
 int sensor1;
@@ -71,9 +71,9 @@ void sensores_arduino ()
             }
           else
             obs_dcha = false;
-            
+           */
 /*--------------------------- OBJ_IZQ ---------------------------*/
-            if (obs_izq && !stop_izq)
+ /*           if (obs_izq && !stop_izq)
           {
             stop_izq=true;
             if(modo==1)
@@ -92,16 +92,16 @@ void sensores_arduino ()
               serializeJson(jsonRoot,msg);
             
               //debugFunction (msg,1);
-              client.publish("infind/GRUPO1/PIERO/Obstaculo", msg);
+              client.publish(TOP_Obstaculo, msg);
             }
               
           }
 
           else if (!obs_izq)
             stop_izq=false;
-            
+            */
 /*--------------------------- OBJ_DCHA ---------------------------*/            
-          if (obs_dcha && !stop_dcha)
+     /*     if (obs_dcha && !stop_dcha)
           {
             stop_dcha=true;
             if (modo==1)
@@ -120,15 +120,15 @@ void sensores_arduino ()
               serializeJson(jsonRoot,msg);
             
               //debugFunction (msg,1);
-              client.publish("infind/GRUPO1/PIERO/Obstaculo", msg);
+              client.publish(TOP_Obstaculo, msg);
             }
               
           }
           else if (!obs_dcha)
             stop_dcha=false;
-            
+   */         
 /*--------------------------- OBJ_CENT ---------------------------*/            
-          if (obs_cent && !stop_cent)
+   /*       if (obs_cent && !stop_cent)
           {
             stop_cent=true;
             if (modo==1)
@@ -147,7 +147,7 @@ void sensores_arduino ()
               serializeJson(jsonRoot,msg);
             
               //debugFunction (msg,1);
-              client.publish("infind/GRUPO1/PIERO/Obstaculo", msg);
+              client.publish(TOP_Obstaculo, msg);
             }
               
           }
@@ -160,3 +160,4 @@ void sensores_arduino ()
   else
     dato_sensor = false;
 }//funcion
+*/

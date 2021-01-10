@@ -27,8 +27,8 @@ byte BUTTON_PIN = 0; // Boton de Flash de la placa ESP8266
 
 ////////////////////////////Debug Por Puerto Serie////////////////////////////////////
 bool debug = true;
-
-
+////////////////////////////FOTA////////////////////////////////////
+String OTAfingerprint("5d56095c5f7ba43f01b72231d3a7daa36e102e60"); // sustituir valor
 ///////////////////// WiFi & MQTT CONFIGURATION////////////////////////////////////////////////////
 
 //const char* ssid = "MOVISTAR_1F74"; // PONER EL NOMBRE DE LA RED WIFI
@@ -37,10 +37,10 @@ bool debug = true;
 //const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
 //const char* ssid = "Martin Router King"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = ""; // CLAVE DE LA RED WIFI
-const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "Srmonline";// CLAVE DE LA RED WIFI
-//const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
-//const char* password = "pablovera"; // CLAVE DE LA RED WIFI
+//const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
+//const char* password = "Srmonline";// CLAVE DE LA RED WIFI
+const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "pablovera"; // CLAVE DE LA RED WIFI
 //const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "12345678"; // CLAVE DE LA RED WIFI
 const char* mqtt_server = "iot.ac.uma.es" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
@@ -55,7 +55,7 @@ byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesP
 
 /////////////////TOPICS MQTT ////////////////////
 byte grupo = 1;
-byte placa = 2;
+byte placa = 1;
 char TOP_generic[48] ="infind/GRUPO%i/ESP%i/%s";
 
 char TOP_conexion[48] = "conexion"; 
@@ -81,6 +81,10 @@ char TOP_sensores[48] = "PIERO/Sensores";
 char TOP_Movimiento[48] = "PIERO/Movimiento";
 
 char TOP_Modo[48] = "PIERO/Modo";
+
+char TOP_Obstaculo[48] = "PIERO/Obstaculo";
+
+
 
 /////////////////Parametros ////////////////////
 

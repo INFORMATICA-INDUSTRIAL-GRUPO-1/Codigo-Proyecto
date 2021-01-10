@@ -1,4 +1,4 @@
-/*
+
 #include "robot_2sens.h"
 
 int sensor1;
@@ -65,7 +65,7 @@ void sensores_arduino ()
               serializeJson(jsonRoot,msg);
             
               //debugFunction (msg,1);
-              client.publish("infind/GRUPO1/PIERO/Obstaculo", msg);
+              client.publish(TOP_Obstaculo, msg);
             }
               
           }
@@ -92,7 +92,7 @@ void sensores_arduino ()
               serializeJson(jsonRoot,msg);
             
               //debugFunction (msg,1);
-              client.publish("infind/GRUPO1/PIERO/Obstaculo", msg);
+              client.publish(TOP_Obstaculo, msg);
             }
               
           }
@@ -108,4 +108,3 @@ void sensores_arduino ()
   else
   dato_sensor = false;
 }//funcion
-*/

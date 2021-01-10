@@ -154,6 +154,6 @@ void sensores2_mqtt ()
   serializeJson(jsonRoot,msg);
 
   //debugFunction (msg,1);
-  client.publish("infind/GRUPO1/PIERO/Sensores", msg);
+  client.publish(TOP_sensores, msg);
  
 }
