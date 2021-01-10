@@ -1,0 +1,4625 @@
+[
+    {
+        "id": "1995365.67674ca",
+        "type": "tab",
+        "label": "Control_PIERO",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e1b58ed0.a3a43",
+        "type": "mqtt out",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP1/PIERO/Movimiento",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 948.7500076293945,
+        "y": 597.0390491485596,
+        "wires": []
+    },
+    {
+        "id": "7541e7f0.df43c8",
+        "type": "mqtt out",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP1/PIERO/Modo",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 1062.7578201293945,
+        "y": 305.04686164855957,
+        "wires": []
+    },
+    {
+        "id": "21d0107b.bb83c",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "717e3dfe.917b54",
+        "order": 17,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "A",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "4",
+        "payloadType": "num",
+        "topic": "",
+        "x": 204.75003814697266,
+        "y": 568.0156507492065,
+        "wires": [
+            [
+                "8435b783.d8b7f8"
+            ]
+        ]
+    },
+    {
+        "id": "cf307cce.f4fbe",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "717e3dfe.917b54",
+        "order": 14,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "W",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "8",
+        "payloadType": "str",
+        "topic": "",
+        "x": 331.74221992492676,
+        "y": 509.0156202316284,
+        "wires": [
+            [
+                "8435b783.d8b7f8"
+            ]
+        ]
+    },
+    {
+        "id": "cf22d643.b67888",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "717e3dfe.917b54",
+        "order": 19,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "D",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "6",
+        "payloadType": "str",
+        "topic": "",
+        "x": 437.7578430175781,
+        "y": 564.0156879425049,
+        "wires": [
+            [
+                "8435b783.d8b7f8"
+            ]
+        ]
+    },
+    {
+        "id": "72b060f.6c2e6a",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "717e3dfe.917b54",
+        "order": 18,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "S",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "str",
+        "topic": "",
+        "x": 324.75002670288086,
+        "y": 597.0234708786011,
+        "wires": [
+            [
+                "8435b783.d8b7f8"
+            ]
+        ]
+    },
+    {
+        "id": "47139ddb.da6f54",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "717e3dfe.917b54",
+        "order": 20,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "",
+        "x": 326.7500419616699,
+        "y": 660.023455619812,
+        "wires": [
+            [
+                "8435b783.d8b7f8"
+            ]
+        ]
+    },
+    {
+        "id": "507ecad0.41c6b4",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "717e3dfe.917b54",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "---------------ESP1----------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 370.75003814697266,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "2ccc5e16.8c4f92",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "717e3dfe.917b54",
+        "order": 9,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Manual",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "x": 357.7500305175781,
+        "y": 348.0234327316284,
+        "wires": [
+            [
+                "ecc7fcd1.dfdb5",
+                "71faf1c2.9ee3c"
+            ]
+        ]
+    },
+    {
+        "id": "69d0d78e.d6c008",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "717e3dfe.917b54",
+        "order": 22,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Automático",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "num",
+        "topic": "",
+        "x": 355.5078430175781,
+        "y": 390.52342796325684,
+        "wires": [
+            [
+                "ecc7fcd1.dfdb5",
+                "71faf1c2.9ee3c"
+            ]
+        ]
+    },
+    {
+        "id": "eb3ce95b.940bf8",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "717e3dfe.917b54",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reposo",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "",
+        "x": 357.5078430175781,
+        "y": 436.5234432220459,
+        "wires": [
+            [
+                "ecc7fcd1.dfdb5",
+                "71faf1c2.9ee3c"
+            ]
+        ]
+    },
+    {
+        "id": "ecc7fcd1.dfdb5",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "Modo",
+        "func": "var m=global.get('Modo')||0\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 573.7578353881836,
+        "y": 391.8671827316284,
+        "wires": [
+            [
+                "7541e7f0.df43c8",
+                "ceb98531.bf61e8",
+                "71faf1c2.9ee3c"
+            ]
+        ]
+    },
+    {
+        "id": "3ae6e089.afb59",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "717e3dfe.917b54",
+        "order": 11,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "black",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Manual_LED",
+        "x": 1099.3790817260742,
+        "y": 420.3477153778076,
+        "wires": []
+    },
+    {
+        "id": "19543e85.883d31",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "717e3dfe.917b54",
+        "order": 24,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "black",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Auto_LED",
+        "x": 1119.7658004760742,
+        "y": 472.7500219345093,
+        "wires": []
+    },
+    {
+        "id": "195b4f3f.5c2dd1",
+        "type": "mqtt in",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP1/PIERO/Sensores",
+        "qos": "2",
+        "broker": "2153e9d2.a2ed96",
+        "x": 324.01568603515625,
+        "y": 128.74999141693115,
+        "wires": [
+            [
+                "3bed5d05.60cdc2",
+                "7d116e80.20176"
+            ]
+        ]
+    },
+    {
+        "id": "8435b783.d8b7f8",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "Movimiento",
+        "func": "var m=global.get(\"Modo\");\nvar mov=msg.payload;\nif (m===1)\n{\n    msg.payload={};\n    msg.payload={\"orden\":mov};\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 653.6250228881836,
+        "y": 593.1328029632568,
+        "wires": [
+            [
+                "e1b58ed0.a3a43",
+                "c62e0f91.880cf"
+            ]
+        ]
+    },
+    {
+        "id": "ceb98531.bf61e8",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload.Modo",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 721.6367568969727,
+        "y": 409.54296684265137,
+        "wires": [
+            [
+                "292f008f.60cb9",
+                "4a93a00e.5f2cc"
+            ],
+            [
+                "6183c483.d885ec",
+                "4a93a00e.5f2cc"
+            ],
+            [
+                "292f008f.60cb9",
+                "117f2b15.fbbec5"
+            ]
+        ]
+    },
+    {
+        "id": "6183c483.d885ec",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 911.6406784057617,
+        "y": 374.03515911102295,
+        "wires": [
+            [
+                "3ae6e089.afb59"
+            ]
+        ]
+    },
+    {
+        "id": "117f2b15.fbbec5",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true a",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 907.0156936645508,
+        "y": 469.74999809265137,
+        "wires": [
+            [
+                "19543e85.883d31"
+            ]
+        ]
+    },
+    {
+        "id": "292f008f.60cb9",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 911.0156784057617,
+        "y": 415.75001430511475,
+        "wires": [
+            [
+                "3ae6e089.afb59"
+            ]
+        ]
+    },
+    {
+        "id": "4a93a00e.5f2cc",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false a",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900.3906936645508,
+        "y": 517.4648351669312,
+        "wires": [
+            [
+                "19543e85.883d31"
+            ]
+        ]
+    },
+    {
+        "id": "71faf1c2.9ee3c",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 668.6289138793945,
+        "y": 246.5234317779541,
+        "wires": []
+    },
+    {
+        "id": "9ea5f3aa.c0033",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "",
+        "func": "var s_i=msg.payload.Sensores[1];\nvar s_d=msg.payload.Sensores[2];\nmsg1={};\nmsg1.payload=s_i;\nmsg2={};\nmsg2.payload=s_d;\nreturn [msg1,msg2];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 725.6367416381836,
+        "y": 123.13280296325684,
+        "wires": [
+            [
+                "f72dbe95.eccdd",
+                "f7fb31f8.c4fe7"
+            ],
+            [
+                "d93203bf.aa38e",
+                "c1bfc9cf.267d98"
+            ]
+        ]
+    },
+    {
+        "id": "f72dbe95.eccdd",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "717e3dfe.917b54",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Sensor izquierda",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 995.625,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "d93203bf.aa38e",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "717e3dfe.917b54",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Sensor derecha",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 972.0156631469727,
+        "y": 249.74999332427979,
+        "wires": []
+    },
+    {
+        "id": "f7fb31f8.c4fe7",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 953.62890625,
+        "y": 98.03906059265137,
+        "wires": [
+            [
+                "53460600.c75d18"
+            ],
+            [
+                "91d668dd.42b358"
+            ]
+        ]
+    },
+    {
+        "id": "ffb12bef.bf9798",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "717e3dfe.917b54",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Obstáculo izquierda",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Led_Izq",
+        "x": 1346.6289367675781,
+        "y": 71.8515625,
+        "wires": []
+    },
+    {
+        "id": "53460600.c75d18",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1166.015625,
+        "y": 54.75,
+        "wires": [
+            [
+                "ffb12bef.bf9798"
+            ]
+        ]
+    },
+    {
+        "id": "91d668dd.42b358",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1165.390625,
+        "y": 96.4648551940918,
+        "wires": [
+            [
+                "ffb12bef.bf9798"
+            ]
+        ]
+    },
+    {
+        "id": "c1bfc9cf.267d98",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 936.015625,
+        "y": 191.75,
+        "wires": [
+            [
+                "43ff873c.fd3368"
+            ],
+            [
+                "5973da39.67c3d4"
+            ]
+        ]
+    },
+    {
+        "id": "84acaa86.bda3b8",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "717e3dfe.917b54",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Obstáculo derecha",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "LED_dcha",
+        "x": 1349.0156555175781,
+        "y": 185.56250381469727,
+        "wires": []
+    },
+    {
+        "id": "5973da39.67c3d4",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1143.777328491211,
+        "y": 208.1757984161377,
+        "wires": [
+            [
+                "84acaa86.bda3b8"
+            ]
+        ]
+    },
+    {
+        "id": "43ff873c.fd3368",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1143.402328491211,
+        "y": 168.46094036102295,
+        "wires": [
+            [
+                "84acaa86.bda3b8"
+            ]
+        ]
+    },
+    {
+        "id": "c62e0f91.880cf",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 861.625,
+        "y": 666.2734375,
+        "wires": []
+    },
+    {
+        "id": "e88e78d1.77d268",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "717e3dfe.917b54",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 125,
+        "y": 324.74220848083496,
+        "wires": []
+    },
+    {
+        "id": "d62fb54a.afdc48",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "717e3dfe.917b54",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 130.265625,
+        "y": 388.74999809265137,
+        "wires": []
+    },
+    {
+        "id": "e7f7ef23.b6bc9",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "717e3dfe.917b54",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 129.265625,
+        "y": 462.7499990463257,
+        "wires": []
+    },
+    {
+        "id": "3bed5d05.60cdc2",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 706.3906478881836,
+        "y": 180.50781536102295,
+        "wires": []
+    },
+    {
+        "id": "7d116e80.20176",
+        "type": "json",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 602.875,
+        "y": 125.94140625,
+        "wires": [
+            [
+                "9ea5f3aa.c0033",
+                "3bed5d05.60cdc2"
+            ]
+        ]
+    },
+    {
+        "id": "d28638da.de25e8",
+        "type": "mqtt out",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP2/PIERO/Movimiento",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 988.7500076293945,
+        "y": 1423,
+        "wires": []
+    },
+    {
+        "id": "67804ba0.def364",
+        "type": "mqtt out",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP2/PIERO/Modo",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 1102.7578201293945,
+        "y": 1131.0078125,
+        "wires": []
+    },
+    {
+        "id": "197e3759.d6bf39",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "f59d10bf.bbf73",
+        "order": 17,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "A",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "4",
+        "payloadType": "num",
+        "topic": "",
+        "x": 244.75003814697266,
+        "y": 1393.976601600647,
+        "wires": [
+            [
+                "807440f0.1e3a6"
+            ]
+        ]
+    },
+    {
+        "id": "42b50279.53ceec",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "f59d10bf.bbf73",
+        "order": 14,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "W",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "8",
+        "payloadType": "str",
+        "topic": "",
+        "x": 371.74221992492676,
+        "y": 1334.9765710830688,
+        "wires": [
+            [
+                "807440f0.1e3a6"
+            ]
+        ]
+    },
+    {
+        "id": "1ec5528a.fdcf5d",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "f59d10bf.bbf73",
+        "order": 19,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "D",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "6",
+        "payloadType": "str",
+        "topic": "",
+        "x": 477.7578430175781,
+        "y": 1389.9766387939453,
+        "wires": [
+            [
+                "807440f0.1e3a6"
+            ]
+        ]
+    },
+    {
+        "id": "61d5ec7b.e94f74",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "f59d10bf.bbf73",
+        "order": 18,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "S",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "str",
+        "topic": "",
+        "x": 364.75002670288086,
+        "y": 1422.9844217300415,
+        "wires": [
+            [
+                "807440f0.1e3a6"
+            ]
+        ]
+    },
+    {
+        "id": "50d07c60.3129f4",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "f59d10bf.bbf73",
+        "order": 20,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "",
+        "x": 366.7500419616699,
+        "y": 1485.9844064712524,
+        "wires": [
+            [
+                "807440f0.1e3a6"
+            ]
+        ]
+    },
+    {
+        "id": "2ee58440.91338c",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "f59d10bf.bbf73",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "---------------ESP2----------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 410.75003814697266,
+        "y": 845.9609508514404,
+        "wires": []
+    },
+    {
+        "id": "7faf9a03.b50b44",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "f59d10bf.bbf73",
+        "order": 9,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Manual",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "x": 397.7500305175781,
+        "y": 1173.9843835830688,
+        "wires": [
+            [
+                "955f0a03.0df5c8",
+                "45803eb3.ca8e2"
+            ]
+        ]
+    },
+    {
+        "id": "8d1135b9.28f538",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "f59d10bf.bbf73",
+        "order": 22,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Automático",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "num",
+        "topic": "",
+        "x": 395.5078430175781,
+        "y": 1216.4843788146973,
+        "wires": [
+            [
+                "955f0a03.0df5c8",
+                "45803eb3.ca8e2"
+            ]
+        ]
+    },
+    {
+        "id": "191fdfd8.28f24",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "f59d10bf.bbf73",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reposo",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "",
+        "x": 397.5078430175781,
+        "y": 1262.4843940734863,
+        "wires": [
+            [
+                "955f0a03.0df5c8",
+                "45803eb3.ca8e2"
+            ]
+        ]
+    },
+    {
+        "id": "955f0a03.0df5c8",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "Modo",
+        "func": "var m=global.get('Modo')||0\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 613.7578353881836,
+        "y": 1217.8281335830688,
+        "wires": [
+            [
+                "67804ba0.def364",
+                "d5198fce.8bd8d",
+                "45803eb3.ca8e2"
+            ]
+        ]
+    },
+    {
+        "id": "65af25d4.79bcdc",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "f59d10bf.bbf73",
+        "order": 11,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "black",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Manual_LED",
+        "x": 1139.3790817260742,
+        "y": 1246.308666229248,
+        "wires": []
+    },
+    {
+        "id": "45e6c36a.e742ec",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "f59d10bf.bbf73",
+        "order": 24,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "black",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Auto_LED",
+        "x": 1159.7658004760742,
+        "y": 1298.7109727859497,
+        "wires": []
+    },
+    {
+        "id": "b25daf24.7655a",
+        "type": "mqtt in",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP2/PIERO/Sensores",
+        "qos": "2",
+        "broker": "2153e9d2.a2ed96",
+        "x": 364.01568603515625,
+        "y": 954.7109422683716,
+        "wires": [
+            [
+                "280ed611.a9c92a",
+                "680dcf49.9b3ea"
+            ]
+        ]
+    },
+    {
+        "id": "807440f0.1e3a6",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "Movimiento",
+        "func": "var m=global.get(\"Modo\");\nvar mov=msg.payload;\nif (m===1)\n{\n    msg.payload={};\n    msg.payload={\"orden\":mov};\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 693.6250228881836,
+        "y": 1419.0937538146973,
+        "wires": [
+            [
+                "d28638da.de25e8",
+                "e9fabcae.6d8c8"
+            ]
+        ]
+    },
+    {
+        "id": "d5198fce.8bd8d",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload.Modo",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 761.6367568969727,
+        "y": 1235.5039176940918,
+        "wires": [
+            [
+                "c64906b8.f88238",
+                "da41310e.938a1"
+            ],
+            [
+                "128d2a9.89453d5",
+                "da41310e.938a1"
+            ],
+            [
+                "c64906b8.f88238",
+                "9b3efc9e.8458c"
+            ]
+        ]
+    },
+    {
+        "id": "128d2a9.89453d5",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 951.6406784057617,
+        "y": 1199.9961099624634,
+        "wires": [
+            [
+                "65af25d4.79bcdc"
+            ]
+        ]
+    },
+    {
+        "id": "9b3efc9e.8458c",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true a",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 947.0156936645508,
+        "y": 1295.7109489440918,
+        "wires": [
+            [
+                "45e6c36a.e742ec"
+            ]
+        ]
+    },
+    {
+        "id": "c64906b8.f88238",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 951.0156784057617,
+        "y": 1241.7109651565552,
+        "wires": [
+            [
+                "65af25d4.79bcdc"
+            ]
+        ]
+    },
+    {
+        "id": "da41310e.938a1",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false a",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940.3906936645508,
+        "y": 1343.4257860183716,
+        "wires": [
+            [
+                "45e6c36a.e742ec"
+            ]
+        ]
+    },
+    {
+        "id": "45803eb3.ca8e2",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 708.6289138793945,
+        "y": 1072.4843826293945,
+        "wires": []
+    },
+    {
+        "id": "8feeb620.cffe18",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "",
+        "func": "var s_i=msg.payload.Sensores[1];\nvar s_d=msg.payload.Sensores[2];\nmsg1={};\nmsg1.payload=s_i;\nmsg2={};\nmsg2.payload=s_d;\nreturn [msg1,msg2];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 765.6367416381836,
+        "y": 949.0937538146973,
+        "wires": [
+            [
+                "3e0d2be9.897fa4",
+                "f34e510f.37ec8"
+            ],
+            [
+                "4ad6ddf7.1f5aa4",
+                "87596c9e.9de5d"
+            ]
+        ]
+    },
+    {
+        "id": "3e0d2be9.897fa4",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "f59d10bf.bbf73",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Sensor izquierda",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1035.625,
+        "y": 845.9609508514404,
+        "wires": []
+    },
+    {
+        "id": "4ad6ddf7.1f5aa4",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "f59d10bf.bbf73",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Sensor derecha",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1012.0156631469727,
+        "y": 1075.7109441757202,
+        "wires": []
+    },
+    {
+        "id": "f34e510f.37ec8",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 993.62890625,
+        "y": 924.0000114440918,
+        "wires": [
+            [
+                "bb0a481b.8bb508"
+            ],
+            [
+                "7341df1b.e6a96"
+            ]
+        ]
+    },
+    {
+        "id": "45e71df9.b9b4c4",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "f59d10bf.bbf73",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Obstáculo izquierda",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Led_Izq",
+        "x": 1386.6289367675781,
+        "y": 897.8125133514404,
+        "wires": []
+    },
+    {
+        "id": "bb0a481b.8bb508",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1206.015625,
+        "y": 880.7109508514404,
+        "wires": [
+            [
+                "45e71df9.b9b4c4"
+            ]
+        ]
+    },
+    {
+        "id": "7341df1b.e6a96",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1205.390625,
+        "y": 922.4258060455322,
+        "wires": [
+            [
+                "45e71df9.b9b4c4"
+            ]
+        ]
+    },
+    {
+        "id": "87596c9e.9de5d",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 976.015625,
+        "y": 1017.7109508514404,
+        "wires": [
+            [
+                "51a5512f.42c06"
+            ],
+            [
+                "356ba484.3740dc"
+            ]
+        ]
+    },
+    {
+        "id": "f384a40f.455698",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "f59d10bf.bbf73",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Obstáculo derecha",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "LED_dcha",
+        "x": 1389.0156555175781,
+        "y": 1011.5234546661377,
+        "wires": []
+    },
+    {
+        "id": "356ba484.3740dc",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1183.777328491211,
+        "y": 1034.1367492675781,
+        "wires": [
+            [
+                "f384a40f.455698"
+            ]
+        ]
+    },
+    {
+        "id": "51a5512f.42c06",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1183.402328491211,
+        "y": 994.4218912124634,
+        "wires": [
+            [
+                "f384a40f.455698"
+            ]
+        ]
+    },
+    {
+        "id": "e9fabcae.6d8c8",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 901.625,
+        "y": 1492.2343883514404,
+        "wires": []
+    },
+    {
+        "id": "b5ee9fb0.2ce14",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "f59d10bf.bbf73",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 165,
+        "y": 1150.7031593322754,
+        "wires": []
+    },
+    {
+        "id": "c4e4f332.1d173",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "f59d10bf.bbf73",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 170.265625,
+        "y": 1214.7109489440918,
+        "wires": []
+    },
+    {
+        "id": "e482d92b.2c9728",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "f59d10bf.bbf73",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 169.265625,
+        "y": 1288.710949897766,
+        "wires": []
+    },
+    {
+        "id": "280ed611.a9c92a",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 746.3906478881836,
+        "y": 1006.4687662124634,
+        "wires": []
+    },
+    {
+        "id": "680dcf49.9b3ea",
+        "type": "json",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 642.875,
+        "y": 951.9023571014404,
+        "wires": [
+            [
+                "8feeb620.cffe18",
+                "280ed611.a9c92a"
+            ]
+        ]
+    },
+    {
+        "id": "c60d2e13.c994d",
+        "type": "mqtt out",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP3/PIERO/Movimiento",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 968.7500076293945,
+        "y": 2209.25,
+        "wires": []
+    },
+    {
+        "id": "469797c8.c66c28",
+        "type": "mqtt out",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP3/PIERO/Modo",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 1082.7578201293945,
+        "y": 1917.2578125,
+        "wires": []
+    },
+    {
+        "id": "a49cfa48.676a98",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "3ed6606c.70f5e",
+        "order": 17,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "A",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "4",
+        "payloadType": "num",
+        "topic": "",
+        "x": 224.75003814697266,
+        "y": 2180.226601600647,
+        "wires": [
+            [
+                "705d19b4.3903f8"
+            ]
+        ]
+    },
+    {
+        "id": "90cd2ae5.fb9f68",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "3ed6606c.70f5e",
+        "order": 14,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "W",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "8",
+        "payloadType": "str",
+        "topic": "",
+        "x": 351.74221992492676,
+        "y": 2121.226571083069,
+        "wires": [
+            [
+                "705d19b4.3903f8"
+            ]
+        ]
+    },
+    {
+        "id": "2355f22e.e51b1e",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "3ed6606c.70f5e",
+        "order": 19,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "D",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "6",
+        "payloadType": "str",
+        "topic": "",
+        "x": 457.7578430175781,
+        "y": 2176.2266387939453,
+        "wires": [
+            [
+                "705d19b4.3903f8"
+            ]
+        ]
+    },
+    {
+        "id": "97f13249.3b755",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "3ed6606c.70f5e",
+        "order": 18,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "S",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "str",
+        "topic": "",
+        "x": 344.75002670288086,
+        "y": 2209.2344217300415,
+        "wires": [
+            [
+                "705d19b4.3903f8"
+            ]
+        ]
+    },
+    {
+        "id": "5198b3cb.26bafc",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "3ed6606c.70f5e",
+        "order": 20,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "",
+        "x": 346.7500419616699,
+        "y": 2272.2344064712524,
+        "wires": [
+            [
+                "705d19b4.3903f8"
+            ]
+        ]
+    },
+    {
+        "id": "a23106c9.0f97c8",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "3ed6606c.70f5e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "---------------ESP3----------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 390.75003814697266,
+        "y": 1632.2109508514404,
+        "wires": []
+    },
+    {
+        "id": "ecc85e3e.d65d2",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "3ed6606c.70f5e",
+        "order": 9,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Manual",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "x": 377.7500305175781,
+        "y": 1960.2343835830688,
+        "wires": [
+            [
+                "5cbaa11e.9a145",
+                "6ea50400.793b6c"
+            ]
+        ]
+    },
+    {
+        "id": "1f782ea3.e329f1",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "3ed6606c.70f5e",
+        "order": 22,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Automático",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "num",
+        "topic": "",
+        "x": 375.5078430175781,
+        "y": 2002.7343788146973,
+        "wires": [
+            [
+                "5cbaa11e.9a145",
+                "6ea50400.793b6c"
+            ]
+        ]
+    },
+    {
+        "id": "686fb6c1.4b5758",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "3ed6606c.70f5e",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reposo",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "",
+        "x": 377.5078430175781,
+        "y": 2048.7343940734863,
+        "wires": [
+            [
+                "5cbaa11e.9a145",
+                "6ea50400.793b6c"
+            ]
+        ]
+    },
+    {
+        "id": "5cbaa11e.9a145",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "Modo",
+        "func": "var m=global.get('Modo')||0\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 593.7578353881836,
+        "y": 2004.0781335830688,
+        "wires": [
+            [
+                "469797c8.c66c28",
+                "85114c85.d427b",
+                "6ea50400.793b6c"
+            ]
+        ]
+    },
+    {
+        "id": "907ff549.c571d8",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "3ed6606c.70f5e",
+        "order": 11,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "black",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Manual_LED",
+        "x": 1119.3790817260742,
+        "y": 2032.558666229248,
+        "wires": []
+    },
+    {
+        "id": "1e6957a6.3a6208",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "3ed6606c.70f5e",
+        "order": 24,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "black",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Auto_LED",
+        "x": 1139.7658004760742,
+        "y": 2084.9609727859497,
+        "wires": []
+    },
+    {
+        "id": "b7e0aa74.34be78",
+        "type": "mqtt in",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP3/PIERO/Sensores",
+        "qos": "2",
+        "broker": "2153e9d2.a2ed96",
+        "x": 344.01568603515625,
+        "y": 1740.9609422683716,
+        "wires": [
+            [
+                "295e97ce.3a2068",
+                "257448ef.1fff38"
+            ]
+        ]
+    },
+    {
+        "id": "705d19b4.3903f8",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "Movimiento",
+        "func": "var m=global.get(\"Modo\");\nvar mov=msg.payload;\nif (m===1)\n{\n    msg.payload={};\n    msg.payload={\"orden\":mov};\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 673.6250228881836,
+        "y": 2205.3437538146973,
+        "wires": [
+            [
+                "c60d2e13.c994d",
+                "ab112439.ad8938"
+            ]
+        ]
+    },
+    {
+        "id": "85114c85.d427b",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload.Modo",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 741.6367568969727,
+        "y": 2021.7539176940918,
+        "wires": [
+            [
+                "ffc070ca.f9f38",
+                "6e96cbbf.f36cf4"
+            ],
+            [
+                "d45b0642.59f8d8",
+                "6e96cbbf.f36cf4"
+            ],
+            [
+                "ffc070ca.f9f38",
+                "4ee7e240.0c18ec"
+            ]
+        ]
+    },
+    {
+        "id": "d45b0642.59f8d8",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 931.6406784057617,
+        "y": 1986.2461099624634,
+        "wires": [
+            [
+                "907ff549.c571d8"
+            ]
+        ]
+    },
+    {
+        "id": "4ee7e240.0c18ec",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true a",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 927.0156936645508,
+        "y": 2081.960948944092,
+        "wires": [
+            [
+                "1e6957a6.3a6208"
+            ]
+        ]
+    },
+    {
+        "id": "ffc070ca.f9f38",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 931.0156784057617,
+        "y": 2027.9609651565552,
+        "wires": [
+            [
+                "907ff549.c571d8"
+            ]
+        ]
+    },
+    {
+        "id": "6e96cbbf.f36cf4",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false a",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920.3906936645508,
+        "y": 2129.6757860183716,
+        "wires": [
+            [
+                "1e6957a6.3a6208"
+            ]
+        ]
+    },
+    {
+        "id": "6ea50400.793b6c",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 688.6289138793945,
+        "y": 1858.7343826293945,
+        "wires": []
+    },
+    {
+        "id": "a9834953.b77ed8",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "",
+        "func": "var s_i=msg.payload.Sensores[1];\nvar s_d=msg.payload.Sensores[2];\nmsg1={};\nmsg1.payload=s_i;\nmsg2={};\nmsg2.payload=s_d;\nreturn [msg1,msg2];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 745.6367416381836,
+        "y": 1735.3437538146973,
+        "wires": [
+            [
+                "f33af468.467ff8",
+                "c85632ae.5344"
+            ],
+            [
+                "6c61446e.45471c",
+                "34b7ff24.69297"
+            ]
+        ]
+    },
+    {
+        "id": "f33af468.467ff8",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "3ed6606c.70f5e",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Sensor izquierda",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1015.625,
+        "y": 1632.2109508514404,
+        "wires": []
+    },
+    {
+        "id": "6c61446e.45471c",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "3ed6606c.70f5e",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Sensor derecha",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 992.0156631469727,
+        "y": 1861.9609441757202,
+        "wires": []
+    },
+    {
+        "id": "c85632ae.5344",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 973.62890625,
+        "y": 1710.2500114440918,
+        "wires": [
+            [
+                "f56d602d.2a576"
+            ],
+            [
+                "50143d1e.4bd2b4"
+            ]
+        ]
+    },
+    {
+        "id": "2bb4c11f.dc171e",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "3ed6606c.70f5e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Obstáculo izquierda",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Led_Izq",
+        "x": 1366.6289367675781,
+        "y": 1684.0625133514404,
+        "wires": []
+    },
+    {
+        "id": "f56d602d.2a576",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1186.015625,
+        "y": 1666.9609508514404,
+        "wires": [
+            [
+                "2bb4c11f.dc171e"
+            ]
+        ]
+    },
+    {
+        "id": "50143d1e.4bd2b4",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1185.390625,
+        "y": 1708.6758060455322,
+        "wires": [
+            [
+                "2bb4c11f.dc171e"
+            ]
+        ]
+    },
+    {
+        "id": "34b7ff24.69297",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 956.015625,
+        "y": 1803.9609508514404,
+        "wires": [
+            [
+                "5630c352.7581fc"
+            ],
+            [
+                "e18df194.e3917"
+            ]
+        ]
+    },
+    {
+        "id": "1f5894f8.d7708b",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "3ed6606c.70f5e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Obstáculo derecha",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "LED_dcha",
+        "x": 1369.0156555175781,
+        "y": 1797.7734546661377,
+        "wires": []
+    },
+    {
+        "id": "e18df194.e3917",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1163.777328491211,
+        "y": 1820.3867492675781,
+        "wires": [
+            [
+                "1f5894f8.d7708b"
+            ]
+        ]
+    },
+    {
+        "id": "5630c352.7581fc",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1163.402328491211,
+        "y": 1780.6718912124634,
+        "wires": [
+            [
+                "1f5894f8.d7708b"
+            ]
+        ]
+    },
+    {
+        "id": "ab112439.ad8938",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 881.625,
+        "y": 2278.4843883514404,
+        "wires": []
+    },
+    {
+        "id": "2f349da4.fad442",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "3ed6606c.70f5e",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 145,
+        "y": 1936.9531593322754,
+        "wires": []
+    },
+    {
+        "id": "b4e70061.d110c",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "3ed6606c.70f5e",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 150.265625,
+        "y": 2000.9609489440918,
+        "wires": []
+    },
+    {
+        "id": "7b084fc2.3c373",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "3ed6606c.70f5e",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 149.265625,
+        "y": 2074.960949897766,
+        "wires": []
+    },
+    {
+        "id": "295e97ce.3a2068",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 726.3906478881836,
+        "y": 1792.7187662124634,
+        "wires": []
+    },
+    {
+        "id": "257448ef.1fff38",
+        "type": "json",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 622.875,
+        "y": 1738.1523571014404,
+        "wires": [
+            [
+                "a9834953.b77ed8",
+                "295e97ce.3a2068"
+            ]
+        ]
+    },
+    {
+        "id": "7f191886.3e8cf8",
+        "type": "mqtt out",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP4/PIERO/Movimiento",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 948.7500076293945,
+        "y": 2918.25,
+        "wires": []
+    },
+    {
+        "id": "78a31d4.9b206e4",
+        "type": "mqtt out",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP4/PIERO/Modo",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 1062.7578201293945,
+        "y": 2626.2578125,
+        "wires": []
+    },
+    {
+        "id": "9e612e3.e029dd",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "a399e166.077e6",
+        "order": 17,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "A",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "4",
+        "payloadType": "num",
+        "topic": "",
+        "x": 204.75003814697266,
+        "y": 2889.226601600647,
+        "wires": [
+            [
+                "e4aa48d9.f4b4f8"
+            ]
+        ]
+    },
+    {
+        "id": "d17db5be.51a5b8",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "a399e166.077e6",
+        "order": 14,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "W",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "8",
+        "payloadType": "str",
+        "topic": "",
+        "x": 331.74221992492676,
+        "y": 2830.226571083069,
+        "wires": [
+            [
+                "e4aa48d9.f4b4f8"
+            ]
+        ]
+    },
+    {
+        "id": "9c74e28a.41de7",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "a399e166.077e6",
+        "order": 19,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "D",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "6",
+        "payloadType": "str",
+        "topic": "",
+        "x": 437.7578430175781,
+        "y": 2885.2266387939453,
+        "wires": [
+            [
+                "e4aa48d9.f4b4f8"
+            ]
+        ]
+    },
+    {
+        "id": "2f7e70c5.be843",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "a399e166.077e6",
+        "order": 18,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "S",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "str",
+        "topic": "",
+        "x": 324.75002670288086,
+        "y": 2918.2344217300415,
+        "wires": [
+            [
+                "e4aa48d9.f4b4f8"
+            ]
+        ]
+    },
+    {
+        "id": "51c91dc6.35e2e4",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "a399e166.077e6",
+        "order": 20,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "",
+        "x": 326.7500419616699,
+        "y": 2981.2344064712524,
+        "wires": [
+            [
+                "e4aa48d9.f4b4f8"
+            ]
+        ]
+    },
+    {
+        "id": "f8b2350c.121c48",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "a399e166.077e6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "---------------ESP4----------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 370.75003814697266,
+        "y": 2341.2109508514404,
+        "wires": []
+    },
+    {
+        "id": "3d179929.9cb326",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "a399e166.077e6",
+        "order": 9,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Manual",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "x": 357.7500305175781,
+        "y": 2669.234383583069,
+        "wires": [
+            [
+                "8ed529aa.fd5d08",
+                "62771d99.4b8794"
+            ]
+        ]
+    },
+    {
+        "id": "159c41a1.5d826e",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "a399e166.077e6",
+        "order": 22,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Automático",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "num",
+        "topic": "",
+        "x": 355.5078430175781,
+        "y": 2711.7343788146973,
+        "wires": [
+            [
+                "8ed529aa.fd5d08",
+                "62771d99.4b8794"
+            ]
+        ]
+    },
+    {
+        "id": "4e0f5ccd.bb10a4",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "a399e166.077e6",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reposo",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "",
+        "x": 357.5078430175781,
+        "y": 2757.7343940734863,
+        "wires": [
+            [
+                "8ed529aa.fd5d08",
+                "62771d99.4b8794"
+            ]
+        ]
+    },
+    {
+        "id": "8ed529aa.fd5d08",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "Modo",
+        "func": "var m=global.get('Modo')||0\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 573.7578353881836,
+        "y": 2713.078133583069,
+        "wires": [
+            [
+                "78a31d4.9b206e4",
+                "240271ce.c1849e",
+                "62771d99.4b8794"
+            ]
+        ]
+    },
+    {
+        "id": "65d1b34a.b17b0c",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "a399e166.077e6",
+        "order": 11,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "black",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Manual_LED",
+        "x": 1099.3790817260742,
+        "y": 2741.558666229248,
+        "wires": []
+    },
+    {
+        "id": "ae1c388a.8393a8",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "a399e166.077e6",
+        "order": 24,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "black",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Auto_LED",
+        "x": 1119.7658004760742,
+        "y": 2793.9609727859497,
+        "wires": []
+    },
+    {
+        "id": "265a9bdc.089104",
+        "type": "mqtt in",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP4/PIERO/Sensores",
+        "qos": "2",
+        "broker": "2153e9d2.a2ed96",
+        "x": 324.01568603515625,
+        "y": 2449.9609422683716,
+        "wires": [
+            [
+                "38af48c1.db5ef8",
+                "b064453f.732bb8"
+            ]
+        ]
+    },
+    {
+        "id": "e4aa48d9.f4b4f8",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "Movimiento",
+        "func": "var m=global.get(\"Modo\");\nvar mov=msg.payload;\nif (m===1)\n{\n    msg.payload={};\n    msg.payload={\"orden\":mov};\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 653.6250228881836,
+        "y": 2914.3437538146973,
+        "wires": [
+            [
+                "7f191886.3e8cf8",
+                "ec2266a6.ec2508"
+            ]
+        ]
+    },
+    {
+        "id": "240271ce.c1849e",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload.Modo",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 721.6367568969727,
+        "y": 2730.753917694092,
+        "wires": [
+            [
+                "1da24585.19feda",
+                "b383f07b.02bed"
+            ],
+            [
+                "4cc32919.8a1d78",
+                "b383f07b.02bed"
+            ],
+            [
+                "1da24585.19feda",
+                "937ad3f7.e403d"
+            ]
+        ]
+    },
+    {
+        "id": "4cc32919.8a1d78",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 911.6406784057617,
+        "y": 2695.2461099624634,
+        "wires": [
+            [
+                "65d1b34a.b17b0c"
+            ]
+        ]
+    },
+    {
+        "id": "937ad3f7.e403d",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true a",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 907.0156936645508,
+        "y": 2790.960948944092,
+        "wires": [
+            [
+                "ae1c388a.8393a8"
+            ]
+        ]
+    },
+    {
+        "id": "1da24585.19feda",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 911.0156784057617,
+        "y": 2736.960965156555,
+        "wires": [
+            [
+                "65d1b34a.b17b0c"
+            ]
+        ]
+    },
+    {
+        "id": "b383f07b.02bed",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false a",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900.3906936645508,
+        "y": 2838.6757860183716,
+        "wires": [
+            [
+                "ae1c388a.8393a8"
+            ]
+        ]
+    },
+    {
+        "id": "62771d99.4b8794",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 668.6289138793945,
+        "y": 2567.7343826293945,
+        "wires": []
+    },
+    {
+        "id": "8ce6f8ba.981478",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "",
+        "func": "var s_i=msg.payload.Sensores[1];\nvar s_d=msg.payload.Sensores[2];\nmsg1={};\nmsg1.payload=s_i;\nmsg2={};\nmsg2.payload=s_d;\nreturn [msg1,msg2];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 725.6367416381836,
+        "y": 2444.3437538146973,
+        "wires": [
+            [
+                "1ed21de1.684d32",
+                "88aeb431.072cb8"
+            ],
+            [
+                "8e3b0c38.9105e",
+                "6de81a7f.30a204"
+            ]
+        ]
+    },
+    {
+        "id": "1ed21de1.684d32",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "a399e166.077e6",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Sensor izquierda",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 995.625,
+        "y": 2341.2109508514404,
+        "wires": []
+    },
+    {
+        "id": "8e3b0c38.9105e",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "a399e166.077e6",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Sensor derecha",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 972.0156631469727,
+        "y": 2570.96094417572,
+        "wires": []
+    },
+    {
+        "id": "88aeb431.072cb8",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 953.62890625,
+        "y": 2419.250011444092,
+        "wires": [
+            [
+                "8cc0e73b.4cc2c8"
+            ],
+            [
+                "de679136.d3f26"
+            ]
+        ]
+    },
+    {
+        "id": "194b3840.a3bb78",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "a399e166.077e6",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Obstáculo izquierda",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Led_Izq",
+        "x": 1346.6289367675781,
+        "y": 2393.0625133514404,
+        "wires": []
+    },
+    {
+        "id": "8cc0e73b.4cc2c8",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1166.015625,
+        "y": 2375.9609508514404,
+        "wires": [
+            [
+                "194b3840.a3bb78"
+            ]
+        ]
+    },
+    {
+        "id": "de679136.d3f26",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1165.390625,
+        "y": 2417.675806045532,
+        "wires": [
+            [
+                "194b3840.a3bb78"
+            ]
+        ]
+    },
+    {
+        "id": "6de81a7f.30a204",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 936.015625,
+        "y": 2512.9609508514404,
+        "wires": [
+            [
+                "363a9f05.9080a"
+            ],
+            [
+                "897485b3.d9e0e8"
+            ]
+        ]
+    },
+    {
+        "id": "3d2d1d1e.0871f2",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "a399e166.077e6",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Obstáculo derecha",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "LED_dcha",
+        "x": 1349.0156555175781,
+        "y": 2506.7734546661377,
+        "wires": []
+    },
+    {
+        "id": "897485b3.d9e0e8",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1143.777328491211,
+        "y": 2529.386749267578,
+        "wires": [
+            [
+                "3d2d1d1e.0871f2"
+            ]
+        ]
+    },
+    {
+        "id": "363a9f05.9080a",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1143.402328491211,
+        "y": 2489.6718912124634,
+        "wires": [
+            [
+                "3d2d1d1e.0871f2"
+            ]
+        ]
+    },
+    {
+        "id": "ec2266a6.ec2508",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 861.625,
+        "y": 2987.4843883514404,
+        "wires": []
+    },
+    {
+        "id": "5e980309.a2972c",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "a399e166.077e6",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 125,
+        "y": 2645.9531593322754,
+        "wires": []
+    },
+    {
+        "id": "4f7fb1fc.3b9a8",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "a399e166.077e6",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 130.265625,
+        "y": 2709.960948944092,
+        "wires": []
+    },
+    {
+        "id": "175ad20e.63755e",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "a399e166.077e6",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 129.265625,
+        "y": 2783.960949897766,
+        "wires": []
+    },
+    {
+        "id": "38af48c1.db5ef8",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 706.3906478881836,
+        "y": 2501.7187662124634,
+        "wires": []
+    },
+    {
+        "id": "b064453f.732bb8",
+        "type": "json",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 602.875,
+        "y": 2447.1523571014404,
+        "wires": [
+            [
+                "8ce6f8ba.981478",
+                "38af48c1.db5ef8"
+            ]
+        ]
+    },
+    {
+        "id": "715b45de.64444c",
+        "type": "mqtt out",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP5/PIERO/Movimiento",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 948.7500076293945,
+        "y": 3889.25,
+        "wires": []
+    },
+    {
+        "id": "3e466fb4.63d14",
+        "type": "mqtt out",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP5/PIERO/Modo",
+        "qos": "",
+        "retain": "",
+        "broker": "2153e9d2.a2ed96",
+        "x": 1062.7578201293945,
+        "y": 3597.2578125,
+        "wires": []
+    },
+    {
+        "id": "a63fffd2.9fa47",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "97bbc9c8.224e48",
+        "order": 17,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "A",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "4",
+        "payloadType": "num",
+        "topic": "",
+        "x": 204.75003814697266,
+        "y": 3860.226601600647,
+        "wires": [
+            [
+                "3b365e62.e09b72"
+            ]
+        ]
+    },
+    {
+        "id": "3e1d874d.8a98e8",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "97bbc9c8.224e48",
+        "order": 14,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "W",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "8",
+        "payloadType": "str",
+        "topic": "",
+        "x": 331.74221992492676,
+        "y": 3801.226571083069,
+        "wires": [
+            [
+                "3b365e62.e09b72"
+            ]
+        ]
+    },
+    {
+        "id": "2c5d0d69.d216c2",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "97bbc9c8.224e48",
+        "order": 19,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "D",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "6",
+        "payloadType": "str",
+        "topic": "",
+        "x": 437.7578430175781,
+        "y": 3856.2266387939453,
+        "wires": [
+            [
+                "3b365e62.e09b72"
+            ]
+        ]
+    },
+    {
+        "id": "c72f03ab.17d24",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "97bbc9c8.224e48",
+        "order": 18,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "S",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "str",
+        "topic": "",
+        "x": 324.75002670288086,
+        "y": 3889.2344217300415,
+        "wires": [
+            [
+                "3b365e62.e09b72"
+            ]
+        ]
+    },
+    {
+        "id": "88fe70c7.8f18a",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "97bbc9c8.224e48",
+        "order": 20,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "",
+        "x": 326.7500419616699,
+        "y": 3952.2344064712524,
+        "wires": [
+            [
+                "3b365e62.e09b72"
+            ]
+        ]
+    },
+    {
+        "id": "6e6ab844.096f08",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "97bbc9c8.224e48",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "---------------ESP5----------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 370.75003814697266,
+        "y": 3312.2109508514404,
+        "wires": []
+    },
+    {
+        "id": "8993fede.84f61",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "97bbc9c8.224e48",
+        "order": 9,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Manual",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "x": 357.7500305175781,
+        "y": 3640.234383583069,
+        "wires": [
+            [
+                "c07ff53e.fe0d18",
+                "36285aa2.e5e0b6"
+            ]
+        ]
+    },
+    {
+        "id": "2cfa7396.d9932c",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "97bbc9c8.224e48",
+        "order": 22,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Automático",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "num",
+        "topic": "",
+        "x": 355.5078430175781,
+        "y": 3682.7343788146973,
+        "wires": [
+            [
+                "c07ff53e.fe0d18",
+                "36285aa2.e5e0b6"
+            ]
+        ]
+    },
+    {
+        "id": "73daefad.f285c",
+        "type": "ui_button",
+        "z": "1995365.67674ca",
+        "name": "",
+        "group": "97bbc9c8.224e48",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reposo",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "",
+        "x": 357.5078430175781,
+        "y": 3728.7343940734863,
+        "wires": [
+            [
+                "c07ff53e.fe0d18",
+                "36285aa2.e5e0b6"
+            ]
+        ]
+    },
+    {
+        "id": "c07ff53e.fe0d18",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "Modo",
+        "func": "var m=global.get('Modo')||0\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 573.7578353881836,
+        "y": 3684.078133583069,
+        "wires": [
+            [
+                "3e466fb4.63d14",
+                "45936ef0.728fa",
+                "36285aa2.e5e0b6"
+            ]
+        ]
+    },
+    {
+        "id": "1dcfd75d.b75879",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "97bbc9c8.224e48",
+        "order": 11,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "black",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Manual_LED",
+        "x": 1099.3790817260742,
+        "y": 3712.558666229248,
+        "wires": []
+    },
+    {
+        "id": "3428bbe.e24b744",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "97bbc9c8.224e48",
+        "order": 24,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "black",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Auto_LED",
+        "x": 1119.7658004760742,
+        "y": 3764.9609727859497,
+        "wires": []
+    },
+    {
+        "id": "9793830.df5dd8",
+        "type": "mqtt in",
+        "z": "1995365.67674ca",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP5/PIERO/Sensores",
+        "qos": "2",
+        "broker": "2153e9d2.a2ed96",
+        "x": 324.01568603515625,
+        "y": 3420.9609422683716,
+        "wires": [
+            [
+                "7202fd61.908904",
+                "53b252d1.67816c"
+            ]
+        ]
+    },
+    {
+        "id": "3b365e62.e09b72",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "Movimiento",
+        "func": "var m=global.get(\"Modo\");\nvar mov=msg.payload;\nif (m===1)\n{\n    msg.payload={};\n    msg.payload={\"orden\":mov};\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 653.6250228881836,
+        "y": 3885.3437538146973,
+        "wires": [
+            [
+                "715b45de.64444c",
+                "53683d40.f1dee4"
+            ]
+        ]
+    },
+    {
+        "id": "45936ef0.728fa",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload.Modo",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 721.6367568969727,
+        "y": 3701.753917694092,
+        "wires": [
+            [
+                "adbfeae7.c90418",
+                "ca998768.572218"
+            ],
+            [
+                "d3268e8.219be7",
+                "ca998768.572218"
+            ],
+            [
+                "adbfeae7.c90418",
+                "d3368f37.5c244"
+            ]
+        ]
+    },
+    {
+        "id": "d3268e8.219be7",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 911.6406784057617,
+        "y": 3666.2461099624634,
+        "wires": [
+            [
+                "1dcfd75d.b75879"
+            ]
+        ]
+    },
+    {
+        "id": "d3368f37.5c244",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true a",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 907.0156936645508,
+        "y": 3761.960948944092,
+        "wires": [
+            [
+                "3428bbe.e24b744"
+            ]
+        ]
+    },
+    {
+        "id": "adbfeae7.c90418",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 911.0156784057617,
+        "y": 3707.960965156555,
+        "wires": [
+            [
+                "1dcfd75d.b75879"
+            ]
+        ]
+    },
+    {
+        "id": "ca998768.572218",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false a",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900.3906936645508,
+        "y": 3809.6757860183716,
+        "wires": [
+            [
+                "3428bbe.e24b744"
+            ]
+        ]
+    },
+    {
+        "id": "36285aa2.e5e0b6",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 668.6289138793945,
+        "y": 3538.7343826293945,
+        "wires": []
+    },
+    {
+        "id": "d8525649.ef9948",
+        "type": "function",
+        "z": "1995365.67674ca",
+        "name": "",
+        "func": "var s_i=msg.payload.Sensores[1];\nvar s_d=msg.payload.Sensores[2];\nmsg1={};\nmsg1.payload=s_i;\nmsg2={};\nmsg2.payload=s_d;\nreturn [msg1,msg2];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 725.6367416381836,
+        "y": 3415.3437538146973,
+        "wires": [
+            [
+                "c9fe784f.3e08d8",
+                "d2038cbe.6a61"
+            ],
+            [
+                "eb9d4e84.9afeb",
+                "e7dd0e84.b418a"
+            ]
+        ]
+    },
+    {
+        "id": "c9fe784f.3e08d8",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "97bbc9c8.224e48",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Sensor izquierda",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 995.625,
+        "y": 3312.2109508514404,
+        "wires": []
+    },
+    {
+        "id": "eb9d4e84.9afeb",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "97bbc9c8.224e48",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Sensor derecha",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 972.0156631469727,
+        "y": 3541.96094417572,
+        "wires": []
+    },
+    {
+        "id": "d2038cbe.6a61",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 953.62890625,
+        "y": 3390.250011444092,
+        "wires": [
+            [
+                "2fb544c7.2be56c"
+            ],
+            [
+                "8a25e276.8d94e"
+            ]
+        ]
+    },
+    {
+        "id": "9e9b234e.6d5ff",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "97bbc9c8.224e48",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Obstáculo izquierda",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "Led_Izq",
+        "x": 1346.6289367675781,
+        "y": 3364.0625133514404,
+        "wires": []
+    },
+    {
+        "id": "2fb544c7.2be56c",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1166.015625,
+        "y": 3346.9609508514404,
+        "wires": [
+            [
+                "9e9b234e.6d5ff"
+            ]
+        ]
+    },
+    {
+        "id": "8a25e276.8d94e",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1165.390625,
+        "y": 3388.675806045532,
+        "wires": [
+            [
+                "9e9b234e.6d5ff"
+            ]
+        ]
+    },
+    {
+        "id": "e7dd0e84.b418a",
+        "type": "switch",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 936.015625,
+        "y": 3483.9609508514404,
+        "wires": [
+            [
+                "5515c0a4.a0538"
+            ],
+            [
+                "a65f27c6.be5558"
+            ]
+        ]
+    },
+    {
+        "id": "a2b0519e.ee67",
+        "type": "ui_led",
+        "z": "1995365.67674ca",
+        "group": "97bbc9c8.224e48",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Obstáculo derecha",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "LED_dcha",
+        "x": 1349.0156555175781,
+        "y": 3477.7734546661377,
+        "wires": []
+    },
+    {
+        "id": "a65f27c6.be5558",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "false m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1143.777328491211,
+        "y": 3500.386749267578,
+        "wires": [
+            [
+                "a2b0519e.ee67"
+            ]
+        ]
+    },
+    {
+        "id": "5515c0a4.a0538",
+        "type": "change",
+        "z": "1995365.67674ca",
+        "name": "true m",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1143.402328491211,
+        "y": 3460.6718912124634,
+        "wires": [
+            [
+                "a2b0519e.ee67"
+            ]
+        ]
+    },
+    {
+        "id": "53683d40.f1dee4",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 861.625,
+        "y": 3958.4843883514404,
+        "wires": []
+    },
+    {
+        "id": "1c625c35.22e394",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "97bbc9c8.224e48",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 125,
+        "y": 3616.9531593322754,
+        "wires": []
+    },
+    {
+        "id": "8b6ef189.3e",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "97bbc9c8.224e48",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 130.265625,
+        "y": 3680.960948944092,
+        "wires": []
+    },
+    {
+        "id": "49ed2bbe.79ae14",
+        "type": "ui_text",
+        "z": "1995365.67674ca",
+        "group": "97bbc9c8.224e48",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "------------------------------------",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 129.265625,
+        "y": 3754.960949897766,
+        "wires": []
+    },
+    {
+        "id": "7202fd61.908904",
+        "type": "debug",
+        "z": "1995365.67674ca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 706.3906478881836,
+        "y": 3472.7187662124634,
+        "wires": []
+    },
+    {
+        "id": "53b252d1.67816c",
+        "type": "json",
+        "z": "1995365.67674ca",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 576.8750114440918,
+        "y": 3421.152557373047,
+        "wires": [
+            [
+                "d8525649.ef9948",
+                "7202fd61.908904"
+            ]
+        ]
+    },
+    {
+        "id": "2153e9d2.a2ed96",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "iot infind",
+        "broker": "iot.ac.uma.es",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "717e3dfe.917b54",
+        "type": "ui_group",
+        "z": "",
+        "name": "ESP1",
+        "tab": "10d161a7.ba3c0e",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f59d10bf.bbf73",
+        "type": "ui_group",
+        "z": "",
+        "name": "ESP2",
+        "tab": "10d161a7.ba3c0e",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "3ed6606c.70f5e",
+        "type": "ui_group",
+        "z": "",
+        "name": "ESP3",
+        "tab": "10d161a7.ba3c0e",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a399e166.077e6",
+        "type": "ui_group",
+        "z": "",
+        "name": "ESP4",
+        "tab": "10d161a7.ba3c0e",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "97bbc9c8.224e48",
+        "type": "ui_group",
+        "z": "",
+        "name": "ESP5",
+        "tab": "10d161a7.ba3c0e",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "10d161a7.ba3c0e",
+        "type": "ui_tab",
+        "z": "",
+        "name": "ControlPIERO",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
