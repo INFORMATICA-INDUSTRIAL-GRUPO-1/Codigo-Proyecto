@@ -58,21 +58,21 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
 
     // Compruebo si no hubo error
     if (error) {
-      Serial.print("Error deserializeJson() failed: ");
-      Serial.println(error.c_str());
+      debugFunction("Error deserializeJson() failed: ",0);
+      debugFunction(error.c_str(),1);
     }
     else if(root.containsKey("level"))  // comprobar si existe el campo/clave que estamos buscando
     {
      int valor_led_mqtt = root["level"];
-     /*Serial.print("Mensaje OK, level = ");
-     Serial.println(valor_led_mqtt);*/
+     debugFunction("Mensaje OK, level = ",0);
+     debugFunction(String(valor_led_mqtt),1);
      led_actual = valor_led_mqtt;
      led_mqtt();
     }
     else
     {
-      Serial.print("Error : ");
-      Serial.println("\"level\" key not found in JSON");
+      debugFunction("Error : ",0);
+      debugFunction("\"level\" key not found in JSON",1);
     }
     
   }
@@ -93,14 +93,15 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
 
     // Compruebo si no hubo error
     if (error) {
-      Serial.print("Error deserializeJson() failed: ");
-      Serial.println(error.c_str());
+      debugFunction("Error deserializeJson() failed: ",0);
+      debugFunction(error.c_str(),1);
     }
     else if(root.containsKey("level"))  // comprobar si existe el campo/clave que estamos buscando
     {
      int valor_switch_mqtt = root["level"];
-     Serial.print("Mensaje OK, level = ");
-     Serial.println(valor_switch_mqtt);
+     debugFunction("Mensaje OK, level = ",0);
+     debugFunction(String(valor_switch_mqtt),1);
+     
      if(valor_switch_mqtt)
         switch_valor = 0;
      else
@@ -109,8 +110,8 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     }
     else
     {
-      Serial.print("Error : ");
-      Serial.println("\"level\" key not found in JSON");
+      debugFunction("Error : ",0);
+      debugFunction("\"level\" key not found in JSON",1);
     }
     
   }
@@ -125,54 +126,96 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
 
 if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
   {
-      StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
+      StaticJsonDocument<128> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
     DeserializationError error = deserializeJson(root, mensaje);
 
     // Compruebo si no hubo error
     if (error) {
-      Serial.print("Error deserializeJson() failed: ");
-      Serial.println(error.c_str());
+      debugFunction("Error deserializeJson() failed: ",0);
+      debugFunction(error.c_str(),1);
     }
     else
     {
-       if(root.containsKey("velocidad"))  // comprobar si existe el campo/clave que estamos buscando
-      {
-       int ledspeed_mqtt = root["velocidad"];
-       Serial.print("Mensaje OK, level = ");
-       Serial.println(ledspeed_mqtt);
-       ledspeed = ledspeed_mqtt;
-      }
-      else
-      {
-        Serial.print("Error : ");
-        Serial.println("\"velocidad\" key not found in JSON"); //usar la funcion debug.
-      }  
-
-      if(root.containsKey("actualiza"))  // comprobar si existe el campo/clave que estamos buscando
+      /* ---------------------- Actualiza ---------------------- */
+       if(root.containsKey("actualiza"))  // comprobar si existe el campo/clave que estamos buscando
       {
        int fotaSampRate_mqtt = root["actualiza"];
-       debugFunction("Mensaje OK, actualiza = ",1);
-       debugFunction(String(fotaSampRate_mqtt),0);
+       debugFunction("Mensaje OK, actualiza = ",0);
+       debugFunction(String(fotaSampRate_mqtt),1);
        fotaSampRate = fotaSampRate_mqtt;
       }
       else
       {
-        debugFunction("Error : ",1);
+        debugFunction("Error : ",0);
         debugFunction("\"actualiza\" key not found in JSON",1);
       }
       
+      /* ---------------------- Envia ---------------------- */
       if(root.containsKey("envia"))  // comprobar si existe el campo/clave que estamos buscando
       {
        int dataSampRate_mqtt = root["envia"];
-       debugFunction("Mensaje OK, envia = ",1);
-       debugFunction(String(dataSampRate_mqtt),0);
+       debugFunction("Mensaje OK, envia = ",0);
+       debugFunction(String(dataSampRate_mqtt),1);
        dataSampRate = dataSampRate_mqtt;
       }
       else
       {
-        debugFunction("Error : ",1);
-        debugFunction("\"actualiza\" key not found in JSON",1);
+        debugFunction("Error : ",0);
+        debugFunction("\"envia\" key not found in JSON",1);
+      }
+      /* ---------------------- Velocidad ---------------------- */
+      if(root.containsKey("velocidad"))  // comprobar si existe el campo/clave que estamos buscando
+      {
+       int ledspeed_mqtt = root["velocidad"];
+       debugFunction("Mensaje OK, velocidad = ",0);
+       debugFunction(String(ledspeed_mqtt),1);
+       ledspeed = ledspeed_mqtt;
+      }
+      else
+      {
+        debugFunction("Error : ",0);
+        debugFunction("\"velocidad\" key not found in JSON",1);
+      }
+      
+      /* ---------------------- LED_config ---------------------- */
+       if(root.containsKey("LED"))  // comprobar si existe el campo/clave que estamos buscando
+      {
+       int valor_led_mqtt_config = root["LED"];
+       debugFunction("Mensaje OK, LED (config) = ",0);
+       debugFunction(String(valor_led_mqtt_config),1);
+       
+       if(valor_led_mqtt_config)
+          led_actual = 100;
+       else
+          led_actual = 0;
+
+       led_mqtt();   
+      }
+      else
+      {
+        debugFunction("Error : ",0);
+        debugFunction("\"LED\" key not found in JSON",1);
+      }
+      
+       /* ---------------------- SWITCH_config ---------------------- */
+       if(root.containsKey("LED"))  // comprobar si existe el campo/clave que estamos buscando
+      {
+       int valor_switch_mqtt_config = root["SWITCH"];
+       debugFunction("Mensaje OK, SWITCH (config) = ",0);
+       debugFunction(String(valor_switch_mqtt_config),1);
+       
+       if(valor_switch_mqtt_config)
+          switch_valor = 0;
+       else
+          switch_valor = 1;
+          
+       ready_switch = true;       
+      }
+      else
+      {
+        debugFunction("Error : ",0);
+        debugFunction("\"SWITCH\" key not found in JSON",1);
       }
     }
     
@@ -188,20 +231,20 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
 
     // Compruebo si no hubo error
     if (error) {
-      Serial.print("Error deserializeJson() failed: ");
-      Serial.println(error.c_str());
+      debugFunction("Error deserializeJson() failed: ",0);
+      debugFunction(error.c_str(),1);
     }
     else if(root.containsKey("actualiza"))  // comprobar si existe el campo/clave que estamos buscando
     {
      actualiza = root["actualiza"];
-     Serial.print("Mensaje OK, actualiza = ");
-     Serial.println(actualiza);
+     debugFunction("Mensaje OK, actualiza = ",0);
+     debugFunction(String(actualiza),1);
      
     }
     else
     {
-      Serial.print("Error : ");
-      Serial.println("\"actualiza\" key not found in JSON");
+      debugFunction("Error : ",0);
+      debugFunction("\"actualiza\" key not found in JSON",1);
     }
   }
 
@@ -215,20 +258,20 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
 
     // Compruebo si no hubo error
     if (error) {
-      Serial.print("Error deserializeJson() failed: ");
-      Serial.println(error.c_str());
+      debugFunction("Error deserializeJson() failed: ",0);
+      debugFunction(error.c_str(),1);
     }
     else if(root.containsKey("orden"))  // comprobar si existe el campo/clave que estamos buscando
     {
      orden = root["orden"];
-     //Serial.print("Mensaje OK, orden = ");
-     //Serial.println(orden);
+     /*debugFunction("Mensaje OK, orden = ",0);
+     debugFunction(String(orden),1);*/
      velocidad();
     }
     else
     {
-      Serial.print("Error : ");
-      Serial.println("\"actualiza\" key not found in JSON");
+      debugFunction("Error : ",0);
+      debugFunction("\"orden\" key not found in JSON",1);
     }
   } 
 
@@ -242,21 +285,21 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
 
     // Compruebo si no hubo error
     if (error) {
-      Serial.print("Error deserializeJson() failed: ");
-      Serial.println(error.c_str());
+      debugFunction("Error deserializeJson() failed: ",1);
+      debugFunction(error.c_str(),0);
     }
     else if(root.containsKey("Modo"))  // comprobar si existe el campo/clave que estamos buscando
     {
      modo = root["Modo"];
-     //Serial.print("Mensaje OK, orden = ");
-     //Serial.println(orden);
+     /*debugFunction("Mensaje OK, orden = ",0);
+     debugFunction(String(orden),1);*/
      control_modo();
     
     }
     else
     {
-      Serial.print("Error : ");
-      Serial.println("\"modo\" key not found in JSON");
+      debugFunction("Error : ",0);
+      debugFunction("\"modo\" key not found in JSON",1);
     }
   } 
   free(mensaje); // libero memoria
