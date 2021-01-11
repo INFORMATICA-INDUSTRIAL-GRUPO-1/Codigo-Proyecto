@@ -46,6 +46,7 @@ byte times = 0;
 
 unsigned long lastSensores = 0;
 
+bool primera_FOTA=true;
 /*-------------------------  PESTAÑAS  ------------------------*/ 
 
 // Incluir aqui las pestañas ".h"//
@@ -73,8 +74,7 @@ void setup() {
   Serial.begin(115200);               // Puerto serie Establecimiento
   setup_wifi();                       // Llamada a la funcion de config. del WiFi
 
-  //Primera actualización
-  FuncionActualizacion();             //LLamamos a la funcion para que actualice el programa
+  
 
   //Configuracion Server MQTT y topics
   debugFunction ("Establecimiento de MQTT",1);
@@ -100,8 +100,15 @@ void loop() {
     serializa_datos_JSON ().toCharArray (msg,512);  // Serializacion de los datos del archivo json para su publicacion
     client.publish(TOP_datos, msg, true);           //publicacion del mensaje "datos" como retenido al Inicializar la placa
   }
-  client.loop();                                    // look for new message in MQTTprotocol
-
+  client.loop();   // look for new message in MQTTprotocol
+  
+//Primera actualización
+if(primera_FOTA)
+{
+  FuncionActualizacion();             //LLamamos a la funcion para que actualice el programa
+  primera_FOTA=false;
+}
+  
   unsigned long now = millis();                     // Toma del tiempo actual en ms
   
 // END comprobacion y reconexion
