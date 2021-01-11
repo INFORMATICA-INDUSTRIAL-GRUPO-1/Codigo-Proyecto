@@ -28,15 +28,12 @@
 #include "wifi.h"
 
 
-////////////////////Declaraciones//////////////////////////////
+/* ---------------------- Declaraciones ---------------------- */
+
 PubSubClient client(espClient);
 
 
-////////////////////Funciones//////////////////////////////
-
-
-
-
+/* ---------------------- Funciones ---------------------- */
 
 void callback(char* topic, byte* payload, unsigned int length) { // Funcion de callback (comprueba nuevas publicaciones en los topics suscritos)
   char *mensaje=(char *)malloc(length+1); // reservo memoria para copia del mensaje
@@ -50,6 +47,9 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
   }
   Serial.println();
 */
+
+/* ---------------------- LED_CMD ---------------------- */
+
   if(strcmp(topic,TOP_ledCmd)==0) //Comprobacion topic para led
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
@@ -64,8 +64,8 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     else if(root.containsKey("level"))  // comprobar si existe el campo/clave que estamos buscando
     {
      int valor_led_mqtt = root["level"];
-     Serial.print("Mensaje OK, level = ");
-     Serial.println(valor_led_mqtt);
+     /*Serial.print("Mensaje OK, level = ");
+     Serial.println(valor_led_mqtt);*/
      led_actual = valor_led_mqtt;
      led_mqtt();
     }
@@ -82,6 +82,8 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     Serial.println(topic);
     Serial.println("Error: Topic desconocido");
   }*/
+
+/* ---------------------- SWITCH_CMD ---------------------- */
 
     if(strcmp(topic,TOP_switchCmd)==0) //Comprobacion topic para led
   {
@@ -119,6 +121,8 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     Serial.println("Error: Topic desconocido");
   }*/
 
+/* ---------------------- CONFIG ---------------------- */
+
 if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
@@ -132,9 +136,9 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
     }
     else
     {
-       if(root.containsKey("tiempo"))  // comprobar si existe el campo/clave que estamos buscando
+       if(root.containsKey("velocidad"))  // comprobar si existe el campo/clave que estamos buscando
       {
-       int ledspeed_mqtt = root["tiempo"];
+       int ledspeed_mqtt = root["velocidad"];
        Serial.print("Mensaje OK, level = ");
        Serial.println(ledspeed_mqtt);
        ledspeed = ledspeed_mqtt;
@@ -142,8 +146,9 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       else
       {
         Serial.print("Error : ");
-        Serial.println("\"level\" key not found in JSON");
-      }
+        Serial.println("\"velocidad\" key not found in JSON"); //usar la funcion debug.
+      }  
+
       if(root.containsKey("actualiza"))  // comprobar si existe el campo/clave que estamos buscando
       {
        int fotaSampRate_mqtt = root["actualiza"];
@@ -170,9 +175,11 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
         debugFunction("\"actualiza\" key not found in JSON",1);
       }
     }
-     
     
   }
+
+/* ---------------------- FOTA ---------------------- */  
+
   if(strcmp(topic,TOP_FOTA)==0)
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
@@ -196,7 +203,10 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       Serial.print("Error : ");
       Serial.println("\"actualiza\" key not found in JSON");
     }
-  } 
+  }
+
+/* ---------------------- MOVIMIENTO ---------------------- */ 
+  
   if(strcmp(topic,TOP_Movimiento)==0)
   {
       StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
@@ -221,6 +231,9 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       Serial.println("\"actualiza\" key not found in JSON");
     }
   } 
+
+/* ---------------------- MODO ---------------------- */  
+
   if(strcmp(topic,TOP_Modo)==0)
   {
       StaticJsonDocument<128> root; // el tamaño tiene que ser adecuado para el mensaje

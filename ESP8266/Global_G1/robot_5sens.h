@@ -1,3 +1,4 @@
+/*
 #ifndef robot_5sens_h
 #define robot_5sens_h
 #include <Arduino.h> //libreria de arduino
@@ -21,3 +22,4 @@ extern bool dato_sensor;
 void sensores_arduino();
 
 #endif
+*/

@@ -33,7 +33,7 @@ void velocidad()
     switch (orden)
     {
       case 8:
-       if (!obs_izq && !obs_dcha && !obs_cent)
+       if (!obs_izq && !obs_dcha /*&& !obs_cent*/)
        {
         vel_envio[0]=88;
         vel_envio[1]=87;
