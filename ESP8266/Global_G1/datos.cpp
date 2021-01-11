@@ -59,7 +59,7 @@ registro_datos datos ;  // instancia el struct "datos"
   DHT_11["temp"] = datos.temperatura;
   DHT_11["hum"] = datos.humedad;
   jsonRoot["LED"]=datos.led;
-  jsonRoot["SWITCH"]=datos.switchState;
+  jsonRoot["SWITCH"]=datos.Switch;
   JsonObject _WIFI=jsonRoot.createNestedObject("Wifi"); // crea un subobjeto json para "WiFi"
   _WIFI["SSid"]=datos.SSID_wifi;  
   //String IP_str = IpAddress2String(datos.IP_wifi); 
@@ -106,8 +106,11 @@ void led_mqtt()                       // Funcion que tiene como entrada un valor
   StaticJsonDocument<100> jsonRoot;
  
   datos.led = led_actual;             // Guarda el ultimo valor recibido
+  jsonRoot["CHIPID"] = ESP.getChipId();
   jsonRoot["led"] = led_actual;       //Convierte el estado del led a json para ACK al broker mqtt
-
+  jsonRoot["origen"] = origen_led;
+  origen_led = " ";
+  
   serializeJson(jsonRoot,msg);
 
   debugFunction (msg,1);
@@ -122,8 +125,11 @@ void switch_mqtt()
       datos.Switch = false;
    else
       datos.Switch = true;
+      
+  jsonRoot["CHIPID"] = ESP.getChipId();
   jsonRoot["Switch"] = datos.Switch;      //Convierte el estado del led a json para ACK al broker mqtt
-
+  jsonRoot["origen"] = origen_switch;
+  origen_switch = " ";
   serializeJson(jsonRoot,msg);
 
   debugFunction (msg,1);

@@ -67,6 +67,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
      debugFunction("Mensaje OK, level = ",0);
      debugFunction(String(valor_led_mqtt),1);
      led_actual = valor_led_mqtt;
+     origen_led = "mqtt";
      led_mqtt();
     }
     else
@@ -106,7 +107,9 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
         switch_valor = 0;
      else
         switch_valor = 1;
-     ready_switch = true;
+        
+     origen_switch = "mqtt";
+     ready_switch = true; 
     }
     else
     {

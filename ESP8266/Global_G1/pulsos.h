@@ -17,6 +17,9 @@ extern int led_almacenado;
 extern int switch_valor;
 extern bool ready_switch;
 
+extern String origen_led;
+extern String origen_switch;
+
 void funcion_flash(); 
 
 #endif //se declara una unica vez

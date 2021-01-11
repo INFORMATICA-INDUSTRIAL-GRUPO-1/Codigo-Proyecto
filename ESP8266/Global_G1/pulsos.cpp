@@ -45,19 +45,22 @@ void pulsos()                                 //Interpreta los pulsos del boton 
     }
 }                 //Fin pulsos
 
-/*-------------------------  CONTROL LED  ------------------------*/
+/*-------------------------  CONTROL LED Y SWITCH ------------------------*/
 int led_actual = 100;            //valor de prueba
 int led_almacenado;                 //variable que guarda el valor de luminosidad del primer led.
 
 int switch_valor;               //variable que guarda el valor del estado del segundo led.
 bool ready_switch = false;
 
+String origen_led = " ";
+String origen_switch = " ";
 void funcion_flash()
 {
   switch (pulsacion)
   {
     case 1:                       // Pulsación Corta
       switch_valor = !digitalRead(SWITCH_PIN);
+      origen_switch = "pulsador";
       ready_switch = true; 
       if (led_actual != 0)        // Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
       {
@@ -72,6 +75,7 @@ void funcion_flash()
     
     case 2:                       // Pulsación doble
      switch_valor = LOW;
+     origen_switch = "pulsador";
      ready_switch = true;
      led_actual = 100;
     break;

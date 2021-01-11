@@ -16,13 +16,15 @@
 
 #include <Arduino.h>
 #include "config.h"
+#include "pulsos.h"
 
 // Rutina de Tratamiento de la Interrupcion (RTI)
 volatile unsigned long duracion = 0;
 volatile bool ready_led = false;
 int estado_int=HIGH;                    // Por defecto HIGH (PULLUP). Cuando se pulsa se pone a LOW
 volatile unsigned long ultima_int = 0;
- volatile unsigned long inicio = 0;
+volatile unsigned long inicio = 0;
+
 
   ICACHE_RAM_ATTR void RTI() 
   {    
@@ -39,6 +41,7 @@ volatile unsigned long ultima_int = 0;
       {
         estado_int = HIGH;
         duracion = hora - inicio; //Tiempo actual - tiempo cuando se pulsó.
+        origen_led = "pulsador";
         ready_led = true;         //Datos listos. Puedo entrar en el loop y mostrar.
       }
       ultima_int = hora;          //Necesario para el filtro de ruido.

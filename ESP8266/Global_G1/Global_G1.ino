@@ -20,7 +20,7 @@
 
 /*-------------------------  PESTAÑAS Y LIBRERIAS  ------------------------*/ 
  
-////////////////////////LIBRERIAS///////////////////////////////////
+
 // Incluir aqui las librerias//
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
@@ -29,7 +29,7 @@
 #include <ArduinoJson.h>
 
 
-////////////////////Seccion VARIABLES GLOBALES//////////////////////////////
+/*-------------------------  VARIABLES GLOBALES  ------------------------*/ 
 // Declarar aqui las variables globales//
 // Envio de datos
 unsigned long lastMsg = 0;
@@ -46,8 +46,8 @@ byte times = 0;
 
 unsigned long lastSensores = 0;
 
+/*-------------------------  PESTAÑAS  ------------------------*/ 
 
-//////////////////////////////////PESTAÑAS/////////////////////////////////
 // Incluir aqui las pestañas ".h"//
 #include "config.h"
 #include "wifi.h"
