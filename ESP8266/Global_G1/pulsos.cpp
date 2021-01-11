@@ -60,6 +60,7 @@ void funcion_flash()
   {
     case 1:                       // Pulsación Corta
       switch_valor = !digitalRead(SWITCH_PIN);
+      origen_led = "pulsador";
       origen_switch = "pulsador";
       ready_switch = true; 
       if (led_actual != 0)        // Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
@@ -75,6 +76,7 @@ void funcion_flash()
     
     case 2:                       // Pulsación doble
      switch_valor = LOW;
+     origen_led = "pulsador";
      origen_switch = "pulsador";
      ready_switch = true;
      led_actual = 100;

@@ -41,7 +41,6 @@ volatile unsigned long inicio = 0;
       {
         estado_int = HIGH;
         duracion = hora - inicio; //Tiempo actual - tiempo cuando se pulsó.
-        origen_led = "pulsador";
         ready_led = true;         //Datos listos. Puedo entrar en el loop y mostrar.
       }
       ultima_int = hora;          //Necesario para el filtro de ruido.
