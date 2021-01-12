@@ -46,7 +46,7 @@
         "order": 5,
         "width": "1",
         "height": "12",
-        "passthru": true,
+        "passthru": false,
         "outs": "end",
         "topic": "value",
         "min": 0,
@@ -72,7 +72,7 @@
         "order": 6,
         "width": "3",
         "height": "2",
-        "passthru": true,
+        "passthru": false,
         "topic": "",
         "format": "{{value}}",
         "min": 0,
@@ -82,7 +82,8 @@
         "y": 1440,
         "wires": [
             [
-                "c88be72b.519228"
+                "c88be72b.519228",
+                "ccd68b21.1874a8"
             ]
         ]
     },
@@ -345,7 +346,7 @@
         "order": 7,
         "width": "2",
         "height": "1",
-        "passthru": true,
+        "passthru": false,
         "decouple": "false",
         "topic": "",
         "style": "",
@@ -419,7 +420,7 @@
         "order": 5,
         "width": "1",
         "height": "12",
-        "passthru": true,
+        "passthru": false,
         "outs": "end",
         "topic": "value",
         "min": 0,
@@ -445,7 +446,7 @@
         "order": 6,
         "width": "3",
         "height": "2",
-        "passthru": true,
+        "passthru": false,
         "topic": "",
         "format": "{{value}}",
         "min": 0,
@@ -455,7 +456,8 @@
         "y": 1441.9998817443848,
         "wires": [
             [
-                "49aa869e.26d738"
+                "49aa869e.26d738",
+                "9789e2ec.73016"
             ]
         ]
     },
@@ -485,7 +487,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP1/led/cmd",
+                "to": "infind/GRUPO1/ESP2/led/cmd",
                 "tot": "msg"
             }
         ],
@@ -568,7 +570,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP1/switch/cmd",
+                "to": "infind/GRUPO1/ESP2/switch/cmd",
                 "tot": "msg"
             }
         ],
@@ -3037,7 +3039,7 @@
         "order": 5,
         "width": "1",
         "height": "12",
-        "passthru": true,
+        "passthru": false,
         "outs": "end",
         "topic": "value",
         "min": 0,
@@ -3063,7 +3065,7 @@
         "order": 6,
         "width": "3",
         "height": "2",
-        "passthru": true,
+        "passthru": false,
         "topic": "",
         "format": "{{value}}",
         "min": 0,
@@ -3073,7 +3075,8 @@
         "y": 2080,
         "wires": [
             [
-                "7d029cd6.0255f4"
+                "7d029cd6.0255f4",
+                "f4f34b4f.a07fd8"
             ]
         ]
     },
@@ -3117,7 +3120,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP1/led/cmd",
+                "to": "infind/GRUPO1/ESP3/led/cmd",
                 "tot": "msg"
             }
         ],
@@ -3200,7 +3203,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP1/switch/cmd",
+                "to": "infind/GRUPO1/ESP3/switch/cmd",
                 "tot": "msg"
             }
         ],
@@ -3598,7 +3601,7 @@
         "order": 5,
         "width": "1",
         "height": "12",
-        "passthru": true,
+        "passthru": false,
         "outs": "end",
         "topic": "value",
         "min": 0,
@@ -3624,7 +3627,7 @@
         "order": 6,
         "width": "3",
         "height": "2",
-        "passthru": true,
+        "passthru": false,
         "topic": "",
         "format": "{{value}}",
         "min": 0,
@@ -3634,7 +3637,8 @@
         "y": 2720,
         "wires": [
             [
-                "8f917cd3.91a3f"
+                "8f917cd3.91a3f",
+                "ed74c41c.7a6d78"
             ]
         ]
     },
@@ -3678,7 +3682,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP1/led/cmd",
+                "to": "infind/GRUPO1/ESP4/led/cmd",
                 "tot": "msg"
             }
         ],
@@ -3761,7 +3765,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP1/switch/cmd",
+                "to": "infind/GRUPO1/ESP4/switch/cmd",
                 "tot": "msg"
             }
         ],
@@ -4159,7 +4163,7 @@
         "order": 5,
         "width": "1",
         "height": "12",
-        "passthru": true,
+        "passthru": false,
         "outs": "end",
         "topic": "value",
         "min": 0,
@@ -4185,7 +4189,7 @@
         "order": 6,
         "width": "3",
         "height": "2",
-        "passthru": true,
+        "passthru": false,
         "topic": "",
         "format": "{{value}}",
         "min": 0,
@@ -4195,7 +4199,8 @@
         "y": 2720,
         "wires": [
             [
-                "948d057a.0afc88"
+                "948d057a.0afc88",
+                "a17ac235.c7382"
             ]
         ]
     },
@@ -4239,7 +4244,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP1/led/cmd",
+                "to": "infind/GRUPO1/ESP5/led/cmd",
                 "tot": "msg"
             }
         ],
@@ -4322,7 +4327,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP1/switch/cmd",
+                "to": "infind/GRUPO1/ESP5/switch/cmd",
                 "tot": "msg"
             }
         ],
@@ -4794,7 +4799,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Velocidad +- 1% PWM",
+        "label": "Velocidad +- 1% PWM (ms)",
         "tooltip": "",
         "group": "e56ec6.ad07c138",
         "order": 10,
@@ -4804,7 +4809,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 3280,
+        "x": 3300,
         "y": 1540,
         "wires": [
             [
@@ -4817,7 +4822,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Envía datos",
+        "label": "Envía datos (s)",
         "tooltip": "",
         "group": "e56ec6.ad07c138",
         "order": 9,
@@ -4827,7 +4832,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 3310,
+        "x": 3320,
         "y": 1500,
         "wires": [
             [
@@ -4918,7 +4923,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Actualiza",
+        "label": "Actualiza (min)",
         "tooltip": "",
         "group": "e56ec6.ad07c138",
         "order": 8,
@@ -4928,7 +4933,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 3320,
+        "x": 3340,
         "y": 1460,
         "wires": [
             [
@@ -5152,7 +5157,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP2/config",
+                "to": "infind/GRUPO1/ESP1/config",
                 "tot": "msg"
             }
         ],
@@ -5215,7 +5220,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Velocidad +- 1% PWM",
+        "label": "Velocidad +- 1% PWM (ms)",
         "tooltip": "",
         "group": "fb17f0c0.5d5c",
         "order": 10,
@@ -5225,7 +5230,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 1000,
+        "x": 1020,
         "y": 1540,
         "wires": [
             [
@@ -5238,7 +5243,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Envía datos",
+        "label": "Envía datos (s)",
         "tooltip": "",
         "group": "fb17f0c0.5d5c",
         "order": 9,
@@ -5248,7 +5253,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 1030,
+        "x": 1040,
         "y": 1500,
         "wires": [
             [
@@ -5311,7 +5316,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Actualiza",
+        "label": "Actualiza (min)",
         "tooltip": "",
         "group": "fb17f0c0.5d5c",
         "order": 8,
@@ -5321,7 +5326,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 1040,
+        "x": 1060,
         "y": 1460,
         "wires": [
             [
@@ -5500,7 +5505,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Velocidad +- 1% PWM",
+        "label": "Velocidad +- 1% PWM (ms)",
         "tooltip": "",
         "group": "953cce34.3a55a",
         "order": 10,
@@ -5510,7 +5515,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 2420,
+        "x": 2440,
         "y": 2160,
         "wires": [
             [
@@ -5523,7 +5528,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Envía datos",
+        "label": "Envía datos (s)",
         "tooltip": "",
         "group": "953cce34.3a55a",
         "order": 9,
@@ -5533,7 +5538,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 2450,
+        "x": 2460,
         "y": 2120,
         "wires": [
             [
@@ -5601,7 +5606,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP2/config",
+                "to": "infind/GRUPO1/ESP3/config",
                 "tot": "msg"
             }
         ],
@@ -5776,7 +5781,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Actualiza",
+        "label": "Actualiza (min)",
         "tooltip": "",
         "group": "953cce34.3a55a",
         "order": 8,
@@ -5786,7 +5791,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 2460,
+        "x": 2480,
         "y": 2080,
         "wires": [
             [
@@ -5853,7 +5858,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Velocidad +- 1% PWM",
+        "label": "Velocidad +- 1% PWM (ms)",
         "tooltip": "",
         "group": "f4285245.6be7b",
         "order": 10,
@@ -5863,7 +5868,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 980,
+        "x": 1000,
         "y": 2800,
         "wires": [
             [
@@ -5876,7 +5881,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Envía datos",
+        "label": "Envía datos (s)",
         "tooltip": "",
         "group": "f4285245.6be7b",
         "order": 9,
@@ -5886,7 +5891,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 1010,
+        "x": 1020,
         "y": 2760,
         "wires": [
             [
@@ -5954,7 +5959,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP2/config",
+                "to": "infind/GRUPO1/ESP4/config",
                 "tot": "msg"
             }
         ],
@@ -6098,7 +6103,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Actualiza",
+        "label": "Actualiza (min)",
         "tooltip": "",
         "group": "f4285245.6be7b",
         "order": 8,
@@ -6108,7 +6113,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 1020,
+        "x": 1040,
         "y": 2720,
         "wires": [
             [
@@ -6206,7 +6211,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Velocidad +- 1% PWM",
+        "label": "Velocidad +- 1% PWM (ms)",
         "tooltip": "",
         "group": "87fc97ce.487978",
         "order": 10,
@@ -6216,7 +6221,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 3380,
+        "x": 3400,
         "y": 2800,
         "wires": [
             [
@@ -6229,7 +6234,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Envía datos",
+        "label": "Envía datos (s)",
         "tooltip": "",
         "group": "87fc97ce.487978",
         "order": 9,
@@ -6239,7 +6244,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 3410,
+        "x": 3420,
         "y": 2760,
         "wires": [
             [
@@ -6307,7 +6312,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "infind/GRUPO1/ESP2/config",
+                "to": "infind/GRUPO1/ESP5/config",
                 "tot": "msg"
             }
         ],
@@ -6507,7 +6512,7 @@
         "type": "ui_text_input",
         "z": "454200bb.ecd9d",
         "name": "",
-        "label": "Actualiza",
+        "label": "Actualiza (min)",
         "tooltip": "",
         "group": "87fc97ce.487978",
         "order": 8,
@@ -6517,7 +6522,7 @@
         "mode": "number",
         "delay": 300,
         "topic": "",
-        "x": 3420,
+        "x": 3440,
         "y": 2720,
         "wires": [
             [
@@ -6535,8 +6540,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 4270,
-        "y": 1420,
+        "x": 4050,
+        "y": 1340,
         "wires": []
     },
     {

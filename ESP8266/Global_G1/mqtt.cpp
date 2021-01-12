@@ -143,10 +143,17 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       /* ---------------------- Actualiza ---------------------- */
        if(root.containsKey("actualiza"))  // comprobar si existe el campo/clave que estamos buscando
       {
-       int fotaSampRate_mqtt = root["actualiza"];
-       debugFunction("Mensaje OK, actualiza = ",0);
-       debugFunction(String(fotaSampRate_mqtt),1);
-       fotaSampRate = fotaSampRate_mqtt;
+        if(root["actualiza"] != NULL)
+        {
+         int fotaSampRate_mqtt = root["actualiza"];
+         debugFunction("Mensaje OK, actualiza = ",0);
+         debugFunction(String(fotaSampRate_mqtt),1);
+         fotaSampRate = fotaSampRate_mqtt;
+        }
+       else
+       {
+        debugFunction("actualiza: null. No se han hecho cambios",1);
+       }
       }
       else
       {
@@ -157,10 +164,17 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       /* ---------------------- Envia ---------------------- */
       if(root.containsKey("envia"))  // comprobar si existe el campo/clave que estamos buscando
       {
-       int dataSampRate_mqtt = root["envia"];
-       debugFunction("Mensaje OK, envia = ",0);
-       debugFunction(String(dataSampRate_mqtt),1);
-       dataSampRate = dataSampRate_mqtt;
+        if(root["envia"] != NULL)
+        {
+         int dataSampRate_mqtt = root["envia"];
+         debugFunction("Mensaje OK, envia = ",0);
+         debugFunction(String(dataSampRate_mqtt),1);
+         dataSampRate = dataSampRate_mqtt;
+        }
+       else
+       {
+        debugFunction("envia: null. No se han hecho cambios",1);
+       }
       }
       else
       {
@@ -170,10 +184,17 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       /* ---------------------- Velocidad ---------------------- */
       if(root.containsKey("velocidad"))  // comprobar si existe el campo/clave que estamos buscando
       {
-       int ledspeed_mqtt = root["velocidad"];
-       debugFunction("Mensaje OK, velocidad = ",0);
-       debugFunction(String(ledspeed_mqtt),1);
-       ledspeed = ledspeed_mqtt;
+        if(root["velocidad"] != NULL)
+        {
+         int ledspeed_mqtt = root["velocidad"];
+         debugFunction("Mensaje OK, velocidad = ",0);
+         debugFunction(String(ledspeed_mqtt),1);
+         ledspeed = ledspeed_mqtt;
+        }
+       else
+       {
+        debugFunction("velocidad: null. No se han hecho cambios",1);
+       }
       }
       else
       {
@@ -184,16 +205,23 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       /* ---------------------- LED_config ---------------------- */
        if(root.containsKey("LED"))  // comprobar si existe el campo/clave que estamos buscando
       {
-       int valor_led_mqtt_config = root["LED"];
-       debugFunction("Mensaje OK, LED (config) = ",0);
-       debugFunction(String(valor_led_mqtt_config),1);
-       
-       if(valor_led_mqtt_config)
-          led_actual = 100;
+        if(root["LED"] != NULL)
+        {
+         int valor_led_mqtt_config = root["LED"];
+         debugFunction("Mensaje OK, LED (config) = ",0);
+         debugFunction(String(valor_led_mqtt_config),1);
+         
+         if(valor_led_mqtt_config)
+            led_actual = 100;
+         else
+            led_actual = 0;
+  
+         led_mqtt();   
+        }
        else
-          led_actual = 0;
-
-       led_mqtt();   
+       {
+        debugFunction("LED: null. No se han hecho cambios",1);
+       }
       }
       else
       {
@@ -202,18 +230,25 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       }
       
        /* ---------------------- SWITCH_config ---------------------- */
-       if(root.containsKey("LED"))  // comprobar si existe el campo/clave que estamos buscando
+       if(root.containsKey("SWITCH"))  // comprobar si existe el campo/clave que estamos buscando
       {
-       int valor_switch_mqtt_config = root["SWITCH"];
-       debugFunction("Mensaje OK, SWITCH (config) = ",0);
-       debugFunction(String(valor_switch_mqtt_config),1);
-       
-       if(valor_switch_mqtt_config)
-          switch_valor = 0;
+        if(root["SWITCH"] != NULL)
+        {
+         int valor_switch_mqtt_config = root["SWITCH"];
+         debugFunction("Mensaje OK, SWITCH (config) = ",0);
+         debugFunction(String(valor_switch_mqtt_config),1);
+         
+         if(valor_switch_mqtt_config)
+            switch_valor = 0;
+         else
+            switch_valor = 1;
+            
+         ready_switch = true;       
+        }
        else
-          switch_valor = 1;
-          
-       ready_switch = true;       
+       {
+        debugFunction("SWITCH: null. No se han hecho cambios",1);
+       }
       }
       else
       {
