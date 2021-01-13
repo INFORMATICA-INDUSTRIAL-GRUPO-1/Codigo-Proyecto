@@ -114,7 +114,7 @@ if(primera_FOTA)
 // END comprobacion y reconexion
 
 
-/*-------------------------  CONTROL LED  ------------------------*/
+/*-------------------------  CONTROL LED Y SWITCH  ------------------------*/
   if (ready_led)                    // Se llama la interrupcion para asegurar que no se captan rebotes en la pulsacion
   {
       pulsos();                     // Interpreta los pulsos de la interrupcion.
@@ -135,7 +135,10 @@ if(primera_FOTA)
         led_actual = 100;
   else if (led_actual < 0)
       led_actual = 0;
-
+      
+  if(ledspeed <= 0)
+    ledspeed = 1;                     //Acota la velocidad de encendido/apagado del led  
+    
   if (now >= lastLed + ledspeed)      //if_1  ledspeed recibido por mqtt(por defecto 10)
   {    
     if (inten_Led != led_actual)      //if_2
@@ -161,7 +164,9 @@ if((now-lastFOTA > fotaSampRate*60000) && (fotaSampRate != 0)||(actualiza==1))
 }
 
 /*-------------------------  ENVIO DATOS  ------------------------*/
-
+if(dataSampRate <= 0)
+  dataSampRate = 1;                    //Se acota a 1 segundo el envio de datos en caso de recibir un dato no deseado.
+  
 if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por defecto) =>> Asigna los valores y Publica el topic datos
 {
   lastMsg = now;

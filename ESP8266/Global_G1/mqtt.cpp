@@ -38,7 +38,7 @@ PubSubClient client(espClient);
 void callback(char* topic, byte* payload, unsigned int length) { // Funcion de callback (comprueba nuevas publicaciones en los topics suscritos)
   char *mensaje=(char *)malloc(length+1); // reservo memoria para copia del mensaje
   strncpy(mensaje,(char*)payload,length); // copio el mensaje en cadena de caracteres
-  
+  /*
   Serial.print("Message arrived ["); //DEBUG por puerto Serie
   Serial.print(topic);
   Serial.print("] ");
@@ -46,7 +46,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     Serial.print((char)payload[i]);
   }
   Serial.println();
-
+*/
 
 /* ---------------------- LED_CMD ---------------------- */
 
@@ -170,10 +170,15 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       /* ---------------------- Actualiza ---------------------- */
        if(root.containsKey("actualiza"))  // comprobar si existe el campo/clave que estamos buscando
       {
+        if(root["actualiza"] == -1)
+          debugFunction("actualiza = null. No se han hecho modificaciones",1);
+        else
+        {
          int fotaSampRate_mqtt = root["actualiza"];
          debugFunction("Mensaje OK, actualiza = ",0);
          debugFunction(String(fotaSampRate_mqtt),1);
          fotaSampRate = fotaSampRate_mqtt;
+        }
       }
       else
       {
@@ -184,12 +189,15 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       /* ---------------------- Envia ---------------------- */
       if(root.containsKey("envia"))  // comprobar si existe el campo/clave que estamos buscando
       {
-       
+        if(root["envia"] == -1)
+          debugFunction("envia = null. No se han hecho modificaciones",1);
+        else
+        {
          int dataSampRate_mqtt = root["envia"];
          debugFunction("Mensaje OK, envia = ",0);
          debugFunction(String(dataSampRate_mqtt),1);
          dataSampRate = dataSampRate_mqtt;
-        
+        }
       }
       else
       {
@@ -199,12 +207,15 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       /* ---------------------- Velocidad ---------------------- */
       if(root.containsKey("velocidad"))  // comprobar si existe el campo/clave que estamos buscando
       {
-        
+        if(root["velocidad"] == -1)
+          debugFunction("velocidad = null. No se han hecho modificaciones",1);
+        else
+        { 
          int ledspeed_mqtt = root["velocidad"];
          debugFunction("Mensaje OK, velocidad = ",0);
          debugFunction(String(ledspeed_mqtt),1);
          ledspeed = ledspeed_mqtt;
-      
+        }
       }
       else
       {
@@ -215,7 +226,10 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       /* ---------------------- LED_config ---------------------- */
        if(root.containsKey("LED"))  // comprobar si existe el campo/clave que estamos buscando
       {
-        
+        if(root["LED"] == -1)
+          debugFunction("LED = null. No se han hecho modificaciones",1);
+        else
+        { 
          int valor_led_mqtt_config = root["LED"];
          debugFunction("Mensaje OK, LED (config) = ",0);
          debugFunction(String(valor_led_mqtt_config),1);
@@ -226,7 +240,7 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
            led_actual = 0;
   
          led_mqtt();   
-       
+        }
       }
       else
       {
@@ -237,7 +251,10 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
        /* ---------------------- SWITCH_config ---------------------- */
        if(root.containsKey("SWITCH"))  // comprobar si existe el campo/clave que estamos buscando
       {
-        
+        if(root["SWITCH"] == -1)
+          debugFunction("SWITCH = null. No se han hecho modificaciones",1);
+        else
+        {        
          int valor_switch_mqtt_config = root["SWITCH"];
          debugFunction("Mensaje OK, SWITCH (config) = ",0);
          debugFunction(String(valor_switch_mqtt_config),1);
@@ -248,7 +265,7 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
             switch_valor = 1;
             
          ready_switch = true;       
-        
+        }
       }
       else
       {

@@ -109,8 +109,10 @@ void led_mqtt()                       // Funcion que tiene como entrada un valor
   jsonRoot["CHIPID"] = ESP.getChipId();
   jsonRoot["led"] = led_actual;       //Convierte el estado del led a json para ACK al broker mqtt
   jsonRoot["origen"] = origen_led;
-  if(origen_led=="mqtt"){
-  jsonRoot["id"]=id;
+  
+  if(origen_switch=="mqtt")
+  {
+    jsonRoot["id"]=id;
   }
   origen_led = " ";
   
@@ -132,9 +134,12 @@ void switch_mqtt()
   jsonRoot["CHIPID"] = ESP.getChipId();
   jsonRoot["Switch"] = datos.Switch;      //Convierte el estado del led a json para ACK al broker mqtt
   jsonRoot["origen"] = origen_switch;
-  if(origen_switch=="mqtt"){
-  jsonRoot["id"]=id;
+  
+  if(origen_switch=="mqtt")
+  {
+    jsonRoot["id"]=id;
   }
+  
   origen_switch = " ";
   serializeJson(jsonRoot,msg);
 
