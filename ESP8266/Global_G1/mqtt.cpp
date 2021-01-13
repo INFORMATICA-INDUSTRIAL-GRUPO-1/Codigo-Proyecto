@@ -39,20 +39,20 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
   char *mensaje=(char *)malloc(length+1); // reservo memoria para copia del mensaje
   strncpy(mensaje,(char*)payload,length); // copio el mensaje en cadena de caracteres
   
- /* Serial.print("Message arrived ["); //DEBUG por puerto Serie
+  Serial.print("Message arrived ["); //DEBUG por puerto Serie
   Serial.print(topic);
   Serial.print("] ");
   for (int i = 0; i < length; i++) {
     Serial.print((char)payload[i]);
   }
   Serial.println();
-*/
+
 
 /* ---------------------- LED_CMD ---------------------- */
 
   if(strcmp(topic,TOP_ledCmd)==0) //Comprobacion topic para led
   {
-      StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
+      StaticJsonDocument<128> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
     DeserializationError error = deserializeJson(root, mensaje);
 
@@ -102,7 +102,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
 
     if(strcmp(topic,TOP_switchCmd)==0) //Comprobacion topic para led
   {
-      StaticJsonDocument<24> root; // el tamaño tiene que ser adecuado para el mensaje
+      StaticJsonDocument<128> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
     DeserializationError error = deserializeJson(root, mensaje);
 
