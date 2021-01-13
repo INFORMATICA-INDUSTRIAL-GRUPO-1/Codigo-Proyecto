@@ -21,7 +21,7 @@ extern const char* mqtt_psw;
 extern int actualiza;
 extern int orden;
 extern int modo;
-
+extern String id;
 /////////////////TOPICS MQTT ////////////////////
 extern byte grupo;
 extern byte placa;

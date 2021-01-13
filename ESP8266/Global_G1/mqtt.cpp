@@ -26,7 +26,7 @@
 #include "mqtt.h"
 #include "pulsos.h"
 #include "wifi.h"
-
+String id; //inicializamos la id a 0
 
 /* ---------------------- Declaraciones ---------------------- */
 
@@ -63,6 +63,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     }
     else if(root.containsKey("level"))  // comprobar si existe el campo/clave que estamos buscando
     {
+      
      int valor_led_mqtt = root["level"];
      debugFunction("Mensaje OK, level = ",0);
      debugFunction(String(valor_led_mqtt),1);
@@ -70,10 +71,23 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
      origen_led = "mqtt";
      led_mqtt();
     }
+    
     else
     {
       debugFunction("Error : ",0);
       debugFunction("\"level\" key not found in JSON",1);
+    }
+    if(root.containsKey("id"))
+      {
+          String id_mqtt=root["id"];
+          id=id_mqtt;
+          
+        
+      }
+       else
+    {
+      debugFunction("Error : ",0);
+      debugFunction("\"id\" key not found in JSON",1);
     }
     
   }
@@ -99,6 +113,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     }
     else if(root.containsKey("level"))  // comprobar si existe el campo/clave que estamos buscando
     {
+     
      int valor_switch_mqtt = root["level"];
      debugFunction("Mensaje OK, level = ",0);
      debugFunction(String(valor_switch_mqtt),1);
@@ -111,7 +126,19 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
      origen_switch = "mqtt";
      ready_switch = true; 
     }
+   
     else
+    {
+      debugFunction("Error : ",0);
+      debugFunction("\"level\" key not found in JSON",1);
+    }
+      if(root.containsKey("id"))
+      {
+          String id_mqtt=root["id"];
+          id=id_mqtt;
+        
+      }
+       else
     {
       debugFunction("Error : ",0);
       debugFunction("\"level\" key not found in JSON",1);
