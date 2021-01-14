@@ -32,18 +32,26 @@ TELEGRAM
 	*led estado
 	*control potencia led (Antonio 14/12)
 	*Calcular media y configurar rango (Antonio 21/12) 
+	*administrar diferentes placas 	(ANTONIO 07/1)
 	
 ROBOT
 	*comunicacion serie
 	*programar comportamiento (PABLO V y MANU 21/12)
 	*datos (hablar funcionalidades datos)
 	*Programar obstaculos (forma manual)
+	*Programar via telegram modo automatico (simulink) (MANU07/1)
+	*Mostrar en node red los datos que genera 	(PABLO V 07/1)
+	
 
 
 POR HACER
 
 	*Repaso total 			(PABLO R 21/12)
 	*Plantear memoria 		(PABLO R 21/12)
+	* Manual de usuario
+	*Comprobar Robustez
+	*Rebautizar UwU87Bot
+	* Poner cosas bonicas
 
 ESP
 	*SPIFF / EPROM  			(final)
@@ -52,17 +60,15 @@ ESP
 
 NODERED
 	*parte general 			(MATHIAS 14/12)
-	*datos robot ¿Guardar en dataBase? (Opcional) 
-	*descargar archivo csv  (ANTONIO 21/12) (no way)(F)
-	
 	*Automatizar identificacion de placas (MATHIAS 07/1)
 	*Administracion de topics
+	*Enviar topic actualizacion FOTA
+	*Representación Grafica
 
 TELEGRAM
-	*administrar diferentes placas 	(ANTONIO 07/1)
  	*topic STATUS ID telegram  - identificacion para evitar problemas de simultaneidad 
 
-ROBOT
-	*Programar via telegram modo automatico (simulink) (MANU07/1)
-	*Mostrar en node red los datos que genera 	(PABLO V 07/1)
-	
+AMPLIACION (NO)
+	* Topic config desde telegram? AMPLIACION(?)
+
+
