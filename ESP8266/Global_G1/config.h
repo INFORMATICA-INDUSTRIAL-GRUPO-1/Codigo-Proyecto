@@ -45,8 +45,6 @@ extern const char* AP_password;
 extern byte max_reconnect;
 
 /////////////////TOPICS MQTT ////////////////////
-extern byte grupo;
-extern byte placa;
 extern char TOP_generic[48];
 extern char TOP_conexion[48];
 extern char TOP_datos[48];
@@ -64,7 +62,9 @@ extern char TOP_Obstaculo[48];
 
 /////////////////Parametros ////////////////////
 
-
+extern byte grupo;
+extern byte placa;
+extern byte num_sensores;
 extern int dataSampRate ; //En Segundos
 extern int fotaSampRate ;//En minutos
 extern int ledspeed;

@@ -1,5 +1,10 @@
-/*
+
 #include "robot_5sens.h"
+
+// CAMBIAR LA DETECCION DE OBJETOS PARA SACARLO DE LA LECTURA DE LOS SENSORES
+// HACER FUNCION APARTE PARA PROCESAR LOS DATOS DE LOS SENSORES Y DECIDIR SI HAY OBJETO
+// NO HAY QUE SACARLO DE LA FUNCION REALMENTE, PONER DESPUES DEL SWITCH Y SE EJECUTA SIEMPRE
+
 
 int sensor1;
 int sensor2;
@@ -44,16 +49,19 @@ void sensores_arduino ()
         break;
         
         case 253:
-          sensor3=Serial.read();
-          if(sensor3 < 50 && sensor3 > 0)
-            {
-              obs_cent = true;
-            }
-          else
-            obs_cent = false;
+          if(num_sensores == 5){
+            sensor3=Serial.read();
+            if(sensor3 < 50 && sensor3 > 0)
+              {
+                obs_cent = true;
+              }
+            else
+              obs_cent = false;
+          }
         break;
         
         case 254:
+        if(num_sensores == 5){
           sensor4=Serial.read();
           if(sensor4 < 50 && sensor4 > 0)
             {
@@ -61,9 +69,11 @@ void sensores_arduino ()
             }
           else
             obs_dcha = false;
+        }
         break;
         
         case 255:
+        if(num_sensores == 5){
           sensor5=Serial.read();
           if(sensor4 < 50 && sensor4 > 0)
             {
@@ -71,9 +81,9 @@ void sensores_arduino ()
             }
           else
             obs_dcha = false;
-           */
+           
 /*--------------------------- OBJ_IZQ ---------------------------*/
- /*           if (obs_izq && !stop_izq)
+            if (obs_izq && !stop_izq)
           {
             stop_izq=true;
             if(modo==1)
@@ -99,9 +109,9 @@ void sensores_arduino ()
 
           else if (!obs_izq)
             stop_izq=false;
-            */
+            
 /*--------------------------- OBJ_DCHA ---------------------------*/            
-     /*     if (obs_dcha && !stop_dcha)
+          if (obs_dcha && !stop_dcha)
           {
             stop_dcha=true;
             if (modo==1)
@@ -126,9 +136,9 @@ void sensores_arduino ()
           }
           else if (!obs_dcha)
             stop_dcha=false;
-   */         
-/*--------------------------- OBJ_CENT ---------------------------*/            
-   /*       if (obs_cent && !stop_cent)
+            
+//--------------------------- OBJ_CENT ---------------------------            
+          if (obs_cent && !stop_cent)
           {
             stop_cent=true;
             if (modo==1)
@@ -153,11 +163,10 @@ void sensores_arduino ()
           }
           else if (!obs_cent)
             stop_cent=false;
-          
+        }
         break;
     }//switch
   }//if
   else
     dato_sensor = false;
 }//funcion
-*/
