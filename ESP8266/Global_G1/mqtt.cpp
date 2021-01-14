@@ -366,7 +366,7 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
 void reconnect() { // Funcion de reconexion en caso de fallo (además de la primera conexion) del cliente mqtt
   // Loop until we're reconnected
   while (!client.connected()) { // intenta reconectar el mqtt (hasta exito)
-    Serial.print("Attempting MQTT connection...");
+    Serial.print("Estableciendo conexión MQTT........");
     // Create client ID based on ChipID number
     String clientId = "ESP8266Client-";
     char JSon_Msg[64];
@@ -380,7 +380,7 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
     if (client.connect(clientId.c_str(),mqtt_user,mqtt_psw,TOP_conexion,0 ,true ,(const char*)JSon_Msg )) { //Establece la conexion al mqtt y configura LWT: "conexion:false"  //ej:  boolean rc = mqttClient.connect("myClientID", willTopic, willQoS, willRetain, willMessage); 
       
        sprintf (JSon_Msg,"{\"CHIPID\":\"%s\",\"online\":\"true\",\"grupo\":\"%i\",\"placa\":\"%i\"}",datos.chipId.c_str(),grupo,placa);
-      debugFunction("mqtt:connected",1);
+      debugFunction("mqtt:conectado",1);
       debugFunction(JSon_Msg,1);
       // Once connected, publish an announcement...
    
@@ -410,7 +410,7 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
 
 
 void mqttSetup (){
-  debugFunction ("mqttServer:",0);
+  debugFunction ("Servidor MQTT:",0);
   debugFunction (mqtt_server,1);
   client.setServer(mqtt_server, mqtt_port); // Establecimiento de la conexion al mqtt
   client.setCallback(callback); 
