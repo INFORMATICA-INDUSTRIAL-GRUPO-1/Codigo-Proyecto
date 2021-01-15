@@ -52,7 +52,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
 
   if(strcmp(topic,TOP_ledCmd)==0) //Comprobacion topic para led
   {
-      StaticJsonDocument<128> root; // el tamaño tiene que ser adecuado para el mensaje
+      StaticJsonDocument<500> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
     DeserializationError error = deserializeJson(root, mensaje);
 
@@ -65,6 +65,8 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     {
       
      int valor_led_mqtt = root["level"];
+     String id_mqtt=root["id"];
+     id=id_mqtt;
      debugFunction("Mensaje OK, level = ",0);
      debugFunction(String(valor_led_mqtt),1);
      led_actual = valor_led_mqtt;
@@ -77,7 +79,9 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
       debugFunction("Error : ",0);
       debugFunction("\"level\" key not found in JSON",1);
     }
-    if(root.containsKey("id"))
+  }
+    /////////////////////////
+   /* if(root.containsKey("id"))
       {
           String id_mqtt=root["id"];
           id=id_mqtt;
@@ -89,8 +93,8 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
       debugFunction("Error : ",0);
       debugFunction("\"id\" key not found in JSON",1);
     }
-    
-  }
+    */
+  
   /*else //Topic erroneo 
   {
     Serial.print("Topic:");
@@ -102,7 +106,7 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
 
     if(strcmp(topic,TOP_switchCmd)==0) //Comprobacion topic para led
   {
-      StaticJsonDocument<128> root; // el tamaño tiene que ser adecuado para el mensaje
+      StaticJsonDocument<500> root; // el tamaño tiene que ser adecuado para el mensaje
     // Deserialize the JSON document
     DeserializationError error = deserializeJson(root, mensaje);
 
@@ -115,6 +119,8 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     {
      
      int valor_switch_mqtt = root["level"];
+     String id_mqtt=root["id"];
+     id=id_mqtt;
      debugFunction("Mensaje OK, level = ",0);
      debugFunction(String(valor_switch_mqtt),1);
      
@@ -132,17 +138,8 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
       debugFunction("Error : ",0);
       debugFunction("\"level\" key not found in JSON",1);
     }
-      if(root.containsKey("id"))
-      {
-          String id_mqtt=root["id"];
-          id=id_mqtt;
-        
-      }
-       else
-    {
-      debugFunction("Error : ",0);
-      debugFunction("\"level\" key not found in JSON",1);
-    }
+     
+    
     
   }
   /*else //Topic erroneo 

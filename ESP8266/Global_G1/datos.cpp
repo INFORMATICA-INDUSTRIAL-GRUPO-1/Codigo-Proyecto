@@ -103,14 +103,14 @@ void tomaDatos (struct registro_datos &datos) // funcion que toma los datos de l
 
 void led_mqtt()                       // Funcion que tiene como entrada un valor entero [0-100], lo Remapea entre [0-1023] y publicacion del estado actual del led
 {
-  StaticJsonDocument<128> jsonRoot;
+  StaticJsonDocument<512> jsonRoot;
  
   datos.led = led_actual;             // Guarda el ultimo valor recibido
   jsonRoot["CHIPID"] = ESP.getChipId();
   jsonRoot["led"] = led_actual;       //Convierte el estado del led a json para ACK al broker mqtt
   jsonRoot["origen"] = origen_led;
   
-  if(origen_switch=="mqtt")
+  if(origen_led=="mqtt")
   {
     jsonRoot["id"]=id;
   }
@@ -125,7 +125,7 @@ void led_mqtt()                       // Funcion que tiene como entrada un valor
 
 void switch_mqtt()
 {
-   StaticJsonDocument<128> jsonRoot;
+   StaticJsonDocument<500> jsonRoot;
    if(switch_valor)
       datos.Switch = false;
    else
