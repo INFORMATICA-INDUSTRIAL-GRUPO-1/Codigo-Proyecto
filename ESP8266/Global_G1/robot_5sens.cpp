@@ -47,6 +47,7 @@ void sensores_arduino ()
           else
               obs_izq = false;
         break;
+
         
         case 253:
           if(num_sensores == 5){
@@ -89,9 +90,9 @@ void sensores_arduino ()
             if(modo==1)
             {
               // Mando que el robot se pare
-              Serial.write(88);
+              Serial.write(88); // etiqueta (x)
               delay(10);
-              Serial.write(32);
+              Serial.write(32); //stop
               // Mando por mqtt que hay obstáculo por la izquierda
               StaticJsonDocument<100> jsonRoot;
   
@@ -138,7 +139,7 @@ void sensores_arduino ()
             stop_dcha=false;
             
 //--------------------------- OBJ_CENT ---------------------------            
-          if (obs_cent && !stop_cent)
+          if (obs_cent && !stop_cent && num_sensores == 5)
           {
             stop_cent=true;
             if (modo==1)

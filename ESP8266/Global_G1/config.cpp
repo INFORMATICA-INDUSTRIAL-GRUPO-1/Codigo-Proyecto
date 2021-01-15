@@ -55,7 +55,7 @@ byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesP
 
 /////////////////TOPICS MQTT ////////////////////
 byte grupo = 1;
-byte placa = 2;
+byte placa = 5;
 byte num_sensores = 5;
 
 char TOP_generic[48] ="infind/GRUPO%i/ESP%i/%s";

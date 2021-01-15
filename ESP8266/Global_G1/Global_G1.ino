@@ -187,7 +187,7 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
   
   if(dato_sensor && now - lastSensores > 1000)
    { 
-     sensores2_mqtt();// envio a mqtt lectura sensores
+     sensores_mqtt();// envio a mqtt lectura sensores
      lastSensores = now;//variable para actualizacion
    }
 

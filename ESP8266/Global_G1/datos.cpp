@@ -160,23 +160,7 @@ void switch_mqtt()
   client.publish(TOP_FOTA_updt, msg);
 }
 
-void sensores2_mqtt ()
-{
-  StaticJsonDocument<100> jsonRoot;
-
-  JsonObject Sensores=jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores"
-  Sensores["1"] = sensor1;
-  Sensores["2"] = sensor2;
-
-  serializeJson(jsonRoot,msg);
-
-  //debugFunction (msg,1);
-  client.publish(TOP_sensores, msg);
- 
-}
-
-
-void sensores2_mqtt ()
+void sensores_mqtt ()
 {
   StaticJsonDocument<128> jsonRoot;
 
