@@ -1,0 +1,14 @@
+MisEncoders_wrapper.o: \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/MisEncoders_wrapper.c \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rtwtypes.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/binary.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/variants/mega/pins_arduino.h
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rtwtypes.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/binary.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/variants/mega/pins_arduino.h:

@@ -1,0 +1,65 @@
+Sensores_VL53L0X_I2C_wrapper.o: \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/Sensores_VL53L0X_I2C_wrapper.cpp \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rtwtypes.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/binary.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WCharacter.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WString.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/HardwareSerial.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Stream.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Print.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Printable.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/USBAPI.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/variants/mega/pins_arduino.h \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/Wire.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Stream.h \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/Wire.cpp \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/twi.h \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/Wire.h \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/twi.h \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/twi.c \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/VL53L0X.h \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/VL53L0X.cpp
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rtwtypes.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/binary.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WCharacter.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WString.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/HardwareSerial.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Stream.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Print.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Printable.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/USBAPI.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/variants/mega/pins_arduino.h:
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/Wire.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Stream.h:
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/Wire.cpp:
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/twi.h:
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/Wire.h:
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/twi.h:
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/twi.c:
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/VL53L0X.h:
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/VL53L0X.cpp:
