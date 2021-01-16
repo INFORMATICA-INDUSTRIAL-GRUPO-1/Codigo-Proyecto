@@ -33,6 +33,7 @@ TELEGRAM
 	*control potencia led (Antonio 14/12)
 	*Calcular media y configurar rango (Antonio 21/12) 
 	*administrar diferentes placas 	(ANTONIO 07/1)
+	*topic STATUS ID telegram  - identificacion para evitar problemas de simultaneidad (Antoni)
 	
 ROBOT
 	*comunicacion serie
@@ -66,7 +67,7 @@ NODERED
 	*Representación Grafica
 
 TELEGRAM
- 	*topic STATUS ID telegram  - identificacion para evitar problemas de simultaneidad 
+ 	*Repasar y comprobar robustez telegram
 
 AMPLIACION (NO)
 	* Topic config desde telegram? AMPLIACION(?)
