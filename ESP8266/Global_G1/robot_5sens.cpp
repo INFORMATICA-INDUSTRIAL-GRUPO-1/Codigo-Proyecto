@@ -54,10 +54,10 @@ void sensores_arduino ()
             sensor3=Serial.read();
             if(sensor3 < 50 && sensor3 > 0)
               {
-                obs_cent = true;
+                obs_izq = true;
               }
             else
-              obs_cent = false;
+              obs_izq = false;
           }
         break;
         
@@ -66,24 +66,24 @@ void sensores_arduino ()
           sensor4=Serial.read();
           if(sensor4 < 50 && sensor4 > 0)
             {
-              obs_dcha = true;
+              obs_cent = true;
             }
           else
-            obs_dcha = false;
+            obs_cent = false;
         }
         break;
         
         case 255:
         if(num_sensores == 5){
           sensor5=Serial.read();
-          if(sensor4 < 50 && sensor4 > 0)
+          if(sensor5 < 50 && sensor5 > 0)
             {
               obs_dcha = true;
             }
           else
             obs_dcha = false;
         }  
-/*--------------------------- OBJ_IZQ ---------------------------*/
+//--------------------------- OBJ_IZQ ---------------------------
             if (obs_izq && !stop_izq)
           {
             stop_izq=true;

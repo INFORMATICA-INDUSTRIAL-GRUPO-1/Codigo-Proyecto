@@ -6,16 +6,16 @@ void control_modo()
   switch(modo)
   {
     case 0:
-      vel_envio[0]=88;
-      vel_envio[1]=82;
+      vel_envio[0]=88; //X
+      vel_envio[1]=82; //R (STOP)
     break;
     case 1:
-      vel_envio[0]=88;
-      vel_envio[1]=77;
+      vel_envio[0]=88; //X
+      vel_envio[1]=77; //M (MANUAL)
     break;
     case 2:
-      vel_envio[0]=88;
-      vel_envio[1]=69;
+      vel_envio[0]=88; //X
+      vel_envio[1]=69; //E (AUTOMÁTICO)
     break;
   }
   Serial.write(vel_envio[0]);
@@ -33,10 +33,10 @@ void velocidad()
     switch (orden)
     {
       case 8:
-       if (!obs_izq && !obs_dcha /*&& !obs_cent*/)
+       if (!obs_izq && !obs_dcha && !obs_cent)
        {
         vel_envio[0]=88;
-        vel_envio[1]=87;
+        vel_envio[1]=87; //W (ADELANTE)
        }
 
         
@@ -45,7 +45,7 @@ void velocidad()
         if (!obs_izq)
         {
           vel_envio[0]=88;
-          vel_envio[1]=65;
+          vel_envio[1]=65; //A (ATRÁS)
         }
         
       
@@ -55,7 +55,7 @@ void velocidad()
         if (!obs_dcha)
         {
           vel_envio[0]=88;
-          vel_envio[1]=68;
+          vel_envio[1]=68; //D (DERECHA)
         }
         
      
@@ -63,12 +63,12 @@ void velocidad()
       case 2:
       
         vel_envio[0]=88;
-        vel_envio[1]=83;
+        vel_envio[1]=83; // S (RETROCESO)
      
       break;
       case 0:
         vel_envio[0]=88;
-        vel_envio[1]=32;
+        vel_envio[1]=32;// espacio (STOP O SALIR)
       break;
       
     }
