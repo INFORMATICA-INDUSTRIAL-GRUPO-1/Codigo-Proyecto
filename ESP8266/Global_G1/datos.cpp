@@ -165,6 +165,9 @@ void sensores_mqtt ()
   StaticJsonDocument<128> jsonRoot;
 
   JsonObject Sensores=jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores"
+
+  
+  jsonRoot["Num_Sensores"] = num_sensores;
   Sensores["1"] = sensor1;
   Sensores["2"] = sensor2;
   if(num_sensores == 5){
@@ -172,6 +175,7 @@ void sensores_mqtt ()
     Sensores["4"] = sensor4;
     Sensores["5"] = sensor5;
   }
+  
   serializeJson(jsonRoot,msg);
 
   //debugFunction (msg,1);
