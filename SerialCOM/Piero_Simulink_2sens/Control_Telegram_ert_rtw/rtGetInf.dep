@@ -1,0 +1,11 @@
+rtGetInf.o: \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rtGetInf.c \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rtGetInf.h \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rtwtypes.h \
+ C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rt_nonfinite.h
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rtGetInf.h:
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rtwtypes.h:
+
+C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rt_nonfinite.h:
