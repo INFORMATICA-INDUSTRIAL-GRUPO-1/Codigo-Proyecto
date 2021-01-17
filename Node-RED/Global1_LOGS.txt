@@ -1,0 +1,1647 @@
+[
+    {
+        "id": "6472f1e7.097c28",
+        "type": "tab",
+        "label": "LOGs",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "5e7b736d.d1703c",
+        "type": "template",
+        "z": "6472f1e7.097c28",
+        "name": "lista en formato html",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": " <h1>LOGs: </h1>\n <ul>\n{{#payload}}\n  <li>   {{Date}} Online: {{Online}} , CHIP_ID:{{CHIPID}} ,Placa: {{Placa}}, Grupo {{Grupo}}    </li>\n{{/payload}}\n </ul>",
+        "output": "str",
+        "x": 1166.1502304077148,
+        "y": 167.75000047683716,
+        "wires": [
+            [
+                "5a97ef71.fa07d8"
+            ]
+        ]
+    },
+    {
+        "id": "5a97ef71.fa07d8",
+        "type": "ui_template",
+        "z": "6472f1e7.097c28",
+        "group": "b397c7c9.563d3",
+        "name": "",
+        "order": 6,
+        "width": "10",
+        "height": "10",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1420.1502990722656,
+        "y": 185.75001001358032,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b39e5279.8858c",
+        "type": "mongodb in",
+        "z": "6472f1e7.097c28",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_LOGS",
+        "operation": "aggregate",
+        "x": 924.3334579467773,
+        "y": 126.93335008621216,
+        "wires": [
+            [
+                "322c3c1d.9421bc",
+                "5e7b736d.d1703c"
+            ]
+        ]
+    },
+    {
+        "id": "20e8b137.2d901e",
+        "type": "ui_button",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "group": "b397c7c9.563d3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 855.0835800170898,
+        "y": 201.93335008621216,
+        "wires": [
+            [
+                "d11f9ed9.d5e308"
+            ]
+        ]
+    },
+    {
+        "id": "aff286a7.75dc18",
+        "type": "ui_button",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "group": "b397c7c9.563d3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Search",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 137.00005340576172,
+        "y": 109.43334865570068,
+        "wires": [
+            [
+                "dd1a0e85.1b209",
+                "eaaf145e.c326a8"
+            ]
+        ]
+    },
+    {
+        "id": "322c3c1d.9421bc",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1205.0001754760742,
+        "y": 92.68335008621216,
+        "wires": []
+    },
+    {
+        "id": "3d1d254f.9a4e02",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "LOGhasta",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 417.4545555114746,
+        "y": 252.75000619888306,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3e96d11c.ff676e",
+        "type": "ui_date_picker",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "label": "Fecha de final",
+        "group": "3c571dec.0a71b2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "",
+        "x": 177.99999618530273,
+        "y": 259.03130054473877,
+        "wires": [
+            [
+                "3d1d254f.9a4e02"
+            ]
+        ]
+    },
+    {
+        "id": "5cf87c3b.0b615c",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "LOGdesde",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 419.2273254394531,
+        "y": 208.86646461486816,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "98a2adf4.e7e4f",
+        "type": "ui_date_picker",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "label": "Fecha de inicio",
+        "group": "3c571dec.0a71b2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "",
+        "x": 200.9914665222168,
+        "y": 205.02552127838135,
+        "wires": [
+            [
+                "5cf87c3b.0b615c"
+            ]
+        ]
+    },
+    {
+        "id": "d11f9ed9.d5e308",
+        "type": "template",
+        "z": "6472f1e7.097c28",
+        "name": "reset datos formato html",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": " <h1>LOGs: </h1>\n <ul>\n{{#payload}}\n  <li>      </li>\n{{/payload}}\n </ul>",
+        "output": "str",
+        "x": 1188.2500228881836,
+        "y": 201.75000047683716,
+        "wires": [
+            [
+                "5a97ef71.fa07d8"
+            ]
+        ]
+    },
+    {
+        "id": "34b50f40.161a8",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 851.2500228881836,
+        "y": 55.75000047683716,
+        "wires": []
+    },
+    {
+        "id": "209c817e.8399b6",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "LOGsortby",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 411.7500686645508,
+        "y": 328.75011253356934,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "58dd0e47.bb3f38",
+        "type": "ui_dropdown",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "label": "Sort by",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "3c571dec.0a71b2",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "options": [
+            {
+                "label": "Fecha",
+                "value": "Date",
+                "type": "str"
+            },
+            {
+                "label": "Conexion",
+                "value": "Online",
+                "type": "str"
+            },
+            {
+                "label": "Placa",
+                "value": "Placa",
+                "type": "str"
+            },
+            {
+                "label": "CHIP ID",
+                "value": "CHIPID",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 217.25,
+        "y": 331.00003814697266,
+        "wires": [
+            [
+                "209c817e.8399b6"
+            ]
+        ]
+    },
+    {
+        "id": "6c30b934.a32728",
+        "type": "ui_switch",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "label": "Orden: Des/Asen",
+        "tooltip": "",
+        "group": "3c571dec.0a71b2",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "-1",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 171.24999618530273,
+        "y": 297.500027179718,
+        "wires": [
+            [
+                "8cdcca4.9d21ab8"
+            ]
+        ]
+    },
+    {
+        "id": "8cdcca4.9d21ab8",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "LOGad",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 409.74999618530273,
+        "y": 293.25000619888306,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e8d13e04.1d255",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 724.6666870117188,
+        "y": 287.6666717529297,
+        "wires": []
+    },
+    {
+        "id": "d17dfae9.794108",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "agreaga Filtros",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(flow.get(\"LOGdesde\") || ahora);\nvar hasta = new Date(flow.get(\"LOGhasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\nvar sort = flow.get(\"LOGsort\");\n\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"Date\": \"$date\",\n        \"Online\": \"$online\",\n        \"CHIPID\": \"$CHIPID\",\n        \"Placa\": \"$placa\",\n        \"Grupo\": \"$grupo\"\n        }\n    }\n];\n\nmsg.payload[2]= sort\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 499.66665267944336,
+        "y": 108.66668319702148,
+        "wires": [
+            [
+                "b39e5279.8858c",
+                "34b50f40.161a8"
+            ]
+        ]
+    },
+    {
+        "id": "a8f18cf1.5057b",
+        "type": "mongodb in",
+        "z": "6472f1e7.097c28",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_USERS",
+        "operation": "find",
+        "x": 926.6666946411133,
+        "y": 1309.6667561531067,
+        "wires": [
+            [
+                "c025f5ac.9b3b18"
+            ]
+        ]
+    },
+    {
+        "id": "d9921e05.c0ce4",
+        "type": "ui_numeric",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "label": "Limit",
+        "tooltip": "",
+        "group": "3c571dec.0a71b2",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "step": 1,
+        "x": 209.5,
+        "y": 372.3333511352539,
+        "wires": [
+            [
+                "f11d94b8.585368"
+            ]
+        ]
+    },
+    {
+        "id": "f11d94b8.585368",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "LOGlimit",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 414.6666488647461,
+        "y": 366.6666851043701,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6107ccd0.b30cd4",
+        "type": "inject",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "",
+        "payload": " {\"CHIPID\":\"1084890\", \"grupo\": \"1\" ,\"placa\": \"5\"  } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 194.66665649414062,
+        "y": 867.0000610351562,
+        "wires": [
+            [
+                "ffeb25d9.800ab8"
+            ]
+        ]
+    },
+    {
+        "id": "e5fd50e6.50c89",
+        "type": "mongodb out",
+        "z": "6472f1e7.097c28",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_USERS",
+        "payonly": true,
+        "upsert": true,
+        "multi": true,
+        "operation": "store",
+        "x": 1606.5006675720215,
+        "y": 872.3339834213257,
+        "wires": []
+    },
+    {
+        "id": "fce0fe1d.8fedf",
+        "type": "inject",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 682.6666946411133,
+        "y": 1310.3333954811096,
+        "wires": [
+            [
+                "a8f18cf1.5057b"
+            ]
+        ]
+    },
+    {
+        "id": "c025f5ac.9b3b18",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1164.666633605957,
+        "y": 1316.3333821296692,
+        "wires": []
+    },
+    {
+        "id": "b82cbccc.e8973",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1577.6667594909668,
+        "y": 838.3336324691772,
+        "wires": []
+    },
+    {
+        "id": "20b1d87d.04c7f8",
+        "type": "mongodb out",
+        "z": "6472f1e7.097c28",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_USERS",
+        "payonly": false,
+        "upsert": true,
+        "multi": true,
+        "operation": "delete",
+        "x": 462.6666488647461,
+        "y": 1450.3334050178528,
+        "wires": []
+    },
+    {
+        "id": "17313cac.90e8f3",
+        "type": "inject",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 214.66666412353516,
+        "y": 1452.0000519752502,
+        "wires": [
+            [
+                "20b1d87d.04c7f8"
+            ]
+        ]
+    },
+    {
+        "id": "26933d2f.8daba2",
+        "type": "inject",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "",
+        "payload": "{\"CHIPID\":\"14620280\", \"grupo\": \"1\" ,\"placa\": \"3\"  } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 189.66663551330566,
+        "y": 961.333438873291,
+        "wires": [
+            [
+                "ffeb25d9.800ab8"
+            ]
+        ]
+    },
+    {
+        "id": "ffeb25d9.800ab8",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "set msg._id",
+        "func": "msg._id = {\"CHIPID\" : msg.payload.CHIPID} ;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 636.7656478881836,
+        "y": 871.750262260437,
+        "wires": [
+            [
+                "ce6ef657.bbdb28"
+            ]
+        ]
+    },
+    {
+        "id": "da1858fb.1ca6e8",
+        "type": "switch",
+        "z": "6472f1e7.097c28",
+        "name": "IsCHIPID",
+        "property": "_id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1057.3750190734863,
+        "y": 873.2384176254272,
+        "wires": [
+            [
+                "baa1c0f8.4b617",
+                "bc3d32f5.847a5",
+                "d3d49ed5.b4081"
+            ]
+        ]
+    },
+    {
+        "id": "dd1a0e85.1b209",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "Sort_Obj",
+        "func": "\nvar sortBy = flow.get(\"LOGsortby\");\nvar ase_des = flow.get(\"LOGad\");\n\n\n/*\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"date\": \"$date\",\n        \"STATUS\": \"$online\",\n        \"CHIPID\": \"$CHIPID\",\n        \"placa\": \"$placa\",\n        \"grupo\": \"$grupo\"\n        }\n    },\n    { \"$sort\" : { \"date\" : ase_des } }\n];\n*/\n\nmsg.payload= \" { \\\"$sort\\\" : { \\\"\" + sortBy + \"\\\":\" + ase_des + \"}}\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 261.76563262939453,
+        "y": 160.74999618530273,
+        "wires": [
+            [
+                "7c515acd.a455a4"
+            ]
+        ]
+    },
+    {
+        "id": "bb4ee3d5.e31a6",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "LOGsort",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 546.7656326293945,
+        "y": 158.75000953674316,
+        "wires": [
+            [
+                "e8d13e04.1d255"
+            ]
+        ]
+    },
+    {
+        "id": "eaaf145e.c326a8",
+        "type": "delay",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 331.390625,
+        "y": 109.80859375,
+        "wires": [
+            [
+                "d17dfae9.794108"
+            ]
+        ]
+    },
+    {
+        "id": "7c515acd.a455a4",
+        "type": "json",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 386.765625,
+        "y": 158.75,
+        "wires": [
+            [
+                "bb4ee3d5.e31a6"
+            ]
+        ]
+    },
+    {
+        "id": "96e348bf.ce0618",
+        "type": "inject",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "",
+        "payload": "{\"CHIPID\":\"1123338\", \"grupo\": \"1\" ,\"placa\": \"2\"  } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 182.7656021118164,
+        "y": 908.750054359436,
+        "wires": [
+            [
+                "ffeb25d9.800ab8"
+            ]
+        ]
+    },
+    {
+        "id": "ec2f335.af396d",
+        "type": "inject",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "",
+        "payload": "{\"CHIPID\":\"14620280\", \"grupo\": \"1\" ,\"placa\": \"3\"  } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 191.7656021118164,
+        "y": 1015.750054359436,
+        "wires": [
+            [
+                "ffeb25d9.800ab8"
+            ]
+        ]
+    },
+    {
+        "id": "983f2d68.e4d07",
+        "type": "link in",
+        "z": "6472f1e7.097c28",
+        "name": "USER_conexion",
+        "links": [
+            "2c54ad31.535242",
+            "3a6e3253.6e2e3e",
+            "4b719b04.9bff84",
+            "64efdf85.5502",
+            "77d5aa6e.36d744",
+            "d166de5b.65a81"
+        ],
+        "x": 109.38671588897705,
+        "y": 780.6056137084961,
+        "wires": [
+            [
+                "ee4c9921.5fffc8"
+            ]
+        ]
+    },
+    {
+        "id": "baa1c0f8.4b617",
+        "type": "switch",
+        "z": "6472f1e7.097c28",
+        "name": "IsPLACA",
+        "property": "payload.placa",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1341.765682220459,
+        "y": 877.7505207061768,
+        "wires": [
+            [
+                "b82cbccc.e8973",
+                "e5fd50e6.50c89"
+            ],
+            [
+                "2aa888a8.2034b8"
+            ]
+        ]
+    },
+    {
+        "id": "89f9e4ad.bd3a28",
+        "type": "mongodb in",
+        "z": "6472f1e7.097c28",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_USERS",
+        "operation": "count",
+        "x": 1507.7657203674316,
+        "y": 722.7501974105835,
+        "wires": [
+            [
+                "8866bb4c.8d83d8",
+                "24de3b5c.e12a94"
+            ]
+        ]
+    },
+    {
+        "id": "8866bb4c.8d83d8",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1747.7657279968262,
+        "y": 739.7501516342163,
+        "wires": []
+    },
+    {
+        "id": "bc3d32f5.847a5",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "set null",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1229.1328659057617,
+        "y": 724.2384634017944,
+        "wires": [
+            [
+                "89f9e4ad.bd3a28"
+            ]
+        ]
+    },
+    {
+        "id": "24de3b5c.e12a94",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "set flow.numUsers",
+        "rules": [
+            {
+                "t": "set",
+                "p": "numUsers",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1758.015697479248,
+        "y": 706.7501821517944,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2aa888a8.2034b8",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "USER_check",
+        "func": "\n\nvar valor = msg.payload.CHIPID;\nmsg.payload={\"CHIPID\":valor};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1528.1411094665527,
+        "y": 973.3168363571167,
+        "wires": [
+            [
+                "3e07efdb.bef1c",
+                "ac9a0fb5.316be",
+                "36d60412.82e6ec"
+            ]
+        ]
+    },
+    {
+        "id": "36d60412.82e6ec",
+        "type": "mongodb in",
+        "z": "6472f1e7.097c28",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_USERS",
+        "operation": "count",
+        "x": 1791.51607131958,
+        "y": 994.7502756118774,
+        "wires": [
+            [
+                "f1c00d65.035a2"
+            ]
+        ]
+    },
+    {
+        "id": "7374595a.a58e08",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 2250.5162239074707,
+        "y": 986.7503061294556,
+        "wires": []
+    },
+    {
+        "id": "f1c00d65.035a2",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "set flow.checkCollision",
+        "rules": [
+            {
+                "t": "set",
+                "p": "checkCollision",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2053.008045196533,
+        "y": 993.023606300354,
+        "wires": [
+            [
+                "7374595a.a58e08"
+            ]
+        ]
+    },
+    {
+        "id": "3f4bda84.3ca3e6",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 3878.008777618408,
+        "y": 758.0240197181702,
+        "wires": []
+    },
+    {
+        "id": "d10a1e18.d2871",
+        "type": "mqtt out",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP0/config/placa",
+        "qos": "",
+        "retain": "",
+        "broker": "6042ac30.01c774",
+        "x": 954.6406555175781,
+        "y": 1227.1836605072021,
+        "wires": []
+    },
+    {
+        "id": "cddc23a4.ad38d",
+        "type": "inject",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "",
+        "payload": " {\"CHIPID\":\"1084890\", \"grupo\": \"1\" ,\"placa\": \"5\"  } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 425.01561164855957,
+        "y": 1198.2500505447388,
+        "wires": [
+            [
+                "d10a1e18.d2871",
+                "73b096a1.8ff258"
+            ]
+        ]
+    },
+    {
+        "id": "c0f3c8b5.a408d8",
+        "type": "inject",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "",
+        "payload": "{\"CHIPID\":\"14620280\", \"grupo\": \"1\" ,\"placa\": \"3\"  } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 426.015625,
+        "y": 1234.25,
+        "wires": [
+            [
+                "d10a1e18.d2871"
+            ]
+        ]
+    },
+    {
+        "id": "73b096a1.8ff258",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 699.015625,
+        "y": 1173.2500534057617,
+        "wires": []
+    },
+    {
+        "id": "325333c8.7e4dfc",
+        "type": "inject",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "",
+        "payload": "{\"CHIPID\":\"14620280\", \"grupo\": \"1\" ,\"placa\": \"2\"  } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 426.015625,
+        "y": 1280.75,
+        "wires": [
+            [
+                "d10a1e18.d2871"
+            ]
+        ]
+    },
+    {
+        "id": "460214f7.3e731c",
+        "type": "switch",
+        "z": "6472f1e7.097c28",
+        "name": "CheckCollisions",
+        "property": "checkCollision",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 2054.242389678955,
+        "y": 926.1330099105835,
+        "wires": [
+            [
+                "620bb7c4.205208"
+            ],
+            [
+                "998efb16.198128",
+                "3f2f5c5f.4c6154"
+            ],
+            [
+                "502bdb9a.34ab24"
+            ]
+        ]
+    },
+    {
+        "id": "ac9a0fb5.316be",
+        "type": "delay",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1721.0077934265137,
+        "y": 932.0235929489136,
+        "wires": [
+            [
+                "460214f7.3e731c"
+            ]
+        ]
+    },
+    {
+        "id": "a1238310.b0be",
+        "type": "mqtt out",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "infind/GRUPO1/ESP0/config/placa1",
+        "qos": "",
+        "retain": "",
+        "broker": "6042ac30.01c774",
+        "x": 3902.0090141296387,
+        "y": 875.0238485336304,
+        "wires": []
+    },
+    {
+        "id": "a4bd747e.d0b0c8",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 3110.508113861084,
+        "y": 503.0236654281616,
+        "wires": []
+    },
+    {
+        "id": "502bdb9a.34ab24",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 2342.507926940918,
+        "y": 930.0235757827759,
+        "wires": []
+    },
+    {
+        "id": "3e07efdb.bef1c",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1686.0080108642578,
+        "y": 1108.0236349105835,
+        "wires": []
+    },
+    {
+        "id": "998efb16.198128",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "Recover Data",
+        "func": "var ChipID=msg.payload.CHIPID;\n\n\nmsg.payload=\n[\n    { \"$match\": { \"CHIPID\": ChipID } },\n    { \"$project\": {\n        \"CHIPID\": \"$CHIPID\",\n        \"placa\": \"$placa\",\n        \"grupo\": \"$grupo\"\n        }\n    }\n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2434.008087158203,
+        "y": 880.5236825942993,
+        "wires": [
+            [
+                "92b3439a.d58f8"
+            ]
+        ]
+    },
+    {
+        "id": "92b3439a.d58f8",
+        "type": "mongodb in",
+        "z": "6472f1e7.097c28",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_USERS",
+        "operation": "aggregate",
+        "x": 2671.0080184936523,
+        "y": 882.5235605239868,
+        "wires": [
+            [
+                "3cabb6f8.23fc0a"
+            ]
+        ]
+    },
+    {
+        "id": "3cabb6f8.23fc0a",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "ARRAY[0]2OBJECT",
+        "func": "\nvar payload = msg.payload[0];\nmsg.payload=payload;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2934.0078926086426,
+        "y": 883.5235567092896,
+        "wires": [
+            [
+                "fa52ede3.bd3d1"
+            ]
+        ]
+    },
+    {
+        "id": "ce6ef657.bbdb28",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "+ fecha",
+        "func": "\nmsg.payload.date = new Date();\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 777.7656288146973,
+        "y": 871.750078201294,
+        "wires": [
+            [
+                "da1858fb.1ca6e8",
+                "c4ed3e0b.52e72"
+            ]
+        ]
+    },
+    {
+        "id": "35d43c91.997cb4",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "newPlaca",
+        "func": "var ChipID=msg.payload.CHIPID;\nvar date = msg.payload.date;\nvar numUsers = flow.get(\"numUsers\");\nvar placa = numUsers + 1 ;\n\n\nmsg.payload=\n{\n    \"CHIPID\":ChipID,\n    \"grupo\" : 1,\n    \"placa\":placa,\n    \"date\":date\n    \n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2861.265926361084,
+        "y": 513.7501535415649,
+        "wires": [
+            [
+                "a4bd747e.d0b0c8",
+                "38beef61.7c777"
+            ]
+        ]
+    },
+    {
+        "id": "c4ed3e0b.52e72",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1070.2656288146973,
+        "y": 931.0000257492065,
+        "wires": []
+    },
+    {
+        "id": "abf6843e.da70e8",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload._id",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3391.3913383483887,
+        "y": 874.9728536605835,
+        "wires": [
+            [
+                "8c926693.8a3018"
+            ]
+        ]
+    },
+    {
+        "id": "d3d49ed5.b4081",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "set flow.oldPlaca",
+        "rules": [
+            {
+                "t": "set",
+                "p": "oldPlaca",
+                "pt": "flow",
+                "to": "payload.placa",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1265.765697479248,
+        "y": 762.500075340271,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa52ede3.bd3d1",
+        "type": "switch",
+        "z": "6472f1e7.097c28",
+        "name": "check ChangePlaca",
+        "property": "payload.placa",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "oldPlaca",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 3167.632785797119,
+        "y": 875.000075340271,
+        "wires": [
+            [
+                "abf6843e.da70e8"
+            ]
+        ]
+    },
+    {
+        "id": "ee4c9921.5fffc8",
+        "type": "switch",
+        "z": "6472f1e7.097c28",
+        "name": "check Online conection",
+        "property": "payload.online",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 319.3906555175781,
+        "y": 772.988525390625,
+        "wires": [
+            [
+                "b3a04780.9a1d98",
+                "ed77c660.a24738"
+            ]
+        ]
+    },
+    {
+        "id": "620bb7c4.205208",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "set msg._id",
+        "func": "msg._id = {\"CHIPID\" : msg.payload.CHIPID} ;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2580.7656593322754,
+        "y": 517.2500648498535,
+        "wires": [
+            [
+                "5cbbb084.6c8bc"
+            ]
+        ]
+    },
+    {
+        "id": "5cbbb084.6c8bc",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "+ fecha",
+        "func": "\nmsg.payload.date = new Date();\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2725.76570892334,
+        "y": 516.2500410079956,
+        "wires": [
+            [
+                "35d43c91.997cb4"
+            ]
+        ]
+    },
+    {
+        "id": "38beef61.7c777",
+        "type": "mongodb out",
+        "z": "6472f1e7.097c28",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_USERS",
+        "payonly": true,
+        "upsert": true,
+        "multi": true,
+        "operation": "store",
+        "x": 3190.2657203674316,
+        "y": 445.25006103515625,
+        "wires": []
+    },
+    {
+        "id": "3f2f5c5f.4c6154",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "Placa_check",
+        "func": "\n\nvar valor = msg.payload.placa;\nmsg.payload={\"placa\":valor};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2449.765739440918,
+        "y": 788.2500658035278,
+        "wires": [
+            [
+                "e8647e8e.36831"
+            ]
+        ]
+    },
+    {
+        "id": "e8647e8e.36831",
+        "type": "mongodb in",
+        "z": "6472f1e7.097c28",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_USERS",
+        "operation": "count",
+        "x": 2679.0156860351562,
+        "y": 786.250075340271,
+        "wires": [
+            [
+                "94d26640.700518"
+            ]
+        ]
+    },
+    {
+        "id": "94d26640.700518",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "set flow.checkPlacaCollision",
+        "rules": [
+            {
+                "t": "set",
+                "p": "checkPlacaCollision",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2950.7656898498535,
+        "y": 785.2501363754272,
+        "wires": [
+            [
+                "3e2ecf6c.f2a42"
+            ]
+        ]
+    },
+    {
+        "id": "3e2ecf6c.f2a42",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 3162.274326324463,
+        "y": 782.9767904281616,
+        "wires": []
+    },
+    {
+        "id": "8c926693.8a3018",
+        "type": "switch",
+        "z": "6472f1e7.097c28",
+        "name": "check PlacaCollision",
+        "property": "payload.placa",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "oldPlaca",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 3623.515842437744,
+        "y": 874.2500295639038,
+        "wires": [
+            [
+                "a1238310.b0be",
+                "3f4bda84.3ca3e6"
+            ]
+        ]
+    },
+    {
+        "id": "ed77c660.a24738",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "set format",
+        "func": "var CHIPID = msg.payload.CHIPID;\nvar GRUPO = msg.payload.grupo;\nvar PLACA = msg.payload.placa;\n\nmsg.payload={};\nmsg.payload.CHIPID= CHIPID;\nmsg.payload.grupo=GRUPO\nmsg.payload.placa=PLACA\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 518.765625,
+        "y": 767.2501831054688,
+        "wires": [
+            [
+                "ffeb25d9.800ab8"
+            ]
+        ]
+    },
+    {
+        "id": "b3a04780.9a1d98",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 508.765625,
+        "y": 720.25,
+        "wires": []
+    },
+    {
+        "id": "b397c7c9.563d3",
+        "type": "ui_group",
+        "z": "",
+        "name": "Log_Data",
+        "tab": "62413fb.117d5c",
+        "order": 2,
+        "disp": true,
+        "width": "10",
+        "collapse": false
+    },
+    {
+        "id": "3284a27d.270ace",
+        "type": "mongodb",
+        "z": "",
+        "hostname": "iot.ac.uma.es",
+        "port": "27017",
+        "db": "II1",
+        "name": ""
+    },
+    {
+        "id": "3c571dec.0a71b2",
+        "type": "ui_group",
+        "z": "",
+        "name": "Filters",
+        "tab": "62413fb.117d5c",
+        "order": 1,
+        "disp": true,
+        "width": "5",
+        "collapse": false
+    },
+    {
+        "id": "6042ac30.01c774",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "iot.ac.uma.es",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "62413fb.117d5c",
+        "type": "ui_tab",
+        "z": "",
+        "name": "LOGs",
+        "icon": "dashboard",
+        "order": 10,
+        "disabled": false,
+        "hidden": false
+    }
+]
