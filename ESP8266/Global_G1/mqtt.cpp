@@ -371,26 +371,26 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       {
         if(root.containsKey("CHIPID"))  // comprobar si existe el campo/clave que estamos buscando
         { 
-          String ID = root["CHIPID"];
-          debugFunction("CHIPID recibida:",1);
-          debugFunction(ID,1);
-          if (ID == datos.chipId){
-            debugFunction("CHIPID coincide:",1);
-            placa = root["placa"];
-            debugFunction("Actualizado el numero de placa:",1);
-            if (client.connected()){
-              debugFunction("cliente desconectado:",1);
-              client.disconnect();
+            String ID = root["CHIPID"];
+            debugFunction("CHIPID recibida:",1);
+            debugFunction(ID,1);
+            if (ID == datos.chipId){ // Compruebo que es el chipid correcto, es un topic de BROADCAST
+              debugFunction("CHIPID coincide:",1);
+              if (root["placa"] != placa){ // solo actualizo la placa cuando ha cambiado
+                placa = root["placa"];
+                debugFunction("Actualizado el numero de placa:",1);
+                if (client.connected()){
+                  debugFunction("cliente desconectado:",1);
+                client.disconnect();
+                }
+                mqttSetup ();
+                mqttTopics(); // reescribe los topics
+              }  
             }
-            mqttSetup ();
-            mqttTopics(); // reescribe los topics
-            }  
-          
-          
-       /*debugFunction("Mensaje OK, orden = ",0);
-       debugFunction(String(orden),1);*/
+            else
+              debugFunction("numero de placa coincide, no se actualiza",1); 
+ 
         }
-      
       }
     else
       {
