@@ -534,7 +534,7 @@
         "type": "debug",
         "z": "6472f1e7.097c28",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -587,9 +587,7 @@
         "x": 214.66666412353516,
         "y": 1452.0000519752502,
         "wires": [
-            [
-                "20b1d87d.04c7f8"
-            ]
+            []
         ]
     },
     {
@@ -788,8 +786,8 @@
             "77d5aa6e.36d744",
             "d166de5b.65a81"
         ],
-        "x": 109.38671588897705,
-        "y": 780.6056137084961,
+        "x": 105.38671875,
+        "y": 771.6056976318359,
         "wires": [
             [
                 "ee4c9921.5fffc8"
@@ -852,7 +850,7 @@
         "type": "debug",
         "z": "6472f1e7.097c28",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -998,8 +996,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 3878.008777618408,
-        "y": 758.0240197181702,
+        "x": 3872.0087661743164,
+        "y": 799.0240697860718,
         "wires": []
     },
     {
@@ -1027,8 +1025,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 425.01561164855957,
-        "y": 1198.2500505447388,
+        "x": 408.0156364440918,
+        "y": 1179.2500524520874,
         "wires": [
             [
                 "d10a1e18.d2871",
@@ -1118,9 +1116,7 @@
         "x": 2054.242389678955,
         "y": 926.1330099105835,
         "wires": [
-            [
-                "620bb7c4.205208"
-            ],
+            [],
             [
                 "998efb16.198128",
                 "3f2f5c5f.4c6154"
@@ -1158,12 +1154,12 @@
         "type": "mqtt out",
         "z": "6472f1e7.097c28",
         "name": "",
-        "topic": "infind/GRUPO1/ESP0/config/placa1",
+        "topic": "infind/GRUPO1/ESP0/config/placa",
         "qos": "",
         "retain": "",
         "broker": "6042ac30.01c774",
-        "x": 3902.0090141296387,
-        "y": 875.0238485336304,
+        "x": 4217.009254455566,
+        "y": 875.0238819122314,
         "wires": []
     },
     {
@@ -1325,7 +1321,9 @@
         "y": 874.9728536605835,
         "wires": [
             [
-                "8c926693.8a3018"
+                "8c926693.8a3018",
+                "15c7436c.74b62d",
+                "a1238310.b0be"
             ]
         ]
     },
@@ -1396,8 +1394,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 319.3906555175781,
-        "y": 772.988525390625,
+        "x": 263.3906555175781,
+        "y": 774.9885129928589,
         "wires": [
             [
                 "b3a04780.9a1d98",
@@ -1542,11 +1540,10 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 3623.515842437744,
-        "y": 874.2500295639038,
+        "x": 3655.5163345336914,
+        "y": 982.2501697540283,
         "wires": [
             [
-                "a1238310.b0be",
                 "3f4bda84.3ca3e6"
             ]
         ]
@@ -1563,7 +1560,8 @@
         "y": 767.2501831054688,
         "wires": [
             [
-                "ffeb25d9.800ab8"
+                "ffeb25d9.800ab8",
+                "8e89f6c6.d7b898"
             ]
         ]
     },
@@ -1572,7 +1570,7 @@
         "type": "debug",
         "z": "6472f1e7.097c28",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1580,6 +1578,74 @@
         "x": 508.765625,
         "y": 720.25,
         "wires": []
+    },
+    {
+        "id": "311f6417.db1cfc",
+        "type": "inject",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "",
+        "payload": " {\"CHIPID\":\"1128402\", \"grupo\": \"1\" ,\"placa\": \"4\"  } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 295.765625,
+        "y": 671.75,
+        "wires": [
+            [
+                "ed77c660.a24738"
+            ]
+        ]
+    },
+    {
+        "id": "8e89f6c6.d7b898",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 707.765625,
+        "y": 755.75,
+        "wires": []
+    },
+    {
+        "id": "15c7436c.74b62d",
+        "type": "debug",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 3619.515625,
+        "y": 810.75,
+        "wires": []
+    },
+    {
+        "id": "b8f45249.3ac8d",
+        "type": "inject",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "topic": "",
+        "payload": " {\"CHIPID\":\"1128402\", \"grupo\": \"1\" ,\"placa\": \"4\"  } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 3584.765625,
+        "y": 1111.25,
+        "wires": [
+            [
+                "a1238310.b0be"
+            ]
+        ]
     },
     {
         "id": "b397c7c9.563d3",
