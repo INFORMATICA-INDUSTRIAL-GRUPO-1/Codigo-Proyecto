@@ -385,7 +385,7 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
                 if (client.connected()){
                   debugFunction("cliente desconectado:",1);
                   client.disconnect();
-                  delay (2000);
+                  delay (500);
                 }
                 mqttSetup ();
                 mqttTopics(); // reescribe los topics

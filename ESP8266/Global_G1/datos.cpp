@@ -53,7 +53,10 @@ registro_datos datos ;  // instancia el struct "datos"
     //FORMATEO DE "DATOS" A json
 
   jsonRoot["CHIPID"]= datos.chipId; 
-  jsonRoot["Uptime"]= datos.tiempo; 
+  jsonRoot["Uptime"]= datos.tiempo;
+  JsonObject ESP_=jsonRoot.createNestedObject("ESP_"); // crea un subobjeto json para "ESP"
+    ESP_["placa"] = placa;
+    ESP_["grupo"] = grupo;
   jsonRoot["Vcc"]= datos.Vcc;
   JsonObject DHT_11=jsonRoot.createNestedObject("DHT11"); // crea un subobjeto json para "DHT11"
   DHT_11["temp"] = datos.temperatura;
