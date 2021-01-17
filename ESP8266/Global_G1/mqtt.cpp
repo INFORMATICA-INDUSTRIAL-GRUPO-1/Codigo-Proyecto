@@ -372,16 +372,20 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
         if(root.containsKey("CHIPID"))  // comprobar si existe el campo/clave que estamos buscando
         { 
             String ID = root["CHIPID"];
+            int aux;
             debugFunction("CHIPID recibida:",1);
             debugFunction(ID,1);
             if (ID == datos.chipId){ // Compruebo que es el chipid correcto, es un topic de BROADCAST
               debugFunction("CHIPID coincide:",1);
-              if (root["placa"] != placa){ // solo actualizo la placa cuando ha cambiado
+              aux = root["placa"];
+              if (aux != placa){ // solo actualizo la placa cuando ha cambiado
                 placa = root["placa"];
                 debugFunction("Actualizado el numero de placa:",1);
+                debugFunction(String(placa),1);
                 if (client.connected()){
                   debugFunction("cliente desconectado:",1);
-                client.disconnect();
+                  client.disconnect();
+                  delay (2000);
                 }
                 mqttSetup ();
                 mqttTopics(); // reescribe los topics
@@ -434,10 +438,10 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       client.subscribe(TOP_configPlaca);
       client.subscribe(TOP_switchCmd);
       client.subscribe(TOP_FOTA);
-      client.subscribe("infind/GRUPO1/ESP0/broadcast"); // subscripcion a topic de broadcast
+      //client.subscribe("infind/GRUPO1/ESP0/broadcast"); // subscripcion a topic de broadcast
       client.subscribe(TOP_Movimiento);
       client.subscribe(TOP_Modo);
-      client.publish("infind/GRUPO1/ESP0/ack",(const char*)JSon_Msg,true); //publica el estado de la conexion el topic "ack" del broadcast
+      //client.publish("infind/GRUPO1/ESP0/ack",(const char*)JSon_Msg,true); //publica el estado de la conexion el topic "ack" del broadcast
       client.publish(TOP_conexion,(const char*)JSon_Msg,true); //publica el estado de la conexion=true en el topic "conexion"
     } else { // fallo en la conexion mqtt
       Serial.print("failed, rc=");
