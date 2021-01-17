@@ -29,6 +29,7 @@ extern char TOP_generic[48];
 extern char TOP_conexion[48];
 extern char TOP_datos[48];
 extern char TOP_config[48];
+extern char TOP_configPlaca[48];
 extern char TOP_ledCmd[48];
 extern char TOP_ledStatus[48];
 extern char TOP_switchCmd[48];

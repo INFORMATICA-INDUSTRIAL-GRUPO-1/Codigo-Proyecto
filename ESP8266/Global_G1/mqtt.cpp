@@ -353,6 +353,50 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       debugFunction("Error : ",0);
       debugFunction("\"modo\" key not found in JSON",1);
     }
+  }
+   /* ---------------------- ConfigPlaca ---------------------- */  
+
+  if(strcmp(topic,TOP_configPlaca)==0)
+  {
+      StaticJsonDocument<128> root; // el tamaño tiene que ser adecuado para el mensaje
+    // Deserialize the JSON document
+    DeserializationError error = deserializeJson(root, mensaje);
+
+    // Compruebo si no hubo error
+    if (error) {
+      debugFunction("Error deserializeJson() failed: ",1);
+      debugFunction(error.c_str(),0);
+      }
+    else if(root.containsKey("placa"))  // comprobar si existe el campo/clave que estamos buscando
+      {
+        if(root.containsKey("CHIPID"))  // comprobar si existe el campo/clave que estamos buscando
+        { 
+          String ID = root["CHIPID"];
+          debugFunction("CHIPID recibida:",1);
+          debugFunction(ID,1);
+          if (ID == datos.chipId){
+            debugFunction("CHIPID coincide:",1);
+            placa = root["placa"];
+            debugFunction("Actualizado el numero de placa:",1);
+            if (client.connected()){
+              debugFunction("cliente desconectado:",1);
+              client.disconnect();
+            }
+            mqttSetup ();
+            mqttTopics(); // reescribe los topics
+            }  
+          
+          
+       /*debugFunction("Mensaje OK, orden = ",0);
+       debugFunction(String(orden),1);*/
+        }
+      
+      }
+    else
+      {
+        debugFunction("Error : ",0);
+        debugFunction("\"placa\" key not found in JSON",1);
+      } 
   } 
   free(mensaje); // libero memoria
 
@@ -387,6 +431,7 @@ void reconnect() { // Funcion de reconexion en caso de fallo (además de la prim
       //client.subscribe("infind/GRUPO1/datos"); // Subscripcion al topic "datos"
       client.subscribe(TOP_ledCmd);  // Subscripcion al topic "led/cmd"
       client.subscribe(TOP_config);
+      client.subscribe(TOP_configPlaca);
       client.subscribe(TOP_switchCmd);
       client.subscribe(TOP_FOTA);
       client.subscribe("infind/GRUPO1/ESP0/broadcast"); // subscripcion a topic de broadcast
@@ -419,58 +464,63 @@ void mqttTopics(){ // Funcion que establece los topics de conexion. Añade el nu
 
 String aux; // almacenamiento temporal del topic
 
-  aux=TOP_conexion;
+  aux=s_TOP_conexion;
   memset(TOP_conexion, 0, sizeof(TOP_conexion));// Resetea la variable que contiene el topic
   sprintf(TOP_conexion, TOP_generic ,grupo,placa,aux.c_str()); // Añade el topic raiz , el numero de grupo, numero de placa y el topic en cuestion
   Serial.println("Topic_Conexion:");
   Serial.println(TOP_conexion);
 
-  aux=TOP_datos;
+  aux=s_TOP_datos;
   memset(TOP_datos, 0, sizeof(TOP_datos));
   sprintf(TOP_datos,TOP_generic,grupo,placa,aux.c_str());
   Serial.println(TOP_datos);
   
-  aux=TOP_config;
+  aux=s_TOP_config;
   memset(TOP_config, 0, sizeof(TOP_config));
   sprintf(TOP_config,TOP_generic,grupo,placa,aux.c_str());
 
-  aux=TOP_ledCmd;
+  aux=s_TOP_configPlaca;
+  memset(TOP_configPlaca, 0, sizeof(TOP_configPlaca));
+  sprintf(TOP_configPlaca,TOP_generic,grupo,0,aux.c_str());
+  Serial.println(TOP_configPlaca);
+
+  aux=s_TOP_ledCmd;
   memset(TOP_ledCmd, 0, sizeof(TOP_ledCmd));
   sprintf(TOP_ledCmd,TOP_generic,grupo,placa,aux.c_str());
 
-  aux=TOP_ledStatus;
+  aux=s_TOP_ledStatus;
   memset(TOP_ledStatus, 0, sizeof(TOP_ledStatus));
   sprintf(TOP_ledStatus,TOP_generic,grupo,placa,aux.c_str());
 
-  aux=TOP_switchCmd;
+  aux=s_TOP_switchCmd;
   memset(TOP_switchCmd, 0, sizeof(TOP_switchCmd));
   sprintf(TOP_switchCmd,TOP_generic,grupo,placa,aux.c_str());
   
-  aux=TOP_switchStatus;
+  aux=s_TOP_switchStatus;
   memset(TOP_switchStatus, 0, sizeof(TOP_switchStatus));
   sprintf(TOP_switchStatus,TOP_generic,grupo,placa,aux.c_str());
 
-  aux=TOP_FOTA;
+  aux=s_TOP_FOTA;
   memset(TOP_FOTA, 0, sizeof(TOP_FOTA)); 
   sprintf(TOP_FOTA,TOP_generic,grupo,placa,aux.c_str());
 
-  aux=TOP_FOTA_updt;
+  aux=s_TOP_FOTA_updt;
   memset(TOP_FOTA_updt, 0, sizeof(TOP_FOTA_updt)); 
   sprintf(TOP_FOTA_updt,TOP_generic,grupo,placa,aux.c_str());
 
-  aux=TOP_sensores;
+  aux=s_TOP_sensores;
   memset(TOP_sensores, 0, sizeof(TOP_sensores)); 
   sprintf(TOP_sensores,TOP_generic,grupo,placa,aux.c_str());
 
-  aux=TOP_Movimiento;
+  aux=s_TOP_Movimiento;
   memset(TOP_Movimiento, 0, sizeof(TOP_Movimiento)); 
   sprintf(TOP_Movimiento,TOP_generic,grupo,placa,aux.c_str());
 
-  aux=TOP_Modo;
+  aux=s_TOP_Modo;
   memset(TOP_Modo, 0, sizeof(TOP_Modo)); 
   sprintf(TOP_Modo,TOP_generic,grupo,placa,aux.c_str());
 
-  aux=TOP_Obstaculo;
+  aux=s_TOP_Obstaculo;
   memset(TOP_Obstaculo, 0, sizeof(TOP_Obstaculo)); 
   sprintf(TOP_Obstaculo,TOP_generic,grupo,placa,aux.c_str());
   }

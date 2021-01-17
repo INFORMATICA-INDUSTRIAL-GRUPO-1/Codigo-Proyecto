@@ -33,12 +33,12 @@ String OTAfingerprint("5d56095c5f7ba43f01b72231d3a7daa36e102e60"); // sustituir 
 
 //const char* ssid = "MOVISTAR_1F74"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "vK3yLb5r6i7W5zM3nYNE"; // CLAVE DE LA RED WIFI
-//const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
-//const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
+const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
 //const char* ssid = "Martin Router King"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = ""; // CLAVE DE LA RED WIFI
-const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "Srmonline";// CLAVE DE LA RED WIFI
+//const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
+//const char* password = "Srmonline";// CLAVE DE LA RED WIFI
 //const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "pablovera"; // CLAVE DE LA RED WIFI
 //const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
@@ -55,9 +55,25 @@ byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesP
 
 /////////////////TOPICS MQTT ////////////////////
 byte grupo = 1;
-byte placa = 2;
+byte placa = 0;
 byte num_sensores = 5;
 
+String s_TOP_conexion = "conexion";          
+String s_TOP_datos = "datos"; 
+String s_TOP_config = "config"; 
+String s_TOP_configPlaca = "config/placa"; 
+String s_TOP_ledCmd = "led/cmd";  
+String s_TOP_ledStatus = "led/status"; 
+String s_TOP_switchCmd = "switch/cmd"; 
+String s_TOP_switchStatus = "switch/status"; 
+String s_TOP_FOTA = "FOTA";
+String s_TOP_FOTA_updt = "FOTA/actualizado"; 
+String s_TOP_sensores = "PIERO/Sensores"; 
+String s_TOP_Movimiento = "PIERO/Movimiento";
+String s_TOP_Modo = "PIERO/Modo";
+String s_TOP_Obstaculo = "PIERO/Obstaculo";
+
+/////////////
 char TOP_generic[48] ="infind/GRUPO%i/ESP%i/%s";
 
 char TOP_conexion[48] = "conexion"; 
@@ -65,6 +81,8 @@ char TOP_conexion[48] = "conexion";
 char TOP_datos[48] = "datos"; 
 
 char TOP_config[48] = "config"; 
+
+char TOP_configPlaca[48] = "config/placa"; 
 
 char TOP_ledCmd[48] = "led/cmd";  
 
@@ -85,7 +103,6 @@ char TOP_Movimiento[48] = "PIERO/Movimiento";
 char TOP_Modo[48] = "PIERO/Modo";
 
 char TOP_Obstaculo[48] = "PIERO/Obstaculo";
-
 
 
 /////////////////Parametros ////////////////////

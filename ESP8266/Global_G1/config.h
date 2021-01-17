@@ -45,10 +45,27 @@ extern const char* AP_password;
 extern byte max_reconnect;
 
 /////////////////TOPICS MQTT ////////////////////
+extern String s_TOP_generic;
+extern String s_TOP_conexion;
+extern String s_TOP_datos;
+extern String s_TOP_config;
+extern String s_TOP_configPlaca;
+extern String s_TOP_ledCmd;
+extern String s_TOP_ledStatus;
+extern String s_TOP_switchCmd;
+extern String s_TOP_switchStatus;
+extern String s_TOP_FOTA;
+extern String s_TOP_FOTA_updt;
+extern String s_TOP_sensores;
+extern String s_TOP_Movimiento;
+extern String s_TOP_Modo;
+extern String s_TOP_Obstaculo;
+
 extern char TOP_generic[48];
 extern char TOP_conexion[48];
 extern char TOP_datos[48];
 extern char TOP_config[48];
+extern char TOP_configPlaca[48];
 extern char TOP_ledCmd[48];
 extern char TOP_ledStatus[48];
 extern char TOP_switchCmd[48];
