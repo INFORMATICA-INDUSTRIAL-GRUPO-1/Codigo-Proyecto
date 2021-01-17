@@ -33,14 +33,14 @@ String OTAfingerprint("5d56095c5f7ba43f01b72231d3a7daa36e102e60"); // sustituir 
 
 //const char* ssid = "MOVISTAR_1F74"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "vK3yLb5r6i7W5zM3nYNE"; // CLAVE DE LA RED WIFI
-const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
+//const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
+//const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
 //const char* ssid = "Martin Router King"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = ""; // CLAVE DE LA RED WIFI
 //const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "Srmonline";// CLAVE DE LA RED WIFI
-//const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
-//const char* password = "pablovera"; // CLAVE DE LA RED WIFI
+const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "pablovera"; // CLAVE DE LA RED WIFI
 //const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "12345678"; // CLAVE DE LA RED WIFI
 const char* mqtt_server = "iot.ac.uma.es" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
