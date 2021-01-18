@@ -107,14 +107,10 @@ void tomaDatos (struct registro_datos &datos) // funcion que toma los datos de l
 void led_mqtt()                       // Funcion que tiene como entrada un valor entero [0-100], lo Remapea entre [0-1023] y publicacion del estado actual del led
 {
   StaticJsonDocument<512> jsonRoot;
-  //if(logica_negativa){
-    datos.led = led_actual;             // Guarda el ultimo valor recibido
-  //}else{
-    //datos.led = 100 - led_actual;       // Guarda con logica postiva
-  //}
-  
+ 
+  datos.led = led_actual;             // Guarda el ultimo valor recibido
   jsonRoot["CHIPID"] = ESP.getChipId();
-  jsonRoot["led"] = datos.led;       //Convierte el estado del led a json para ACK al broker mqtt
+  jsonRoot["led"] = led_actual;       //Convierte el estado del led a json para ACK al broker mqtt
   jsonRoot["origen"] = origen_led;
   
   if(origen_led=="mqtt")
@@ -133,12 +129,11 @@ void led_mqtt()                       // Funcion que tiene como entrada un valor
 void switch_mqtt()
 {
    StaticJsonDocument<500> jsonRoot;
-
-  if(logica_negativa){
-      datos.Switch = !switch_valor;
-  }else{
-    datos.Switch = switch_valor;
-  }
+   if(switch_valor)
+      datos.Switch = false;
+   else
+      datos.Switch = true;
+      
   jsonRoot["CHIPID"] = ESP.getChipId();
   jsonRoot["Switch"] = datos.Switch;      //Convierte el estado del led a json para ACK al broker mqtt
   jsonRoot["origen"] = origen_switch;
@@ -161,7 +156,9 @@ void switch_mqtt()
  
    
   jsonRoot["ultimaFOTA"] = 1;//Envía una señal para indicar que se va a actualizar
-
+  JsonObject ESP_=jsonRoot.createNestedObject("ESP_"); // crea un subobjeto json para "ESP"
+    ESP_["placa"] = placa;
+    ESP_["grupo"] = grupo;
   serializeJson(jsonRoot,msg);
 
   debugFunction (msg,1);

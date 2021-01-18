@@ -36,6 +36,7 @@ unsigned long lastMsg = 0;
 
 // FOTA
 unsigned long lastFOTA = 0;
+unsigned long primerFOTA = 0;
 
 //Regulacion Led:
 unsigned long lastLed = 0;
@@ -47,6 +48,7 @@ byte times = 0;
 unsigned long lastSensores = 0;
 
 bool primera_FOTA=true;
+bool prim_F=false;
 /*-------------------------  PESTAÑAS  ------------------------*/ 
 
 // Incluir aqui las pestañas ".h"//
@@ -102,14 +104,23 @@ void loop() {
   }
   client.loop();   // look for new message in MQTTprotocol
   
+  unsigned long now = millis();                     // Toma del tiempo actual en ms
 //Primera actualización
-if(primera_FOTA)
+if(primera_FOTA && placa!=0)
 {
-  FuncionActualizacion();             //LLamamos a la funcion para que actualice el programa
+  prim_F=true;
+  primerFOTA=now;
+  
   primera_FOTA=false;
 }
+
+if (((primerFOTA-now)>30000) && prim_F)
+{
+  FuncionActualizacion();             //LLamamos a la funcion para que actualice el programa
+  prim_F=false;
+}
   
-  unsigned long now = millis();                     // Toma del tiempo actual en ms
+  
   
 // END comprobacion y reconexion
 
