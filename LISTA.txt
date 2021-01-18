@@ -72,4 +72,11 @@ TELEGRAM
 AMPLIACION (NO)
 	* Topic config desde telegram? AMPLIACION(?)
 
+DUDAS
+
+	CAMBIAR EL FUNCIONAMIENTO DEL LED POR MENSAJE MQTT
+	Base de datos para el estado del led
+
+habria que guardarlo en la misma
+
 
