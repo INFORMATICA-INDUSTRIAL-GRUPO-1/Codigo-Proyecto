@@ -77,8 +77,10 @@ extern char TOP_Movimiento[48];
 extern char TOP_Modo[48];
 extern char TOP_Obstaculo[48];
 
+
 /////////////////Parametros ////////////////////
 
+extern bool logica_negativa;
 extern byte grupo;
 extern byte placa;
 extern byte num_sensores;

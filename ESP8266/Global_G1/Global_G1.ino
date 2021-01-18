@@ -126,6 +126,9 @@ if(primera_FOTA)
 
   if (ready_switch)
   {
+    if(!logica_negativa){
+      switch_valor=!switch_valor;
+    }
     digitalWrite(SWITCH_PIN,switch_valor);
     switch_mqtt();
     ready_switch = false;
@@ -149,6 +152,9 @@ if(primera_FOTA)
           inten_Led--;
         
       valor_maped = 1023-(inten_Led*10.23);     // Remapeo de valor [0-1023] e inversion para que el 100% se corresponda a led encendido y 0% =>> led apagado
+      if(!logica_negativa){                     // Cambio para pasar el valor de iluminación a lógica positiva
+        valor_maped = abs(1023-valor_maped);
+      }
       analogWrite (BUILTIN_LED,valor_maped);    // Escribe en el puerto BUILTIN_LED el valor remapeado
       lastLed = now;
       }//if_2

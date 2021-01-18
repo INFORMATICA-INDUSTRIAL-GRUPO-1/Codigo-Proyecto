@@ -257,9 +257,9 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
          debugFunction(String(valor_switch_mqtt_config),1);
          
          if(valor_switch_mqtt_config)
-            switch_valor = 0;
+            switch_valor = false;
          else
-            switch_valor = 1;
+            switch_valor = true;
             
          ready_switch = true;       
         }
@@ -268,6 +268,24 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
       {
         debugFunction("Error : ",0);
         debugFunction("\"SWITCH\" key not found in JSON",1);
+      }
+      //------------
+      if(root.containsKey("Logica_negativa"))  // comprobar si existe el campo/clave que estamos buscando
+      {
+        if(root["Logica_negativa"] == -1)
+          debugFunction("Logica negativa = null. No se han hecho modificaciones",1);
+        else
+        {        
+         bool valor_Logica_negativa_mqtt_config = root["Logica_negativa"];
+         debugFunction("Mensaje OK, Logica Negativa = ",0);
+         debugFunction(String(valor_Logica_negativa_mqtt_config),1); 
+         logica_negativa=valor_Logica_negativa_mqtt_config;     
+        }
+      }
+      else
+      {
+        debugFunction("Error : ",0);
+        debugFunction("\"Logica Negativa\" key not found in JSON",1);
       }
     }
     

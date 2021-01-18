@@ -31,14 +31,24 @@ bool debug = true;
 String OTAfingerprint("5d56095c5f7ba43f01b72231d3a7daa36e102e60"); // sustituir valor
 ///////////////////// WiFi & MQTT CONFIGURATION////////////////////////////////////////////////////
 
+<<<<<<< HEAD
+const char* ssid = "MOVISTAR_1F74"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "vK3yLb5r6i7W5zM3nYNE"; // CLAVE DE LA RED WIFI
+=======
 //const char* ssid = "MOVISTAR_1F74"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "vK3yLb5r6i7W5zM3nYNE"; // CLAVE DE LA RED WIFI
+>>>>>>> aa4186cbc3c2b05282e941619111408576a9575f
 //const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
 //const char* ssid = "Martin Router King"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = ""; // CLAVE DE LA RED WIFI
+<<<<<<< HEAD
+//const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
+//const char* password = "Srmonline";// CLAVE DE LA RED WIFI
+=======
 const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
 const char* password = "Srmonline";// CLAVE DE LA RED WIFI
+>>>>>>> aa4186cbc3c2b05282e941619111408576a9575f
 //const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "pablovera"; // CLAVE DE LA RED WIFI
 //const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
@@ -111,6 +121,10 @@ int dataSampRate = 5*60; // Tiempo entre publicaciones de los datos en SEGUNDOS
 int fotaSampRate = 0; // Tiempo entre busqueda de nuevas actualizaciones en MINUTOS (0 para deshabilitar la comprobacion por tiempo)
 int ledspeed = 10 ; // Velocidad a la que se modifica los cambios en la intensidad del led
 
+<<<<<<< HEAD
+bool logica_negativa=true;
+=======
+>>>>>>> aa4186cbc3c2b05282e941619111408576a9575f
 int actualiza = 0; 
 int orden = -1;
 int modo = 0;

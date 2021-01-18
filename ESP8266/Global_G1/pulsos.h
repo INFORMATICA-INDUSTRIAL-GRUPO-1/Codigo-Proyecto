@@ -14,7 +14,7 @@ void pulsos(); //Interpreta los pulsos del boton y la duración de la pulsacion.
 extern int led_actual;
 extern int led_almacenado;
 
-extern int switch_valor;
+extern bool switch_valor;
 extern bool ready_switch;
 
 extern String origen_led;

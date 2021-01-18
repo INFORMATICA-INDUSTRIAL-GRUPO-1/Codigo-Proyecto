@@ -49,7 +49,7 @@ void pulsos()                                 //Interpreta los pulsos del boton 
 int led_actual = 100;            //valor de prueba
 int led_almacenado;                 //variable que guarda el valor de luminosidad del primer led.
 
-int switch_valor;               //variable que guarda el valor del estado del segundo led.
+bool switch_valor;               //variable que guarda el valor del estado del segundo led.
 bool ready_switch = false;
 
 String origen_led = " ";
