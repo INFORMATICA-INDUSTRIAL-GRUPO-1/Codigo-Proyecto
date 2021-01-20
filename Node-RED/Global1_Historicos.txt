@@ -7,102 +7,19 @@
         "info": ""
     },
     {
-        "id": "404bf8b5.6dcee8",
-        "type": "inject",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 358.39070892333984,
-        "y": 210.62499523162842,
-        "wires": [
-            [
-                "e98e1f08.2c80c"
-            ]
-        ]
-    },
-    {
-        "id": "e98e1f08.2c80c",
-        "type": "mongodb in",
-        "z": "bb4727a9.9873e8",
-        "mongodb": "3284a27d.270ace",
-        "name": "",
-        "collection": "_DATOS",
-        "operation": "find",
-        "x": 579.3789710998535,
-        "y": 208.39061641693115,
-        "wires": [
-            [
-                "781fc55e.6f894c"
-            ]
-        ]
-    },
-    {
-        "id": "781fc55e.6f894c",
-        "type": "debug",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 816.3828620910645,
-        "y": 207.70704650878906,
-        "wires": []
-    },
-    {
-        "id": "433d5ec3.990bc",
-        "type": "mongodb out",
-        "z": "bb4727a9.9873e8",
-        "mongodb": "3284a27d.270ace",
-        "name": "",
-        "collection": "_DATOS",
-        "payonly": false,
-        "upsert": false,
-        "multi": false,
-        "operation": "delete",
-        "x": 1470.765625,
-        "y": 210.7500514984131,
-        "wires": []
-    },
-    {
-        "id": "852afac5.f063d8",
-        "type": "inject",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "topic": "",
-        "payload": "{}",
-        "payloadType": "json",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "x": 1252.7656555175781,
-        "y": 205.75008392333984,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "96703f2d.618bf",
         "type": "ui_date_picker",
         "z": "bb4727a9.9873e8",
         "name": "",
         "label": "Fecha de inicio",
         "group": "5e5c2db9.3c2e74",
-        "order": 2,
+        "order": 4,
         "width": "5",
         "height": "2",
         "passthru": true,
         "topic": "",
-        "x": 502.66665267944336,
-        "y": 827.3334331512451,
+        "x": 460,
+        "y": 100,
         "wires": [
             [
                 "a86028be.476728"
@@ -117,7 +34,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "LOGdesde",
+                "p": "desde",
                 "pt": "flow",
                 "to": "payload",
                 "tot": "msg"
@@ -128,8 +45,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 720.9025115966797,
-        "y": 831.1743764877319,
+        "x": 680,
+        "y": 100,
         "wires": [
             []
         ]
@@ -142,7 +59,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "LOGhasta",
+                "p": "hasta",
                 "pt": "flow",
                 "to": "payload",
                 "tot": "msg"
@@ -153,8 +70,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 719.1297416687012,
-        "y": 875.0579180717468,
+        "x": 680,
+        "y": 140,
         "wires": [
             []
         ]
@@ -166,13 +83,13 @@
         "name": "",
         "label": "Fecha de final",
         "group": "5e5c2db9.3c2e74",
-        "order": 3,
+        "order": 5,
         "width": "5",
         "height": "2",
         "passthru": true,
         "topic": "",
-        "x": 479.6751823425293,
-        "y": 881.3392124176025,
+        "x": 460,
+        "y": 140,
         "wires": [
             [
                 "54fdbcd6.866b04"
@@ -197,27 +114,11 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 95.6752700805664,
-        "y": 637.7411470413208,
+        "x": 940,
+        "y": 440,
         "wires": [
             [
                 "43b93948.d652a8"
-            ]
-        ]
-    },
-    {
-        "id": "ba3cede5.0966",
-        "type": "function",
-        "z": "bb4727a9.9873e8",
-        "name": "agreaga Filtros",
-        "func": "var placa = msg.payload;\n// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(flow.get(\"LOGdesde\") || ahora);\nvar hasta = new Date(flow.get(\"LOGhasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\nvar sort = flow.get(\"LOGsort\");\n\n\n\n\nmsg.payload=\n[\n    { \"$match\": { \"ESP_.placa\":  placa  } },\n\n];\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 804.3419799804688,
-        "y": 630.9745006561279,
-        "wires": [
-            [
-                "f7b07802.4ddc18"
             ]
         ]
     },
@@ -229,45 +130,18 @@
         "name": "",
         "collection": "_DATOS",
         "operation": "aggregate",
-        "x": 1199.0086059570312,
-        "y": 667.2411499023438,
+        "x": 2320,
+        "y": 320,
         "wires": [
             [
-                "19d608ee.3f91d7",
-                "2b92b427.f2e5fc",
-                "b1c958e7.562378",
-                "4afb39c3.899758",
-                "bd1cb53d.2e78c8"
+                "1080eac3.772815",
+                "af733065.864c4",
+                "2c1be7c2.cb2b38",
+                "cf6eef86.31945",
+                "c4f5e31e.658e7",
+                "c4e5a542.0f9638"
             ]
         ]
-    },
-    {
-        "id": "f7b07802.4ddc18",
-        "type": "debug",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 1011.925178527832,
-        "y": 537.0578184127808,
-        "wires": []
-    },
-    {
-        "id": "790259b.f4e34a8",
-        "type": "debug",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "x": 2009.675479888916,
-        "y": 477.99134254455566,
-        "wires": []
     },
     {
         "id": "4a12acb9.22e314",
@@ -277,7 +151,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "LOGlimit",
+                "p": "limit",
                 "pt": "flow",
                 "to": "payload",
                 "tot": "msg"
@@ -288,35 +162,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 708.083309173584,
-        "y": 917.0001277923584,
+        "x": 670,
+        "y": 260,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "ca873c10.94e2a",
-        "type": "ui_numeric",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "label": "Limit",
-        "tooltip": "",
-        "group": "5e5c2db9.3c2e74",
-        "order": 4,
-        "width": "5",
-        "height": "1",
-        "passthru": true,
-        "topic": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "10000",
-        "step": 1,
-        "x": 502.9166603088379,
-        "y": 922.6667938232422,
-        "wires": [
-            [
-                "4a12acb9.22e314"
-            ]
         ]
     },
     {
@@ -328,7 +177,7 @@
         "order": 0,
         "width": "18",
         "height": "6",
-        "label": "Temp_chart",
+        "label": "Temperaturas",
         "chartType": "line",
         "legend": "true",
         "xformat": "auto",
@@ -354,28 +203,11 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 2050.5001831054688,
-        "y": 595.0003662109375,
+        "x": 2900,
+        "y": 200,
         "wires": [
             [],
             []
-        ]
-    },
-    {
-        "id": "2b92b427.f2e5fc",
-        "type": "function",
-        "z": "bb4727a9.9873e8",
-        "name": "genera datos gráfica",
-        "func": "var arraytemp=[];\nvar placa = msg.payload[0].ESP_.Placa\nvar ESP=\"ESP\"+String(placa);\n// los arrays usados en la represenstación gráfica deben contener objetos JSON con dos campos: {x , y}\n// en x debemos poner la hora en formato \"timestamp\". Si tenemos un objeto fecha se puede convertir usando el método getTime()\n// en y debemos poner el valor de la variable\n// mas info en: https://github.com/node-red/node-red-dashboard/blob/master/Charts.md\n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    for (var i = 0; i < msg.payload.length; i++) { // añade datos a los arrays\n        arraytemp.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].DHT11.temp});\n\n    }\n}\n\n\n    \nmsg.payload = [{\n        \"series\":[ESP],\n        \"data\":[arraytemp],\n        \"labels\":[\"\"]\n        }];\nmsg.topic = 'ESP2' ;\n\nreturn msg;  ",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 1649.6667175292969,
-        "y": 639.6669502258301,
-        "wires": [
-            [
-                "1971645a.320dec",
-                "790259b.f4e34a8"
-            ]
         ]
     },
     {
@@ -393,38 +225,12 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 237.06584548950195,
-        "y": 636.1164646148682,
+        "x": 1170,
+        "y": 440,
         "wires": [
             [
-                "79cded99.6417f4",
-                "9a167127.98b96",
-                "b2aa147d.9a4538",
-                "345fb68c.16700a",
-                "41c415e9.39fc9c"
-            ]
-        ]
-    },
-    {
-        "id": "79cded99.6417f4",
-        "type": "switch",
-        "z": "bb4727a9.9873e8",
-        "name": "check ESP",
-        "property": "ena_ESP3",
-        "propertyType": "flow",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 411.5000877380371,
-        "y": 615.0001907348633,
-        "wires": [
-            [
-                "61814c1c.eeb464"
+                "51ab97df.38da78",
+                "e98c67aa.0a31a8"
             ]
         ]
     },
@@ -447,8 +253,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 720.6666526794434,
-        "y": 960.6668071746826,
+        "x": 700.6666526794434,
+        "y": 300.6668071746826,
         "wires": [
             []
         ]
@@ -472,8 +278,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 731.6666526794434,
-        "y": 997.6668071746826,
+        "x": 710,
+        "y": 340,
         "wires": [
             []
         ]
@@ -497,8 +303,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 729.6667175292969,
-        "y": 1033.6669402122498,
+        "x": 690,
+        "y": 380,
         "wires": [
             []
         ]
@@ -522,8 +328,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 719.666675567627,
-        "y": 1216.666820526123,
+        "x": 690,
+        "y": 600,
         "wires": [
             []
         ]
@@ -547,8 +353,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 721.666675567627,
-        "y": 1255.666820526123,
+        "x": 690,
+        "y": 640,
         "wires": [
             []
         ]
@@ -572,8 +378,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 717.666675567627,
-        "y": 1288.666820526123,
+        "x": 690,
+        "y": 680,
         "wires": [
             []
         ]
@@ -597,8 +403,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 717.666675567627,
-        "y": 1321.666820526123,
+        "x": 690,
+        "y": 720,
         "wires": [
             []
         ]
@@ -622,8 +428,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 717.666675567627,
-        "y": 1360.666820526123,
+        "x": 690,
+        "y": 760,
         "wires": [
             []
         ]
@@ -640,11 +446,10 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "x": 80.66666412353516,
-        "y": 1007.3333129882812,
+        "x": 120,
+        "y": 440,
         "wires": [
             [
-                "ca873c10.94e2a",
                 "e2d19b7c.f5e138",
                 "9899936b.cae4d",
                 "9989b392.927e1",
@@ -656,7 +461,9 @@
                 "a57db195.da35f",
                 "ff3c5fd1.4c276",
                 "efee6f52.ba6fa",
-                "42c76120.4b20f"
+                "42c76120.4b20f",
+                "b07ffbdc.d53a08",
+                "88e76349.043ca"
             ]
         ]
     },
@@ -666,99 +473,6 @@
         "z": "bb4727a9.9873e8",
         "name": "",
         "label": "Humedad",
-        "tooltip": "",
-        "group": "5e5c2db9.3c2e74",
-        "order": 5,
-        "width": "5",
-        "height": "1",
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 497.50000381469727,
-        "y": 961.3333377838135,
-        "wires": [
-            [
-                "f190a990.8c1e58"
-            ]
-        ]
-    },
-    {
-        "id": "9989b392.927e1",
-        "type": "ui_switch",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "label": "Temperatura",
-        "tooltip": "",
-        "group": "5e5c2db9.3c2e74",
-        "order": 6,
-        "width": "5",
-        "height": "1",
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 500.66668701171875,
-        "y": 1001.3333835601807,
-        "wires": [
-            [
-                "7a7a63d5.add11c"
-            ]
-        ]
-    },
-    {
-        "id": "b4a18978.181408",
-        "type": "ui_switch",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "label": "Vcc",
-        "tooltip": "",
-        "group": "5e5c2db9.3c2e74",
-        "order": 7,
-        "width": "5",
-        "height": "1",
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 480.66668701171875,
-        "y": 1035.3333835601807,
-        "wires": [
-            [
-                "21df8d06.c7a912"
-            ]
-        ]
-    },
-    {
-        "id": "9899936b.cae4d",
-        "type": "ui_switch",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "label": "ESP1",
         "tooltip": "",
         "group": "5e5c2db9.3c2e74",
         "order": 10,
@@ -776,144 +490,20 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 489.66670989990234,
-        "y": 1223.3334255218506,
+        "x": 440,
+        "y": 300,
         "wires": [
             [
-                "6d90bb88.68cfa4"
+                "f190a990.8c1e58"
             ]
         ]
     },
     {
-        "id": "b576f0c4.4d005",
+        "id": "9989b392.927e1",
         "type": "ui_switch",
         "z": "bb4727a9.9873e8",
         "name": "",
-        "label": "ESP2",
-        "tooltip": "",
-        "group": "5e5c2db9.3c2e74",
-        "order": 11,
-        "width": "5",
-        "height": "1",
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 489.66670989990234,
-        "y": 1257.6667385101318,
-        "wires": [
-            [
-                "598a6578.24724c"
-            ]
-        ]
-    },
-    {
-        "id": "17190b7e.e06c55",
-        "type": "ui_switch",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "label": "ESP3",
-        "tooltip": "",
-        "group": "5e5c2db9.3c2e74",
-        "order": 12,
-        "width": "5",
-        "height": "1",
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 489.66670989990234,
-        "y": 1293.6667385101318,
-        "wires": [
-            [
-                "551e3cc2.b4d214"
-            ]
-        ]
-    },
-    {
-        "id": "a44e100c.9f26f",
-        "type": "ui_switch",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "label": "ESP4",
-        "tooltip": "",
-        "group": "5e5c2db9.3c2e74",
-        "order": 13,
-        "width": "5",
-        "height": "1",
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 489.66670989990234,
-        "y": 1328.6667385101318,
-        "wires": [
-            [
-                "4e25e486.1550ec"
-            ]
-        ]
-    },
-    {
-        "id": "de0a5b97.3a8088",
-        "type": "ui_switch",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "label": "ESP5",
-        "tooltip": "",
-        "group": "5e5c2db9.3c2e74",
-        "order": 14,
-        "width": "5",
-        "height": "1",
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 489.66670989990234,
-        "y": 1364.6667385101318,
-        "wires": [
-            [
-                "35a4d85e.087648"
-            ]
-        ]
-    },
-    {
-        "id": "a57db195.da35f",
-        "type": "ui_switch",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "label": "MasterESP",
+        "label": "Temperatura",
         "tooltip": "",
         "group": "5e5c2db9.3c2e74",
         "order": 9,
@@ -931,8 +521,225 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 146.66669082641602,
-        "y": 1153.6666622161865,
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "7a7a63d5.add11c"
+            ]
+        ]
+    },
+    {
+        "id": "b4a18978.181408",
+        "type": "ui_switch",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "Vcc",
+        "tooltip": "",
+        "group": "5e5c2db9.3c2e74",
+        "order": 11,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 430,
+        "y": 380,
+        "wires": [
+            [
+                "21df8d06.c7a912"
+            ]
+        ]
+    },
+    {
+        "id": "9899936b.cae4d",
+        "type": "ui_switch",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "ESP1",
+        "tooltip": "",
+        "group": "5e5c2db9.3c2e74",
+        "order": 18,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 430,
+        "y": 600,
+        "wires": [
+            [
+                "6d90bb88.68cfa4"
+            ]
+        ]
+    },
+    {
+        "id": "b576f0c4.4d005",
+        "type": "ui_switch",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "ESP2",
+        "tooltip": "",
+        "group": "5e5c2db9.3c2e74",
+        "order": 19,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 430,
+        "y": 640,
+        "wires": [
+            [
+                "598a6578.24724c"
+            ]
+        ]
+    },
+    {
+        "id": "17190b7e.e06c55",
+        "type": "ui_switch",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "ESP3",
+        "tooltip": "",
+        "group": "5e5c2db9.3c2e74",
+        "order": 20,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 430,
+        "y": 680,
+        "wires": [
+            [
+                "551e3cc2.b4d214"
+            ]
+        ]
+    },
+    {
+        "id": "a44e100c.9f26f",
+        "type": "ui_switch",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "ESP4",
+        "tooltip": "",
+        "group": "5e5c2db9.3c2e74",
+        "order": 21,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 430,
+        "y": 720,
+        "wires": [
+            [
+                "4e25e486.1550ec"
+            ]
+        ]
+    },
+    {
+        "id": "de0a5b97.3a8088",
+        "type": "ui_switch",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "ESP5",
+        "tooltip": "",
+        "group": "5e5c2db9.3c2e74",
+        "order": 22,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 430,
+        "y": 760,
+        "wires": [
+            [
+                "35a4d85e.087648"
+            ]
+        ]
+    },
+    {
+        "id": "a57db195.da35f",
+        "type": "ui_switch",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "MasterESP",
+        "tooltip": "",
+        "group": "5e5c2db9.3c2e74",
+        "order": 17,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 230,
+        "y": 680,
         "wires": [
             [
                 "9899936b.cae4d",
@@ -940,371 +747,6 @@
                 "17190b7e.e06c55",
                 "a44e100c.9f26f",
                 "de0a5b97.3a8088"
-            ]
-        ]
-    },
-    {
-        "id": "61814c1c.eeb464",
-        "type": "change",
-        "z": "bb4727a9.9873e8",
-        "name": "set placa",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "3",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 567.5000610351562,
-        "y": 615.0001811981201,
-        "wires": [
-            [
-                "ba3cede5.0966",
-                "f14a3527.015bc8"
-            ]
-        ]
-    },
-    {
-        "id": "f1bfe18f.a522d",
-        "type": "function",
-        "z": "bb4727a9.9873e8",
-        "name": "agreaga Filtros",
-        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(flow.get(\"LOGdesde\") || ahora);\nvar hasta = new Date(flow.get(\"LOGhasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\nvar sort = flow.get(\"LOGsort\");\n\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"Date\": \"$date\",\n        \"Online\": \"$online\",\n        \"CHIPID\": \"$CHIPID\",\n        \"Placa\": \"$placa\",\n        \"Grupo\": \"$grupo\"\n        }\n    }\n];\n\nmsg.payload[2]= sort\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 944.515625,
-        "y": 368.75,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4b4fcbc8.3674f4",
-        "type": "inject",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "topic": "",
-        "payload": "{\"ESP_.placa\":3}",
-        "payloadType": "json",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 338,
-        "y": 305,
-        "wires": [
-            [
-                "169866e1.fda819"
-            ]
-        ]
-    },
-    {
-        "id": "169866e1.fda819",
-        "type": "mongodb in",
-        "z": "bb4727a9.9873e8",
-        "mongodb": "3284a27d.270ace",
-        "name": "",
-        "collection": "_DATOS",
-        "operation": "find",
-        "x": 574.9882621765137,
-        "y": 307.76562118530273,
-        "wires": [
-            [
-                "d9c63f08.49b34"
-            ]
-        ]
-    },
-    {
-        "id": "d9c63f08.49b34",
-        "type": "debug",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 811.9921531677246,
-        "y": 307.08205127716064,
-        "wires": []
-    },
-    {
-        "id": "19d608ee.3f91d7",
-        "type": "debug",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 1529.3334045410156,
-        "y": 579.3333930969238,
-        "wires": []
-    },
-    {
-        "id": "9a167127.98b96",
-        "type": "switch",
-        "z": "bb4727a9.9873e8",
-        "name": "check ESP",
-        "property": "ena_ESP2",
-        "propertyType": "flow",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 415.6666603088379,
-        "y": 570.6667594909668,
-        "wires": [
-            [
-                "161a54f5.b4433b"
-            ]
-        ]
-    },
-    {
-        "id": "161a54f5.b4433b",
-        "type": "change",
-        "z": "bb4727a9.9873e8",
-        "name": "set placa",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "2",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 571.666633605957,
-        "y": 570.6667499542236,
-        "wires": [
-            [
-                "ba3cede5.0966"
-            ]
-        ]
-    },
-    {
-        "id": "b2aa147d.9a4538",
-        "type": "switch",
-        "z": "bb4727a9.9873e8",
-        "name": "check ESP",
-        "property": "ena_ESP1",
-        "propertyType": "flow",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 414.6666603088379,
-        "y": 529.6667594909668,
-        "wires": [
-            [
-                "8917b65b.c63188"
-            ]
-        ]
-    },
-    {
-        "id": "8917b65b.c63188",
-        "type": "change",
-        "z": "bb4727a9.9873e8",
-        "name": "set placa",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "1",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 570.666633605957,
-        "y": 529.6667499542236,
-        "wires": [
-            [
-                "ba3cede5.0966"
-            ]
-        ]
-    },
-    {
-        "id": "41c415e9.39fc9c",
-        "type": "switch",
-        "z": "bb4727a9.9873e8",
-        "name": "check ESP",
-        "property": "ena_ESP5",
-        "propertyType": "flow",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 414.6666603088379,
-        "y": 695.6667594909668,
-        "wires": [
-            [
-                "303efc73.a8c684"
-            ]
-        ]
-    },
-    {
-        "id": "303efc73.a8c684",
-        "type": "change",
-        "z": "bb4727a9.9873e8",
-        "name": "set placa",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "5",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 570.666633605957,
-        "y": 695.6667499542236,
-        "wires": [
-            [
-                "ba3cede5.0966"
-            ]
-        ]
-    },
-    {
-        "id": "345fb68c.16700a",
-        "type": "switch",
-        "z": "bb4727a9.9873e8",
-        "name": "check ESP",
-        "property": "ena_ESP4",
-        "propertyType": "flow",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 413.6666603088379,
-        "y": 654.6667594909668,
-        "wires": [
-            [
-                "18006a39.aa4586"
-            ]
-        ]
-    },
-    {
-        "id": "18006a39.aa4586",
-        "type": "change",
-        "z": "bb4727a9.9873e8",
-        "name": "set placa",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "4",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 569.666633605957,
-        "y": 654.6667499542236,
-        "wires": [
-            [
-                "ba3cede5.0966"
-            ]
-        ]
-    },
-    {
-        "id": "437ef3cf.ebb6fc",
-        "type": "debug",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "x": 2257.6666374206543,
-        "y": 821.6667108535767,
-        "wires": []
-    },
-    {
-        "id": "b1c958e7.562378",
-        "type": "merge",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "timeout": "1",
-        "x": 1510.9999809265137,
-        "y": 465.6666507720947,
-        "wires": [
-            [
-                "83a075a.a3b6088"
-            ]
-        ]
-    },
-    {
-        "id": "83a075a.a3b6088",
-        "type": "debug",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "x": 1661.1666984558105,
-        "y": 351.66662311553955,
-        "wires": []
-    },
-    {
-        "id": "f14a3527.015bc8",
-        "type": "function",
-        "z": "bb4727a9.9873e8",
-        "name": "Sort_Obj",
-        "func": "var Humedad=\"\";\nvar Temperatura=\"\";\nvar Vcc=\"\";\nvar Led=\"\";\nvar Switch= \"\";\nvar Wifi = \"\";\nvar placa = msg.payload;\n//Compruebo los datos a buscar\nif (flow.get(\"ena_Humedad\")){\n    Humedad = \",\\\"Humedad\\\": \\\"$DHT11.hum\\\"\";\n}\nif (flow.get(\"ena_Temperatura\")){\n    Temperatura = \",\\\"Temperatura\\\": \\\"$DHT11.temp\\\"\";\n}\n\nif (flow.get(\"ena_Vcc\")){\n    Vcc = \",\\\"VoltajeAlimentacion\\\": \\\"$Vcc\\\"\";\n}\nif (flow.get(\"ena_Led\")){\n    Led = \",\\\"LED\\\": \\\"$LED\\\"\";\n}\nif (flow.get(\"ena_Switch\")){\n    Switch = \",\\\"Switch\\\": \\\"$SWITCH\\\"\";\n}\nif (flow.get(\"ena_Wifi\")){\n    Wifi = \",\\\"Wifi_SSid\\\": \\\"$Wifi.SSid\\\",\"+ \"\\\"Wifi_IP\\\": \\\"$Wifi.IP\\\",\"+\"\\\"Wifi_RSSI\\\": \\\"$Wifi.RSSI\\\"\";\n}\n\n\n/*\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"date\": \"$date\",\n        \"STATUS\": \"$online\",\n        \"CHIPID\": \"$CHIPID\",\n        \"placa\": \"$placa\",\n        \"grupo\": \"$grupo\"\n        }\n    },\n    { \"$sort\" : { \"date\" : ase_des } }\n];\n*/\n\nmsg.payload= \"[\";\n    msg.payload+= \"{ \\\"$match\\\": { \\\"ESP_.placa\\\":\"+placa+\"  } },\";\n    msg.payload+= \"{\\\"$project\\\": {\";\n        msg.payload+= \"\\\"date\\\": \\\"$date\\\",\" ;\n        msg.payload+= \"\\\"CHIPID\\\": \\\"$CHIPID\\\",\" ;\n        msg.payload+= \"\\\"Placa\\\": \\\"$ESP_.placa\\\"\" ;\n        msg.payload+= Humedad ;\n        msg.payload+= Temperatura ;\n        msg.payload+= Vcc ;\n        msg.payload+= Led ;\n        msg.payload+= Switch ;\n        msg.payload+= Wifi ;\n    msg.payload+= \"}}\";\n\nmsg.payload+= \"]\";\n\n\n//msg.payload= \" { \\\"$sort\\\" : { \\\"\" + sortBy + \"\\\":\" + ase_des + \"}}\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 798.1180686950684,
-        "y": 723.000036239624,
-        "wires": [
-            [
-                "72a23d77.a94b34",
-                "b20f3efd.63fa2"
             ]
         ]
     },
@@ -1327,8 +769,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 727.0069580078125,
-        "y": 1079.4444580078125,
+        "x": 690,
+        "y": 420,
         "wires": [
             []
         ]
@@ -1341,7 +783,7 @@
         "label": "Led",
         "tooltip": "",
         "group": "5e5c2db9.3c2e74",
-        "order": 7,
+        "order": 12,
         "width": "5",
         "height": "1",
         "passthru": true,
@@ -1356,8 +798,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 478.0069274902344,
-        "y": 1081.1109013557434,
+        "x": 430,
+        "y": 420,
         "wires": [
             [
                 "391aae08.70ba52"
@@ -1383,8 +825,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 723.0069580078125,
-        "y": 1115.4444580078125,
+        "x": 690,
+        "y": 460,
         "wires": [
             []
         ]
@@ -1397,7 +839,7 @@
         "label": "Switch",
         "tooltip": "",
         "group": "5e5c2db9.3c2e74",
-        "order": 7,
+        "order": 13,
         "width": "5",
         "height": "1",
         "passthru": true,
@@ -1412,8 +854,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 474.0069274902344,
-        "y": 1117.1109013557434,
+        "x": 430,
+        "y": 460,
         "wires": [
             [
                 "b9873cff.89d4c"
@@ -1439,8 +881,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 722.0069580078125,
-        "y": 1151.4444580078125,
+        "x": 690,
+        "y": 500,
         "wires": [
             []
         ]
@@ -1453,7 +895,7 @@
         "label": "Wifi",
         "tooltip": "",
         "group": "5e5c2db9.3c2e74",
-        "order": 7,
+        "order": 14,
         "width": "5",
         "height": "1",
         "passthru": true,
@@ -1468,27 +910,13 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 473.0069274902344,
-        "y": 1153.1109013557434,
+        "x": 430,
+        "y": 500,
         "wires": [
             [
                 "22ef9ce9.ead8f4"
             ]
         ]
-    },
-    {
-        "id": "cf996b4e.d16f28",
-        "type": "debug",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 1084.673656463623,
-        "y": 730.8889932632446,
-        "wires": []
     },
     {
         "id": "72a23d77.a94b34",
@@ -1498,45 +926,11 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 948.2708740234375,
-        "y": 727.6945343017578,
+        "x": 1850,
+        "y": 320,
         "wires": [
             [
-                "cf996b4e.d16f28",
-                "cbccc464.c70b68"
-            ]
-        ]
-    },
-    {
-        "id": "b20f3efd.63fa2",
-        "type": "debug",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 1000.3402709960938,
-        "y": 790.888916015625,
-        "wires": []
-    },
-    {
-        "id": "4afb39c3.899758",
-        "type": "template",
-        "z": "bb4727a9.9873e8",
-        "name": "lista en formato html",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": " <h1>Datos: </h1>\n <ul>\n{{#payload}}\n  <li>   {{Date}} Temperatura: {{Temperatura}} , CHIP_ID:{{CHIPID}} ,Placa: {{Placa}}, Grupo {{Grupo}}    </li>\n{{/payload}}\n </ul>",
-        "output": "str",
-        "x": 1639.0071487426758,
-        "y": 788.8889236450195,
-        "wires": [
-            [
-                "316b7c0a.52f004"
+                "e6929d07.596da"
             ]
         ]
     },
@@ -1544,91 +938,937 @@
         "id": "a8ccc08c.0931e",
         "type": "ui_template",
         "z": "bb4727a9.9873e8",
-        "group": "db883a02.8d16d8",
+        "group": "73ddc728.4983c8",
         "name": "",
         "order": 5,
-        "width": "18",
-        "height": "5",
+        "width": "12",
+        "height": "24",
         "format": "<div ng-bind-html=\"msg.payload\"></div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "templateScope": "local",
-        "x": 1860.948013305664,
-        "y": 803.638916015625,
+        "x": 2880,
+        "y": 400,
         "wires": [
             []
         ]
     },
     {
-        "id": "70de88f6.e18b68",
-        "type": "template",
-        "z": "bb4727a9.9873e8",
-        "name": "lista en formato html",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": " <h1>LOGs: </h1>\n <ul>\n{{#payload}}\n  <li>   {{Date}} Online: {{Online}} , CHIP_ID:{{CHIPID}} ,Placa: {{Placa}}, Grupo {{Grupo}}    </li>\n{{/payload}}\n </ul>",
-        "output": "str",
-        "x": 1578.0069580078125,
-        "y": 901.2222290039062,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "316b7c0a.52f004",
-        "type": "debug",
-        "z": "bb4727a9.9873e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "x": 1866.0069580078125,
-        "y": 754.1111450195312,
-        "wires": []
-    },
-    {
-        "id": "bd1cb53d.2e78c8",
+        "id": "1080eac3.772815",
         "type": "function",
         "z": "bb4727a9.9873e8",
-        "name": "Sort_Obj",
-        "func": "var Humedad=\"\";\nvar Temperatura=\"\";\nvar Vcc=\"\";\nvar Led=\"\";\nvar Switch= \"\";\nvar Wifi = \"\";\nvar placa = msg.payload;\n\n\n \n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    msg.payload= \"<h1>Datos: </h1>\\n <ul> \\n\";\n    for (var i = 0; i < msg.payload.length; i++) \n        { // añade datos al mensaje\n        //Compruebo los datos a escribir\n         msg.payload+= \"<li>  \";\n         msg.payload+= \", CHIPID :\" + msg.payload[i].CHIPID;\n         msg.payload+= \", Placa :\" + msg.payload[i].Placa;\n\n        if (flow.get(\"ena_Humedad\")){\n            msg.payload+= \", Humedad :\" + msg.payload[i].Humedad;\n        }\n        if (flow.get(\"ena_Temperatura\")){\n            msg.payload+= \", Temperatura: \" + msg.payload[i].Temperatura;\n        }\n        \n        if (flow.get(\"ena_Vcc\")){\n            msg.payload+= \", Voltaje alimentacion: \" +  msg.payload[i].VoltajeAlimentacion;\n        }\n        if (flow.get(\"ena_Led\")){\n            msg.payload+= \", LED: \"+msg.payload[i].LED;\n        }\n        if (flow.get(\"ena_Switch\")){\n            msg.payload+= \", Switch :\" + msg.payload[i].Switch;\n        }\n        if (flow.get(\"ena_Wifi\")){\n            msg.payload+= \", Wifi_SSid: \"+ msg.payload[i].Wifi_SSid + \", Wifi_IP: \"+ msg.payload[i].Wifi_IP +\", Wifi_RSSI: \" +msg.payload[i].Wifi_RSSI ;\n        }\n        msg.payload+= \"</li>  \\n\";\n\n\n        }\n    msg.payload+=\"    {{/payload}} \\n </ul>\";\n    }        \n\n/*\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"date\": \"$date\",\n        \"STATUS\": \"$online\",\n        \"CHIPID\": \"$CHIPID\",\n        \"placa\": \"$placa\",\n        \"grupo\": \"$grupo\"\n        }\n    },\n    { \"$sort\" : { \"date\" : ase_des } }\n];\n*/\n\n\n\n//msg.payload= \" { \\\"$sort\\\" : { \\\"\" + sortBy + \"\\\":\" + ase_des + \"}}\";\n\nreturn msg;",
+        "name": "Lista Html dinamica",
+        "func": "\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n\n{\n    mensaje= \"<h1>Datos: </h1>\\n <ul> \\n\";\n    for (var i = 0; i < msg.payload.length; i++) \n        { // añade datos al mensaje\n        //Compruebo los datos a escribir\n         mensaje+= \"<li>  \";\n         mensaje+= \"<strong> Fecha :</strong>\" + msg.payload[i].date;\n         mensaje+= \",<strong> CHIPID :</strong>\" + msg.payload[i].CHIPID;\n         mensaje+= \",<strong> Placa :</strong>\" + msg.payload[i].Placa +\"<br>\";\n\n        if (flow.get(\"ena_Humedad\")){\n            mensaje+= \",<strong> Humedad: </strong>\" + msg.payload[i].Humedad;\n        }\n        if (flow.get(\"ena_Temperatura\")){\n            mensaje+= \",<strong> Temperatura: </strong>\" + msg.payload[i].Temperatura;\n        }\n        \n        if (flow.get(\"ena_Vcc\")){\n            mensaje+= \",<strong> Voltaje alimentacion: </strong>\" +  msg.payload[i].VoltajeAlimentacion;\n        }\n        if (flow.get(\"ena_Led\") || flow.get(\"ena_Switch\")){\n             mensaje+= \"<br>\";\n        }\n        if (flow.get(\"ena_Led\")){\n            mensaje+= \",<strong> LED: </strong>\"+msg.payload[i].LED;\n        }\n        if (flow.get(\"ena_Switch\")){\n            mensaje+= \",<strong> Switch :</strong>\" + msg.payload[i].Switch;\n        }\n        if (flow.get(\"ena_Wifi\")){\n            mensaje+= \",<br><strong> Wifi_SSid: </strong>\"+ msg.payload[i].Wifi_SSid + \", Wifi_IP: \"+ msg.payload[i].Wifi_IP +\", Wifi_RSSI: \" +msg.payload[i].Wifi_RSSI ;\n        }\n        mensaje+= \"</li>  \\n\";\n\n\n        }\n    mensaje+=\"    {{/payload}} \\n </ul>\";\n    }        \n\nmsg.payload = mensaje;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1611.5625839233398,
-        "y": 827.8889503479004,
+        "x": 2650,
+        "y": 400,
         "wires": [
             [
-                "a8ccc08c.0931e",
-                "af1a2b30.daa488"
+                "a8ccc08c.0931e"
             ]
         ]
     },
     {
-        "id": "af1a2b30.daa488",
-        "type": "debug",
+        "id": "e1ba683f.7ffbe8",
+        "type": "ui_template",
+        "z": "bb4727a9.9873e8",
+        "group": "5e5c2db9.3c2e74",
+        "name": "CSV_Download",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "format": "<style>\n.button {\n    text-align: center;\n    font: bold 17px Arial;\n    text-decoration: none;\n    background-color: #339966;\n    color: white;\n    padding: 8px 10px;\n    border: 2px solid #CCCCCC;\n  }\n  \n  .button:hover\n  {\n   background-color: #26734d;\n  }\n\n</style>\n<a href=\"/registros\" class=\"button\">Descarga registros en CSV (EXCEL)</a>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1160,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba8a758.3aff388",
+        "type": "http in",
         "z": "bb4727a9.9873e8",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 1862.5625,
-        "y": 863.888916015625,
+        "url": "/registros",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1490,
+        "y": 720,
+        "wires": [
+            [
+                "62e9004c.a9137"
+            ]
+        ]
+    },
+    {
+        "id": "913e8252.17d05",
+        "type": "csv",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "sep": ";",
+        "hdrin": "",
+        "hdrout": true,
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "date,CHIPID,Placa,Temperatura, Humedad, VoltajeAlimentacion,LED,Switch,Wifi_SSid,Wifi_IP,Wifi_RSSI",
+        "skip": 0,
+        "x": 2530,
+        "y": 720,
+        "wires": [
+            [
+                "bbb2052.82df2f8"
+            ]
+        ]
+    },
+    {
+        "id": "bbb2052.82df2f8",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "Unicode y separador",
+        "func": "//add Unicode BOM character (byte order mark) to make EXCEL knows this is UTF-8\nif(flow.get(\"separador_decimal\")==\"punto\")\n{\n    msg.payload='\\ufeff'+msg.payload;\n\n}\nelse\n{\n    msg.payload='\\ufeff'+(msg.payload).replace(/\\./g,\",\");\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2700,
+        "y": 720,
+        "wires": [
+            [
+                "1acc5101.78b02f"
+            ]
+        ]
+    },
+    {
+        "id": "1acc5101.78b02f",
+        "type": "http response",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Disposition": "attachment; filename=registros.csv"
+        },
+        "x": 2870,
+        "y": 720,
         "wires": []
     },
     {
-        "id": "3284a27d.270ace",
-        "type": "mongodb",
-        "z": "",
-        "hostname": "iot.ac.uma.es",
-        "port": "27017",
-        "db": "II1",
-        "name": ""
+        "id": "e98c67aa.0a31a8",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "Match_Project&Sort",
+        "func": "\nvar sortBy = flow.get(\"sortby\");\nvar ase_des = flow.get(\"ad\");\nvar Humedad=\"\";\nvar Temperatura=\"\";\nvar Vcc=\"\";\nvar Led=\"\";\nvar Switch= \"\";\nvar Wifi = \"\";\nvar placa ;\nvar count =flow.get(\"ena_ESP1\") +flow.get(\"ena_ESP2\")+flow.get(\"ena_ESP3\")+flow.get(\"ena_ESP4\")+flow.get(\"ena_ESP5\") ;\nvar coma = count-1;\n\n//\"{ \\\"ESP_.placa\\\":\"+placa+\"  }\";\nplaca =\"{\\\"$match\\\":{\";\nif(count >1){\n    placa+=\"\\\"$or\\\":[\"\n    \n}\n\nif (flow.get(\"ena_ESP1\")){\n    if (count > 1){\n        placa +=\"{\\\"ESP_.placa\\\":\"+\"1\"+\"} \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"1\"+\" \";\n}\nif (flow.get(\"ena_ESP2\")){\n    if (count > 1){\n        placa +=\" {\\\"ESP_.placa\\\":\"+\"2\"+\" } \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"2\"+\" \";    \n}\nif (flow.get(\"ena_ESP3\")){\n    if (count > 1){\n        placa +=\" {\\\"ESP_.placa\\\":\"+\"3\"+\"}  \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"3\"+\" \";     \n}\nif (flow.get(\"ena_ESP4\")){\n    if (count > 1){\n        placa +=\"{\\\"ESP_.placa\\\":\"+\"4\"+\"} \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"4\"+\" \";     \n}\nif (flow.get(\"ena_ESP5\")){\n    if (count > 1){\n        placa +=\"{ \\\"ESP_.placa\\\":\"+\"5\"+\"}  \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"5\"+\" \";     \n}\n\nif(count >1){\n    placa+=\"]\"\n    \n}\nplaca +=\"}}\";\n\n\n\nif (flow.get(\"ena_Humedad\")){\n    Humedad = \",\\\"Humedad\\\": \\\"$DHT11.hum\\\"\";\n}\n\nif (flow.get(\"ena_Temperatura\")){\n    Temperatura = \",\\\"Temperatura\\\": \\\"$DHT11.temp\\\"\";\n}\n\nif (flow.get(\"ena_Vcc\")){\n    Vcc = \",\\\"VoltajeAlimentacion\\\": \\\"$Vcc\\\"\";\n}\nif (flow.get(\"ena_Led\")){\n    Led = \",\\\"LED\\\": \\\"$LED\\\"\";\n}\nif (flow.get(\"ena_Switch\")){\n    Switch = \",\\\"Switch\\\": \\\"$SWITCH\\\"\";\n}\nif (flow.get(\"ena_Wifi\")){\n    Wifi = \",\\\"Wifi_SSid\\\": \\\"$Wifi.SSid\\\",\"+ \"\\\"Wifi_IP\\\": \\\"$Wifi.IP\\\",\"+\"\\\"Wifi_RSSI\\\": \\\"$Wifi.RSSI\\\"\";\n}\n\n\nmsg.payload= \"[\";\n    msg.payload+= placa;\n    msg.payload+= \",{\\\"$project\\\": {\";\n        msg.payload+= \"\\\"date\\\": \\\"$date\\\",\" ;\n        msg.payload+= \"\\\"CHIPID\\\": \\\"$CHIPID\\\",\" ;\n        msg.payload+= \"\\\"Placa\\\": \\\"$ESP_.placa\\\"\" ;\n        msg.payload+= Humedad ;\n        msg.payload+= Temperatura ;\n        msg.payload+= Vcc ;\n        msg.payload+= Led ;\n        msg.payload+= Switch ;\n        msg.payload+= Wifi ;\n    msg.payload+= \"}},\";\n    msg.payload+=\" { \\\"$sort\\\" : { \\\"\" + sortBy + \"\\\":\" + ase_des + \"}}\"\nmsg.payload+= \"]\";\n\n//msg.payload= \" { \\\"$sort\\\" : { \\\"\" + sortBy + \"\\\":\" + ase_des + \"}}\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1680,
+        "y": 320,
+        "wires": [
+            [
+                "72a23d77.a94b34"
+            ]
+        ]
+    },
+    {
+        "id": "b07ffbdc.d53a08",
+        "type": "ui_switch",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "Estadisticas",
+        "tooltip": "",
+        "group": "5e5c2db9.3c2e74",
+        "order": 15,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 450,
+        "y": 540,
+        "wires": [
+            [
+                "9cff40bf.70278"
+            ]
+        ]
+    },
+    {
+        "id": "9cff40bf.70278",
+        "type": "change",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ena_Statistics",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cda140e6.992cb",
+        "type": "ui_dropdown",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "Sort by",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "5e5c2db9.3c2e74",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "options": [
+            {
+                "label": "Fecha",
+                "value": "Date",
+                "type": "str"
+            },
+            {
+                "label": "Placa",
+                "value": "Placa",
+                "type": "str"
+            },
+            {
+                "label": "CHIP ID",
+                "value": "CHIPID",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 440,
+        "y": 180,
+        "wires": [
+            [
+                "63d8124d.d84eac"
+            ]
+        ]
+    },
+    {
+        "id": "88e76349.043ca",
+        "type": "ui_switch",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "Orden: Des/Asen",
+        "tooltip": "",
+        "group": "5e5c2db9.3c2e74",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "-1",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 470,
+        "y": 220,
+        "wires": [
+            [
+                "640de71f.01b948"
+            ]
+        ]
+    },
+    {
+        "id": "63d8124d.d84eac",
+        "type": "change",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "sortby",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "640de71f.01b948",
+        "type": "change",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ad",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28b77d6a.316cf2",
+        "type": "inject",
+        "z": "bb4727a9.9873e8",
+        "name": "Initializer",
+        "topic": "",
+        "payload": "Date",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "cda140e6.992cb"
+            ]
+        ]
+    },
+    {
+        "id": "f92c6f8.3e90f9",
+        "type": "mongodb in",
+        "z": "bb4727a9.9873e8",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_DATOS",
+        "operation": "aggregate",
+        "x": 2320,
+        "y": 720,
+        "wires": [
+            [
+                "913e8252.17d05"
+            ]
+        ]
+    },
+    {
+        "id": "51ab97df.38da78",
+        "type": "switch",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "property": "ena_Statistics",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1470,
+        "y": 540,
+        "wires": [
+            [
+                "80eb8597.cf8748"
+            ]
+        ]
+    },
+    {
+        "id": "80eb8597.cf8748",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "Match_Project",
+        "func": "\nvar Humedad=\"\";\nvar Temperatura=\"\";\nvar Vcc=\"\";\nvar placa ;\nvar count =flow.get(\"ena_ESP1\") +flow.get(\"ena_ESP2\")+flow.get(\"ena_ESP3\")+flow.get(\"ena_ESP4\")+flow.get(\"ena_ESP5\") ;\nvar coma = count-1;\n\n\n//\"{ \\\"ESP_.placa\\\":\"+placa+\"  }\";\nplaca =\"{\\\"$match\\\":{\";\nif(count >1){\n    placa+=\"\\\"$or\\\":[\"\n    \n}\n\nif (flow.get(\"ena_ESP1\")){\n    if (count > 1){\n        placa +=\"{\\\"ESP_.placa\\\":\"+\"1\"+\"} \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"1\"+\" \";\n}\nif (flow.get(\"ena_ESP2\")){\n    if (count > 1){\n        placa +=\" {\\\"ESP_.placa\\\":\"+\"2\"+\" } \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"2\"+\" \";    \n}\nif (flow.get(\"ena_ESP3\")){\n    if (count > 1){\n        placa +=\" {\\\"ESP_.placa\\\":\"+\"3\"+\"}  \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"3\"+\" \";     \n}\nif (flow.get(\"ena_ESP4\")){\n    if (count > 1){\n        placa +=\"{\\\"ESP_.placa\\\":\"+\"4\"+\"} \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"4\"+\" \";     \n}\nif (flow.get(\"ena_ESP5\")){\n    if (count > 1){\n        placa +=\"{ \\\"ESP_.placa\\\":\"+\"5\"+\"}  \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"5\"+\" \";     \n}\n\nif(count >1){\n    placa+=\"]\"\n    \n}\nplaca +=\"}}\";\n\nif (flow.get(\"ena_Temperatura\")){\n\n    Temperatura = \",\\\"Temperatura\\\": \\\"$DHT11.temp\\\"\" ;\n}\nif (flow.get(\"ena_Humedad\")){\n\n    Humedad = \",\\\"Humedad\\\": \\\"$DHT11.hum\\\"\" ;\n}\nif (flow.get(\"ena_Vcc\")){\n\n    Vcc = \",\\\"voltajeAlimentacion\\\": \\\"$Vcc\\\"\" ;\n}\n\nmsg.payload= \"[\";\n    msg.payload+= placa;\n    msg.payload+= \",{\\\"$project\\\": {\";\n        msg.payload+= \"\\\"date\\\": \\\"$date\\\",\" ;\n        msg.payload+= \"\\\"CHIPID\\\": \\\"$CHIPID\\\",\" ;\n        msg.payload+= \"\\\"Placa\\\": \\\"$ESP_.placa\\\"\" ;\n        msg.payload+= Temperatura;\n        msg.payload+=Humedad; \n        msg.payload+=Vcc;      \n    msg.payload+= \"}}\";\nmsg.payload+= \"]\";\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1660,
+        "y": 540,
+        "wires": [
+            [
+                "6e47279d.8e7268"
+            ]
+        ]
+    },
+    {
+        "id": "6e47279d.8e7268",
+        "type": "json",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1850,
+        "y": 540,
+        "wires": [
+            [
+                "57bf9d38.b08784"
+            ]
+        ]
+    },
+    {
+        "id": "b0e7b6ea.064b08",
+        "type": "mongodb in",
+        "z": "bb4727a9.9873e8",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_DATOS",
+        "operation": "aggregate",
+        "x": 2320,
+        "y": 540,
+        "wires": [
+            [
+                "be7fc476.3e9058"
+            ]
+        ]
+    },
+    {
+        "id": "e6929d07.596da",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "Match_Date",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(flow.get(\"desde\") || ahora);\nvar hasta = new Date(flow.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\nvar limit = flow.get(\"limit\");\n\n\nmsg.payload[3]={ \"$limit\": limit  };\nmsg.payload[4]={ \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1990,
+        "y": 320,
+        "wires": [
+            [
+                "cbccc464.c70b68"
+            ]
+        ]
+    },
+    {
+        "id": "e59476c3.c83858",
+        "type": "json",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1870,
+        "y": 720,
+        "wires": [
+            [
+                "a431d828.4d4a18"
+            ]
+        ]
+    },
+    {
+        "id": "af733065.864c4",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "genera datos gráfica",
+        "func": "var arraytemp1=[]; \nvar arraytemp2=[];\nvar arraytemp3=[]; \nvar arraytemp4=[];\nvar arraytemp5=[];\n\nvar arraytemp=[];\nvar arrayhum=[];\n\n// los arrays usados en la represenstación gráfica deben contener objetos JSON con dos campos: {x , y}\n// en x debemos poner la hora en formato \"timestamp\". Si tenemos un objeto fecha se puede convertir usando el método getTime()\n// en y debemos poner el valor de la variable\n// mas info en: https://github.com/node-red/node-red-dashboard/blob/master/Charts.md\n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    for (var i = 0; i < msg.payload.length; i++) { // añade datos a los arrays\n        arraytemp.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Temperatura});\n        arrayhum.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Humedad});\n        if(msg.payload[i].Placa===1){\n            arraytemp1.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Temperatura});\n        }\n        if(msg.payload[i].Placa===2){\n            arraytemp2.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Temperatura});\n        }\n        if(msg.payload[i].Placa===3){\n            arraytemp3.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Temperatura});\n        }\n        if(msg.payload[i].Placa===4){\n            arraytemp4.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Temperatura});\n        }\n        if(msg.payload[i].Placa===5){\n            arraytemp5.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Temperatura});\n        }        \n    }\n}\n    \nmsg.payload = [{\n        \"series\":[\"ESP1\",\"ESP2\",\"ESP3\",\"ESP4\",\"ESP5\"],\n        \"data\":[arraytemp1, arraytemp2, arraytemp3, arraytemp4, arraytemp5],\n        \"labels\":[\"\"]\n        }];\n\nreturn msg;  ",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 2660,
+        "y": 200,
+        "wires": [
+            [
+                "1971645a.320dec"
+            ]
+        ]
+    },
+    {
+        "id": "57bf9d38.b08784",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "Match_Date,Group&Sort",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(flow.get(\"desde\") || ahora);\nvar hasta = new Date(flow.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\nmsg.payload[2]={ \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } };\nmsg.payload[3]={\"$group\":{_id:\"$Placa\",T_Max:{$max:\"$Temperatura\"},T_Min:{$min:\"$Temperatura\"} ,T_Avg:{$avg:\"$Temperatura\"},H_Max:{$max:\"$Humedad\"},H_Min:{$min:\"$Humedad\"} ,H_Avg:{$avg:\"$Humedad\"},Vcc_Max:{$max:\"$voltajeAlimentacion\"},Vcc_Min:{$min:\"$voltajeAlimentacion\"} ,Vcc_Avg:{$avg:\"$voltajeAlimentacion\"}   }};\nmsg.payload[4]= { \"$sort\" : {_id :  1  }};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2030,
+        "y": 540,
+        "wires": [
+            [
+                "b0e7b6ea.064b08"
+            ]
+        ]
+    },
+    {
+        "id": "f1786c28.8fca5",
+        "type": "change",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "separador_decimal",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e3381453.05d578",
+        "type": "ui_chart",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "group": "db883a02.8d16d8",
+        "order": 0,
+        "width": "18",
+        "height": "6",
+        "label": "Humedad",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "10000",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#0b6fb7",
+            "#c50202",
+            "#bf03a6",
+            "#2ca02c",
+            "#00dbc9",
+            "#77ff00",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 2880,
+        "y": 240,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2c1be7c2.cb2b38",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "genera datos gráfica",
+        "func": "var arrayhum1=[]; \nvar arrayhum2=[];\nvar arrayhum3=[]; \nvar arrayhum4=[];\nvar arrayhum5=[];\n\nvar arraytemp=[];\nvar arrayhum=[];\n\n// los arrays usados en la represenstación gráfica deben contener objetos JSON con dos campos: {x , y}\n// en x debemos poner la hora en formato \"timestamp\". Si tenemos un objeto fecha se puede convertir usando el método getTime()\n// en y debemos poner el valor de la variable\n// mas info en: https://github.com/node-red/node-red-dashboard/blob/master/Charts.md\n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    for (var i = 0; i < msg.payload.length; i++) { // añade datos a los arrays\n        arraytemp.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Temperatura});\n        arrayhum.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Humedad});\n        if(msg.payload[i].Placa===1){\n            arrayhum1.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Humedad});\n        }\n        if(msg.payload[i].Placa===2){\n            arrayhum2.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Humedad});\n        }\n        if(msg.payload[i].Placa===3){\n            arrayhum3.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Humedad});\n        }\n        if(msg.payload[i].Placa===4){\n            arrayhum4.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Humedad});\n        }\n        if(msg.payload[i].Placa===5){\n            arrayhum5.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].Humedad});\n        }        \n    }\n}\n    \nmsg.payload = [{\n        \"series\":[\"ESP1\",\"ESP2\",\"ESP3\",\"ESP4\",\"ESP5\"],\n        \"data\":[arrayhum1, arrayhum2, arrayhum3, arrayhum4, arrayhum5],\n        \"labels\":[\"\"]\n        }];\n\nreturn msg;  ",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 2660,
+        "y": 240,
+        "wires": [
+            [
+                "e3381453.05d578"
+            ]
+        ]
+    },
+    {
+        "id": "20758fdf.8bc21",
+        "type": "ui_chart",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "group": "db883a02.8d16d8",
+        "order": 0,
+        "width": "18",
+        "height": "4",
+        "label": "Vcc",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "10000",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#0b6fb7",
+            "#c50202",
+            "#bf03a6",
+            "#2ca02c",
+            "#00dbc9",
+            "#77ff00",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 2870,
+        "y": 280,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cf6eef86.31945",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "genera datos gráfica",
+        "func": "var arrayVcc1=[]; \nvar arrayVcc2=[];\nvar arrayVcc3=[]; \nvar arrayVcc4=[];\nvar arrayVcc5=[];\n\n\n// los arrays usados en la represenstación gráfica deben contener objetos JSON con dos campos: {x , y}\n// en x debemos poner la hora en formato \"timestamp\". Si tenemos un objeto fecha se puede convertir usando el método getTime()\n// en y debemos poner el valor de la variable\n// mas info en: https://github.com/node-red/node-red-dashboard/blob/master/Charts.md\n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    for (var i = 0; i < msg.payload.length; i++) { // añade datos a los arrays\n\n        if(msg.payload[i].Placa===1){\n            arrayVcc1.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].VoltajeAlimentacion});\n        }\n        if(msg.payload[i].Placa===2){\n            arrayVcc2.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].VoltajeAlimentacion});\n        }\n        if(msg.payload[i].Placa===3){\n            arrayVcc3.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].VoltajeAlimentacion});\n        }\n        if(msg.payload[i].Placa===4){\n            arrayVcc4.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].VoltajeAlimentacion});\n        }\n        if(msg.payload[i].Placa===5){\n            arrayVcc5.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].VoltajeAlimentacion});\n        }        \n    }\n}\n    \nmsg.payload = [{\n        \"series\":[\"ESP1\",\"ESP2\",\"ESP3\",\"ESP4\",\"ESP5\"],\n        \"data\":[arrayVcc1, arrayVcc2, arrayVcc3, arrayVcc4, arrayVcc5],\n        \"labels\":[\"\"]\n        }];\n\nreturn msg;  ",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 2660,
+        "y": 280,
+        "wires": [
+            [
+                "20758fdf.8bc21"
+            ]
+        ]
+    },
+    {
+        "id": "48cded09.d34cf4",
+        "type": "ui_chart",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "group": "db883a02.8d16d8",
+        "order": 0,
+        "width": "18",
+        "height": "5",
+        "label": "LED",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "10000",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#0b6fb7",
+            "#c50202",
+            "#bf03a6",
+            "#2ca02c",
+            "#00dbc9",
+            "#77ff00",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 2870,
+        "y": 320,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c4f5e31e.658e7",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "genera datos gráfica",
+        "func": "var arrayLED1=[]; \nvar arrayLED2=[];\nvar arrayLED3=[]; \nvar arrayLED4=[];\nvar arrayLED5=[];\n\n\n// los arrays usados en la represenstación gráfica deben contener objetos JSON con dos campos: {x , y}\n// en x debemos poner la hora en formato \"timestamp\". Si tenemos un objeto fecha se puede convertir usando el método getTime()\n// en y debemos poner el valor de la variable\n// mas info en: https://github.com/node-red/node-red-dashboard/blob/master/Charts.md\n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    for (var i = 0; i < msg.payload.length; i++) { // añade datos a los arrays\n\n        if(msg.payload[i].Placa===1){\n            arrayLED1.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].LED});\n        }\n        if(msg.payload[i].Placa===2){\n            arrayLED2.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].LED});\n        }\n        if(msg.payload[i].Placa===3){\n            arrayLED3.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].LED});\n        }\n        if(msg.payload[i].Placa===4){\n            arrayLED4.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].LED});\n        }\n        if(msg.payload[i].Placa===5){\n            arrayLED5.push({x : msg.payload[i].date.getTime() , y : msg.payload[i].LED});\n        }        \n    }\n}\n    \nmsg.payload = [{\n        \"series\":[\"ESP1\",\"ESP2\",\"ESP3\",\"ESP4\",\"ESP5\"],\n        \"data\":[arrayLED1, arrayLED2, arrayLED3, arrayLED4, arrayLED5],\n        \"labels\":[\"\"]\n        }];\n\nreturn msg;  ",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 2660,
+        "y": 320,
+        "wires": [
+            [
+                "48cded09.d34cf4"
+            ]
+        ]
+    },
+    {
+        "id": "c4e5a542.0f9638",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "genera datos gráfica",
+        "func": "var arraySW1=[]; \nvar arraySW2=[];\nvar arraySW3=[]; \nvar arraySW4=[];\nvar arraySW5=[];\n\n\n// los arrays usados en la represenstación gráfica deben contener objetos JSON con dos campos: {x , y}\n// en x debemos poner la hora en formato \"timestamp\". Si tenemos un objeto fecha se puede convertir usando el método getTime()\n// en y debemos poner el valor de la variable\n// mas info en: https://github.com/node-red/node-red-dashboard/blob/master/Charts.md\n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    for (var i = 0; i < msg.payload.length; i++) { // añade datos a los arrays\n        var SW = 0;\n        if (msg.payload[i].Switch === true){\n            SW=1;\n        }\n        if(msg.payload[i].Placa===1){\n            arraySW1.push({x : msg.payload[i].date.getTime() , y : SW});\n        }\n        if(msg.payload[i].Placa===2){\n            arraySW2.push({x : msg.payload[i].date.getTime() , y : SW});\n        }\n        if(msg.payload[i].Placa===3){\n            arraySW3.push({x : msg.payload[i].date.getTime() , y :SW});\n        }\n        if(msg.payload[i].Placa===4){\n            arraySW4.push({x : msg.payload[i].date.getTime() , y : SW});\n        }\n        if(msg.payload[i].Placa===5){\n            arraySW5.push({x : msg.payload[i].date.getTime() , y : SW});\n        }        \n    }\n}\n    \nmsg.payload = [{\n        \"series\":[\"ESP1\",\"ESP2\",\"ESP3\",\"ESP4\",\"ESP5\"],\n        \"data\":[arraySW1, arraySW2, arraySW3, arraySW4, arraySW5],\n        \"labels\":[\"\"]\n        }];\n\nreturn msg;  ",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 2660,
+        "y": 360,
+        "wires": [
+            [
+                "1ec2d466.8af4dc"
+            ]
+        ]
+    },
+    {
+        "id": "1ec2d466.8af4dc",
+        "type": "ui_chart",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "group": "db883a02.8d16d8",
+        "order": 0,
+        "width": "18",
+        "height": "3",
+        "label": "SWITCH",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "10000",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#0b6fb7",
+            "#c50202",
+            "#bf03a6",
+            "#2ca02c",
+            "#00dbc9",
+            "#77ff00",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 2880,
+        "y": 360,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "847258a5.875238",
+        "type": "ui_dropdown",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "Separador decimal",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "5e5c2db9.3c2e74",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "options": [
+            {
+                "label": "coma",
+                "value": "coma",
+                "type": "str"
+            },
+            {
+                "label": "Punto",
+                "value": "punto",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 470,
+        "y": 60,
+        "wires": [
+            [
+                "f1786c28.8fca5"
+            ]
+        ]
+    },
+    {
+        "id": "f85c2d90.f65dc",
+        "type": "inject",
+        "z": "bb4727a9.9873e8",
+        "name": "Initializer",
+        "topic": "",
+        "payload": "coma",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "847258a5.875238"
+            ]
+        ]
+    },
+    {
+        "id": "db2941a1.68db5",
+        "type": "inject",
+        "z": "bb4727a9.9873e8",
+        "name": "Initializer",
+        "topic": "",
+        "payload": "10000",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "8bd92461.faf778"
+            ]
+        ]
+    },
+    {
+        "id": "8bd92461.faf778",
+        "type": "ui_text_input",
+        "z": "bb4727a9.9873e8",
+        "name": "",
+        "label": "Limite",
+        "tooltip": "",
+        "group": "5e5c2db9.3c2e74",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "mode": "number",
+        "delay": "100",
+        "topic": "",
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "4a12acb9.22e314"
+            ]
+        ]
+    },
+    {
+        "id": "8f59375e.2935a8",
+        "type": "ui_template",
+        "z": "bb4727a9.9873e8",
+        "group": "7af24cac.4b8ee4",
+        "name": "",
+        "order": 5,
+        "width": "7",
+        "height": "24",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 2880,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "be7fc476.3e9058",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "Lista Html dinamica",
+        "func": "var ahora = new Date();\nvar desde = new Date(flow.get(\"desde\") || ahora);\nvar hasta = new Date(flow.get(\"hasta\") || ahora); \n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n\n{\n    mensaje= \"<h1>Estadisticas: </h1>\\n <ul> \\n\";\n    mensaje += \"<strong> Periodo de busqueda:<br> Desde:</strong>\"+desde+\"<br><strong>Hasta:</strong>\"+hasta+\"<br><br>\"\n    for (var i = 0; i < msg.payload.length; i++) \n        { \n            var Humedad=\"\",Temperatura=\"\",Vcc=\"\";\n            // añade datos al mensaje\n        //Compruebo los datos a escribir\n         mensaje+= \"<li>  \";\n         mensaje+= \"<strong> Placa :</strong>\" + msg.payload[i]._id +\"<br>\";\n        \n        if (flow.get(\"ena_Humedad\")===true){\n            Humedad= \",<strong> Estadisticas Humedad: </strong> <br>\";\n            Humedad+= \",<strong> Humedad Maxima: </strong>\" + msg.payload[i].H_Max+\"[%HR]<br>\";\n            Humedad+= \",<strong> Humedad Minima: </strong>\" + msg.payload[i].H_Min+\"[%HR]<br>\";\n            Humedad+= \",<strong> Humedad Media: </strong>\" + msg.payload[i].H_Avg+\"[%HR]<br><br>\";\n        }\n        if (flow.get(\"ena_Temperatura\")===true){\n            Temperatura= \",<strong> Estadisticas Temperatura: </strong> <br>\";\n            Temperatura+= \",<strong> Temperatura Maxima: </strong>\" + msg.payload[i].T_Max+\"[ºC]<br>\";\n            Temperatura+= \",<strong> Temperatura Minima: </strong>\" + msg.payload[i].T_Min+\"[ºC]<br>\";\n            Temperatura+= \",<strong> Temperatura Media: </strong>\" + msg.payload[i].T_Avg+\"[ºC]<br><br>\";\n        }\n        \n        if (flow.get(\"ena_Vcc\")===true){\n            Vcc= \",<strong> Estadisticas Voltaje Alimentacion: </strong> <br>\";\n            Vcc+= \",<strong> Humedad Maxima: </strong>\" + msg.payload[i].Vcc_Max+\"[V]<br>\";\n            Vcc+= \",<strong> Humedad Minima: </strong>\" + msg.payload[i].Vcc_Min+\"[V]<br>\";\n            Vcc+= \",<strong> Humedad Media: </strong>\" + msg.payload[i].Vcc_Avg+\"[V]<br><br>\";\n        }\n        \n        \n        if (msg.payload[i]._id === 1){\n            mensaje+= Humedad + Temperatura + Vcc;\n        }\n        else if (msg.payload[i]._id === 2){\n            mensaje+= Humedad + Temperatura + Vcc;\n        }\n        else if (msg.payload[i]._id === 3){\n            mensaje+= Humedad + Temperatura + Vcc;\n        }\n        else if (msg.payload[i]._id === 4){\n            mensaje+= Humedad + Temperatura + Vcc;\n        }        \n        else if (msg.payload[i]._id === 5){\n            mensaje+= Humedad + Temperatura + Vcc;\n        }\n        mensaje+= \"</li>  \\n\";\n\n\n        }\n    mensaje+=\"   </ul>\";\n    }        \n\nmsg.payload = mensaje;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2650,
+        "y": 540,
+        "wires": [
+            [
+                "8f59375e.2935a8"
+            ]
+        ]
+    },
+    {
+        "id": "a431d828.4d4a18",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "Match_Date",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(flow.get(\"desde\") || ahora);\nvar hasta = new Date(flow.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\nvar limit = flow.get(\"limit\");\n\n\nmsg.payload[3]={ \"$limit\": limit  };\nmsg.payload[4]={ \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2010,
+        "y": 720,
+        "wires": [
+            [
+                "f92c6f8.3e90f9"
+            ]
+        ]
+    },
+    {
+        "id": "62e9004c.a9137",
+        "type": "function",
+        "z": "bb4727a9.9873e8",
+        "name": "Match_Project&Sort",
+        "func": "\nvar sortBy = flow.get(\"sortby\");\nvar ase_des = flow.get(\"ad\");\nvar Humedad=\"\";\nvar Temperatura=\"\";\nvar Vcc=\"\";\nvar Led=\"\";\nvar Switch= \"\";\nvar Wifi = \"\";\nvar placa ;\nvar count =flow.get(\"ena_ESP1\") +flow.get(\"ena_ESP2\")+flow.get(\"ena_ESP3\")+flow.get(\"ena_ESP4\")+flow.get(\"ena_ESP5\") ;\nvar coma = count-1;\n\n//\"{ \\\"ESP_.placa\\\":\"+placa+\"  }\";\nplaca =\"{\\\"$match\\\":{\";\nif(count >1){\n    placa+=\"\\\"$or\\\":[\"\n    \n}\n\nif (flow.get(\"ena_ESP1\")){\n    if (count > 1){\n        placa +=\"{\\\"ESP_.placa\\\":\"+\"1\"+\"} \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"1\"+\" \";\n}\nif (flow.get(\"ena_ESP2\")){\n    if (count > 1){\n        placa +=\" {\\\"ESP_.placa\\\":\"+\"2\"+\" } \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"2\"+\" \";    \n}\nif (flow.get(\"ena_ESP3\")){\n    if (count > 1){\n        placa +=\" {\\\"ESP_.placa\\\":\"+\"3\"+\"}  \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"3\"+\" \";     \n}\nif (flow.get(\"ena_ESP4\")){\n    if (count > 1){\n        placa +=\"{\\\"ESP_.placa\\\":\"+\"4\"+\"} \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"4\"+\" \";     \n}\nif (flow.get(\"ena_ESP5\")){\n    if (count > 1){\n        placa +=\"{ \\\"ESP_.placa\\\":\"+\"5\"+\"}  \";\n        if (coma > 0){\n            coma--;\n            placa +=\",\";\n        }\n    }\n    else\n    placa +=\"\\\"ESP_.placa\\\":\"+\"5\"+\" \";     \n}\n\nif(count >1){\n    placa+=\"]\"\n    \n}\nplaca +=\"}}\";\n\n\n\nif (flow.get(\"ena_Humedad\")){\n    Humedad = \",\\\"Humedad\\\": \\\"$DHT11.hum\\\"\";\n}\n\nif (flow.get(\"ena_Temperatura\")){\n    Temperatura = \",\\\"Temperatura\\\": \\\"$DHT11.temp\\\"\";\n}\n\nif (flow.get(\"ena_Vcc\")){\n    Vcc = \",\\\"VoltajeAlimentacion\\\": \\\"$Vcc\\\"\";\n}\nif (flow.get(\"ena_Led\")){\n    Led = \",\\\"LED\\\": \\\"$LED\\\"\";\n}\nif (flow.get(\"ena_Switch\")){\n    Switch = \",\\\"Switch\\\": \\\"$SWITCH\\\"\";\n}\nif (flow.get(\"ena_Wifi\")){\n    Wifi = \",\\\"Wifi_SSid\\\": \\\"$Wifi.SSid\\\",\"+ \"\\\"Wifi_IP\\\": \\\"$Wifi.IP\\\",\"+\"\\\"Wifi_RSSI\\\": \\\"$Wifi.RSSI\\\"\";\n}\n\n\nmsg.payload= \"[\";\n    msg.payload+= placa;\n    msg.payload+= \",{\\\"$project\\\": {\";\n        msg.payload+= \"\\\"date\\\": \\\"$date\\\",\" ;\n        msg.payload+= \"\\\"CHIPID\\\": \\\"$CHIPID\\\",\" ;\n        msg.payload+= \"\\\"Placa\\\": \\\"$ESP_.placa\\\"\" ;\n        msg.payload+= Humedad ;\n        msg.payload+= Temperatura ;\n        msg.payload+= Vcc ;\n        msg.payload+= Led ;\n        msg.payload+= Switch ;\n        msg.payload+= Wifi ;\n    msg.payload+= \"}},\";\n    msg.payload+=\" { \\\"$sort\\\" : { \\\"\" + sortBy + \"\\\":\" + ase_des + \"}}\"\nmsg.payload+= \"]\";\n\n//msg.payload= \" { \\\"$sort\\\" : { \\\"\" + sortBy + \"\\\":\" + ase_des + \"}}\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1700,
+        "y": 720,
+        "wires": [
+            [
+                "e59476c3.c83858"
+            ]
+        ]
+    },
+    {
+        "id": "3d9c3c02.dac4a4",
+        "type": "comment",
+        "z": "bb4727a9.9873e8",
+        "name": "Dusqueda de datos",
+        "info": "Etapas de filtrado\n 1 match \"Placa\"\n 2 project (dinamico)\n 3 sort (dinamico)\n 4 limit(seleccionable)\n 5 match (date (rango seleccionable))",
+        "x": 1630,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "3801bd6.3f7f742",
+        "type": "comment",
+        "z": "bb4727a9.9873e8",
+        "name": "Estadisticas de datos",
+        "info": "Etapas de filtrado\n 1 match \"Placa\"\n 2 project (dinamico)\n 3 match (\"date\"(periodo seleccionable))\n 4 group (\"Placa\")",
+        "x": 1640,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "91808508.d80dc8",
+        "type": "comment",
+        "z": "bb4727a9.9873e8",
+        "name": "genera CSV de datos",
+        "info": "Etapas de filtrado\n 1 match \"Placa\"\n 2 project (dinamico)\n 3 sort (dinamico)\n 4 limit(seleccionable)\n 5 match (date (rango seleccionable))",
+        "x": 1640,
+        "y": 660,
+        "wires": []
     },
     {
         "id": "5e5c2db9.3c2e74",
@@ -1642,6 +1882,15 @@
         "collapse": false
     },
     {
+        "id": "3284a27d.270ace",
+        "type": "mongodb",
+        "z": "",
+        "hostname": "iot.ac.uma.es",
+        "port": "27017",
+        "db": "II1",
+        "name": ""
+    },
+    {
         "id": "db883a02.8d16d8",
         "type": "ui_group",
         "z": "",
@@ -1651,6 +1900,28 @@
         "disp": true,
         "width": "18",
         "collapse": false
+    },
+    {
+        "id": "73ddc728.4983c8",
+        "type": "ui_group",
+        "z": "",
+        "name": "DATA",
+        "tab": "c205dc5b.ad63c",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "7af24cac.4b8ee4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Estadisticas",
+        "tab": "c205dc5b.ad63c",
+        "order": 4,
+        "disp": true,
+        "width": "7",
+        "collapse": true
     },
     {
         "id": "c205dc5b.ad63c",
