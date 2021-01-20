@@ -26,7 +26,7 @@
         "to": "",
         "reg": false,
         "x": 530,
-        "y": 780,
+        "y": 1080,
         "wires": [
             []
         ]
@@ -38,13 +38,13 @@
         "name": "",
         "label": "Fecha de final",
         "group": "3c571dec.0a71b2",
-        "order": 6,
+        "order": 8,
         "width": 0,
         "height": 0,
         "passthru": true,
         "topic": "",
         "x": 300,
-        "y": 780,
+        "y": 1080,
         "wires": [
             [
                 "3d1d254f.9a4e02"
@@ -71,7 +71,7 @@
         "to": "",
         "reg": false,
         "x": 530,
-        "y": 740,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -83,13 +83,13 @@
         "name": "",
         "label": "Fecha de inicio",
         "group": "3c571dec.0a71b2",
-        "order": 4,
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": true,
         "topic": "",
         "x": 300,
-        "y": 740,
+        "y": 1040,
         "wires": [
             [
                 "5cf87c3b.0b615c"
@@ -116,7 +116,7 @@
         "to": "",
         "reg": false,
         "x": 530,
-        "y": 860,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -130,7 +130,7 @@
         "tooltip": "",
         "place": "Select option",
         "group": "3c571dec.0a71b2",
-        "order": 9,
+        "order": 11,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -159,7 +159,7 @@
         "payload": "",
         "topic": "",
         "x": 290,
-        "y": 860,
+        "y": 1160,
         "wires": [
             [
                 "209c817e.8399b6"
@@ -174,7 +174,7 @@
         "label": "Orden: Des/Asen",
         "tooltip": "",
         "group": "3c571dec.0a71b2",
-        "order": 10,
+        "order": 12,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -190,7 +190,7 @@
         "officon": "",
         "offcolor": "",
         "x": 310,
-        "y": 820,
+        "y": 1120,
         "wires": [
             [
                 "8cdcca4.9d21ab8"
@@ -217,7 +217,7 @@
         "to": "",
         "reg": false,
         "x": 520,
-        "y": 820,
+        "y": 1120,
         "wires": [
             []
         ]
@@ -230,7 +230,7 @@
         "label": "Limite Busq.",
         "tooltip": "",
         "group": "3c571dec.0a71b2",
-        "order": 8,
+        "order": 10,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -240,7 +240,7 @@
         "max": "10000",
         "step": 1,
         "x": 290,
-        "y": 900,
+        "y": 1200,
         "wires": [
             [
                 "f11d94b8.585368"
@@ -267,7 +267,7 @@
         "to": "",
         "reg": false,
         "x": 530,
-        "y": 900,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -954,7 +954,7 @@
         "y": 520,
         "wires": [
             [
-                "7179f6d7.65dc38"
+                "1b5a7684.761399"
             ]
         ]
     },
@@ -969,7 +969,7 @@
         "upsert": true,
         "multi": true,
         "operation": "delete",
-        "x": 1320,
+        "x": 1440,
         "y": 520,
         "wires": []
     },
@@ -978,7 +978,7 @@
         "type": "function",
         "z": "6472f1e7.097c28",
         "name": "set msg._id",
-        "func": "var payload = msg.payload[0];\nmsg.payload=payload;\nmsg._id = {\"CHIPID\" : msg.payload.CHIPID} ;\n\nreturn msg;",
+        "func": "var usr = msg.payload[0];\nmsg.payload=usr;\nmsg._id =  msg.payload.CHIPID ;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1070,
@@ -1078,7 +1078,7 @@
         "name": "",
         "collection": "_USERS",
         "operation": "aggregate",
-        "x": 1000,
+        "x": 1440,
         "y": 400,
         "wires": [
             [
@@ -1094,7 +1094,7 @@
         "func": "var ahora = new Date();\nvar desde = new Date(flow.get(\"LOGdesde\") || ahora);\nvar hasta = new Date(flow.get(\"LOGhasta\") || ahora); \n\n/* <h1>LOGs: </h1>\n <ul>\n{{#payload}}\n  <li>   {{Date}} Online: {{Online}} , CHIP_ID:{{CHIPID}} ,Placa: {{Placa}}, Grupo {{Grupo}}    </li>\n{{/payload}}\n </ul>*/\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n\n{\n    mensaje= \"<h1>Usuarios: </h1>\\n <ul> \\n\";\n    for (var i = 0; i < msg.payload.length; i++) \n        { \n            // añade datos al mensaje\n        //Compruebo los datos a escribir\n         mensaje+= \"<li>  \";\n         mensaje+= \"<strong> Placa :</strong>\" + msg.payload[i].placa +\"<br>\" ;\n         mensaje+= \"<strong> Registrado el :</strong>\"+msg.payload[i].date+\"<br>\";\n         mensaje+= \"<strong> CHIP ID :</strong>\" + msg.payload[i].CHIPID ;\n         mensaje+= \"<strong> Grupo :</strong>\" + msg.payload[i].grupo ;  \n         mensaje+=\"<br><br>\";\n        mensaje+= \"</li>  \\n\";\n        }\n    mensaje+=\"   </ul>\";\n    }        \n\nmsg.payload = mensaje;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1330,
+        "x": 1770,
         "y": 400,
         "wires": [
             [
@@ -1115,7 +1115,7 @@
         "storeOutMessages": true,
         "fwdInMessages": true,
         "templateScope": "local",
-        "x": 1620,
+        "x": 2060,
         "y": 260,
         "wires": [
             []
@@ -1132,8 +1132,8 @@
         "syntax": "mustache",
         "template": " <h1>LOGs: </h1>\n <ul>\n{{#payload}}\n  <li>      </li>\n{{/payload}}\n </ul>",
         "output": "str",
-        "x": 1210,
-        "y": 300,
+        "x": 1690,
+        "y": 320,
         "wires": [
             [
                 "5a97ef71.fa07d8"
@@ -1148,7 +1148,7 @@
         "func": "var ahora = new Date();\nvar desde = new Date(flow.get(\"LOGdesde\") || ahora);\nvar hasta = new Date(flow.get(\"LOGhasta\") || ahora); \n\n/* <h1>LOGs: </h1>\n <ul>\n{{#payload}}\n  <li>   {{Date}} Online: {{Online}} , CHIP_ID:{{CHIPID}} ,Placa: {{Placa}}, Grupo {{Grupo}}    </li>\n{{/payload}}\n </ul>*/\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n\n{\n    mensaje= \"<h1>LOG's: </h1>\\n <ul> \\n\";\n    mensaje += \"<strong> Periodo de busqueda:<br> Desde:</strong>\"+desde+\"<br><strong>Hasta:</strong>\"+hasta+\"<br><br>\"\n    for (var i = 0; i < msg.payload.length; i++) \n        { \n            // añade datos al mensaje\n        //Compruebo los datos a escribir\n         mensaje+= \"<li>  \";\n        if (msg.payload[i].Online===\"true\"){\n            mensaje+= \"<strong> ONLINE :</strong>\";\n        }\n        else{\n            mensaje+= \"<strong> OFFLINE :</strong>\";\n        }\n         mensaje+= msg.payload[i].Date;\n         mensaje+= \"<strong> Placa :</strong>\" + msg.payload[i].Placa ;\n         mensaje+= \"<strong> CHIP ID :</strong>\" + msg.payload[i].CHIPID +\"<br><br>\";\n\n        mensaje+= \"</li>  \\n\";\n        }\n    mensaje+=\"   </ul>\";\n    }        \n\nmsg.payload = mensaje;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1190,
+        "x": 1670,
         "y": 260,
         "wires": [
             [
@@ -1174,8 +1174,8 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 930,
-        "y": 300,
+        "x": 1390,
+        "y": 320,
         "wires": [
             [
                 "d11f9ed9.d5e308"
@@ -1194,7 +1194,7 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "x": 1030,
+        "x": 1470,
         "y": 360,
         "wires": [
             [
@@ -1210,7 +1210,7 @@
         "name": "",
         "collection": "_LOGS",
         "operation": "aggregate",
-        "x": 950,
+        "x": 1430,
         "y": 260,
         "wires": [
             [
@@ -1342,22 +1342,294 @@
         ]
     },
     {
-        "id": "7179f6d7.65dc38",
-        "type": "ui_toast",
+        "id": "c319cdc8.58a1f",
+        "type": "ui_template",
         "z": "6472f1e7.097c28",
-        "position": "dialog",
-        "displayTime": "3",
-        "highlight": "",
-        "outputs": 1,
-        "ok": "OK",
-        "cancel": "Cancelar",
-        "topic": "Borrar Usuario",
-        "name": "Borrar Usuario",
-        "x": 520,
-        "y": 520,
+        "group": "3c571dec.0a71b2",
+        "name": "CSV_LOG's",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "format": "<style>\n.button {\n    text-align: center;\n    font: bold 17px Arial;\n    text-decoration: none;\n    background-color: #339966;\n    color: white;\n    padding: 8px 10px;\n    border: 2px solid #CCCCCC;\n  }\n  \n  .button:hover\n  {\n   background-color: #26734d;\n  }\n\n</style>\n<a href=\"/LOGs\" class=\"button\">Descarga LOG's en CSV (EXCEL)</a>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 290,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "19784c2e.eefa14",
+        "type": "http in",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "url": "/LOGs",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 510,
+        "y": 900,
         "wires": [
             [
-                "1b5a7684.761399"
+                "f9ec06dd.13f078",
+                "71fb0f82.ec606"
+            ]
+        ]
+    },
+    {
+        "id": "d33f5af.96fefa8",
+        "type": "csv",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "sep": ";",
+        "hdrin": "",
+        "hdrout": true,
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "Date,CHIPID,Placa,Online,Grupo",
+        "skip": 0,
+        "x": 1290,
+        "y": 900,
+        "wires": [
+            [
+                "7ef204d5.f47cdc"
+            ]
+        ]
+    },
+    {
+        "id": "7ef204d5.f47cdc",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "Unicode y separador",
+        "func": "//add Unicode BOM character (byte order mark) to make EXCEL knows this is UTF-8\nif(flow.get(\"separador_decimal\")==\"punto\")\n{\n    msg.payload='\\ufeff'+msg.payload;\n\n}\nelse\n{\n    msg.payload='\\ufeff'+(msg.payload).replace(/\\./g,\",\");\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1460,
+        "y": 900,
+        "wires": [
+            [
+                "eb880730.a81758"
+            ]
+        ]
+    },
+    {
+        "id": "eb880730.a81758",
+        "type": "http response",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Disposition": "attachment; filename=LOGs.csv"
+        },
+        "x": 1630,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "700369cb.823de8",
+        "type": "mongodb in",
+        "z": "6472f1e7.097c28",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_LOGS",
+        "operation": "aggregate",
+        "x": 1070,
+        "y": 900,
+        "wires": [
+            [
+                "d33f5af.96fefa8"
+            ]
+        ]
+    },
+    {
+        "id": "71fb0f82.ec606",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "agreaga Filtros",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(flow.get(\"LOGdesde\") || ahora);\nvar hasta = new Date(flow.get(\"LOGhasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\nvar sort = flow.get(\"LOGsort\");\n\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"Date\": \"$date\",\n        \"Online\": \"$online\",\n        \"CHIPID\": \"$CHIPID\",\n        \"Placa\": \"$placa\",\n        \"Grupo\": \"$grupo\"\n        }\n    }\n];\n\nmsg.payload[2]= sort\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 740,
+        "y": 900,
+        "wires": [
+            [
+                "700369cb.823de8"
+            ]
+        ]
+    },
+    {
+        "id": "f9ec06dd.13f078",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "Sort_Obj",
+        "func": "\nvar sortBy = flow.get(\"LOGsortby\");\nvar ase_des = flow.get(\"LOGad\");\n\n\n/*\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"date\": \"$date\",\n        \"STATUS\": \"$online\",\n        \"CHIPID\": \"$CHIPID\",\n        \"placa\": \"$placa\",\n        \"grupo\": \"$grupo\"\n        }\n    },\n    { \"$sort\" : { \"date\" : ase_des } }\n];\n*/\n\nmsg.payload= \" { \\\"$sort\\\" : { \\\"\" + sortBy + \"\\\":\" + ase_des + \"}}\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 720,
+        "y": 860,
+        "wires": [
+            [
+                "e780e9f2.131788"
+            ]
+        ]
+    },
+    {
+        "id": "e780e9f2.131788",
+        "type": "json",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 990,
+        "y": 860,
+        "wires": [
+            [
+                "c3c397bb.9b2b98"
+            ]
+        ]
+    },
+    {
+        "id": "c3c397bb.9b2b98",
+        "type": "change",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "LOGsort",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1150,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c6882952.c04fa8",
+        "type": "http in",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "url": "/Users",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 510,
+        "y": 960,
+        "wires": [
+            [
+                "55929801.036e78"
+            ]
+        ]
+    },
+    {
+        "id": "a44c6301.206f8",
+        "type": "mongodb in",
+        "z": "6472f1e7.097c28",
+        "mongodb": "3284a27d.270ace",
+        "name": "",
+        "collection": "_USERS",
+        "operation": "aggregate",
+        "x": 1080,
+        "y": 960,
+        "wires": [
+            [
+                "2f3c0f37.7dc84"
+            ]
+        ]
+    },
+    {
+        "id": "2f3c0f37.7dc84",
+        "type": "csv",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "sep": ";",
+        "hdrin": "",
+        "hdrout": true,
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "CHIPID,placa,grupo,date",
+        "skip": 0,
+        "x": 1290,
+        "y": 960,
+        "wires": [
+            [
+                "c900e68.08c5e18"
+            ]
+        ]
+    },
+    {
+        "id": "c900e68.08c5e18",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "Unicode y separador",
+        "func": "//add Unicode BOM character (byte order mark) to make EXCEL knows this is UTF-8\nif(flow.get(\"separador_decimal\")==\"punto\")\n{\n    msg.payload='\\ufeff'+msg.payload;\n\n}\nelse\n{\n    msg.payload='\\ufeff'+(msg.payload).replace(/\\./g,\",\");\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1460,
+        "y": 960,
+        "wires": [
+            [
+                "7d1498bd.f3fbd8"
+            ]
+        ]
+    },
+    {
+        "id": "7d1498bd.f3fbd8",
+        "type": "http response",
+        "z": "6472f1e7.097c28",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Disposition": "attachment; filename=Users.csv"
+        },
+        "x": 1630,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "772fde0d.dfb03",
+        "type": "ui_template",
+        "z": "6472f1e7.097c28",
+        "group": "3c571dec.0a71b2",
+        "name": "CSV_Users",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "format": "<style>\n.button {\n    text-align: center;\n    font: bold 17px Arial;\n    text-decoration: none;\n    background-color: #339966;\n    color: white;\n    padding: 8px 10px;\n    border: 2px solid #CCCCCC;\n  }\n  \n  .button:hover\n  {\n   background-color: #26734d;\n  }\n\n</style>\n<a href=\"/Users\" class=\"button\">Descarga Usuarios en CSV (EXCEL)</a>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 290,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "55929801.036e78",
+        "type": "function",
+        "z": "6472f1e7.097c28",
+        "name": "agreaga Filtros",
+        "func": "\nmsg.payload=\n[\n   { \"$sort\": {\"placa\": 1} }\n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 740,
+        "y": 960,
+        "wires": [
+            [
+                "a44c6301.206f8"
             ]
         ]
     },
