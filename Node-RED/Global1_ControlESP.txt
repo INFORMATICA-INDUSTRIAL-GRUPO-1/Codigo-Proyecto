@@ -46,7 +46,7 @@
         "order": 7,
         "width": "1",
         "height": "12",
-        "passthru": false,
+        "passthru": true,
         "outs": "end",
         "topic": "value",
         "min": 0,
@@ -72,7 +72,7 @@
         "order": 8,
         "width": "3",
         "height": "2",
-        "passthru": false,
+        "passthru": true,
         "topic": "",
         "format": "{{value}}",
         "min": 0,
@@ -346,7 +346,7 @@
         "order": 9,
         "width": "2",
         "height": "1",
-        "passthru": false,
+        "passthru": true,
         "decouple": "false",
         "topic": "",
         "style": "",
@@ -420,7 +420,7 @@
         "order": 7,
         "width": "1",
         "height": "12",
-        "passthru": false,
+        "passthru": true,
         "outs": "end",
         "topic": "value",
         "min": 0,
@@ -446,7 +446,7 @@
         "order": 8,
         "width": "3",
         "height": "2",
-        "passthru": false,
+        "passthru": true,
         "topic": "",
         "format": "{{value}}",
         "min": 0,
@@ -706,8 +706,8 @@
         "order": 9,
         "width": "2",
         "height": "1",
-        "passthru": false,
-        "decouple": "true",
+        "passthru": true,
+        "decouple": "false",
         "topic": "",
         "style": "",
         "onvalue": "true",
@@ -819,8 +819,7 @@
         "y": 1720,
         "wires": [
             [
-                "7291bfd5.33e51",
-                "a163392a.29dd48"
+                "7291bfd5.33e51"
             ]
         ]
     },
@@ -847,8 +846,7 @@
         "y": 1380,
         "wires": [
             [
-                "80466d18.7c0aa",
-                "26dc3f73.e8506"
+                "80466d18.7c0aa"
             ]
         ]
     },
@@ -1804,50 +1802,6 @@
         ]
     },
     {
-        "id": "26dc3f73.e8506",
-        "type": "link out",
-        "z": "85ed18d.8fc32e8",
-        "name": "E1_LS",
-        "links": [
-            "2bb5f744.c84c48"
-        ],
-        "x": 2015,
-        "y": 1340,
-        "wires": []
-    },
-    {
-        "id": "2bb5f744.c84c48",
-        "type": "link in",
-        "z": "85ed18d.8fc32e8",
-        "name": "",
-        "links": [
-            "26dc3f73.e8506"
-        ],
-        "x": 55,
-        "y": 1380,
-        "wires": [
-            [
-                "1658fde.a1b4a02"
-            ]
-        ]
-    },
-    {
-        "id": "58c0c4ab.f9537c",
-        "type": "link in",
-        "z": "85ed18d.8fc32e8",
-        "name": "",
-        "links": [
-            "50dc4898.542ac8"
-        ],
-        "x": 2355,
-        "y": 1380,
-        "wires": [
-            [
-                "1ea24f51.16e361"
-            ]
-        ]
-    },
-    {
         "id": "2d04e125.8d3cae",
         "type": "switch",
         "z": "85ed18d.8fc32e8",
@@ -2211,28 +2165,6 @@
         "wires": []
     },
     {
-        "id": "1ea24f51.16e361",
-        "type": "trigger",
-        "z": "85ed18d.8fc32e8",
-        "op1": "",
-        "op2": "",
-        "op1type": "pay",
-        "op2type": "nul",
-        "duration": "100",
-        "extend": true,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "topic",
-        "name": "",
-        "x": 2480,
-        "y": 1380,
-        "wires": [
-            [
-                "13e66d6f.598463"
-            ]
-        ]
-    },
-    {
         "id": "893f978e.fa2f48",
         "type": "link out",
         "z": "85ed18d.8fc32e8",
@@ -2244,116 +2176,6 @@
         "x": 4215,
         "y": 1680,
         "wires": []
-    },
-    {
-        "id": "e57618e5.f1a188",
-        "type": "link in",
-        "z": "85ed18d.8fc32e8",
-        "name": "",
-        "links": [
-            "893f978e.fa2f48"
-        ],
-        "x": 2335,
-        "y": 1720,
-        "wires": [
-            [
-                "d0f09b79.a15378"
-            ]
-        ]
-    },
-    {
-        "id": "d0f09b79.a15378",
-        "type": "trigger",
-        "z": "85ed18d.8fc32e8",
-        "op1": "",
-        "op2": "",
-        "op1type": "pay",
-        "op2type": "nul",
-        "duration": "100",
-        "extend": true,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "topic",
-        "name": "",
-        "x": 2480,
-        "y": 1720,
-        "wires": [
-            [
-                "e070fe0e.140c5"
-            ]
-        ]
-    },
-    {
-        "id": "a163392a.29dd48",
-        "type": "link out",
-        "z": "85ed18d.8fc32e8",
-        "name": "E1_SS",
-        "links": [
-            "b8d7d392.cfba7"
-        ],
-        "x": 1995,
-        "y": 1680,
-        "wires": []
-    },
-    {
-        "id": "b8d7d392.cfba7",
-        "type": "link in",
-        "z": "85ed18d.8fc32e8",
-        "name": "",
-        "links": [
-            "a163392a.29dd48"
-        ],
-        "x": 55,
-        "y": 1720,
-        "wires": [
-            [
-                "5763a69e.571df8"
-            ]
-        ]
-    },
-    {
-        "id": "5763a69e.571df8",
-        "type": "trigger",
-        "z": "85ed18d.8fc32e8",
-        "op1": "",
-        "op2": "",
-        "op1type": "pay",
-        "op2type": "nul",
-        "duration": "100",
-        "extend": true,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "topic",
-        "name": "",
-        "x": 200,
-        "y": 1720,
-        "wires": [
-            [
-                "8801d66e.2dff78"
-            ]
-        ]
-    },
-    {
-        "id": "1658fde.a1b4a02",
-        "type": "trigger",
-        "z": "85ed18d.8fc32e8",
-        "op1": "",
-        "op2": "",
-        "op1type": "pay",
-        "op2type": "nul",
-        "duration": "100",
-        "extend": true,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "topic",
-        "name": "",
-        "x": 200,
-        "y": 1380,
-        "wires": [
-            [
-                "d476b3ce.5e299"
-            ]
-        ]
     },
     {
         "id": "7366ea3.59a3514",
@@ -2857,7 +2679,7 @@
         "type": "debug",
         "z": "85ed18d.8fc32e8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2991,7 +2813,7 @@
         "order": 7,
         "width": "1",
         "height": "12",
-        "passthru": false,
+        "passthru": true,
         "outs": "end",
         "topic": "value",
         "min": 0,
@@ -3017,7 +2839,7 @@
         "order": 8,
         "width": "3",
         "height": "2",
-        "passthru": false,
+        "passthru": true,
         "topic": "",
         "format": "{{value}}",
         "min": 0,
@@ -3053,7 +2875,7 @@
         "type": "debug",
         "z": "85ed18d.8fc32e8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3290,8 +3112,8 @@
         "order": 9,
         "width": "2",
         "height": "1",
-        "passthru": false,
-        "decouple": "true",
+        "passthru": true,
+        "decouple": "false",
         "topic": "",
         "style": "",
         "onvalue": "true",
@@ -3348,8 +3170,7 @@
         "wires": [
             [
                 "8d8ae57.f25a518",
-                "2443c98c.6e4196",
-                "af10d5cc.7b2298"
+                "2443c98c.6e4196"
             ]
         ]
     },
@@ -3376,108 +3197,7 @@
         "y": 2020,
         "wires": [
             [
-                "759fb71f.dd1be8",
-                "f8675d66.dc2"
-            ]
-        ]
-    },
-    {
-        "id": "94b2cef7.d75fa",
-        "type": "link in",
-        "z": "85ed18d.8fc32e8",
-        "name": "",
-        "links": [
-            "f8675d66.dc2"
-        ],
-        "x": 1495,
-        "y": 2020,
-        "wires": [
-            [
-                "b162b5bb.bcbe38"
-            ]
-        ]
-    },
-    {
-        "id": "f8675d66.dc2",
-        "type": "link out",
-        "z": "85ed18d.8fc32e8",
-        "name": "E3_LS",
-        "links": [
-            "94b2cef7.d75fa"
-        ],
-        "x": 3355,
-        "y": 1980,
-        "wires": []
-    },
-    {
-        "id": "b162b5bb.bcbe38",
-        "type": "trigger",
-        "z": "85ed18d.8fc32e8",
-        "op1": "",
-        "op2": "",
-        "op1type": "pay",
-        "op2type": "nul",
-        "duration": "100",
-        "extend": true,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "topic",
-        "name": "",
-        "x": 1660,
-        "y": 2020,
-        "wires": [
-            [
-                "82eec6eb.875138"
-            ]
-        ]
-    },
-    {
-        "id": "af10d5cc.7b2298",
-        "type": "link out",
-        "z": "85ed18d.8fc32e8",
-        "name": "E3_SS",
-        "links": [
-            "a6006571.3e13b8"
-        ],
-        "x": 3355,
-        "y": 2360,
-        "wires": []
-    },
-    {
-        "id": "a6006571.3e13b8",
-        "type": "link in",
-        "z": "85ed18d.8fc32e8",
-        "name": "",
-        "links": [
-            "af10d5cc.7b2298"
-        ],
-        "x": 1495,
-        "y": 2320,
-        "wires": [
-            [
-                "272c2c5d.520454"
-            ]
-        ]
-    },
-    {
-        "id": "272c2c5d.520454",
-        "type": "trigger",
-        "z": "85ed18d.8fc32e8",
-        "op1": "",
-        "op2": "",
-        "op1type": "pay",
-        "op2type": "nul",
-        "duration": "100",
-        "extend": true,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "topic",
-        "name": "",
-        "x": 1640,
-        "y": 2320,
-        "wires": [
-            [
-                "e27158ea.a2c118"
+                "759fb71f.dd1be8"
             ]
         ]
     },
@@ -3537,7 +3257,7 @@
         "order": 7,
         "width": "1",
         "height": "12",
-        "passthru": false,
+        "passthru": true,
         "outs": "end",
         "topic": "value",
         "min": 0,
@@ -3563,7 +3283,7 @@
         "order": 8,
         "width": "3",
         "height": "2",
-        "passthru": false,
+        "passthru": true,
         "topic": "",
         "format": "{{value}}",
         "min": 0,
@@ -3836,8 +3556,8 @@
         "order": 9,
         "width": "2",
         "height": "1",
-        "passthru": false,
-        "decouple": "true",
+        "passthru": true,
+        "decouple": "false",
         "topic": "",
         "style": "",
         "onvalue": "true",
@@ -3894,8 +3614,7 @@
         "wires": [
             [
                 "13929181.57df9e",
-                "dd4ac736.9813c8",
-                "a6c1f6ec.403988"
+                "dd4ac736.9813c8"
             ]
         ]
     },
@@ -3922,108 +3641,7 @@
         "y": 2660,
         "wires": [
             [
-                "d07544ce.25e368",
-                "530cb923.50e648"
-            ]
-        ]
-    },
-    {
-        "id": "ad78b53.d7bc248",
-        "type": "link in",
-        "z": "85ed18d.8fc32e8",
-        "name": "",
-        "links": [
-            "530cb923.50e648"
-        ],
-        "x": 55,
-        "y": 2660,
-        "wires": [
-            [
-                "803e5bb4.4a4c18"
-            ]
-        ]
-    },
-    {
-        "id": "530cb923.50e648",
-        "type": "link out",
-        "z": "85ed18d.8fc32e8",
-        "name": "E4_LS",
-        "links": [
-            "ad78b53.d7bc248"
-        ],
-        "x": 1915,
-        "y": 2620,
-        "wires": []
-    },
-    {
-        "id": "803e5bb4.4a4c18",
-        "type": "trigger",
-        "z": "85ed18d.8fc32e8",
-        "op1": "",
-        "op2": "",
-        "op1type": "pay",
-        "op2type": "nul",
-        "duration": "100",
-        "extend": true,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "topic",
-        "name": "",
-        "x": 180,
-        "y": 2660,
-        "wires": [
-            [
-                "9714b215.9c3ab"
-            ]
-        ]
-    },
-    {
-        "id": "a6c1f6ec.403988",
-        "type": "link out",
-        "z": "85ed18d.8fc32e8",
-        "name": "E4_SS",
-        "links": [
-            "fb803bbb.038b28"
-        ],
-        "x": 1915,
-        "y": 2920,
-        "wires": []
-    },
-    {
-        "id": "fb803bbb.038b28",
-        "type": "link in",
-        "z": "85ed18d.8fc32e8",
-        "name": "",
-        "links": [
-            "a6c1f6ec.403988"
-        ],
-        "x": 55,
-        "y": 2960,
-        "wires": [
-            [
-                "dbd5ef0d.4c439"
-            ]
-        ]
-    },
-    {
-        "id": "dbd5ef0d.4c439",
-        "type": "trigger",
-        "z": "85ed18d.8fc32e8",
-        "op1": "",
-        "op2": "",
-        "op1type": "pay",
-        "op2type": "nul",
-        "duration": "100",
-        "extend": true,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "topic",
-        "name": "",
-        "x": 200,
-        "y": 2960,
-        "wires": [
-            [
-                "7c605ff0.98c1e"
+                "d07544ce.25e368"
             ]
         ]
     },
@@ -4145,7 +3763,7 @@
         "type": "debug",
         "z": "85ed18d.8fc32e8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4840,7 +4458,7 @@
         "type": "debug",
         "z": "85ed18d.8fc32e8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4937,7 +4555,7 @@
         "type": "debug",
         "z": "85ed18d.8fc32e8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -5482,7 +5100,7 @@
         "type": "debug",
         "z": "85ed18d.8fc32e8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -5763,7 +5381,7 @@
         "type": "debug",
         "z": "85ed18d.8fc32e8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -6100,7 +5718,7 @@
         "type": "debug",
         "z": "85ed18d.8fc32e8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -6244,7 +5862,7 @@
         "type": "debug",
         "z": "85ed18d.8fc32e8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,

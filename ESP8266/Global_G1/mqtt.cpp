@@ -269,7 +269,8 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
         debugFunction("Error : ",0);
         debugFunction("\"SWITCH\" key not found in JSON",1);
       }
-      //------------
+      
+      // ---------------------- Logica Negativa ---------------------- 
       if(root.containsKey("Logica_negativa"))  // comprobar si existe el campo/clave que estamos buscando
       {
         if(root["Logica_negativa"] == -1)

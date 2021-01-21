@@ -34,12 +34,12 @@ void pulsos()                                 //Interpreta los pulsos del boton 
     {
         pulsacion = 2;
     }//if
-     else if (duracion < 1500)                //pulsacion corta
+     else if (duracion < 2000)                //pulsacion corta
     {
         pulsacion = 1;
     }//else if
        
-    if (duracion >= 1500)                     //pulsacion larga.
+    if (duracion >= 2000)                     //pulsacion larga.
     {
         pulsacion = 100;
     }

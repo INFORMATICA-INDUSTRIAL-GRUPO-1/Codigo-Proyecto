@@ -18,7 +18,7 @@
 
 
 
-/*-------------------------  PESTAÑAS Y LIBRERIAS  ------------------------*/ 
+//-------------------------  PESTAÑAS Y LIBRERIAS  ------------------------
  
 
 // Incluir aqui las librerias//
@@ -29,7 +29,7 @@
 #include <ArduinoJson.h>
 
 
-/*-------------------------  VARIABLES GLOBALES  ------------------------*/ 
+//-------------------------  VARIABLES GLOBALES  ------------------------ 
 // Declarar aqui las variables globales//
 // Envio de datos
 unsigned long lastMsg = 0;
@@ -49,7 +49,8 @@ unsigned long lastSensores = 0;
 
 bool primera_FOTA=true;
 bool prim_F=false;
-/*-------------------------  PESTAÑAS  ------------------------*/ 
+
+//-------------------------  PESTAÑAS  ------------------------ 
 
 // Incluir aqui las pestañas ".h"//
 #include "config.h"
@@ -65,7 +66,7 @@ bool prim_F=false;
 #include "cont_vel.h"
 
 
-/*-------------------------  SETUP  ------------------------*/
+//-------------------------  SETUP  ------------------------
 void setup() {
  // Configuracion Inicial del ESP8266
   pinMode(BUILTIN_LED, OUTPUT);       // Initialize the BUILTIN_LED pin as an output
@@ -92,7 +93,8 @@ void setup() {
 }        // END SETUP
 
 
-/*-------------------------  LOOP  ------------------------*/
+//-------------------------  LOOP  ------------------------
+
 void loop() {
   
   if (!client.connected())                          // Comprobacion y reconexion (en caso de fallo) del cliente mqtt
@@ -125,7 +127,7 @@ if (((primerFOTA-now)>30000) && prim_F)
 // END comprobacion y reconexion
 
 
-/*-------------------------  CONTROL LED Y SWITCH  ------------------------*/
+//-------------------------  CONTROL LED Y SWITCH  ------------------------
   if (ready_led)                    // Se llama la interrupcion para asegurar que no se captan rebotes en la pulsacion
   {
       pulsos();                     // Interpreta los pulsos de la interrupcion.
@@ -171,7 +173,7 @@ if (((primerFOTA-now)>30000) && prim_F)
       }//if_2
     }//if_1
 
-/*-------------------------  FOTA  ------------------------*/
+//-------------------------  FOTA  ------------------------
     
 if((now-lastFOTA > fotaSampRate*60000) && (fotaSampRate != 0)||(actualiza==1))
 {
@@ -180,7 +182,7 @@ if((now-lastFOTA > fotaSampRate*60000) && (fotaSampRate != 0)||(actualiza==1))
   actualiza=0;
 }
 
-/*-------------------------  ENVIO DATOS  ------------------------*/
+//-------------------------  ENVIO DATOS  ------------------------
 if(dataSampRate <= 0)
   dataSampRate = 1;                    //Se acota a 1 segundo el envio de datos en caso de recibir un dato no deseado.
   
@@ -198,14 +200,19 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
 
 }//END DATOS 
 
-/*-------------------------  ENVIO SENSORES ROBOT  ------------------------*/
+//-------------------------  ENVIO SENSORES ROBOT  ------------------------
 
   sensores_arduino(); //lee los datos de los sensores constantemente para que no se acumulen en el buffer.
   
-  if(dato_sensor && now - lastSensores > 1000)
+  /*if(dato_sensor && now - lastSensores > 1000)
    { 
      sensores_mqtt();// envio a mqtt lectura sensores
      lastSensores = now;//variable para actualizacion
+   }*/
+
+   if(dato_sensor)
+   { 
+     sensores_mqtt();// envio a mqtt lectura sensores
    }
 
   
