@@ -236,6 +236,7 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
          else
            led_actual = 0;
   
+         origen_led = "mqtt_config";
          led_mqtt();   
         }
       }
@@ -261,6 +262,7 @@ if(strcmp(topic,TOP_config)==0) //Comprobacion topic para led
          else
             switch_valor = true;
             
+         origen_switch = "mqtt_config";
          ready_switch = true;       
         }
       }

@@ -41,14 +41,14 @@ String OTAfingerprint("5d56095c5f7ba43f01b72231d3a7daa36e102e60"); // sustituir 
 //const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
 
-//const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
-//const char* password = "Srmonline";// CLAVE DE LA RED WIFI
+const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "Srmonline";// CLAVE DE LA RED WIFI
 
 //const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "pablovera"; // CLAVE DE LA RED WIFI
 
-const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "12345678"; // CLAVE DE LA RED WIFI
+//const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
+//const char* password = "12345678"; // CLAVE DE LA RED WIFI
 
 const char* mqtt_server = "iot.ac.uma.es" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
 int mqtt_port = 1883;
@@ -119,7 +119,7 @@ int fotaSampRate = 0; // Tiempo entre busqueda de nuevas actualizaciones en MINU
 int ledspeed = 10 ; // Velocidad a la que se modifica los cambios en la intensidad del led
 
 
-bool logica_negativa=true;
+bool logica_negativa=false;
 
 int actualiza = 0; 
 int orden = -1;

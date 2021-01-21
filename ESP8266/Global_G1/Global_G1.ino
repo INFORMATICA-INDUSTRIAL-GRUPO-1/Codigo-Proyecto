@@ -203,14 +203,14 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
 //-------------------------  ENVIO SENSORES ROBOT  ------------------------
 
   sensores_arduino(); //lee los datos de los sensores constantemente para que no se acumulen en el buffer.
-  
-  /*if(dato_sensor && now - lastSensores > 1000)
+  /*
+  if(dato_sensor && now - lastSensores > 1000)
    { 
      sensores_mqtt();// envio a mqtt lectura sensores
      lastSensores = now;//variable para actualizacion
    }*/
 
-   if(dato_sensor)
+  if(dato_sensor)
    { 
      sensores_mqtt();// envio a mqtt lectura sensores
    }

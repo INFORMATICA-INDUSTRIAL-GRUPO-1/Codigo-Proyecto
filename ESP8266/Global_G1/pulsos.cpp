@@ -47,31 +47,48 @@ void pulsos()                                 //Interpreta los pulsos del boton 
 
 /*-------------------------  CONTROL LED Y SWITCH ------------------------*/
 int led_actual = 100;            //valor de prueba
-int led_almacenado;                 //variable que guarda el valor de luminosidad del primer led.
+int led_almacenado = 0;                 //variable que guarda el valor de luminosidad del primer led.
 
-bool switch_valor;               //variable que guarda el valor del estado del segundo led.
+bool switch_valor = false;               //variable que guarda el valor del estado del segundo led.
 bool ready_switch = false;
 
 String origen_led = " ";
 String origen_switch = " ";
+
 void funcion_flash()
 {
   switch (pulsacion)
   {
     case 1:                       // Pulsación Corta
-      switch_valor = !digitalRead(SWITCH_PIN);
+//      if(logica_negativa)
+//        switch_valor = digitalRead(SWITCH_PIN);
+//      else
+        switch_valor = !digitalRead(SWITCH_PIN);
+        
       origen_led = "pulsador";
       origen_switch = "pulsador";
       ready_switch = true; 
-      if (led_actual != 0)        // Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
+
+      if (logica_negativa)
       {
-         led_almacenado = led_actual; // Variable de reserva
-         led_actual = 0;          // Estado apagado del led
-      }//if
-      else                        // Led apagado: se enciende con el valor de intensidad guardado.
+        if (led_actual != 0)        // Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
+        {
+           led_almacenado = led_actual; // Variable de reserva
+           led_actual = 0;          // Estado apagado del led
+        }
+        else                        // Led apagado: se enciende con el valor de intensidad guardado.
+          led_actual = led_almacenado;
+      }
+      else
       {
-        led_actual = led_almacenado;
-      }//else
+         if (led_actual == 0)        // Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
+        {
+           led_almacenado = led_actual; // Variable de reserva
+           led_actual = 0;          // Estado apagado del led
+        }
+        else                        // Led apagado: se enciende con el valor de intensidad guardado.
+          led_actual = led_almacenado;
+      }
     break;
     
     case 2:                       // Pulsación doble
