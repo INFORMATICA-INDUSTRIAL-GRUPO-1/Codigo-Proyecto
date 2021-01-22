@@ -30,7 +30,7 @@ void pulsos()                                 //Interpreta los pulsos del boton 
 {   
     unsigned long ahora = millis();
     unsigned long espera = ahora - ultima_pulsacion;
-    if (duracion < 1500 && espera <= 300)     //"pulsacion doble"
+    if (duracion < 2000 && espera <= 300)     //"pulsacion doble"
     {
         pulsacion = 2;
     }//if
