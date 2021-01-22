@@ -62,7 +62,7 @@ byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesP
 
 /////////////////TOPICS MQTT ////////////////////
 byte grupo = 1;
-byte placa =0;
+byte placa = 0;
 byte num_sensores = 5;
 
 String s_TOP_conexion = "conexion";          
