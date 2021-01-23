@@ -1,28 +1,28 @@
 [
     {
-        "id": "ffa0391c.242c78",
+        "id": "efaaca2d.40d4f8",
         "type": "tab",
         "label": "Control_ESP",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "6ca8692b.e9da98",
+        "id": "450f410f.1588d",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP1/led/cmd",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 1050,
         "y": 1380,
         "wires": []
     },
     {
-        "id": "5baa764f.bfedb8",
+        "id": "3a0a79cf.5ec756",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -31,18 +31,18 @@
         "y": 1380,
         "wires": [
             [
-                "2164d3a1.3142fc"
+                "fe560f13.7ba39"
             ]
         ]
     },
     {
-        "id": "93d7fb4a.182778",
+        "id": "acbaffa7.d336d",
         "type": "ui_slider",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "sliderLed",
         "label": "",
         "tooltip": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 7,
         "width": "1",
         "height": "12",
@@ -56,19 +56,19 @@
         "y": 1380,
         "wires": [
             [
-                "b79fe300.0c77e",
-                "5baa764f.bfedb8"
+                "b5cd8447.44c528",
+                "3a0a79cf.5ec756"
             ]
         ]
     },
     {
-        "id": "b79fe300.0c77e",
+        "id": "b5cd8447.44c528",
         "type": "ui_numeric",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "numericLed",
         "label": "PWM",
         "tooltip": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 8,
         "width": "3",
         "height": "2",
@@ -82,31 +82,31 @@
         "y": 1440,
         "wires": [
             [
-                "93d7fb4a.182778",
-                "5baa764f.bfedb8"
+                "acbaffa7.d336d",
+                "3a0a79cf.5ec756"
             ]
         ]
     },
     {
-        "id": "976ec5b.7458d38",
+        "id": "d4fdab9b.40bc28",
         "type": "mqtt in",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP1/led/status",
         "qos": "2",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 1370,
         "y": 1380,
         "wires": [
             [
-                "fafb3b20.b82938"
+                "ffd700c6.f6bda"
             ]
         ]
     },
     {
-        "id": "f83b148d.ac4f98",
+        "id": "a3176384.abe28",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -118,9 +118,9 @@
         "wires": []
     },
     {
-        "id": "2164d3a1.3142fc",
+        "id": "fe560f13.7ba39",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -140,17 +140,17 @@
         "y": 1380,
         "wires": [
             [
-                "6ca8692b.e9da98",
-                "1078fffa.78045"
+                "450f410f.1588d",
+                "475dccfd.36cb14"
             ]
         ]
     },
     {
-        "id": "31eac5d2.38f1ea",
+        "id": "ba8001cf.c8078",
         "type": "ui_gauge",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 6,
         "width": "3",
         "height": "3",
@@ -172,9 +172,9 @@
         "wires": []
     },
     {
-        "id": "c32e35a7.7d28f8",
+        "id": "b62135e6.3811b8",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -183,27 +183,27 @@
         "y": 1720,
         "wires": [
             [
-                "c007ec9d.2f32e"
+                "4852146a.ea370c"
             ]
         ]
     },
     {
-        "id": "4d5e037f.e7b6ac",
+        "id": "cb6a5b8f.cb6958",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP1/switch/cmd",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 1000,
         "y": 1720,
         "wires": []
     },
     {
-        "id": "c007ec9d.2f32e",
+        "id": "4852146a.ea370c",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -223,31 +223,31 @@
         "y": 1720,
         "wires": [
             [
-                "4d5e037f.e7b6ac",
-                "358ccc92.f04304"
+                "cb6a5b8f.cb6958",
+                "228aa3a1.4e79dc"
             ]
         ]
     },
     {
-        "id": "80cf5c1b.ad1b6",
+        "id": "b340ded9.e46ad",
         "type": "mqtt in",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP1/switch/status",
         "qos": "2",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 1360,
         "y": 1720,
         "wires": [
             [
-                "16478c29.e94c64"
+                "c6b5c4cb.69d628"
             ]
         ]
     },
     {
-        "id": "9261e3a5.c084e",
+        "id": "c056d48b.0ad6f8",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -259,10 +259,10 @@
         "wires": []
     },
     {
-        "id": "f8c37fd4.e2ceb",
+        "id": "5cfad060.7ccc9",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "b234e507.8a5e08",
+        "z": "efaaca2d.40d4f8",
+        "group": "53239cb8.210374",
         "order": 17,
         "width": "2",
         "height": "1",
@@ -288,9 +288,9 @@
         "wires": []
     },
     {
-        "id": "fafb3b20.b82938",
+        "id": "ffd700c6.f6bda",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -299,15 +299,15 @@
         "y": 1380,
         "wires": [
             [
-                "f83b148d.ac4f98",
-                "ab2325db.db8c48"
+                "a3176384.abe28",
+                "ba19b4c6.9fbc88"
             ]
         ]
     },
     {
-        "id": "16478c29.e94c64",
+        "id": "c6b5c4cb.69d628",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -316,15 +316,15 @@
         "y": 1720,
         "wires": [
             [
-                "9261e3a5.c084e",
-                "f086015d.3c2d4"
+                "c056d48b.0ad6f8",
+                "d43f76b4.6de568"
             ]
         ]
     },
     {
-        "id": "1078fffa.78045",
+        "id": "475dccfd.36cb14",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -336,13 +336,13 @@
         "wires": []
     },
     {
-        "id": "6ce6ead6.464d44",
+        "id": "b5ef9468.59c9d8",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch",
         "tooltip": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 9,
         "width": "2",
         "height": "1",
@@ -362,14 +362,14 @@
         "y": 1720,
         "wires": [
             [
-                "c32e35a7.7d28f8"
+                "b62135e6.3811b8"
             ]
         ]
     },
     {
-        "id": "358ccc92.f04304",
+        "id": "228aa3a1.4e79dc",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -381,22 +381,22 @@
         "wires": []
     },
     {
-        "id": "eb0ed164.dea86",
+        "id": "a57a2a64.9931f8",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP2/led/cmd",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 3310,
         "y": 1380,
         "wires": []
     },
     {
-        "id": "14113796.1278f8",
+        "id": "ae979e53.2010e",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -405,18 +405,18 @@
         "y": 1380,
         "wires": [
             [
-                "41d3298b.33ac28"
+                "b3274790.521e88"
             ]
         ]
     },
     {
-        "id": "1ea33fc4.5aaa3",
+        "id": "42563a94.34c0b4",
         "type": "ui_slider",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "sliderLed",
         "label": "",
         "tooltip": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 7,
         "width": "1",
         "height": "12",
@@ -430,19 +430,19 @@
         "y": 1380,
         "wires": [
             [
-                "14113796.1278f8",
-                "bcfb8b6c.d61138"
+                "ae979e53.2010e",
+                "ba1966ad.f74ec8"
             ]
         ]
     },
     {
-        "id": "bcfb8b6c.d61138",
+        "id": "ba1966ad.f74ec8",
         "type": "ui_numeric",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "numericLed",
         "label": "PWM",
         "tooltip": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 8,
         "width": "3",
         "height": "2",
@@ -456,31 +456,31 @@
         "y": 1441.9998817443848,
         "wires": [
             [
-                "1ea33fc4.5aaa3",
-                "14113796.1278f8"
+                "42563a94.34c0b4",
+                "ae979e53.2010e"
             ]
         ]
     },
     {
-        "id": "38125f35.5d62d",
+        "id": "c13cbe73.25ffc",
         "type": "mqtt in",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP2/led/status",
         "qos": "2",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 3630,
         "y": 1380,
         "wires": [
             [
-                "7dc31ff7.dc1af"
+                "a381a3c9.f6a1a"
             ]
         ]
     },
     {
-        "id": "41d3298b.33ac28",
+        "id": "b3274790.521e88",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -500,17 +500,17 @@
         "y": 1380,
         "wires": [
             [
-                "eb0ed164.dea86",
-                "6babe1d2.a7d58"
+                "a57a2a64.9931f8",
+                "9086a78a.e687f8"
             ]
         ]
     },
     {
-        "id": "9805f9c3.f16118",
+        "id": "47eba46c.98ddac",
         "type": "ui_gauge",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 6,
         "width": "3",
         "height": "3",
@@ -532,9 +532,9 @@
         "wires": []
     },
     {
-        "id": "81592eb1.9dcb3",
+        "id": "dccdc850.25d5e8",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -543,27 +543,27 @@
         "y": 1720,
         "wires": [
             [
-                "96aef0a5.0b0a9"
+                "5f508621.5976f8"
             ]
         ]
     },
     {
-        "id": "45a760ba.b1cf2",
+        "id": "93c10a12.3a9608",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP2/switch/cmd",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 3260,
         "y": 1720,
         "wires": []
     },
     {
-        "id": "96aef0a5.0b0a9",
+        "id": "5f508621.5976f8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -583,31 +583,31 @@
         "y": 1720,
         "wires": [
             [
-                "45a760ba.b1cf2",
-                "649c26a9.3f58f8"
+                "93c10a12.3a9608",
+                "7180b411.e8679c"
             ]
         ]
     },
     {
-        "id": "44c0ef30.4d6c3",
+        "id": "75bde972.e24848",
         "type": "mqtt in",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP2/switch/status",
         "qos": "2",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 3580,
         "y": 1720,
         "wires": [
             [
-                "ff617ffa.16cfc"
+                "f63ca9f4.1aac28"
             ]
         ]
     },
     {
-        "id": "f9c6ca57.57b328",
+        "id": "e8f9e984.402d88",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -619,10 +619,10 @@
         "wires": []
     },
     {
-        "id": "7fa97985.de5b08",
+        "id": "afb57866.32b698",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "6c609b1a.d64574",
+        "z": "efaaca2d.40d4f8",
+        "group": "b54bc12a.1abd6",
         "order": 17,
         "width": "2",
         "height": "1",
@@ -648,9 +648,9 @@
         "wires": []
     },
     {
-        "id": "7dc31ff7.dc1af",
+        "id": "a381a3c9.f6a1a",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -659,15 +659,15 @@
         "y": 1380,
         "wires": [
             [
-                "b6665075.61c82",
-                "751216a0.e02258"
+                "d0a4600.30d31a",
+                "def927e.b6640d8"
             ]
         ]
     },
     {
-        "id": "ff617ffa.16cfc",
+        "id": "f63ca9f4.1aac28",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -676,15 +676,15 @@
         "y": 1720,
         "wires": [
             [
-                "e87627af.3000c8",
-                "f9c6ca57.57b328"
+                "83146636.f975f8",
+                "e8f9e984.402d88"
             ]
         ]
     },
     {
-        "id": "6babe1d2.a7d58",
+        "id": "9086a78a.e687f8",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -696,13 +696,13 @@
         "wires": []
     },
     {
-        "id": "5b66259f.fe7d6c",
+        "id": "e9aadb1e.382158",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch",
         "tooltip": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 9,
         "width": "2",
         "height": "1",
@@ -722,14 +722,14 @@
         "y": 1720,
         "wires": [
             [
-                "81592eb1.9dcb3"
+                "dccdc850.25d5e8"
             ]
         ]
     },
     {
-        "id": "649c26a9.3f58f8",
+        "id": "7180b411.e8679c",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -741,9 +741,9 @@
         "wires": []
     },
     {
-        "id": "e87627af.3000c8",
+        "id": "83146636.f975f8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -763,15 +763,15 @@
         "y": 1720,
         "wires": [
             [
-                "7fa97985.de5b08",
-                "aa1acd32.a521e"
+                "afb57866.32b698",
+                "53b37515.ab5fbc"
             ]
         ]
     },
     {
-        "id": "b6665075.61c82",
+        "id": "d0a4600.30d31a",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -791,15 +791,15 @@
         "y": 1380,
         "wires": [
             [
-                "9805f9c3.f16118",
-                "98db791e.31b108"
+                "47eba46c.98ddac",
+                "cbb2923e.d3102"
             ]
         ]
     },
     {
-        "id": "f086015d.3c2d4",
+        "id": "d43f76b4.6de568",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -819,14 +819,14 @@
         "y": 1720,
         "wires": [
             [
-                "f8c37fd4.e2ceb"
+                "5cfad060.7ccc9"
             ]
         ]
     },
     {
-        "id": "ab2325db.db8c48",
+        "id": "ba19b4c6.9fbc88",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -846,18 +846,18 @@
         "y": 1380,
         "wires": [
             [
-                "31eac5d2.38f1ea"
+                "ba8001cf.c8078"
             ]
         ]
     },
     {
-        "id": "6b3afc61.d4af34",
+        "id": "d0ad297d.470b38",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Enable_Multi_Control",
         "tooltip": "",
-        "group": "4d12d327.40713c",
+        "group": "c6032041.101a6",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -877,18 +877,18 @@
         "y": 200,
         "wires": [
             [
-                "75b4efc8.13582"
+                "1c73112b.f027cf"
             ]
         ]
     },
     {
-        "id": "1503efab.1fa81",
+        "id": "b9efcfa6.fcdf1",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "ESP1",
         "tooltip": "",
-        "group": "4d12d327.40713c",
+        "group": "c6032041.101a6",
         "order": 5,
         "width": "5",
         "height": "1",
@@ -908,18 +908,18 @@
         "y": 240,
         "wires": [
             [
-                "cd676f3.707659"
+                "6faf5b6f.b410a4"
             ]
         ]
     },
     {
-        "id": "3aed068a.6d67aa",
+        "id": "8fbe05ce.69f128",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "ESP2",
         "tooltip": "",
-        "group": "4d12d327.40713c",
+        "group": "c6032041.101a6",
         "order": 7,
         "width": "5",
         "height": "1",
@@ -939,18 +939,18 @@
         "y": 280,
         "wires": [
             [
-                "60dd9b18.4ea9b4"
+                "a675a961.f8cb08"
             ]
         ]
     },
     {
-        "id": "4fb794c1.631c9c",
+        "id": "a6c6b921.8809c8",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "ESP3",
         "tooltip": "",
-        "group": "4d12d327.40713c",
+        "group": "c6032041.101a6",
         "order": 9,
         "width": "5",
         "height": "1",
@@ -970,18 +970,18 @@
         "y": 320,
         "wires": [
             [
-                "78f7cd8.1d46a34"
+                "e4819c81.48e6e"
             ]
         ]
     },
     {
-        "id": "962c27c7.56f238",
+        "id": "4db8deca.33348",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "ESP4",
         "tooltip": "",
-        "group": "4d12d327.40713c",
+        "group": "c6032041.101a6",
         "order": 11,
         "width": "5",
         "height": "1",
@@ -1001,18 +1001,18 @@
         "y": 360,
         "wires": [
             [
-                "c287894b.e832b8"
+                "a4815bcd.461d78"
             ]
         ]
     },
     {
-        "id": "5c05b4.8f58aa4c",
+        "id": "c44dc65e.a35a68",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "ESP5",
         "tooltip": "",
-        "group": "4d12d327.40713c",
+        "group": "c6032041.101a6",
         "order": 13,
         "width": "5",
         "height": "1",
@@ -1032,14 +1032,14 @@
         "y": 400,
         "wires": [
             [
-                "d293da2f.640628"
+                "4b0eae16.d1843"
             ]
         ]
     },
     {
-        "id": "75b4efc8.13582",
+        "id": "1c73112b.f027cf",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1062,9 +1062,9 @@
         ]
     },
     {
-        "id": "cd676f3.707659",
+        "id": "6faf5b6f.b410a4",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1087,9 +1087,9 @@
         ]
     },
     {
-        "id": "55346a59.586b44",
+        "id": "98d5d9d6.7a7ee8",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP1",
         "propertyType": "global",
@@ -1105,27 +1105,27 @@
         "y": 111.5234317779541,
         "wires": [
             [
-                "e7ca97fe.7e5848"
+                "14d8d1e8.d3f1ee"
             ]
         ]
     },
     {
-        "id": "d3b7c714.d836e8",
+        "id": "86fac0e3.7978c",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2467.0002670288086,
         "y": 118.5234489440918,
         "wires": []
     },
     {
-        "id": "8a5ce01a.33bf6",
+        "id": "a6151d70.ce01c",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -1134,23 +1134,23 @@
         "y": 235.5234203338623,
         "wires": [
             [
-                "55346a59.586b44",
-                "4f3fa6bf.08bc18",
-                "9e747df4.fa167",
-                "6540fa82.cf3754",
-                "f19622ed.cd831"
+                "98d5d9d6.7a7ee8",
+                "f97d122d.eba33",
+                "9ea3178d.bafee8",
+                "188c98d9.5fbb57",
+                "85281b6b.71c4c8"
             ]
         ]
     },
     {
-        "id": "67d90ea1.37747",
+        "id": "ea8e2f94.d9368",
         "type": "ui_slider",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "sliderLed",
         "label": "",
         "tooltip": "",
-        "group": "f42365d.519b598",
-        "order": 6,
+        "group": "bd0b499c.ca1778",
+        "order": 5,
         "width": "1",
         "height": "12",
         "passthru": true,
@@ -1163,20 +1163,20 @@
         "y": 223.52341842651367,
         "wires": [
             [
-                "f86467d7.2c2fe8",
-                "d06b1dbc.3b084"
+                "1a995cac.e9f713",
+                "b832c742.332708"
             ]
         ]
     },
     {
-        "id": "f86467d7.2c2fe8",
+        "id": "1a995cac.e9f713",
         "type": "ui_numeric",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "numericLed",
         "label": "PWM",
         "tooltip": "",
-        "group": "f42365d.519b598",
-        "order": 5,
+        "group": "bd0b499c.ca1778",
+        "order": 4,
         "width": "3",
         "height": "2",
         "passthru": true,
@@ -1189,14 +1189,14 @@
         "y": 283.5234184265137,
         "wires": [
             [
-                "67d90ea1.37747"
+                "ea8e2f94.d9368"
             ]
         ]
     },
     {
-        "id": "3a92234b.23798c",
+        "id": "2f9147bf.dd07c8",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -1205,31 +1205,31 @@
         "y": 680,
         "wires": [
             [
-                "dccecaa4.a65058",
-                "7d362dfe.bc3d14",
-                "8f626a5d.a65958",
-                "7a97fd12.0cef74",
-                "c355666d.7dc218"
+                "168c0fad.dd479",
+                "26af9692.a32eea",
+                "2bc73c38.9db2e4",
+                "fc3f9fe2.b2285",
+                "9702f082.5d6e3"
             ]
         ]
     },
     {
-        "id": "e072d445.297078",
+        "id": "47a50ae6.1271e4",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2467.507781982422,
         "y": 535.5234451293945,
         "wires": []
     },
     {
-        "id": "65a9a57f.2cd4cc",
+        "id": "a7638b9f.088208",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1241,15 +1241,15 @@
         "wires": []
     },
     {
-        "id": "92acfa2f.5ce6c8",
+        "id": "307af5a2.478e2a",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch",
         "tooltip": "",
-        "group": "f42365d.519b598",
-        "order": 4,
-        "width": "4",
+        "group": "bd0b499c.ca1778",
+        "order": 6,
+        "width": "3",
         "height": "1",
         "passthru": true,
         "decouple": "false",
@@ -1267,14 +1267,14 @@
         "y": 680,
         "wires": [
             [
-                "f8eb3f99.a76c1"
+                "dea3e61e.5dd338"
             ]
         ]
     },
     {
-        "id": "8a5570fb.1652a",
+        "id": "d7563280.c6b84",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1286,9 +1286,9 @@
         "wires": []
     },
     {
-        "id": "e7ca97fe.7e5848",
+        "id": "14d8d1e8.d3f1ee",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1308,15 +1308,15 @@
         "y": 111.65625381469727,
         "wires": [
             [
-                "d3b7c714.d836e8",
-                "65a9a57f.2cd4cc"
+                "86fac0e3.7978c",
+                "a7638b9f.088208"
             ]
         ]
     },
     {
-        "id": "cc0bac3.b215a5",
+        "id": "262d384.d63f6c8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1336,15 +1336,15 @@
         "y": 534.6562519073486,
         "wires": [
             [
-                "e072d445.297078",
-                "8a5570fb.1652a"
+                "47a50ae6.1271e4",
+                "d7563280.c6b84"
             ]
         ]
     },
     {
-        "id": "60dd9b18.4ea9b4",
+        "id": "a675a961.f8cb08",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1367,9 +1367,9 @@
         ]
     },
     {
-        "id": "78f7cd8.1d46a34",
+        "id": "e4819c81.48e6e",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1392,9 +1392,9 @@
         ]
     },
     {
-        "id": "c287894b.e832b8",
+        "id": "a4815bcd.461d78",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1417,9 +1417,9 @@
         ]
     },
     {
-        "id": "d293da2f.640628",
+        "id": "4b0eae16.d1843",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1442,9 +1442,9 @@
         ]
     },
     {
-        "id": "4f3fa6bf.08bc18",
+        "id": "f97d122d.eba33",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP2",
         "propertyType": "global",
@@ -1460,27 +1460,27 @@
         "y": 193.52343940734863,
         "wires": [
             [
-                "61330bf.a7778f4"
+                "a90104e8.ea28f8"
             ]
         ]
     },
     {
-        "id": "3b6ee34e.4a334c",
+        "id": "2c46113d.3fa1ee",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2462.00008392334,
         "y": 200.52345657348633,
         "wires": []
     },
     {
-        "id": "622b3a2d.9260b4",
+        "id": "f10eee48.7a00a",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1492,9 +1492,9 @@
         "wires": []
     },
     {
-        "id": "61330bf.a7778f4",
+        "id": "a90104e8.ea28f8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1514,15 +1514,15 @@
         "y": 193.6562614440918,
         "wires": [
             [
-                "3b6ee34e.4a334c",
-                "622b3a2d.9260b4"
+                "2c46113d.3fa1ee",
+                "f10eee48.7a00a"
             ]
         ]
     },
     {
-        "id": "9e747df4.fa167",
+        "id": "9ea3178d.bafee8",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP3",
         "propertyType": "global",
@@ -1538,27 +1538,27 @@
         "y": 262.52343368530273,
         "wires": [
             [
-                "c540160c.541898"
+                "24f0c23a.ce3eee"
             ]
         ]
     },
     {
-        "id": "22561975.3fda36",
+        "id": "68490ac0.6dbb44",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2464.000015258789,
         "y": 269.52345085144043,
         "wires": []
     },
     {
-        "id": "e11ac2ba.90d58",
+        "id": "5040434e.0409dc",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1570,9 +1570,9 @@
         "wires": []
     },
     {
-        "id": "c540160c.541898",
+        "id": "24f0c23a.ce3eee",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1592,15 +1592,15 @@
         "y": 262.6562557220459,
         "wires": [
             [
-                "22561975.3fda36",
-                "e11ac2ba.90d58"
+                "68490ac0.6dbb44",
+                "5040434e.0409dc"
             ]
         ]
     },
     {
-        "id": "6540fa82.cf3754",
+        "id": "188c98d9.5fbb57",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP4",
         "propertyType": "global",
@@ -1616,27 +1616,27 @@
         "y": 331.52343368530273,
         "wires": [
             [
-                "9de77a35.be88d8"
+                "4613cfdf.13eb7"
             ]
         ]
     },
     {
-        "id": "9de7967c.306e38",
+        "id": "ff401586.796298",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2462.000015258789,
         "y": 338.52345085144043,
         "wires": []
     },
     {
-        "id": "1aae97c4.f85ff8",
+        "id": "7640bafc.3f2df4",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1648,9 +1648,9 @@
         "wires": []
     },
     {
-        "id": "9de77a35.be88d8",
+        "id": "4613cfdf.13eb7",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1670,15 +1670,15 @@
         "y": 331.6562557220459,
         "wires": [
             [
-                "9de7967c.306e38",
-                "1aae97c4.f85ff8"
+                "ff401586.796298",
+                "7640bafc.3f2df4"
             ]
         ]
     },
     {
-        "id": "f19622ed.cd831",
+        "id": "85281b6b.71c4c8",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP5",
         "propertyType": "global",
@@ -1694,27 +1694,27 @@
         "y": 403.52343368530273,
         "wires": [
             [
-                "61b7a3fe.add30c"
+                "6dbfde0d.4e9f2"
             ]
         ]
     },
     {
-        "id": "f169293a.3f2698",
+        "id": "1e997dbc.26f7e2",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2464.000015258789,
         "y": 410.52345085144043,
         "wires": []
     },
     {
-        "id": "6fd900de.dc3d9",
+        "id": "7578b9de.1dace8",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1726,9 +1726,9 @@
         "wires": []
     },
     {
-        "id": "61b7a3fe.add30c",
+        "id": "6dbfde0d.4e9f2",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1748,15 +1748,15 @@
         "y": 403.6562557220459,
         "wires": [
             [
-                "f169293a.3f2698",
-                "6fd900de.dc3d9"
+                "1e997dbc.26f7e2",
+                "7578b9de.1dace8"
             ]
         ]
     },
     {
-        "id": "d06b1dbc.3b084",
+        "id": "b832c742.332708",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "multiControl",
         "propertyType": "global",
@@ -1772,14 +1772,14 @@
         "y": 240,
         "wires": [
             [
-                "8a5ce01a.33bf6"
+                "a6151d70.ce01c"
             ]
         ]
     },
     {
-        "id": "5ee41fdf.130e6",
+        "id": "78c7415b.1b9eb",
         "type": "inject",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "Initializer",
         "topic": "",
         "payload": "false",
@@ -1792,19 +1792,19 @@
         "y": 300,
         "wires": [
             [
-                "6b3afc61.d4af34",
-                "1503efab.1fa81",
-                "3aed068a.6d67aa",
-                "4fb794c1.631c9c",
-                "962c27c7.56f238",
-                "5c05b4.8f58aa4c"
+                "d0ad297d.470b38",
+                "b9efcfa6.fcdf1",
+                "8fbe05ce.69f128",
+                "a6c6b921.8809c8",
+                "4db8deca.33348",
+                "c44dc65e.a35a68"
             ]
         ]
     },
     {
-        "id": "dccecaa4.a65058",
+        "id": "168c0fad.dd479",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP1",
         "propertyType": "global",
@@ -1820,14 +1820,14 @@
         "y": 533.0000019073486,
         "wires": [
             [
-                "cc0bac3.b215a5"
+                "262d384.d63f6c8"
             ]
         ]
     },
     {
-        "id": "7d362dfe.bc3d14",
+        "id": "26af9692.a32eea",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP2",
         "propertyType": "global",
@@ -1843,14 +1843,14 @@
         "y": 607.0000019073486,
         "wires": [
             [
-                "1027b8dc.3a7e77"
+                "68e9f2da.7502fc"
             ]
         ]
     },
     {
-        "id": "8f626a5d.a65958",
+        "id": "2bc73c38.9db2e4",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP3",
         "propertyType": "global",
@@ -1866,14 +1866,14 @@
         "y": 692.0000038146973,
         "wires": [
             [
-                "d8c0a957.1750a8"
+                "513e0d1a.7a2044"
             ]
         ]
     },
     {
-        "id": "7a97fd12.0cef74",
+        "id": "fc3f9fe2.b2285",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP4",
         "propertyType": "global",
@@ -1889,14 +1889,14 @@
         "y": 761.0000038146973,
         "wires": [
             [
-                "81c07834.5d7478"
+                "722b97bb.a42bd8"
             ]
         ]
     },
     {
-        "id": "c355666d.7dc218",
+        "id": "9702f082.5d6e3",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP5",
         "propertyType": "global",
@@ -1912,27 +1912,27 @@
         "y": 833.0000038146973,
         "wires": [
             [
-                "bdd807a1.d89e88"
+                "c6839b7a.ad3e88"
             ]
         ]
     },
     {
-        "id": "98db4842.9a4488",
+        "id": "bf39f9a8.4a0ce8",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2474.9999465942383,
         "y": 623.0000019073486,
         "wires": []
     },
     {
-        "id": "e5599d7d.c9e3c",
+        "id": "bb3eff26.50857",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1944,9 +1944,9 @@
         "wires": []
     },
     {
-        "id": "1027b8dc.3a7e77",
+        "id": "68e9f2da.7502fc",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -1966,28 +1966,28 @@
         "y": 612.1328125,
         "wires": [
             [
-                "98db4842.9a4488",
-                "e5599d7d.c9e3c"
+                "bf39f9a8.4a0ce8",
+                "bb3eff26.50857"
             ]
         ]
     },
     {
-        "id": "99dbe2d9.b19fa",
+        "id": "113d8d86.c49582",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2478.9999465942383,
         "y": 701.0000019073486,
         "wires": []
     },
     {
-        "id": "ea637ac7.5464b8",
+        "id": "cce6416a.971f7",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1999,9 +1999,9 @@
         "wires": []
     },
     {
-        "id": "d8c0a957.1750a8",
+        "id": "513e0d1a.7a2044",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -2021,28 +2021,28 @@
         "y": 694.1328125,
         "wires": [
             [
-                "99dbe2d9.b19fa",
-                "ea637ac7.5464b8"
+                "113d8d86.c49582",
+                "cce6416a.971f7"
             ]
         ]
     },
     {
-        "id": "46358ee9.e652a",
+        "id": "8dcf8c20.a14dc",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2482.9999465942383,
         "y": 775.0000019073486,
         "wires": []
     },
     {
-        "id": "de1a2082.00768",
+        "id": "226f67fe.1aa1c8",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -2054,9 +2054,9 @@
         "wires": []
     },
     {
-        "id": "81c07834.5d7478",
+        "id": "722b97bb.a42bd8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -2076,28 +2076,28 @@
         "y": 798.1328086853027,
         "wires": [
             [
-                "46358ee9.e652a",
-                "de1a2082.00768"
+                "8dcf8c20.a14dc",
+                "226f67fe.1aa1c8"
             ]
         ]
     },
     {
-        "id": "9d32f586.33d2f8",
+        "id": "9eeed79d.b530e8",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2482.9999465942383,
         "y": 849.0000019073486,
         "wires": []
     },
     {
-        "id": "f021ffd9.b6d66",
+        "id": "e5549013.3df85",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -2109,9 +2109,9 @@
         "wires": []
     },
     {
-        "id": "bdd807a1.d89e88",
+        "id": "c6839b7a.ad3e88",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -2131,16 +2131,16 @@
         "y": 884.1328086853027,
         "wires": [
             [
-                "9d32f586.33d2f8",
-                "f021ffd9.b6d66"
+                "9eeed79d.b530e8",
+                "e5549013.3df85"
             ]
         ]
     },
     {
-        "id": "abe633cc.93f49",
+        "id": "127e0264.3fb39e",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "4d12d327.40713c",
+        "z": "efaaca2d.40d4f8",
+        "group": "c6032041.101a6",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -2153,9 +2153,9 @@
         "wires": []
     },
     {
-        "id": "98db791e.31b108",
+        "id": "cbb2923e.d3102",
         "type": "link out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "E2_LS",
         "links": [
             "58c0c4ab.f9537c"
@@ -2165,9 +2165,9 @@
         "wires": []
     },
     {
-        "id": "aa1acd32.a521e",
+        "id": "53b37515.ab5fbc",
         "type": "link out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "E2_SS",
         "links": [
             "e57618e5.f1a188",
@@ -2178,10 +2178,10 @@
         "wires": []
     },
     {
-        "id": "e6e9b5a8.6947d8",
+        "id": "fd4c62ca.9e478",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "f42365d.519b598",
+        "z": "efaaca2d.40d4f8",
+        "group": "bd0b499c.ca1778",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -2194,10 +2194,10 @@
         "wires": []
     },
     {
-        "id": "7162987b.b22aa8",
+        "id": "2b56eb0c.280034",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "6c609b1a.d64574",
+        "z": "efaaca2d.40d4f8",
+        "group": "b54bc12a.1abd6",
         "order": 5,
         "width": "4",
         "height": "1",
@@ -2210,10 +2210,10 @@
         "wires": []
     },
     {
-        "id": "7020a9cf.e77ed8",
+        "id": "f899ac5d.0e038",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "b234e507.8a5e08",
+        "z": "efaaca2d.40d4f8",
+        "group": "53239cb8.210374",
         "order": 5,
         "width": "4",
         "height": "1",
@@ -2226,10 +2226,10 @@
         "wires": []
     },
     {
-        "id": "87e1af0d.bf5a5",
+        "id": "2a26ddf4.a9c012",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "4d12d327.40713c",
+        "z": "efaaca2d.40d4f8",
+        "group": "c6032041.101a6",
         "order": 4,
         "width": "1",
         "height": "1",
@@ -2255,9 +2255,9 @@
         "wires": []
     },
     {
-        "id": "c8119f7.7448c6",
+        "id": "f9d28056.e15ed",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -2277,14 +2277,14 @@
         "y": 500,
         "wires": [
             [
-                "fcf84fa2.a71f2"
+                "b352dbac.058a48"
             ]
         ]
     },
     {
-        "id": "db7fb8a0.631818",
+        "id": "227c17e3.edcae8",
         "type": "inject",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "onlineStatPolling",
         "topic": "",
         "payload": "true",
@@ -2297,19 +2297,19 @@
         "y": 700,
         "wires": [
             [
-                "c8119f7.7448c6",
-                "96b64263.8d81f",
-                "c094e543.85ba88",
-                "7e1b305e.bdfab",
-                "1aa60ea3.8e3eb1"
+                "f9d28056.e15ed",
+                "ef09691e.e12668",
+                "fe924160.ce1c2",
+                "d17fa3c4.8ba09",
+                "8f62dd77.569"
             ]
         ]
     },
     {
-        "id": "7c5bb557.cea3dc",
+        "id": "421d5934.252958",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "4d12d327.40713c",
+        "z": "efaaca2d.40d4f8",
+        "group": "c6032041.101a6",
         "order": 6,
         "width": "1",
         "height": "1",
@@ -2335,9 +2335,9 @@
         "wires": []
     },
     {
-        "id": "96b64263.8d81f",
+        "id": "ef09691e.e12668",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -2357,15 +2357,15 @@
         "y": 600,
         "wires": [
             [
-                "378a949e.b04f0c"
+                "6237684d.0ac728"
             ]
         ]
     },
     {
-        "id": "f781b03a.e0e3",
+        "id": "a1fd581a.307fa8",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "4d12d327.40713c",
+        "z": "efaaca2d.40d4f8",
+        "group": "c6032041.101a6",
         "order": 8,
         "width": "1",
         "height": "1",
@@ -2391,9 +2391,9 @@
         "wires": []
     },
     {
-        "id": "c094e543.85ba88",
+        "id": "fe924160.ce1c2",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -2413,15 +2413,15 @@
         "y": 700,
         "wires": [
             [
-                "febd7e6b.a0c42"
+                "6b28fb0.a7f7104"
             ]
         ]
     },
     {
-        "id": "9191f74d.77e118",
+        "id": "cdc36b25.8af838",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "4d12d327.40713c",
+        "z": "efaaca2d.40d4f8",
+        "group": "c6032041.101a6",
         "order": 10,
         "width": "1",
         "height": "1",
@@ -2447,9 +2447,9 @@
         "wires": []
     },
     {
-        "id": "7e1b305e.bdfab",
+        "id": "d17fa3c4.8ba09",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -2469,15 +2469,15 @@
         "y": 800,
         "wires": [
             [
-                "b9ce6177.5cd4e"
+                "a138d82a.1074d8"
             ]
         ]
     },
     {
-        "id": "faad7c1.312338",
+        "id": "e56f9df3.c1475",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "4d12d327.40713c",
+        "z": "efaaca2d.40d4f8",
+        "group": "c6032041.101a6",
         "order": 12,
         "width": "1",
         "height": "1",
@@ -2503,9 +2503,9 @@
         "wires": []
     },
     {
-        "id": "1aa60ea3.8e3eb1",
+        "id": "8f62dd77.569",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -2525,15 +2525,15 @@
         "y": 900,
         "wires": [
             [
-                "c1fc430d.5d02c"
+                "7fff87b1.6b0828"
             ]
         ]
     },
     {
-        "id": "cf4970a6.af82c",
+        "id": "6d33e40f.0fef6c",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "b234e507.8a5e08",
+        "z": "efaaca2d.40d4f8",
+        "group": "53239cb8.210374",
         "order": 2,
         "width": "1",
         "height": "1",
@@ -2559,10 +2559,10 @@
         "wires": []
     },
     {
-        "id": "91281e89.fcec7",
+        "id": "860acec9.31023",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "6c609b1a.d64574",
+        "z": "efaaca2d.40d4f8",
+        "group": "b54bc12a.1abd6",
         "order": 2,
         "width": "1",
         "height": "1",
@@ -2588,10 +2588,10 @@
         "wires": []
     },
     {
-        "id": "6113e07f.842ea",
+        "id": "50680f77.5238",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "44d4ba0d.c427f4",
+        "z": "efaaca2d.40d4f8",
+        "group": "edcb3f2d.990b7",
         "order": 2,
         "width": "1",
         "height": "1",
@@ -2617,10 +2617,10 @@
         "wires": []
     },
     {
-        "id": "5546ed4b.a59084",
+        "id": "40b8db2e.742a84",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "4b38c9f.4596938",
+        "z": "efaaca2d.40d4f8",
+        "group": "81d6b9a2.abf7d8",
         "order": 2,
         "width": "1",
         "height": "1",
@@ -2646,10 +2646,10 @@
         "wires": []
     },
     {
-        "id": "635982ae.b5d1bc",
+        "id": "4b9ee29.cdaa21c",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "415bd403.38296c",
+        "z": "efaaca2d.40d4f8",
+        "group": "8f0783c6.a55f4",
         "order": 2,
         "width": "1",
         "height": "1",
@@ -2675,9 +2675,9 @@
         "wires": []
     },
     {
-        "id": "378a949e.b04f0c",
+        "id": "6237684d.0ac728",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -2686,15 +2686,15 @@
         "y": 600,
         "wires": [
             [
-                "7c5bb557.cea3dc",
-                "91281e89.fcec7"
+                "421d5934.252958",
+                "860acec9.31023"
             ]
         ]
     },
     {
-        "id": "fcf84fa2.a71f2",
+        "id": "b352dbac.058a48",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -2703,15 +2703,15 @@
         "y": 500.44440841674805,
         "wires": [
             [
-                "87e1af0d.bf5a5",
-                "cf4970a6.af82c"
+                "2a26ddf4.a9c012",
+                "6d33e40f.0fef6c"
             ]
         ]
     },
     {
-        "id": "febd7e6b.a0c42",
+        "id": "6b28fb0.a7f7104",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -2720,15 +2720,15 @@
         "y": 700,
         "wires": [
             [
-                "f781b03a.e0e3",
-                "6113e07f.842ea"
+                "a1fd581a.307fa8",
+                "50680f77.5238"
             ]
         ]
     },
     {
-        "id": "b9ce6177.5cd4e",
+        "id": "a138d82a.1074d8",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -2737,15 +2737,15 @@
         "y": 800,
         "wires": [
             [
-                "9191f74d.77e118",
-                "5546ed4b.a59084"
+                "cdc36b25.8af838",
+                "40b8db2e.742a84"
             ]
         ]
     },
     {
-        "id": "c1fc430d.5d02c",
+        "id": "7fff87b1.6b0828",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -2754,28 +2754,28 @@
         "y": 900,
         "wires": [
             [
-                "faad7c1.312338",
-                "635982ae.b5d1bc"
+                "e56f9df3.c1475",
+                "4b9ee29.cdaa21c"
             ]
         ]
     },
     {
-        "id": "1ce36cca.8601c3",
+        "id": "f32a2c5b.e70f4",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP3/led/cmd",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2470,
         "y": 2020,
         "wires": []
     },
     {
-        "id": "bd4bf2c0.ec1b2",
+        "id": "84ec1810.eeff38",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -2784,18 +2784,18 @@
         "y": 2020,
         "wires": [
             [
-                "b1e02cdf.9f653"
+                "39810e0b.9216b2"
             ]
         ]
     },
     {
-        "id": "38564d34.c4b132",
+        "id": "896547fd.bd2b98",
         "type": "ui_slider",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "sliderLed",
         "label": "",
         "tooltip": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 7,
         "width": "1",
         "height": "12",
@@ -2809,19 +2809,19 @@
         "y": 2020,
         "wires": [
             [
-                "bd4bf2c0.ec1b2",
-                "beb3d877.9d9628"
+                "84ec1810.eeff38",
+                "637e0ede.8b319"
             ]
         ]
     },
     {
-        "id": "beb3d877.9d9628",
+        "id": "637e0ede.8b319",
         "type": "ui_numeric",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "numericLed",
         "label": "PWM",
         "tooltip": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 8,
         "width": "3",
         "height": "2",
@@ -2835,31 +2835,31 @@
         "y": 2080,
         "wires": [
             [
-                "38564d34.c4b132",
-                "bd4bf2c0.ec1b2"
+                "896547fd.bd2b98",
+                "84ec1810.eeff38"
             ]
         ]
     },
     {
-        "id": "53258dac.2d91d4",
+        "id": "717b2f37.4eaad",
         "type": "mqtt in",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP3/led/status",
         "qos": "2",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2770,
         "y": 2020,
         "wires": [
             [
-                "1cb904a2.94656b"
+                "f58440c8.5c4bc"
             ]
         ]
     },
     {
-        "id": "8d6d6cc2.69321",
+        "id": "4d9ff4bf.e8189c",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -2871,9 +2871,9 @@
         "wires": []
     },
     {
-        "id": "b1e02cdf.9f653",
+        "id": "39810e0b.9216b2",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -2893,17 +2893,17 @@
         "y": 2020,
         "wires": [
             [
-                "1ce36cca.8601c3",
-                "4ea0a552.de880c"
+                "f32a2c5b.e70f4",
+                "d965819.deff68"
             ]
         ]
     },
     {
-        "id": "fd39ab83.6cb238",
+        "id": "857edbe3.3ab7c8",
         "type": "ui_gauge",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 6,
         "width": "3",
         "height": "3",
@@ -2925,9 +2925,9 @@
         "wires": []
     },
     {
-        "id": "256540d4.545e7",
+        "id": "51a06ddb.6e2c64",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -2936,27 +2936,27 @@
         "y": 2320,
         "wires": [
             [
-                "c066f67.6026a08"
+                "e9f8bac5.58e478"
             ]
         ]
     },
     {
-        "id": "9a556684.796e78",
+        "id": "daf9fc1c.7346b",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP3/switch/cmd",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2440,
         "y": 2320,
         "wires": []
     },
     {
-        "id": "c066f67.6026a08",
+        "id": "e9f8bac5.58e478",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -2976,31 +2976,31 @@
         "y": 2320,
         "wires": [
             [
-                "9a556684.796e78",
-                "e6440435.b3fdf8"
+                "daf9fc1c.7346b",
+                "5b747de1.f63884"
             ]
         ]
     },
     {
-        "id": "a1e34a6f.be2df8",
+        "id": "3673de0b.ae8ef2",
         "type": "mqtt in",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP3/switch/status",
         "qos": "2",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2760,
         "y": 2320,
         "wires": [
             [
-                "fb0f4649.1ad298"
+                "f46452fa.7aca9"
             ]
         ]
     },
     {
-        "id": "8f5d7045.e0a9b",
+        "id": "ed7b21d4.ba73",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3012,10 +3012,10 @@
         "wires": []
     },
     {
-        "id": "c33cdddb.42a43",
+        "id": "7cd7c1d3.09523",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "44d4ba0d.c427f4",
+        "z": "efaaca2d.40d4f8",
+        "group": "edcb3f2d.990b7",
         "order": 17,
         "width": "2",
         "height": "1",
@@ -3041,9 +3041,9 @@
         "wires": []
     },
     {
-        "id": "1cb904a2.94656b",
+        "id": "f58440c8.5c4bc",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3052,15 +3052,15 @@
         "y": 2020,
         "wires": [
             [
-                "8d6d6cc2.69321",
-                "2594fa38.0b1f56"
+                "4d9ff4bf.e8189c",
+                "329f9890.436d08"
             ]
         ]
     },
     {
-        "id": "fb0f4649.1ad298",
+        "id": "f46452fa.7aca9",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3069,14 +3069,14 @@
         "y": 2320,
         "wires": [
             [
-                "d848bb18.728d98"
+                "2e50d9a7.aea806"
             ]
         ]
     },
     {
-        "id": "4ea0a552.de880c",
+        "id": "d965819.deff68",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3088,13 +3088,13 @@
         "wires": []
     },
     {
-        "id": "b229fe0f.5a65a",
+        "id": "a64aa6bf.cb5698",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch",
         "tooltip": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 9,
         "width": "2",
         "height": "1",
@@ -3114,14 +3114,14 @@
         "y": 2320,
         "wires": [
             [
-                "256540d4.545e7"
+                "51a06ddb.6e2c64"
             ]
         ]
     },
     {
-        "id": "e6440435.b3fdf8",
+        "id": "5b747de1.f63884",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3133,9 +3133,9 @@
         "wires": []
     },
     {
-        "id": "d848bb18.728d98",
+        "id": "2e50d9a7.aea806",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -3155,15 +3155,15 @@
         "y": 2320,
         "wires": [
             [
-                "c33cdddb.42a43",
-                "8f5d7045.e0a9b"
+                "7cd7c1d3.09523",
+                "ed7b21d4.ba73"
             ]
         ]
     },
     {
-        "id": "2594fa38.0b1f56",
+        "id": "329f9890.436d08",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -3183,15 +3183,15 @@
         "y": 2020,
         "wires": [
             [
-                "fd39ab83.6cb238"
+                "857edbe3.3ab7c8"
             ]
         ]
     },
     {
-        "id": "393be38a.967c9c",
+        "id": "701296da.4ba098",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "44d4ba0d.c427f4",
+        "z": "efaaca2d.40d4f8",
+        "group": "edcb3f2d.990b7",
         "order": 5,
         "width": "4",
         "height": "1",
@@ -3204,22 +3204,22 @@
         "wires": []
     },
     {
-        "id": "5589434.e9af0bc",
+        "id": "c7f2e10b.37a92",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP4/led/cmd",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 990,
         "y": 2660,
         "wires": []
     },
     {
-        "id": "28fa462a.0964fa",
+        "id": "35136306.b18abc",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -3228,18 +3228,18 @@
         "y": 2660,
         "wires": [
             [
-                "56a9df4e.3c844"
+                "d48da956.00c4a8"
             ]
         ]
     },
     {
-        "id": "24569014.c4531",
+        "id": "a7174aac.464c68",
         "type": "ui_slider",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "sliderLed",
         "label": "",
         "tooltip": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 7,
         "width": "1",
         "height": "12",
@@ -3253,19 +3253,19 @@
         "y": 2660,
         "wires": [
             [
-                "28fa462a.0964fa",
-                "33616080.67fed"
+                "35136306.b18abc",
+                "a28a9661.7b6328"
             ]
         ]
     },
     {
-        "id": "33616080.67fed",
+        "id": "a28a9661.7b6328",
         "type": "ui_numeric",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "numericLed",
         "label": "PWM",
         "tooltip": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 8,
         "width": "3",
         "height": "2",
@@ -3279,31 +3279,31 @@
         "y": 2720,
         "wires": [
             [
-                "24569014.c4531",
-                "28fa462a.0964fa"
+                "a7174aac.464c68",
+                "35136306.b18abc"
             ]
         ]
     },
     {
-        "id": "e3824de9.87e9d",
+        "id": "7ca240f3.029b7",
         "type": "mqtt in",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP4/led/status",
         "qos": "2",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 1310,
         "y": 2660,
         "wires": [
             [
-                "d7bd6353.fd0b4"
+                "818162b7.a38f"
             ]
         ]
     },
     {
-        "id": "13e27d86.ee8e32",
+        "id": "2c57fba.d8c6c04",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -3315,9 +3315,9 @@
         "wires": []
     },
     {
-        "id": "56a9df4e.3c844",
+        "id": "d48da956.00c4a8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -3337,17 +3337,17 @@
         "y": 2660,
         "wires": [
             [
-                "5589434.e9af0bc",
-                "3859010f.ce9a4e"
+                "c7f2e10b.37a92",
+                "b700a734.d95ff8"
             ]
         ]
     },
     {
-        "id": "54c6ca23.c5cde4",
+        "id": "9583d888.014718",
         "type": "ui_gauge",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 6,
         "width": "3",
         "height": "3",
@@ -3369,9 +3369,9 @@
         "wires": []
     },
     {
-        "id": "a761c34a.764c4",
+        "id": "5bdaba36.4dfbc4",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -3380,27 +3380,27 @@
         "y": 2960,
         "wires": [
             [
-                "bc6a9cac.b64ca"
+                "5424f960.d5fa08"
             ]
         ]
     },
     {
-        "id": "4d32717d.dcd16",
+        "id": "bfeb3ee3.a48b9",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP4/switch/cmd",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 1000,
         "y": 2960,
         "wires": []
     },
     {
-        "id": "bc6a9cac.b64ca",
+        "id": "5424f960.d5fa08",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -3420,31 +3420,31 @@
         "y": 2960,
         "wires": [
             [
-                "4d32717d.dcd16",
-                "4d28f910.f742f8"
+                "bfeb3ee3.a48b9",
+                "2fa51f71.c6328"
             ]
         ]
     },
     {
-        "id": "f45f080a.1adba8",
+        "id": "3ab45d1.c643fa2",
         "type": "mqtt in",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP4/switch/status",
         "qos": "2",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 1340,
         "y": 2960,
         "wires": [
             [
-                "68674407.8454ac"
+                "acc9e35c.b8f02"
             ]
         ]
     },
     {
-        "id": "c2fb7715.da93a8",
+        "id": "5969da1e.7330f4",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3456,10 +3456,10 @@
         "wires": []
     },
     {
-        "id": "bcac4f14.53aa8",
+        "id": "837a5db3.ee63b",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "4b38c9f.4596938",
+        "z": "efaaca2d.40d4f8",
+        "group": "81d6b9a2.abf7d8",
         "order": 17,
         "width": "2",
         "height": "1",
@@ -3485,9 +3485,9 @@
         "wires": []
     },
     {
-        "id": "d7bd6353.fd0b4",
+        "id": "818162b7.a38f",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3496,15 +3496,15 @@
         "y": 2660,
         "wires": [
             [
-                "13e27d86.ee8e32",
-                "27df045b.19b08c"
+                "2c57fba.d8c6c04",
+                "4ff9ff8e.f029d"
             ]
         ]
     },
     {
-        "id": "68674407.8454ac",
+        "id": "acc9e35c.b8f02",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3513,14 +3513,14 @@
         "y": 2960,
         "wires": [
             [
-                "47d73ff0.108bd"
+                "a77cb550.65ef08"
             ]
         ]
     },
     {
-        "id": "3859010f.ce9a4e",
+        "id": "b700a734.d95ff8",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3532,13 +3532,13 @@
         "wires": []
     },
     {
-        "id": "fd53af5a.de30d",
+        "id": "20df1877.0bc488",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch",
         "tooltip": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 9,
         "width": "2",
         "height": "1",
@@ -3558,14 +3558,14 @@
         "y": 2960,
         "wires": [
             [
-                "a761c34a.764c4"
+                "5bdaba36.4dfbc4"
             ]
         ]
     },
     {
-        "id": "4d28f910.f742f8",
+        "id": "2fa51f71.c6328",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3577,9 +3577,9 @@
         "wires": []
     },
     {
-        "id": "47d73ff0.108bd",
+        "id": "a77cb550.65ef08",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -3599,15 +3599,15 @@
         "y": 2960,
         "wires": [
             [
-                "bcac4f14.53aa8",
-                "c2fb7715.da93a8"
+                "837a5db3.ee63b",
+                "5969da1e.7330f4"
             ]
         ]
     },
     {
-        "id": "27df045b.19b08c",
+        "id": "4ff9ff8e.f029d",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -3627,15 +3627,15 @@
         "y": 2660,
         "wires": [
             [
-                "54c6ca23.c5cde4"
+                "9583d888.014718"
             ]
         ]
     },
     {
-        "id": "c4867349.586b7",
+        "id": "b7afc6be.9e4098",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "4b38c9f.4596938",
+        "z": "efaaca2d.40d4f8",
+        "group": "81d6b9a2.abf7d8",
         "order": 5,
         "width": "4",
         "height": "1",
@@ -3648,22 +3648,22 @@
         "wires": []
     },
     {
-        "id": "d21cd462.b988f8",
+        "id": "3e3ed98d.92fa96",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP5/led/cmd",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 3370,
         "y": 2660,
         "wires": []
     },
     {
-        "id": "3f998852.c6ae78",
+        "id": "1ae59927.cea007",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -3672,18 +3672,18 @@
         "y": 2660,
         "wires": [
             [
-                "43b99909.2e99d8"
+                "aafcc6e5.3240c8"
             ]
         ]
     },
     {
-        "id": "df9e1264.56d32",
+        "id": "c7978fc6.d2227",
         "type": "ui_slider",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "sliderLed",
         "label": "",
         "tooltip": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 7,
         "width": "1",
         "height": "12",
@@ -3697,19 +3697,19 @@
         "y": 2660,
         "wires": [
             [
-                "3f998852.c6ae78",
-                "cfc6345f.b3f678"
+                "1ae59927.cea007",
+                "ea0d0c6f.14daf"
             ]
         ]
     },
     {
-        "id": "cfc6345f.b3f678",
+        "id": "ea0d0c6f.14daf",
         "type": "ui_numeric",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "numericLed",
         "label": "PWM",
         "tooltip": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 8,
         "width": "3",
         "height": "2",
@@ -3723,31 +3723,31 @@
         "y": 2720,
         "wires": [
             [
-                "df9e1264.56d32",
-                "3f998852.c6ae78"
+                "c7978fc6.d2227",
+                "1ae59927.cea007"
             ]
         ]
     },
     {
-        "id": "afd7077f.6e7ba8",
+        "id": "3186ca39.0737f6",
         "type": "mqtt in",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP5/led/status",
         "qos": "2",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 3730,
         "y": 2660,
         "wires": [
             [
-                "df245bd1.78d508"
+                "deeaafb.2a15b5"
             ]
         ]
     },
     {
-        "id": "6857d411.25564c",
+        "id": "e914fe65.5596f",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3759,9 +3759,9 @@
         "wires": []
     },
     {
-        "id": "43b99909.2e99d8",
+        "id": "aafcc6e5.3240c8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -3781,17 +3781,17 @@
         "y": 2660,
         "wires": [
             [
-                "d21cd462.b988f8",
-                "e14c476c.0c48c8"
+                "3e3ed98d.92fa96",
+                "9bce3b78.492eb8"
             ]
         ]
     },
     {
-        "id": "742f2ac0.0eb554",
+        "id": "f0739d67.4694d",
         "type": "ui_gauge",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 6,
         "width": "3",
         "height": "3",
@@ -3813,9 +3813,9 @@
         "wires": []
     },
     {
-        "id": "1af73be0.b0f684",
+        "id": "8005a1b5.95a8f",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "num2json",
         "func": "var value=msg.payload;\nmsg.payload={\"level\" : value }\nreturn msg;",
         "outputs": 1,
@@ -3824,27 +3824,27 @@
         "y": 2940,
         "wires": [
             [
-                "dcd86f.698e379"
+                "be99e75f.43a518"
             ]
         ]
     },
     {
-        "id": "2d1ecdc5.4728d2",
+        "id": "911d51c3.458cc",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP5/switch/cmd",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 3380,
         "y": 2940,
         "wires": []
     },
     {
-        "id": "dcd86f.698e379",
+        "id": "be99e75f.43a518",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -3864,31 +3864,31 @@
         "y": 2940,
         "wires": [
             [
-                "2d1ecdc5.4728d2",
-                "8e3ebeb0.566c5"
+                "911d51c3.458cc",
+                "25c73705.e4a658"
             ]
         ]
     },
     {
-        "id": "44bc5cd3.b802d4",
+        "id": "a3a98b18.b6ab48",
         "type": "mqtt in",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP5/switch/status",
         "qos": "2",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 3740,
         "y": 2940,
         "wires": [
             [
-                "8b9efc4f.86849"
+                "2dd2ffe7.a070b"
             ]
         ]
     },
     {
-        "id": "7333e06f.335a",
+        "id": "d35b1b9d.0397b8",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3900,9 +3900,9 @@
         "wires": []
     },
     {
-        "id": "df245bd1.78d508",
+        "id": "deeaafb.2a15b5",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3911,15 +3911,15 @@
         "y": 2660,
         "wires": [
             [
-                "6857d411.25564c",
-                "e33ac9bb.c77db8"
+                "e914fe65.5596f",
+                "5155f3df.2d2b9c"
             ]
         ]
     },
     {
-        "id": "8b9efc4f.86849",
+        "id": "2dd2ffe7.a070b",
         "type": "json",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3928,14 +3928,14 @@
         "y": 2940,
         "wires": [
             [
-                "b0d1340d.2d51b8"
+                "9baddb06.316598"
             ]
         ]
     },
     {
-        "id": "e14c476c.0c48c8",
+        "id": "9bce3b78.492eb8",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3947,13 +3947,13 @@
         "wires": []
     },
     {
-        "id": "3880c0a5.6c1ce",
+        "id": "3c8c6915.e560e6",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch",
         "tooltip": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 9,
         "width": "2",
         "height": "1",
@@ -3973,14 +3973,14 @@
         "y": 2940,
         "wires": [
             [
-                "1af73be0.b0f684"
+                "8005a1b5.95a8f"
             ]
         ]
     },
     {
-        "id": "8e3ebeb0.566c5",
+        "id": "25c73705.e4a658",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3992,9 +3992,9 @@
         "wires": []
     },
     {
-        "id": "b0d1340d.2d51b8",
+        "id": "9baddb06.316598",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4014,15 +4014,15 @@
         "y": 2940,
         "wires": [
             [
-                "7333e06f.335a",
-                "c81e69e.2977f98"
+                "d35b1b9d.0397b8",
+                "9767db26.951c98"
             ]
         ]
     },
     {
-        "id": "e33ac9bb.c77db8",
+        "id": "5155f3df.2d2b9c",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4042,15 +4042,15 @@
         "y": 2660,
         "wires": [
             [
-                "742f2ac0.0eb554"
+                "f0739d67.4694d"
             ]
         ]
     },
     {
-        "id": "234d1ee2.2a4812",
+        "id": "ece3d64c.4a5418",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "415bd403.38296c",
+        "z": "efaaca2d.40d4f8",
+        "group": "8f0783c6.a55f4",
         "order": 5,
         "width": "4",
         "height": "1",
@@ -4063,10 +4063,10 @@
         "wires": []
     },
     {
-        "id": "cb56d816.778818",
+        "id": "b0b2061a.5848c8",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "b234e507.8a5e08",
+        "z": "efaaca2d.40d4f8",
+        "group": "53239cb8.210374",
         "order": 1,
         "width": "3",
         "height": "1",
@@ -4079,10 +4079,10 @@
         "wires": []
     },
     {
-        "id": "ff553e2e.9dc48",
+        "id": "2d24cbe.0493834",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "6c609b1a.d64574",
+        "z": "efaaca2d.40d4f8",
+        "group": "b54bc12a.1abd6",
         "order": 1,
         "width": "3",
         "height": "1",
@@ -4095,10 +4095,10 @@
         "wires": []
     },
     {
-        "id": "c798f9e7.6e72c8",
+        "id": "87e6706b.84e18",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "44d4ba0d.c427f4",
+        "z": "efaaca2d.40d4f8",
+        "group": "edcb3f2d.990b7",
         "order": 1,
         "width": "3",
         "height": "1",
@@ -4111,10 +4111,10 @@
         "wires": []
     },
     {
-        "id": "3e5caa0d.e48676",
+        "id": "8569ba01.361f18",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "4b38c9f.4596938",
+        "z": "efaaca2d.40d4f8",
+        "group": "81d6b9a2.abf7d8",
         "order": 1,
         "width": "3",
         "height": "1",
@@ -4127,10 +4127,10 @@
         "wires": []
     },
     {
-        "id": "11744fd2.4f4d5",
+        "id": "4df0989f.b0b688",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "415bd403.38296c",
+        "z": "efaaca2d.40d4f8",
+        "group": "8f0783c6.a55f4",
         "order": 1,
         "width": "3",
         "height": "1",
@@ -4143,26 +4143,26 @@
         "wires": []
     },
     {
-        "id": "da7479ea.dea2c8",
+        "id": "edb6f24a.71b22",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP2/config",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 3020,
         "y": 1540,
         "wires": []
     },
     {
-        "id": "86a9549b.cb64c8",
+        "id": "f4b070a9.f7e45",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Velocidad +- 1% PWM (ms)",
         "tooltip": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 12,
         "width": 0,
         "height": 0,
@@ -4174,18 +4174,18 @@
         "y": 1540,
         "wires": [
             [
-                "695787cb.d027a8"
+                "b1c661e.705eaa"
             ]
         ]
     },
     {
-        "id": "a622aae.73f0f58",
+        "id": "f111a9d0.3d3d68",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Envía datos (s)",
         "tooltip": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 11,
         "width": 0,
         "height": 0,
@@ -4197,14 +4197,14 @@
         "y": 1500,
         "wires": [
             [
-                "b3a803a1.87968"
+                "d4e5d65d.fbe348"
             ]
         ]
     },
     {
-        "id": "695787cb.d027a8",
+        "id": "b1c661e.705eaa",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4227,9 +4227,9 @@
         ]
     },
     {
-        "id": "b3a803a1.87968",
+        "id": "d4e5d65d.fbe348",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4252,9 +4252,9 @@
         ]
     },
     {
-        "id": "310287d8.c9db48",
+        "id": "df7fde01.2c833",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4274,19 +4274,19 @@
         "y": 1540,
         "wires": [
             [
-                "5940cc20.3403b4",
-                "da7479ea.dea2c8"
+                "e217928.7d9c57",
+                "edb6f24a.71b22"
             ]
         ]
     },
     {
-        "id": "40deef85.a7766",
+        "id": "1e8ca0f9.ad477f",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Actualiza (min)",
         "tooltip": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 10,
         "width": 0,
         "height": 0,
@@ -4298,14 +4298,14 @@
         "y": 1460,
         "wires": [
             [
-                "5c4e225b.c897bc"
+                "9f30e67c.4de3a8"
             ]
         ]
     },
     {
-        "id": "5c4e225b.c897bc",
+        "id": "9f30e67c.4de3a8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4328,13 +4328,13 @@
         ]
     },
     {
-        "id": "c033ffb9.86447",
+        "id": "ab376455.6b8ce8",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch_ config",
         "tooltip": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 14,
         "width": "2",
         "height": "1",
@@ -4354,14 +4354,14 @@
         "y": 1500,
         "wires": [
             [
-                "62a019fe.587408"
+                "bfba5d17.bbcfc"
             ]
         ]
     },
     {
-        "id": "62a019fe.587408",
+        "id": "bfba5d17.bbcfc",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4384,13 +4384,13 @@
         ]
     },
     {
-        "id": "12214762.53bf99",
+        "id": "ac815570.6c4b58",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "LED_config",
         "tooltip": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 13,
         "width": "2",
         "height": "1",
@@ -4410,14 +4410,14 @@
         "y": 1460,
         "wires": [
             [
-                "44a70269.08225c"
+                "3165bc45.8c1564"
             ]
         ]
     },
     {
-        "id": "44a70269.08225c",
+        "id": "3165bc45.8c1564",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4440,9 +4440,9 @@
         ]
     },
     {
-        "id": "5940cc20.3403b4",
+        "id": "e217928.7d9c57",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -4454,11 +4454,11 @@
         "wires": []
     },
     {
-        "id": "a110fb7a.4d66d8",
+        "id": "2a07a62b.5cf22a",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 15,
         "width": "4",
         "height": "1",
@@ -4475,27 +4475,27 @@
         "y": 1540,
         "wires": [
             [
-                "471a6e3.6df869"
+                "61521847.58d748"
             ]
         ]
     },
     {
-        "id": "eb0a9426.cab3e8",
+        "id": "53079eee.efa05",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP1/config",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 720,
         "y": 1540,
         "wires": []
     },
     {
-        "id": "7e306668.d62798",
+        "id": "366b0c9f.9fa684",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "Crea Objeto Config",
         "func": "\nvar velocidad = global.get(\"velocidad1\");\nvar envia = global.get(\"envia1\");\nvar actualiza = global.get(\"actualiza1\");\nvar LED = global.get(\"LED1\");\nvar Switch = global.get(\"switch1\");\nvar Logica_negativa = global.get(\"Logica_negativa1\");\n\nif(actualiza === null || actualiza < 0)\n{\n    actualiza = -1;\n}\n\nif(envia === null || envia < 0)\n{\n    envia = -1;\n}\n\nif(velocidad === null || velocidad < 0)\n{\n    velocidad = -1;\n}\n\nif(LED === null)\n{\n    LED = -1;\n}\n\nif(Switch === null)\n{\n    SWITCH = -1;\n}\n\nif(Logica_negativa === null)\n{\n    Logica_negativa = -1;\n}\n\nvar msg1 = {};\n\nmsg1.payload = {\"actualiza\" : actualiza, \"envia\" : envia, \"velocidad\": velocidad, \"LED\" : LED, \"SWITCH\": Switch, \"Logica_negativa\" : Logica_negativa};\n\nreturn msg1;",
         "outputs": 1,
@@ -4504,14 +4504,14 @@
         "y": 1540,
         "wires": [
             [
-                "b3bbb44d.4e5d48"
+                "38d068bc.40c078"
             ]
         ]
     },
     {
-        "id": "b3bbb44d.4e5d48",
+        "id": "38d068bc.40c078",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4531,15 +4531,15 @@
         "y": 1540,
         "wires": [
             [
-                "23de51dd.87ebce",
-                "eb0a9426.cab3e8"
+                "a426f355.96f95",
+                "53079eee.efa05"
             ]
         ]
     },
     {
-        "id": "23de51dd.87ebce",
+        "id": "a426f355.96f95",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -4551,11 +4551,11 @@
         "wires": []
     },
     {
-        "id": "e18464e3.e20e28",
+        "id": "da14bc8d.eabda",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 15,
         "width": "4",
         "height": "1",
@@ -4572,18 +4572,18 @@
         "y": 1540,
         "wires": [
             [
-                "7e306668.d62798"
+                "366b0c9f.9fa684"
             ]
         ]
     },
     {
-        "id": "f15c7e66.1af81",
+        "id": "ac61a3a4.fb45",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Velocidad +- 1% PWM (ms)",
         "tooltip": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 12,
         "width": 0,
         "height": 0,
@@ -4595,18 +4595,18 @@
         "y": 1540,
         "wires": [
             [
-                "c268093e.bdbd28"
+                "a97beaf3.3a0ec8"
             ]
         ]
     },
     {
-        "id": "ac744b79.ac3f08",
+        "id": "7c6be414.c1146c",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Envía datos (s)",
         "tooltip": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 11,
         "width": 0,
         "height": 0,
@@ -4618,14 +4618,14 @@
         "y": 1500,
         "wires": [
             [
-                "f74be132.b7dcb"
+                "746d4d43.85e4b4"
             ]
         ]
     },
     {
-        "id": "c268093e.bdbd28",
+        "id": "a97beaf3.3a0ec8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4648,9 +4648,9 @@
         ]
     },
     {
-        "id": "f74be132.b7dcb",
+        "id": "746d4d43.85e4b4",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4673,13 +4673,13 @@
         ]
     },
     {
-        "id": "1c166053.4f0f8",
+        "id": "79d7454a.09418c",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Actualiza (min)",
         "tooltip": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 10,
         "width": 0,
         "height": 0,
@@ -4691,14 +4691,14 @@
         "y": 1460,
         "wires": [
             [
-                "f144cc34.412d2"
+                "888ef10a.e1709"
             ]
         ]
     },
     {
-        "id": "f144cc34.412d2",
+        "id": "888ef10a.e1709",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4721,13 +4721,13 @@
         ]
     },
     {
-        "id": "3cb395a4.85eb0a",
+        "id": "f44cd20a.35f0b",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch_ config",
         "tooltip": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 14,
         "width": "2",
         "height": "1",
@@ -4747,14 +4747,14 @@
         "y": 1500,
         "wires": [
             [
-                "98caa2aa.e270f"
+                "fb37310f.ef217"
             ]
         ]
     },
     {
-        "id": "98caa2aa.e270f",
+        "id": "fb37310f.ef217",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4777,13 +4777,13 @@
         ]
     },
     {
-        "id": "2cbd2712.5bc6d8",
+        "id": "c95f518c.800ac",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "LED_config",
         "tooltip": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 13,
         "width": "2",
         "height": "1",
@@ -4803,14 +4803,14 @@
         "y": 1460,
         "wires": [
             [
-                "8354466e.c3df78"
+                "fdcd2b9f.4cd708"
             ]
         ]
     },
     {
-        "id": "8354466e.c3df78",
+        "id": "fdcd2b9f.4cd708",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4833,26 +4833,26 @@
         ]
     },
     {
-        "id": "1f114f62.d1e241",
+        "id": "9fca7b57.106be8",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP3/config",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 2160,
         "y": 2160,
         "wires": []
     },
     {
-        "id": "b2b0045e.37d6d8",
+        "id": "2165cc1.2063f34",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Velocidad +- 1% PWM (ms)",
         "tooltip": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 12,
         "width": 0,
         "height": 0,
@@ -4864,18 +4864,18 @@
         "y": 2160,
         "wires": [
             [
-                "5a2af973.420be8"
+                "dcdcea70.dcdf88"
             ]
         ]
     },
     {
-        "id": "51d497f9.993fd8",
+        "id": "e6961af6.ae50f8",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Envía datos (s)",
         "tooltip": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 11,
         "width": 0,
         "height": 0,
@@ -4887,14 +4887,14 @@
         "y": 2120,
         "wires": [
             [
-                "f0933df6.ea19e"
+                "261f871.53c9c78"
             ]
         ]
     },
     {
-        "id": "5a2af973.420be8",
+        "id": "dcdcea70.dcdf88",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4917,9 +4917,9 @@
         ]
     },
     {
-        "id": "f0933df6.ea19e",
+        "id": "261f871.53c9c78",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4942,9 +4942,9 @@
         ]
     },
     {
-        "id": "e0900294.7296e",
+        "id": "c2315e39.56156",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -4964,19 +4964,19 @@
         "y": 2160,
         "wires": [
             [
-                "6b6f542b.9c5aac",
-                "1f114f62.d1e241"
+                "4d250e09.64251",
+                "9fca7b57.106be8"
             ]
         ]
     },
     {
-        "id": "ec6422.ddba8be",
+        "id": "7ec64f7d.ae4c",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch_ config",
         "tooltip": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 14,
         "width": "2",
         "height": "1",
@@ -4996,14 +4996,14 @@
         "y": 2120,
         "wires": [
             [
-                "950c38eb.4b5088"
+                "faf0648c.1366e8"
             ]
         ]
     },
     {
-        "id": "950c38eb.4b5088",
+        "id": "faf0648c.1366e8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5026,13 +5026,13 @@
         ]
     },
     {
-        "id": "5770ab85.ca0a84",
+        "id": "f38532ef.73314",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "LED_config",
         "tooltip": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 13,
         "width": "2",
         "height": "1",
@@ -5052,14 +5052,14 @@
         "y": 2080,
         "wires": [
             [
-                "299c25d8.9812fa"
+                "baf8bd67.60e64"
             ]
         ]
     },
     {
-        "id": "299c25d8.9812fa",
+        "id": "baf8bd67.60e64",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5082,9 +5082,9 @@
         ]
     },
     {
-        "id": "6b6f542b.9c5aac",
+        "id": "4d250e09.64251",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -5096,11 +5096,11 @@
         "wires": []
     },
     {
-        "id": "f218af61.e5e74",
+        "id": "57e88741.12b718",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 15,
         "width": "4",
         "height": "1",
@@ -5117,18 +5117,18 @@
         "y": 2160,
         "wires": [
             [
-                "3f1b6760.eb2248"
+                "348d5381.95303c"
             ]
         ]
     },
     {
-        "id": "45ce4bba.2e2a94",
+        "id": "6e22b0ea.7046f",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Actualiza (min)",
         "tooltip": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 10,
         "width": 0,
         "height": 0,
@@ -5140,14 +5140,14 @@
         "y": 2080,
         "wires": [
             [
-                "94b3d7e.31b9728"
+                "f9d55380.451c5"
             ]
         ]
     },
     {
-        "id": "94b3d7e.31b9728",
+        "id": "f9d55380.451c5",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5170,26 +5170,26 @@
         ]
     },
     {
-        "id": "5ae7682d.6989e8",
+        "id": "7372a5c9.96a81c",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP4/config",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 720,
         "y": 2800,
         "wires": []
     },
     {
-        "id": "cd220f3d.4fc54",
+        "id": "4a399381.f2076c",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Velocidad +- 1% PWM (ms)",
         "tooltip": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 12,
         "width": 0,
         "height": 0,
@@ -5201,18 +5201,18 @@
         "y": 2800,
         "wires": [
             [
-                "2e3467e1.946568"
+                "1e43e07d.600f1"
             ]
         ]
     },
     {
-        "id": "86d05622.a42568",
+        "id": "6a454aa6.b27b64",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Envía datos (s)",
         "tooltip": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 11,
         "width": 0,
         "height": 0,
@@ -5224,14 +5224,14 @@
         "y": 2760,
         "wires": [
             [
-                "ff1baf9a.5526f"
+                "58919259.d5736c"
             ]
         ]
     },
     {
-        "id": "2e3467e1.946568",
+        "id": "1e43e07d.600f1",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5254,9 +5254,9 @@
         ]
     },
     {
-        "id": "ff1baf9a.5526f",
+        "id": "58919259.d5736c",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5279,9 +5279,9 @@
         ]
     },
     {
-        "id": "cffb8c3d.d85e4",
+        "id": "79e29e7e.e7bba",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5301,19 +5301,19 @@
         "y": 2800,
         "wires": [
             [
-                "18a693b2.be8c4c",
-                "5ae7682d.6989e8"
+                "3d59accd.081634",
+                "7372a5c9.96a81c"
             ]
         ]
     },
     {
-        "id": "5d557edc.0d34f",
+        "id": "4032a2c3.4349dc",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch_ config",
         "tooltip": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 14,
         "width": "2",
         "height": "1",
@@ -5333,14 +5333,14 @@
         "y": 2760,
         "wires": [
             [
-                "9d18141f.d04758"
+                "1b499446.181e6c"
             ]
         ]
     },
     {
-        "id": "9d18141f.d04758",
+        "id": "1b499446.181e6c",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5363,9 +5363,9 @@
         ]
     },
     {
-        "id": "18a693b2.be8c4c",
+        "id": "3d59accd.081634",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -5377,11 +5377,11 @@
         "wires": []
     },
     {
-        "id": "9daf3c30.86434",
+        "id": "13c83e6c.9c6382",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 15,
         "width": "4",
         "height": "1",
@@ -5398,14 +5398,14 @@
         "y": 2800,
         "wires": [
             [
-                "246dc30e.0f088c"
+                "832bc8d2.4f7f38"
             ]
         ]
     },
     {
-        "id": "83ec620e.4731f",
+        "id": "4fe81ac3.a35634",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5428,13 +5428,13 @@
         ]
     },
     {
-        "id": "397243c.a552dbc",
+        "id": "94806991.ac4608",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Actualiza (min)",
         "tooltip": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 10,
         "width": 0,
         "height": 0,
@@ -5446,18 +5446,18 @@
         "y": 2720,
         "wires": [
             [
-                "83ec620e.4731f"
+                "4fe81ac3.a35634"
             ]
         ]
     },
     {
-        "id": "b2bc9a65.dc7c38",
+        "id": "79c71f45.e43be",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "LED_config",
         "tooltip": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 13,
         "width": "2",
         "height": "1",
@@ -5477,14 +5477,14 @@
         "y": 2720,
         "wires": [
             [
-                "3f72e51d.72950a"
+                "4e1c9b47.6919b4"
             ]
         ]
     },
     {
-        "id": "3f72e51d.72950a",
+        "id": "4e1c9b47.6919b4",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5507,26 +5507,26 @@
         ]
     },
     {
-        "id": "e1f39ed8.995af",
+        "id": "9d10e955.f9dc68",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "infind/GRUPO1/ESP5/config",
         "qos": "",
         "retain": "",
-        "broker": "53755d9c.c210a4",
+        "broker": "728049ce.f396b8",
         "x": 3120,
         "y": 2800,
         "wires": []
     },
     {
-        "id": "b3c0acda.cfb01",
+        "id": "11d1c786.a9e698",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Velocidad +- 1% PWM (ms)",
         "tooltip": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 12,
         "width": 0,
         "height": 0,
@@ -5538,18 +5538,18 @@
         "y": 2800,
         "wires": [
             [
-                "b19272c2.9e42"
+                "8b09cdcd.48cc3"
             ]
         ]
     },
     {
-        "id": "63755c63.291944",
+        "id": "7cb1d7e1.64ccc8",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Envía datos (s)",
         "tooltip": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 11,
         "width": 0,
         "height": 0,
@@ -5561,14 +5561,14 @@
         "y": 2760,
         "wires": [
             [
-                "576a9b0b.c44f44"
+                "b34e388a.396478"
             ]
         ]
     },
     {
-        "id": "b19272c2.9e42",
+        "id": "8b09cdcd.48cc3",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5591,9 +5591,9 @@
         ]
     },
     {
-        "id": "576a9b0b.c44f44",
+        "id": "b34e388a.396478",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5616,9 +5616,9 @@
         ]
     },
     {
-        "id": "787cd73d.901e58",
+        "id": "78118e81.34be",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5638,19 +5638,19 @@
         "y": 2800,
         "wires": [
             [
-                "461e9455.21066c",
-                "e1f39ed8.995af"
+                "1659ad3e.7576e3",
+                "9d10e955.f9dc68"
             ]
         ]
     },
     {
-        "id": "5d84b8e5.c841c8",
+        "id": "a277b2d2.ae4b2",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch_ config",
         "tooltip": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 14,
         "width": "2",
         "height": "1",
@@ -5670,14 +5670,14 @@
         "y": 2760,
         "wires": [
             [
-                "31a98829.7240a8"
+                "2aebb3e1.f0d99c"
             ]
         ]
     },
     {
-        "id": "31a98829.7240a8",
+        "id": "2aebb3e1.f0d99c",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5700,9 +5700,9 @@
         ]
     },
     {
-        "id": "461e9455.21066c",
+        "id": "1659ad3e.7576e3",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -5714,11 +5714,11 @@
         "wires": []
     },
     {
-        "id": "ffe3bf10.a94d8",
+        "id": "deab5fc4.54132",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 15,
         "width": "4",
         "height": "1",
@@ -5735,14 +5735,14 @@
         "y": 2800,
         "wires": [
             [
-                "aeeb2b0a.119248"
+                "a88f9df0.6cf5c"
             ]
         ]
     },
     {
-        "id": "292eab22.7e8a94",
+        "id": "337a798.872a986",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5765,13 +5765,13 @@
         ]
     },
     {
-        "id": "74527945.c9b9b8",
+        "id": "7fc76b45.383444",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "LED_config",
         "tooltip": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 13,
         "width": "2",
         "height": "1",
@@ -5791,14 +5791,14 @@
         "y": 2720,
         "wires": [
             [
-                "292eab22.7e8a94"
+                "337a798.872a986"
             ]
         ]
     },
     {
-        "id": "ac898b0.5e00378",
+        "id": "78efbe08.c5a9b",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5821,13 +5821,13 @@
         ]
     },
     {
-        "id": "2ff006a3.a5bffa",
+        "id": "27f96167.ecaf0e",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Actualiza (min)",
         "tooltip": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 10,
         "width": 0,
         "height": 0,
@@ -5839,14 +5839,14 @@
         "y": 2720,
         "wires": [
             [
-                "ac898b0.5e00378"
+                "78efbe08.c5a9b"
             ]
         ]
     },
     {
-        "id": "751216a0.e02258",
+        "id": "def927e.b6640d8",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -5858,9 +5858,9 @@
         "wires": []
     },
     {
-        "id": "425ae632.2f5bc8",
+        "id": "a97ded07.2c983",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "actualiza2json",
         "func": "msg.payload={\"actualiza\" : 1 }\nreturn msg;",
         "outputs": 1,
@@ -5869,31 +5869,31 @@
         "y": 280,
         "wires": [
             [
-                "dd63e912.681498",
-                "8a893f61.fadb6",
-                "f8d73d5e.82aab",
-                "bf6d259a.a6d038",
-                "7977cc7e.2276c4"
+                "24f67825.3b8758",
+                "76147048.34131",
+                "aee381f8.545e6",
+                "51396514.4cb88c",
+                "718eeb1d.375124"
             ]
         ]
     },
     {
-        "id": "ccb5bff8.2df3e",
+        "id": "9204346d.9a2ea8",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3818.9997634887695,
         "y": 134,
         "wires": []
     },
     {
-        "id": "b369067b.58c8e8",
+        "id": "47f16cf9.c95ea4",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -5905,9 +5905,9 @@
         "wires": []
     },
     {
-        "id": "e7287932.02d678",
+        "id": "7137314a.12cf3",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -5927,15 +5927,15 @@
         "y": 133.1328067779541,
         "wires": [
             [
-                "ccb5bff8.2df3e",
-                "b369067b.58c8e8"
+                "9204346d.9a2ea8",
+                "47f16cf9.c95ea4"
             ]
         ]
     },
     {
-        "id": "dd63e912.681498",
+        "id": "24f67825.3b8758",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP1",
         "propertyType": "global",
@@ -5951,14 +5951,14 @@
         "y": 131.4765567779541,
         "wires": [
             [
-                "e7287932.02d678"
+                "7137314a.12cf3"
             ]
         ]
     },
     {
-        "id": "8a893f61.fadb6",
+        "id": "76147048.34131",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP2",
         "propertyType": "global",
@@ -5974,14 +5974,14 @@
         "y": 205.4765567779541,
         "wires": [
             [
-                "18f41c0e.9760b4"
+                "6d701a8b.07bb94"
             ]
         ]
     },
     {
-        "id": "f8d73d5e.82aab",
+        "id": "aee381f8.545e6",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP3",
         "propertyType": "global",
@@ -5997,14 +5997,14 @@
         "y": 290.47655868530273,
         "wires": [
             [
-                "9bb2aa7e.51f5f8"
+                "8a811417.054558"
             ]
         ]
     },
     {
-        "id": "bf6d259a.a6d038",
+        "id": "51396514.4cb88c",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP4",
         "propertyType": "global",
@@ -6020,14 +6020,14 @@
         "y": 359.47655868530273,
         "wires": [
             [
-                "651ea818.569468"
+                "ee45d724.8e48f8"
             ]
         ]
     },
     {
-        "id": "7977cc7e.2276c4",
+        "id": "718eeb1d.375124",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP5",
         "propertyType": "global",
@@ -6043,27 +6043,27 @@
         "y": 431.47655868530273,
         "wires": [
             [
-                "59df374f.02b188"
+                "162d9403.6f8d7c"
             ]
         ]
     },
     {
-        "id": "18e2e7be.d7f7a8",
+        "id": "df3b99ff.38d3c8",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3826.491928100586,
         "y": 221.4765567779541,
         "wires": []
     },
     {
-        "id": "6cedecf.b0bca14",
+        "id": "f77102b3.90dd7",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -6075,9 +6075,9 @@
         "wires": []
     },
     {
-        "id": "18f41c0e.9760b4",
+        "id": "6d701a8b.07bb94",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6097,28 +6097,28 @@
         "y": 210.60936737060547,
         "wires": [
             [
-                "18e2e7be.d7f7a8",
-                "6cedecf.b0bca14"
+                "df3b99ff.38d3c8",
+                "f77102b3.90dd7"
             ]
         ]
     },
     {
-        "id": "ecd257e5.e46218",
+        "id": "9350ac13.10a1b",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3830.491928100586,
         "y": 299.4765567779541,
         "wires": []
     },
     {
-        "id": "49967b7c.16fef4",
+        "id": "12961bda.5b0ec4",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -6130,9 +6130,9 @@
         "wires": []
     },
     {
-        "id": "9bb2aa7e.51f5f8",
+        "id": "8a811417.054558",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6152,28 +6152,28 @@
         "y": 292.60936737060547,
         "wires": [
             [
-                "ecd257e5.e46218",
-                "49967b7c.16fef4"
+                "9350ac13.10a1b",
+                "12961bda.5b0ec4"
             ]
         ]
     },
     {
-        "id": "5f40ff1b.694d5",
+        "id": "51bee994.0195f8",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3834.491928100586,
         "y": 373.4765567779541,
         "wires": []
     },
     {
-        "id": "3183b9eb.b19a06",
+        "id": "2dc547ee.c7ea78",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -6185,9 +6185,9 @@
         "wires": []
     },
     {
-        "id": "651ea818.569468",
+        "id": "ee45d724.8e48f8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6207,28 +6207,28 @@
         "y": 396.6093635559082,
         "wires": [
             [
-                "5f40ff1b.694d5",
-                "3183b9eb.b19a06"
+                "51bee994.0195f8",
+                "2dc547ee.c7ea78"
             ]
         ]
     },
     {
-        "id": "e45f1361.9ff28",
+        "id": "231817c2.0eb5c8",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3834.491928100586,
         "y": 447.4765567779541,
         "wires": []
     },
     {
-        "id": "1aae1338.c5239d",
+        "id": "347755f3.21700a",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -6240,9 +6240,9 @@
         "wires": []
     },
     {
-        "id": "59df374f.02b188",
+        "id": "162d9403.6f8d7c",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6262,17 +6262,17 @@
         "y": 482.6093635559082,
         "wires": [
             [
-                "e45f1361.9ff28",
-                "1aae1338.c5239d"
+                "231817c2.0eb5c8",
+                "347755f3.21700a"
             ]
         ]
     },
     {
-        "id": "6defb65d.cf7758",
+        "id": "152b3a6f.ceaa26",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "f42365d.519b598",
+        "group": "bd0b499c.ca1778",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -6289,16 +6289,16 @@
         "y": 280,
         "wires": [
             [
-                "236116fe.2773fa"
+                "bc4a9dad.31263"
             ]
         ]
     },
     {
-        "id": "2516d223.277b8e",
+        "id": "817b8505.78da48",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -6315,14 +6315,14 @@
         "y": 1870,
         "wires": [
             [
-                "61372254.3b8d8c"
+                "1e935d16.68bd83"
             ]
         ]
     },
     {
-        "id": "61372254.3b8d8c",
+        "id": "1e935d16.68bd83",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "actualiza2json",
         "func": "msg.payload={\"actualiza\" : 1 }\nreturn msg;",
         "outputs": 1,
@@ -6331,27 +6331,27 @@
         "y": 1869,
         "wires": [
             [
-                "3e189133.e22e8e"
+                "5f5d53c2.7cd15c"
             ]
         ]
     },
     {
-        "id": "c6bfc305.75633",
+        "id": "a120467d.f082e8",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 873,
         "y": 1871,
         "wires": []
     },
     {
-        "id": "3e189133.e22e8e",
+        "id": "5f5d53c2.7cd15c",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6371,15 +6371,15 @@
         "y": 1870.132806777954,
         "wires": [
             [
-                "c6bfc305.75633"
+                "a120467d.f082e8"
             ]
         ]
     },
     {
-        "id": "e9225423.21d238",
+        "id": "4e94a362.84ff3c",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "4b38c9f.4596938",
+        "z": "efaaca2d.40d4f8",
+        "group": "81d6b9a2.abf7d8",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -6392,11 +6392,11 @@
         "wires": []
     },
     {
-        "id": "c487d027.b6755",
+        "id": "b0c62742.6ef7f8",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -6413,14 +6413,14 @@
         "y": 3107,
         "wires": [
             [
-                "c3ab95dc.5862d8"
+                "b9ef608f.c147f"
             ]
         ]
     },
     {
-        "id": "c3ab95dc.5862d8",
+        "id": "b9ef608f.c147f",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "actualiza2json",
         "func": "msg.payload={\"actualiza\" : 1 }\nreturn msg;",
         "outputs": 1,
@@ -6429,27 +6429,27 @@
         "y": 3106,
         "wires": [
             [
-                "1f856191.0c85de"
+                "d3cf14f.9f288e8"
             ]
         ]
     },
     {
-        "id": "14389a27.158056",
+        "id": "1385f636.45e48a",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 852.5,
         "y": 3108,
         "wires": []
     },
     {
-        "id": "1f856191.0c85de",
+        "id": "d3cf14f.9f288e8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6469,15 +6469,15 @@
         "y": 3107.132806777954,
         "wires": [
             [
-                "14389a27.158056"
+                "1385f636.45e48a"
             ]
         ]
     },
     {
-        "id": "28d8d047.a1838",
+        "id": "5c7c5886.2e24e8",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "415bd403.38296c",
+        "z": "efaaca2d.40d4f8",
+        "group": "8f0783c6.a55f4",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -6490,11 +6490,11 @@
         "wires": []
     },
     {
-        "id": "8d22c775.71b738",
+        "id": "da543716.4f1898",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -6511,14 +6511,14 @@
         "y": 3087,
         "wires": [
             [
-                "38d7e53b.2269ba"
+                "ee3ba0d0.38dd2"
             ]
         ]
     },
     {
-        "id": "38d7e53b.2269ba",
+        "id": "ee3ba0d0.38dd2",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "actualiza2json",
         "func": "msg.payload={\"actualiza\" : 1 }\nreturn msg;",
         "outputs": 1,
@@ -6527,27 +6527,27 @@
         "y": 3086,
         "wires": [
             [
-                "d8817ded.f8cfc"
+                "c67a5573.117c28"
             ]
         ]
     },
     {
-        "id": "16be2747.8001c9",
+        "id": "912a314a.fa4ed",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3240.5,
         "y": 3088,
         "wires": []
     },
     {
-        "id": "d8817ded.f8cfc",
+        "id": "c67a5573.117c28",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6567,15 +6567,15 @@
         "y": 3087.132806777954,
         "wires": [
             [
-                "16be2747.8001c9"
+                "912a314a.fa4ed"
             ]
         ]
     },
     {
-        "id": "20c105de.dbafaa",
+        "id": "e232ab3.d8a6f58",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "44d4ba0d.c427f4",
+        "z": "efaaca2d.40d4f8",
+        "group": "edcb3f2d.990b7",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -6588,11 +6588,11 @@
         "wires": []
     },
     {
-        "id": "d5d3b25b.5198d",
+        "id": "599fdb24.33e1b4",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -6609,14 +6609,14 @@
         "y": 2464.5234375,
         "wires": [
             [
-                "ccff52ce.ac01c"
+                "adb92bb.c3b62d8"
             ]
         ]
     },
     {
-        "id": "ccff52ce.ac01c",
+        "id": "adb92bb.c3b62d8",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "actualiza2json",
         "func": "msg.payload={\"actualiza\" : 1 }\nreturn msg;",
         "outputs": 1,
@@ -6625,27 +6625,27 @@
         "y": 2463.5234375,
         "wires": [
             [
-                "d0d7dec9.10299"
+                "267d82d0.0dcbbe"
             ]
         ]
     },
     {
-        "id": "785856f6.e2d6b8",
+        "id": "4b3c1431.a5abfc",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 2280.5078125,
         "y": 2465.5234375,
         "wires": []
     },
     {
-        "id": "d0d7dec9.10299",
+        "id": "267d82d0.0dcbbe",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6665,15 +6665,15 @@
         "y": 2464.656244277954,
         "wires": [
             [
-                "785856f6.e2d6b8"
+                "4b3c1431.a5abfc"
             ]
         ]
     },
     {
-        "id": "568323fc.c37c3c",
+        "id": "ed1bd500.c7cec8",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "6c609b1a.d64574",
+        "z": "efaaca2d.40d4f8",
+        "group": "b54bc12a.1abd6",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -6686,11 +6686,11 @@
         "wires": []
     },
     {
-        "id": "5af1e7b9.efc178",
+        "id": "ba78c8e2.837c78",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -6707,14 +6707,14 @@
         "y": 1859.5234375,
         "wires": [
             [
-                "12fb823d.ff851e"
+                "afea7ff1.62a89"
             ]
         ]
     },
     {
-        "id": "12fb823d.ff851e",
+        "id": "afea7ff1.62a89",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "actualiza2json",
         "func": "msg.payload={\"actualiza\" : 1 }\nreturn msg;",
         "outputs": 1,
@@ -6723,27 +6723,27 @@
         "y": 1858.5234375,
         "wires": [
             [
-                "1ade8bd7.549254"
+                "3889a842.bf4418"
             ]
         ]
     },
     {
-        "id": "e312c956.4dfed8",
+        "id": "b7983d44.5d692",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3122.0078125,
         "y": 1860.5234375,
         "wires": []
     },
     {
-        "id": "1ade8bd7.549254",
+        "id": "3889a842.bf4418",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6763,18 +6763,18 @@
         "y": 1859.656244277954,
         "wires": [
             [
-                "e312c956.4dfed8"
+                "b7983d44.5d692"
             ]
         ]
     },
     {
-        "id": "3b7c8786.25f738",
+        "id": "5712115.bc75ff",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Lógica Negativa",
         "tooltip": "",
-        "group": "b234e507.8a5e08",
+        "group": "53239cb8.210374",
         "order": 14,
         "width": "2",
         "height": "1",
@@ -6794,14 +6794,14 @@
         "y": 1540,
         "wires": [
             [
-                "4e342edf.de307"
+                "477e0cf5.c5b8a4"
             ]
         ]
     },
     {
-        "id": "4e342edf.de307",
+        "id": "477e0cf5.c5b8a4",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6824,9 +6824,9 @@
         ]
     },
     {
-        "id": "471a6e3.6df869",
+        "id": "61521847.58d748",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "Crea Objeto Config",
         "func": "\nvar velocidad = global.get(\"velocidad2\");\nvar envia = global.get(\"envia2\");\nvar actualiza = global.get(\"actualiza2\");\nvar LED = global.get(\"LED2\");\nvar Switch = global.get(\"switch2\");\nvar Logica_negativa = global.get(\"Logica_negativa2\");\n\nif(actualiza === null || actualiza < 0)\n{\n    actualiza = -1;\n}\n\nif(envia === null || envia < 0)\n{\n    envia = -1;\n}\n\nif(velocidad === null || velocidad < 0)\n{\n    velocidad = -1;\n}\n\nif(LED === null)\n{\n    LED = -1;\n}\n\nif(Switch === null)\n{\n    SWITCH = -1;\n}\n\nif(Logica_negativa === null)\n{\n    Logica_negativa = -1;\n}\n\nvar msg1 = {};\n\nmsg1.payload = {\"actualiza\" : actualiza, \"envia\" : envia, \"velocidad\": velocidad, \"LED\" : LED, \"SWITCH\": Switch, \"Logica_negativa\" : Logica_negativa};\n\nreturn msg1;",
         "outputs": 1,
@@ -6835,18 +6835,18 @@
         "y": 1540,
         "wires": [
             [
-                "310287d8.c9db48"
+                "df7fde01.2c833"
             ]
         ]
     },
     {
-        "id": "d7b1993c.10b6a8",
+        "id": "36bea421.ee888c",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Lógica Negativa",
         "tooltip": "",
-        "group": "6c609b1a.d64574",
+        "group": "b54bc12a.1abd6",
         "order": 14,
         "width": "2",
         "height": "1",
@@ -6866,14 +6866,14 @@
         "y": 1540,
         "wires": [
             [
-                "58bfa717.a72288"
+                "c257532b.b5321"
             ]
         ]
     },
     {
-        "id": "58bfa717.a72288",
+        "id": "c257532b.b5321",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6896,9 +6896,9 @@
         ]
     },
     {
-        "id": "3f1b6760.eb2248",
+        "id": "348d5381.95303c",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "Crea Objeto Config",
         "func": "\nvar velocidad = global.get(\"velocidad3\");\nvar envia = global.get(\"envia3\");\nvar actualiza = global.get(\"actualiza3\");\nvar LED = global.get(\"LED3\");\nvar Switch = global.get(\"switch3\");\nvar Logica_negativa = global.get(\"Logica_negativa3\");\n\nif(actualiza === null || actualiza < 0)\n{\n    actualiza = -1;\n}\n\nif(envia === null || envia < 0)\n{\n    envia = -1;\n}\n\nif(velocidad === null || velocidad < 0)\n{\n    velocidad = -1;\n}\n\nif(LED === null)\n{\n    LED = -1;\n}\n\nif(Switch === null)\n{\n    SWITCH = -1;\n}\n\nif(Logica_negativa === null)\n{\n    Logica_negativa = -1;\n}\n\nvar msg1 = {};\n\nmsg1.payload = {\"actualiza\" : actualiza, \"envia\" : envia, \"velocidad\": velocidad, \"LED\" : LED, \"SWITCH\": Switch, \"Logica_negativa\" : Logica_negativa};\n\nreturn msg1;",
         "outputs": 1,
@@ -6907,18 +6907,18 @@
         "y": 2160,
         "wires": [
             [
-                "e0900294.7296e"
+                "c2315e39.56156"
             ]
         ]
     },
     {
-        "id": "4a0f5a5c.0d4484",
+        "id": "63f4792a.f81148",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Lógica Negativa",
         "tooltip": "",
-        "group": "44d4ba0d.c427f4",
+        "group": "edcb3f2d.990b7",
         "order": 14,
         "width": "2",
         "height": "1",
@@ -6938,14 +6938,14 @@
         "y": 2160,
         "wires": [
             [
-                "e8fb733b.f5edc"
+                "883691bf.16ead"
             ]
         ]
     },
     {
-        "id": "e8fb733b.f5edc",
+        "id": "883691bf.16ead",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -6968,9 +6968,9 @@
         ]
     },
     {
-        "id": "246dc30e.0f088c",
+        "id": "832bc8d2.4f7f38",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "Crea Objeto Config",
         "func": "\nvar velocidad = global.get(\"velocidad4\");\nvar envia = global.get(\"envia4\");\nvar actualiza = global.get(\"actualiza4\");\nvar LED = global.get(\"LED4\");\nvar Switch = global.get(\"switch4\");\nvar Logica_negativa = global.get(\"Logica_negativa4\");\n\nif(actualiza === null || actualiza < 0)\n{\n    actualiza = -1;\n}\n\nif(envia === null || envia < 0)\n{\n    envia = -1;\n}\n\nif(velocidad === null || velocidad < 0)\n{\n    velocidad = -1;\n}\n\nif(LED === null)\n{\n    LED = -1;\n}\n\nif(Switch === null)\n{\n    SWITCH = -1;\n}\n\nif(Logica_negativa === null)\n{\n    Logica_negativa = -1;\n}\n\nvar msg1 = {};\n\nmsg1.payload = {\"actualiza\" : actualiza, \"envia\" : envia, \"velocidad\": velocidad, \"LED\" : LED, \"SWITCH\": Switch, \"Logica_negativa\" : Logica_negativa};\n\nreturn msg1;",
         "outputs": 1,
@@ -6979,18 +6979,18 @@
         "y": 2800,
         "wires": [
             [
-                "cffb8c3d.d85e4"
+                "79e29e7e.e7bba"
             ]
         ]
     },
     {
-        "id": "8f7c7c88.45d96",
+        "id": "58a510a8.17f3b",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Lógica Negativa",
         "tooltip": "",
-        "group": "4b38c9f.4596938",
+        "group": "81d6b9a2.abf7d8",
         "order": 14,
         "width": "2",
         "height": "1",
@@ -7010,14 +7010,14 @@
         "y": 2800,
         "wires": [
             [
-                "a5777c1d.27b4f"
+                "82067a8.5583988"
             ]
         ]
     },
     {
-        "id": "a5777c1d.27b4f",
+        "id": "82067a8.5583988",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7040,9 +7040,9 @@
         ]
     },
     {
-        "id": "aeeb2b0a.119248",
+        "id": "a88f9df0.6cf5c",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "Crea Objeto Config",
         "func": "\nvar velocidad = global.get(\"velocidad5\");\nvar envia = global.get(\"envia5\");\nvar actualiza = global.get(\"actualiza5\");\nvar LED = global.get(\"LED5\");\nvar Switch = global.get(\"switch5\");\nvar Logica_negativa = global.get(\"Logica_negativa5\");\n\nif(actualiza === null || actualiza < 0)\n{\n    actualiza = -1;\n}\n\nif(envia === null || envia < 0)\n{\n    envia = -1;\n}\n\nif(velocidad === null || velocidad < 0)\n{\n    velocidad = -1;\n}\n\nif(LED === null)\n{\n    LED = -1;\n}\n\nif(Switch === null)\n{\n    SWITCH = -1;\n}\n\nif(Logica_negativa === null)\n{\n    Logica_negativa = -1;\n}\n\nvar msg1 = {};\n\nmsg1.payload = {\"actualiza\" : actualiza, \"envia\" : envia, \"velocidad\": velocidad, \"LED\" : LED, \"SWITCH\": Switch, \"Logica_negativa\" : Logica_negativa};\n\nreturn msg1;",
         "outputs": 1,
@@ -7051,18 +7051,18 @@
         "y": 2800,
         "wires": [
             [
-                "787cd73d.901e58"
+                "78118e81.34be"
             ]
         ]
     },
     {
-        "id": "91146335.7f4f2",
+        "id": "6522438b.b6b0fc",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Lógica Negativa",
         "tooltip": "",
-        "group": "415bd403.38296c",
+        "group": "8f0783c6.a55f4",
         "order": 14,
         "width": "2",
         "height": "1",
@@ -7082,14 +7082,14 @@
         "y": 2800,
         "wires": [
             [
-                "a52f6d35.fb463"
+                "b49ff6f2.affc88"
             ]
         ]
     },
     {
-        "id": "a52f6d35.fb463",
+        "id": "b49ff6f2.affc88",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7112,9 +7112,9 @@
         ]
     },
     {
-        "id": "f8eb3f99.a76c1",
+        "id": "dea3e61e.5dd338",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "multiControl",
         "propertyType": "global",
@@ -7130,14 +7130,14 @@
         "y": 680,
         "wires": [
             [
-                "3a92234b.23798c"
+                "2f9147bf.dd07c8"
             ]
         ]
     },
     {
-        "id": "236116fe.2773fa",
+        "id": "bc4a9dad.31263",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "multiControl",
         "propertyType": "global",
@@ -7153,14 +7153,14 @@
         "y": 280,
         "wires": [
             [
-                "425ae632.2f5bc8"
+                "a97ded07.2c983"
             ]
         ]
     },
     {
-        "id": "528b0d12.b00864",
+        "id": "4e55728.921aa8c",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "actualiza2json",
         "func": "\nvar velocidad = global.get(\"velocidad_master\");\nvar envia = global.get(\"envia_master\");\nvar actualiza = global.get(\"actualiza_master\");\nvar LED = global.get(\"LED_master\");\nvar Switch = global.get(\"switch_master\");\nvar Logica_negativa = global.get(\"Logica_negativa_master\");\n\nif(actualiza === null || actualiza < 0)\n{\n    actualiza = -1;\n}\n\nif(envia === null || envia < 0)\n{\n    envia = -1;\n}\n\nif(velocidad === null || velocidad < 0)\n{\n    velocidad = -1;\n}\n\nif(LED === null)\n{\n    LED = -1;\n}\n\nif(Switch === null)\n{\n    SWITCH = -1;\n}\n\nif(Logica_negativa === null)\n{\n    Logica_negativa = -1;\n}\n\nvar msg1 = {};\n\nmsg1.payload = {\"actualiza\" : actualiza, \"envia\" : envia, \"velocidad\": velocidad, \"LED\" : LED, \"SWITCH\": Switch, \"Logica_negativa\" : Logica_negativa};\n\nreturn msg1;",
         "outputs": 1,
@@ -7169,31 +7169,31 @@
         "y": 760,
         "wires": [
             [
-                "2054f9a0.c3e2b6",
-                "aae83002.68f6c",
-                "8fb1c40a.8adff8",
-                "bed985e.5d10178",
-                "503885a9.78ff1c"
+                "2b726d7f.ebe762",
+                "b4fa36e6.6c2378",
+                "d208ac9b.2f692",
+                "33cb06ab.3f942a",
+                "d0211a63.f56058"
             ]
         ]
     },
     {
-        "id": "63f9e224.c3886c",
+        "id": "c80a7240.0e43a",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3858.9997634887695,
         "y": 614,
         "wires": []
     },
     {
-        "id": "6413e6ab.5e0e88",
+        "id": "78613d69.a49b24",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -7205,9 +7205,9 @@
         "wires": []
     },
     {
-        "id": "8bb57319.33338",
+        "id": "ec98b6b9.faaac8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7227,15 +7227,15 @@
         "y": 613.1328067779541,
         "wires": [
             [
-                "63f9e224.c3886c",
-                "6413e6ab.5e0e88"
+                "c80a7240.0e43a",
+                "78613d69.a49b24"
             ]
         ]
     },
     {
-        "id": "2054f9a0.c3e2b6",
+        "id": "2b726d7f.ebe762",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP1",
         "propertyType": "global",
@@ -7251,14 +7251,14 @@
         "y": 611.4765567779541,
         "wires": [
             [
-                "8bb57319.33338"
+                "ec98b6b9.faaac8"
             ]
         ]
     },
     {
-        "id": "aae83002.68f6c",
+        "id": "b4fa36e6.6c2378",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP2",
         "propertyType": "global",
@@ -7274,14 +7274,14 @@
         "y": 685.4765567779541,
         "wires": [
             [
-                "de77b1e7.41b19"
+                "c0b3e07f.f71a1"
             ]
         ]
     },
     {
-        "id": "8fb1c40a.8adff8",
+        "id": "d208ac9b.2f692",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP3",
         "propertyType": "global",
@@ -7297,14 +7297,14 @@
         "y": 770.4765586853027,
         "wires": [
             [
-                "f8f61101.a0b62"
+                "5a61fe91.2f1d4"
             ]
         ]
     },
     {
-        "id": "bed985e.5d10178",
+        "id": "33cb06ab.3f942a",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP4",
         "propertyType": "global",
@@ -7320,14 +7320,14 @@
         "y": 839.4765586853027,
         "wires": [
             [
-                "c747b81d.a1de58"
+                "851d7392.edf5e"
             ]
         ]
     },
     {
-        "id": "503885a9.78ff1c",
+        "id": "d0211a63.f56058",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "ESP5",
         "propertyType": "global",
@@ -7343,27 +7343,27 @@
         "y": 911.4765586853027,
         "wires": [
             [
-                "ce4c2dd4.08aeb"
+                "da5c5dbd.f3f71"
             ]
         ]
     },
     {
-        "id": "e6a7477a.fe4798",
+        "id": "42076344.98152c",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3866.491928100586,
         "y": 701.4765567779541,
         "wires": []
     },
     {
-        "id": "cb40f4fb.f399b8",
+        "id": "bd6f1a5e.d4e5d8",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -7375,9 +7375,9 @@
         "wires": []
     },
     {
-        "id": "de77b1e7.41b19",
+        "id": "c0b3e07f.f71a1",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7397,28 +7397,28 @@
         "y": 690.6093673706055,
         "wires": [
             [
-                "e6a7477a.fe4798",
-                "cb40f4fb.f399b8"
+                "42076344.98152c",
+                "bd6f1a5e.d4e5d8"
             ]
         ]
     },
     {
-        "id": "3bc8ac5e.c3ff24",
+        "id": "aaa84baf.3e7658",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3870.491928100586,
         "y": 779.4765567779541,
         "wires": []
     },
     {
-        "id": "43f2574d.567de8",
+        "id": "b88d03a5.74ada",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -7430,9 +7430,9 @@
         "wires": []
     },
     {
-        "id": "f8f61101.a0b62",
+        "id": "5a61fe91.2f1d4",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7452,28 +7452,28 @@
         "y": 772.6093673706055,
         "wires": [
             [
-                "3bc8ac5e.c3ff24",
-                "43f2574d.567de8"
+                "aaa84baf.3e7658",
+                "b88d03a5.74ada"
             ]
         ]
     },
     {
-        "id": "68c1cba8.22ded4",
+        "id": "f477042d.4299e8",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3874.491928100586,
         "y": 853.4765567779541,
         "wires": []
     },
     {
-        "id": "a1328462.68faf8",
+        "id": "b853d82c.d29768",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -7485,9 +7485,9 @@
         "wires": []
     },
     {
-        "id": "c747b81d.a1de58",
+        "id": "851d7392.edf5e",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7507,28 +7507,28 @@
         "y": 876.6093635559082,
         "wires": [
             [
-                "68c1cba8.22ded4",
-                "a1328462.68faf8"
+                "f477042d.4299e8",
+                "b853d82c.d29768"
             ]
         ]
     },
     {
-        "id": "3d7aa0b6.e1e4e",
+        "id": "80f0e97b.fbc798",
         "type": "mqtt out",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "topic": "",
         "qos": "",
         "retain": "true",
-        "broker": "e98cb958.dff988",
+        "broker": "5a6b52aa.1a73ac",
         "x": 3874.491928100586,
         "y": 927.4765567779541,
         "wires": []
     },
     {
-        "id": "1adde3c2.a62f0c",
+        "id": "844b9f03.c7c2d",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -7540,9 +7540,9 @@
         "wires": []
     },
     {
-        "id": "ce4c2dd4.08aeb",
+        "id": "da5c5dbd.f3f71",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7562,15 +7562,15 @@
         "y": 962.6093635559082,
         "wires": [
             [
-                "3d7aa0b6.e1e4e",
-                "1adde3c2.a62f0c"
+                "80f0e97b.fbc798",
+                "844b9f03.c7c2d"
             ]
         ]
     },
     {
-        "id": "92f8c08d.3fd1",
+        "id": "7ab96849.e25228",
         "type": "switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "property": "multiControl",
         "propertyType": "global",
@@ -7586,16 +7586,16 @@
         "y": 760,
         "wires": [
             [
-                "528b0d12.b00864"
+                "4e55728.921aa8c"
             ]
         ]
     },
     {
-        "id": "35af8ad3.00e456",
+        "id": "c03ac2c1.ff13f",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "f42365d.519b598",
+        "group": "bd0b499c.ca1778",
         "order": 13,
         "width": "4",
         "height": "1",
@@ -7612,18 +7612,18 @@
         "y": 760,
         "wires": [
             [
-                "92f8c08d.3fd1"
+                "7ab96849.e25228"
             ]
         ]
     },
     {
-        "id": "7d29fbb5.809a94",
+        "id": "135b378.6b535c9",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Velocidad +- 1% PWM (ms)",
         "tooltip": "",
-        "group": "f42365d.519b598",
+        "group": "bd0b499c.ca1778",
         "order": 9,
         "width": 0,
         "height": 0,
@@ -7635,18 +7635,18 @@
         "y": 1080,
         "wires": [
             [
-                "6dd17de9.c9b9b4"
+                "cbaca4da.44eb88"
             ]
         ]
     },
     {
-        "id": "e4630f59.e651b",
+        "id": "a79108cd.94a2e8",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Envía datos (s)",
         "tooltip": "",
-        "group": "f42365d.519b598",
+        "group": "bd0b499c.ca1778",
         "order": 8,
         "width": 0,
         "height": 0,
@@ -7658,14 +7658,14 @@
         "y": 1040,
         "wires": [
             [
-                "c1b1da90.4627e8"
+                "aeb71585.666858"
             ]
         ]
     },
     {
-        "id": "6dd17de9.c9b9b4",
+        "id": "cbaca4da.44eb88",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7688,9 +7688,9 @@
         ]
     },
     {
-        "id": "c1b1da90.4627e8",
+        "id": "aeb71585.666858",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7713,13 +7713,13 @@
         ]
     },
     {
-        "id": "20093d19.b38f82",
+        "id": "3e2e1cb7.2d1074",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Actualiza (min)",
         "tooltip": "",
-        "group": "f42365d.519b598",
+        "group": "bd0b499c.ca1778",
         "order": 7,
         "width": 0,
         "height": 0,
@@ -7731,14 +7731,14 @@
         "y": 1000,
         "wires": [
             [
-                "4c7e075c.40a1f8"
+                "91f80e03.30a6d"
             ]
         ]
     },
     {
-        "id": "4c7e075c.40a1f8",
+        "id": "91f80e03.30a6d",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7761,13 +7761,13 @@
         ]
     },
     {
-        "id": "67be0a18.2a4ee4",
+        "id": "92698a7b.ed3478",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "switch_ config",
         "tooltip": "",
-        "group": "f42365d.519b598",
+        "group": "bd0b499c.ca1778",
         "order": 11,
         "width": "2",
         "height": "1",
@@ -7787,14 +7787,14 @@
         "y": 1040,
         "wires": [
             [
-                "527b22f4.23f95c"
+                "eb6f11d2.11b97"
             ]
         ]
     },
     {
-        "id": "527b22f4.23f95c",
+        "id": "eb6f11d2.11b97",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7817,13 +7817,13 @@
         ]
     },
     {
-        "id": "529b6ecf.6a1e4",
+        "id": "2e8a5aaf.eb7116",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "LED_config",
         "tooltip": "",
-        "group": "f42365d.519b598",
+        "group": "bd0b499c.ca1778",
         "order": 10,
         "width": "2",
         "height": "1",
@@ -7843,14 +7843,14 @@
         "y": 1000,
         "wires": [
             [
-                "a4831149.22371"
+                "aaa8eade.f0ddc8"
             ]
         ]
     },
     {
-        "id": "a4831149.22371",
+        "id": "aaa8eade.f0ddc8",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7873,13 +7873,13 @@
         ]
     },
     {
-        "id": "3ec30f92.77535",
+        "id": "34628361.4c7fcc",
         "type": "ui_switch",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Lógica Negativa",
         "tooltip": "",
-        "group": "f42365d.519b598",
+        "group": "bd0b499c.ca1778",
         "order": 12,
         "width": "2",
         "height": "1",
@@ -7899,14 +7899,14 @@
         "y": 1080,
         "wires": [
             [
-                "54ac599e.836878"
+                "3813f14e.7b9b3e"
             ]
         ]
     },
     {
-        "id": "54ac599e.836878",
+        "id": "3813f14e.7b9b3e",
         "type": "change",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "rules": [
             {
@@ -7929,10 +7929,10 @@
         ]
     },
     {
-        "id": "16b762fa.994c3d",
+        "id": "3c626a60.e9da86",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "b234e507.8a5e08",
+        "z": "efaaca2d.40d4f8",
+        "group": "53239cb8.210374",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -7945,10 +7945,10 @@
         "wires": []
     },
     {
-        "id": "c81e69e.2977f98",
+        "id": "9767db26.951c98",
         "type": "ui_led",
-        "z": "ffa0391c.242c78",
-        "group": "415bd403.38296c",
+        "z": "efaaca2d.40d4f8",
+        "group": "8f0783c6.a55f4",
         "order": 17,
         "width": "2",
         "height": "1",
@@ -7974,10 +7974,10 @@
         "wires": []
     },
     {
-        "id": "c2ae17b1.6e8f78",
+        "id": "6e333b8a.ff8b94",
         "type": "ui_text",
-        "z": "ffa0391c.242c78",
-        "group": "f42365d.519b598",
+        "z": "efaaca2d.40d4f8",
+        "group": "bd0b499c.ca1778",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -7990,13 +7990,13 @@
         "wires": []
     },
     {
-        "id": "2dd6c9e1.a9f876",
+        "id": "54dc215b.bc9e6",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Máxima Temperatura ",
         "tooltip": "",
-        "group": "4d12d327.40713c",
+        "group": "c6032041.101a6",
         "order": 13,
         "width": 0,
         "height": 0,
@@ -8008,18 +8008,18 @@
         "y": 380,
         "wires": [
             [
-                "157aac3a.f2b6a4"
+                "35511f6b.b63d1"
             ]
         ]
     },
     {
-        "id": "12e052.39155faf",
+        "id": "99578d47.d7be5",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Mínima Temperatura",
         "tooltip": "",
-        "group": "4d12d327.40713c",
+        "group": "c6032041.101a6",
         "order": 13,
         "width": 0,
         "height": 0,
@@ -8031,18 +8031,18 @@
         "y": 440,
         "wires": [
             [
-                "e5c0d4be.c011e8"
+                "f89ddce5.9c686"
             ]
         ]
     },
     {
-        "id": "76140579.22b26c",
+        "id": "451f3311.e4d49c",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Máxima Humedad",
         "tooltip": "",
-        "group": "4d12d327.40713c",
+        "group": "c6032041.101a6",
         "order": 13,
         "width": 0,
         "height": 0,
@@ -8054,18 +8054,18 @@
         "y": 500,
         "wires": [
             [
-                "6fe782e1.c7723c"
+                "bf06058a.b82688"
             ]
         ]
     },
     {
-        "id": "fce10db4.b549c",
+        "id": "3f229dc7.9578a2",
         "type": "ui_text_input",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "label": "Mínima Humedad",
         "tooltip": "",
-        "group": "4d12d327.40713c",
+        "group": "c6032041.101a6",
         "order": 13,
         "width": 0,
         "height": 0,
@@ -8077,14 +8077,14 @@
         "y": 560,
         "wires": [
             [
-                "f6bf1f4c.15ce1"
+                "55710f32.25e3b"
             ]
         ]
     },
     {
-        "id": "6fe782e1.c7723c",
+        "id": "bf06058a.b82688",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "Ajustar humedad max/min aviso",
         "func": "//albergamos en la variable humedad la respuesta convertida a numérico.\nvar humedad=Number(msg.payload);\n\n\n//si se introduce un valor lógico de humedad y se ha pedido cambiar la hmax o hmin, entramos al if\nif(humedad >=0 && humedad<=100)\n{\n    if(humedad>global.get('HumedadMIN')) //si la humedad max introducida es mayor que la hmin actual, guardamos el cambio y es válido.\n    {\n        global.set('HumedadMAX',humedad)\n    }\n\n}\n\n",
         "outputs": 1,
@@ -8096,25 +8096,25 @@
         ]
     },
     {
-        "id": "157aac3a.f2b6a4",
+        "id": "35511f6b.b63d1",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "Ajustar temperatura maxima/minima aviso",
-        "func": "var temperatura=Number(msg.payload);\n//Convertimos la respuesta del usuario a numérico para evitar errores de strings.\nvar temperaturaMinAct=global.get('TemperaturaMIN')\nvar temperaturaMaxAct=global.get('TemperaturaMAX')\n//Guardamos las temperaturas minima y maxima actuales en variables para comprobar.\n\n//Si se ha introducido un valor recogido en los límites, y se ha pedido realizar un cambio de temperatura de aviso, entramos en el if.\nif(temperatura >=-10 && temperatura<=60)\n{\n    if(temperatura>temperaturaMinAct) //si la temperatura introducida es mayor que la temperatura minima actual(tmax>tmin, se cumple la logica)\n    {\n        global.set('TemperaturaMAX',temperatura)\n    }\n   \n} else {\n global.set(\"TemperaturaMIN\",10)\n global.set(\"TemperaturaMAX\",30)\n global.set(\"HumedadMIN\",30)\n global.set(\"HumedadMAX\",90)\n}\n\n",
+        "func": "var temperatura=Number(msg.payload);\n//Convertimos la respuesta del usuario a numérico para evitar errores de strings.\nvar temperaturaMinAct=global.get('TemperaturaMIN')\nvar temperaturaMaxAct=global.get('TemperaturaMAX')\n//Guardamos las temperaturas minima y maxima actuales en variables para comprobar.\n\n//Si se ha introducido un valor recogido en los límites, y se ha pedido realizar un cambio de temperatura de aviso, entramos en el if.\nif(temperatura >=-10 && temperatura<=60)\n{\n    if(temperatura>temperaturaMinAct) //si la temperatura introducida es mayor que la temperatura minima actual(tmax>tmin, se cumple la logica)\n    {\n        global.set('TemperaturaMAX',temperatura)\n    }\n    \n}",
         "outputs": 1,
         "noerr": 0,
         "x": 1500,
         "y": 380,
         "wires": [
             [
-                "957a0c96.a01f1"
+                "9796d8c.ac8fd28"
             ]
         ]
     },
     {
-        "id": "e5c0d4be.c011e8",
+        "id": "f89ddce5.9c686",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "Ajustar temperatura maxima/minima aviso",
         "func": "var temperatura=Number(msg.payload);\n//Convertimos la respuesta del usuario a numérico para evitar errores de strings.\nvar temperaturaMinAct=global.get('TemperaturaMIN')\nvar temperaturaMaxAct=global.get('TemperaturaMAX')\n//Guardamos las temperaturas minima y maxima actuales en variables para comprobar.\n\n//Si se ha introducido un valor recogido en los límites, y se ha pedido realizar un cambio de temperatura de aviso, entramos en el if.\nif(temperatura >=-10 && temperatura<=60)\n{\n    if(temperatura<=temperaturaMaxAct) //si la minima es menor que la maxima, se cumple la condición (tmin<tmax) lógica\n    {\n        global.set('TemperaturaMIN',temperatura)\n    }\n}\n\n",
         "outputs": 1,
@@ -8126,9 +8126,9 @@
         ]
     },
     {
-        "id": "f6bf1f4c.15ce1",
+        "id": "55710f32.25e3b",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "Ajustar humedad max/min aviso",
         "func": "//albergamos en la variable humedad la respuesta convertida a numérico.\nvar humedad=Number(msg.payload);\n\n\n//si se introduce un valor lógico de humedad y se ha pedido cambiar la hmax o hmin, entramos al if\nif(humedad >=0 && humedad<=100)\n{\n    if(humedad<=global.get('HumedadMAX')) //si hmin es menor que la hmax actual, la guardamos y procesamos el mensaje.\n    {\n        global.set('HumedadMIN',humedad) \n    }\n}\n\n",
         "outputs": 1,
@@ -8140,9 +8140,9 @@
         ]
     },
     {
-        "id": "dff98fe4.53b66",
+        "id": "99d30068.e537b",
         "type": "comment",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "Límites Alertas",
         "info": "",
         "x": 1140,
@@ -8150,9 +8150,9 @@
         "wires": []
     },
     {
-        "id": "957a0c96.a01f1",
+        "id": "9796d8c.ac8fd28",
         "type": "debug",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -8164,11 +8164,11 @@
         "wires": []
     },
     {
-        "id": "22ac3bb2.f740a4",
+        "id": "ffdd24de.ee25a8",
         "type": "ui_button",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
-        "group": "4d12d327.40713c",
+        "group": "c6032041.101a6",
         "order": 16,
         "width": 0,
         "height": 0,
@@ -8185,14 +8185,14 @@
         "y": 620,
         "wires": [
             [
-                "22a05d5f.528df2"
+                "5616dd42.0fc814"
             ]
         ]
     },
     {
-        "id": "22a05d5f.528df2",
+        "id": "5616dd42.0fc814",
         "type": "function",
-        "z": "ffa0391c.242c78",
+        "z": "efaaca2d.40d4f8",
         "name": "",
         "func": " global.set(\"TemperaturaMIN\",10)\n global.set(\"TemperaturaMAX\",30)\n global.set(\"HumedadMIN\",30)\n global.set(\"HumedadMAX\",90)\nreturn msg;",
         "outputs": 1,
@@ -8204,7 +8204,87 @@
         ]
     },
     {
-        "id": "53755d9c.c210a4",
+        "id": "7a81a72b.7496f8",
+        "type": "inject",
+        "z": "efaaca2d.40d4f8",
+        "name": "",
+        "topic": "",
+        "payload": "30",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 970,
+        "y": 380,
+        "wires": [
+            [
+                "54dc215b.bc9e6"
+            ]
+        ]
+    },
+    {
+        "id": "258fe7c3.a568a8",
+        "type": "inject",
+        "z": "efaaca2d.40d4f8",
+        "name": "",
+        "topic": "",
+        "payload": "10",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 970,
+        "y": 440,
+        "wires": [
+            [
+                "99578d47.d7be5"
+            ]
+        ]
+    },
+    {
+        "id": "dad1e5c9.dc0038",
+        "type": "inject",
+        "z": "efaaca2d.40d4f8",
+        "name": "",
+        "topic": "",
+        "payload": "90",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 970,
+        "y": 500,
+        "wires": [
+            [
+                "451f3311.e4d49c"
+            ]
+        ]
+    },
+    {
+        "id": "608a3ec1.ed9b2",
+        "type": "inject",
+        "z": "efaaca2d.40d4f8",
+        "name": "",
+        "topic": "",
+        "payload": "30",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 970,
+        "y": 560,
+        "wires": [
+            [
+                "3f229dc7.9578a2"
+            ]
+        ]
+    },
+    {
+        "id": "728049ce.f396b8",
         "type": "mqtt-broker",
         "z": "",
         "name": "",
@@ -8226,84 +8306,84 @@
         "willPayload": ""
     },
     {
-        "id": "b234e507.8a5e08",
+        "id": "53239cb8.210374",
         "type": "ui_group",
         "z": "",
         "name": "ESP1Ctrl",
-        "tab": "108fed71.a11903",
+        "tab": "98493e9a.b2c16",
         "order": 3,
         "disp": true,
         "width": "4",
         "collapse": true
     },
     {
-        "id": "6c609b1a.d64574",
+        "id": "b54bc12a.1abd6",
         "type": "ui_group",
         "z": "",
         "name": "ESP2Ctrl",
-        "tab": "108fed71.a11903",
+        "tab": "98493e9a.b2c16",
         "order": 4,
         "disp": true,
         "width": "4",
         "collapse": true
     },
     {
-        "id": "4d12d327.40713c",
+        "id": "c6032041.101a6",
         "type": "ui_group",
         "z": "",
         "name": "ESP",
-        "tab": "108fed71.a11903",
+        "tab": "98493e9a.b2c16",
         "order": 1,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "f42365d.519b598",
+        "id": "bd0b499c.ca1778",
         "type": "ui_group",
         "z": "",
         "name": "MASTERControl",
-        "tab": "108fed71.a11903",
+        "tab": "98493e9a.b2c16",
         "order": 2,
         "disp": true,
         "width": "4",
         "collapse": true
     },
     {
-        "id": "44d4ba0d.c427f4",
+        "id": "edcb3f2d.990b7",
         "type": "ui_group",
         "z": "",
         "name": "ESP3Ctrl",
-        "tab": "108fed71.a11903",
+        "tab": "98493e9a.b2c16",
         "order": 5,
         "disp": true,
         "width": "4",
         "collapse": true
     },
     {
-        "id": "4b38c9f.4596938",
+        "id": "81d6b9a2.abf7d8",
         "type": "ui_group",
         "z": "",
         "name": "ESP4Ctrl",
-        "tab": "108fed71.a11903",
+        "tab": "98493e9a.b2c16",
         "order": 6,
         "disp": true,
         "width": "4",
         "collapse": true
     },
     {
-        "id": "415bd403.38296c",
+        "id": "8f0783c6.a55f4",
         "type": "ui_group",
         "z": "",
         "name": "ESP5Ctrl",
-        "tab": "108fed71.a11903",
+        "tab": "98493e9a.b2c16",
         "order": 7,
         "disp": true,
         "width": "4",
         "collapse": true
     },
     {
-        "id": "e98cb958.dff988",
+        "id": "5a6b52aa.1a73ac",
         "type": "mqtt-broker",
         "z": "",
         "name": "",
@@ -8325,7 +8405,7 @@
         "willPayload": ""
     },
     {
-        "id": "108fed71.a11903",
+        "id": "98493e9a.b2c16",
         "type": "ui_tab",
         "z": "",
         "name": "ControlESP",

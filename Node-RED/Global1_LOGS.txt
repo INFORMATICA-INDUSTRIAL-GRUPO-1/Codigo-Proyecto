@@ -334,12 +334,12 @@
         "z": "1707ed1f.dc6003",
         "name": "USER_conexion",
         "links": [
-            "2c54ad31.535242",
-            "3a6e3253.6e2e3e",
-            "4b719b04.9bff84",
-            "64efdf85.5502",
-            "77d5aa6e.36d744",
-            "d166de5b.65a81"
+            "1ffdb0f0.77d75f",
+            "767c0bda.d21794",
+            "9230d0af.3822b",
+            "968df0a.428a31",
+            "acbf8679.a97388",
+            "d1210b5c.9a9f28"
         ],
         "x": 235,
         "y": 620,
@@ -606,7 +606,8 @@
         "y": 760,
         "wires": [
             [
-                "e41e009c.d5a0e"
+                "e41e009c.d5a0e",
+                "a0fd4bec.5d2568"
             ]
         ]
     },
@@ -754,7 +755,8 @@
         "y": 620,
         "wires": [
             [
-                "a60bf779.45c508"
+                "a60bf779.45c508",
+                "6a5d4ee4.cbe69"
             ]
         ]
     },
@@ -1632,6 +1634,34 @@
                 "3e4a804a.fa2c8"
             ]
         ]
+    },
+    {
+        "id": "a0fd4bec.5d2568",
+        "type": "debug",
+        "z": "1707ed1f.dc6003",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 2590,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "6a5d4ee4.cbe69",
+        "type": "debug",
+        "z": "1707ed1f.dc6003",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 610,
+        "y": 620,
+        "wires": []
     },
     {
         "id": "387f1644.c9b6ea",
