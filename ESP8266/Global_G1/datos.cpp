@@ -52,7 +52,8 @@ registro_datos datos ;  // instancia el struct "datos"
   
     //FORMATEO DE "DATOS" A json
 
-  jsonRoot["CHIPID"]= datos.chipId; 
+  jsonRoot["CHIPID"]= datos.chipId;
+  jsonRoot["MAC"] = datos.MAC; 
   jsonRoot["Uptime"]= datos.tiempo;
   JsonObject ESP_=jsonRoot.createNestedObject("ESP_"); // crea un subobjeto json para "ESP"
     ESP_["placa"] = placa;
@@ -94,6 +95,7 @@ float voltageSense () {
 void tomaDatos (struct registro_datos &datos) // funcion que toma los datos de los distintos sensores y los guarda en el struct "datos"
 {
   datos.chipId = ESP.getChipId();
+  datos.MAC = String(WiFi.macAddress());
   datos.tiempo = millis(); //tiempo de ejecucion desde el último reinicio
   datos.Vcc=voltageSense (); // toma de voltaje de entrada 
   datos.temperatura=dht.getTemperature(); // Toma de la tempreatura en el sensor DHT11

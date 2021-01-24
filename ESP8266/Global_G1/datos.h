@@ -24,6 +24,7 @@ extern String ip;
 struct registro_datos { //Struct "datos" contiene los parámetros recogidos por los sensores
   
   String chipId;
+  String MAC;
   unsigned long tiempo;
   float Vcc;
   float temperatura;
