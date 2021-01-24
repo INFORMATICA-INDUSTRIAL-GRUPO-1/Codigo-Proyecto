@@ -1216,7 +1216,8 @@
         "y": 260,
         "wires": [
             [
-                "34efd190.a0961e"
+                "34efd190.a0961e",
+                "40aeb095.5b71d"
             ]
         ]
     },
@@ -1225,14 +1226,15 @@
         "type": "function",
         "z": "1707ed1f.dc6003",
         "name": "agreaga Filtros",
-        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(flow.get(\"LOGdesde\") || ahora);\nvar hasta = new Date(flow.get(\"LOGhasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\nvar sort = flow.get(\"LOGsort\");\n\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"Date\": \"$date\",\n        \"Online\": \"$online\",\n        \"CHIPID\": \"$CHIPID\",\n        \"Placa\": \"$placa\",\n        \"Grupo\": \"$grupo\"\n        }\n    }\n];\n\nmsg.payload[2]= sort\n\nreturn msg;",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(flow.get(\"LOGdesde\") || ahora);\nvar hasta = new Date(flow.get(\"LOGhasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\nvar sort = flow.get(\"LOGsort\");\nvar limit = flow.get(\"LOGlimit\")\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"Date\": \"$date\",\n        \"Online\": \"$online\",\n        \"CHIPID\": \"$CHIPID\",\n        \"Placa\": \"$placa\",\n        \"Grupo\": \"$grupo\"\n        }},\n    \n    \n];\nif (limit === 0)\n    msg.payload[2]= sort\nelse{\n    msg.payload[2]={ \"$limit\": limit  }   \n    msg.payload[3]= sort\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 642.6665992736816,
         "y": 259.2333345413208,
         "wires": [
             [
-                "3355cc0e.3118f4"
+                "3355cc0e.3118f4",
+                "40aeb095.5b71d"
             ]
         ]
     },
@@ -1376,7 +1378,7 @@
         "wires": [
             [
                 "5b0c47f5.68d908",
-                "104c274c.8f4279"
+                "f06e4c88.4834f"
             ]
         ]
     },
@@ -1442,22 +1444,6 @@
         "wires": [
             [
                 "cbb4dc35.e1dd7"
-            ]
-        ]
-    },
-    {
-        "id": "104c274c.8f4279",
-        "type": "function",
-        "z": "1707ed1f.dc6003",
-        "name": "agreaga Filtros",
-        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(flow.get(\"LOGdesde\") || ahora);\nvar hasta = new Date(flow.get(\"LOGhasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\nvar sort = flow.get(\"LOGsort\");\n\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"Date\": \"$date\",\n        \"Online\": \"$online\",\n        \"CHIPID\": \"$CHIPID\",\n        \"Placa\": \"$placa\",\n        \"Grupo\": \"$grupo\"\n        }\n    }\n];\n\nmsg.payload[2]= sort\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 740,
-        "y": 900,
-        "wires": [
-            [
-                "b121c2a5.79aa5"
             ]
         ]
     },
@@ -1662,6 +1648,36 @@
         "x": 610,
         "y": 620,
         "wires": []
+    },
+    {
+        "id": "40aeb095.5b71d",
+        "type": "debug",
+        "z": "1707ed1f.dc6003",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1670,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f06e4c88.4834f",
+        "type": "function",
+        "z": "1707ed1f.dc6003",
+        "name": "agreaga Filtros",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(flow.get(\"LOGdesde\") || ahora);\nvar hasta = new Date(flow.get(\"LOGhasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\nvar sort = flow.get(\"LOGsort\");\nvar limit = flow.get(\"LOGlimit\")\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"Date\": \"$date\",\n        \"Online\": \"$online\",\n        \"CHIPID\": \"$CHIPID\",\n        \"Placa\": \"$placa\",\n        \"Grupo\": \"$grupo\"\n        }},\n    \n    \n];\nif (limit === 0)\n    msg.payload[2]= sort\nelse{\n    msg.payload[2]={ \"$limit\": limit  }   \n    msg.payload[3]= sort\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 740,
+        "y": 900,
+        "wires": [
+            [
+                "b121c2a5.79aa5"
+            ]
+        ]
     },
     {
         "id": "387f1644.c9b6ea",

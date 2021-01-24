@@ -55,12 +55,12 @@ void setup_wifi() { // Funcion de conexion dal WiFi
     attempt ++;
     delay(500);
     Serial.print(".");
-    if (attempt >= max_reconnect) // comprueba los intentos de reconexion => si superior a umbral =>> configura un AP 
+    if (attempt >= max_reconnect){ // comprueba los intentos de reconexion => si superior a umbral =>> configura un AP 
       debugFunction ("AP-enabled",1);
       debugFunction ("New Wifi created:", 0);
       debugFunction (String(AP_ssid)+String(datos.chipId),0);
       WiFiConfig ();
-
+      }
     
   }
 
