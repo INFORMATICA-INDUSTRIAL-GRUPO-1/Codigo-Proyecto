@@ -55,8 +55,8 @@ int mqtt_port = 1883;
 const char* mqtt_user = "infind";
 const char* mqtt_psw = "zancudo";
 
-const char* AP_ssid = "ESP8266_"; //"ESP8266_ChipId" SSid del AccesPoint para wificonfig
-const char* AP_password = "ESP8266"; //psw del AccesPoint para wificonfig
+const char* AP_ssid = "ESP8266"; //"ESP8266" SSid del AccesPoint para wificonfig
+const char* AP_password = "ESP8266_12 "; //psw del AccesPoint para wificonfig
 
 byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesPoint"
 

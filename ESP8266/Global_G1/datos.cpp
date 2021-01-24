@@ -115,7 +115,7 @@ void led_mqtt()                       // Funcion que tiene como entrada un valor
   
   if(origen_led=="mqtt")
   {
-    jsonRoot["id"]=id;Z
+    jsonRoot["id"]=id;
   }
   origen_led = " ";
   
