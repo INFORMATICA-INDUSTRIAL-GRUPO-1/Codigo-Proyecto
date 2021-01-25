@@ -18,19 +18,22 @@
 #include <Arduino.h>
 #include "config.h"
 
-/////////////////////GPIO's///////////////////////////////////////////////////////////
+//-------------------------  GPIO's  -------------------------  
 
 byte DHT_PIN=5; ///Pin de conexion de datos del DHT11
 byte SWITCH_PIN = 16; //Pin de conexion del swich
 byte LED_PIN=BUILTIN_LED; // Led de la placa
 byte BUTTON_PIN = 0; // Boton de Flash de la placa ESP8266
 
-////////////////////////////Debug Por Puerto Serie////////////////////////////////////
-bool debug = true;
-////////////////////////////FOTA////////////////////////////////////
-String OTAfingerprint("5d56095c5f7ba43f01b72231d3a7daa36e102e60"); // sustituir valor
-///////////////////// WiFi & MQTT CONFIGURATION////////////////////////////////////////////////////
+//-------------------------  Debug Por Puerto Serie  -------------------------  
 
+bool debug = true;
+
+//-------------------------  FOTA  -------------------------  
+
+String OTAfingerprint("5d56095c5f7ba43f01b72231d3a7daa36e102e60"); // sustituir valor
+
+//-------------------------  CONFIGURACION WiFi & MQTT  -------------------------  
 
 //const char* ssid = "MOVISTAR_1F74"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "vK3yLb5r6i7W5zM3nYNE"; // CLAVE DE LA RED WIFI
@@ -60,10 +63,7 @@ const char* AP_password = "ESP8266_12"; //psw del AccesPoint para wificonfig
 
 byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesPoint"
 
-/////////////////TOPICS MQTT ////////////////////
-byte grupo = 1;
-byte placa = 0;
-byte num_sensores = 5;
+//-------------------------  TOPICS MQTT  -------------------------  
 
 String s_TOP_conexion = "conexion";          
 String s_TOP_datos = "datos"; 
@@ -80,7 +80,7 @@ String s_TOP_Movimiento = "PIERO/Movimiento";
 String s_TOP_Modo = "PIERO/Modo";
 String s_TOP_Obstaculo = "PIERO/Obstaculo";
 
-/////////////
+
 char TOP_generic[48] ="infind/GRUPO%i/ESP%i/%s";
 
 char TOP_conexion[48] = "conexion"; 
@@ -112,11 +112,11 @@ char TOP_Modo[48] = "PIERO/Modo";
 char TOP_Obstaculo[48] = "PIERO/Obstaculo";
 
 
-/////////////////Parametros ////////////////////
+//-------------------------  Parametros  -------------------------  
 
-int dataSampRate = 5*60; // Tiempo entre publicaciones de los datos en SEGUNDOS
-int fotaSampRate = 0; // Tiempo entre busqueda de nuevas actualizaciones en MINUTOS (0 para deshabilitar la comprobacion por tiempo)
-int ledspeed = 10 ; // Velocidad a la que se modifica los cambios en la intensidad del led
+int dataSampRate = 5*60;  // Tiempo entre publicaciones de los datos en SEGUNDOS.
+int fotaSampRate = 0;     // Tiempo entre busqueda de nuevas actualizaciones en MINUTOS (0 para deshabilitar la comprobacion por tiempo).
+int ledspeed = 10 ;       // Velocidad a la que se modifica los cambios en la intensidad del LED, en milisegundos.
 
 
 bool logica_negativa=false;
@@ -124,3 +124,7 @@ bool logica_negativa=false;
 int actualiza = 0; 
 int orden = -1;
 int modo = 0;
+
+byte grupo = 1;
+byte placa = 0;
+byte num_sensores = 5;
