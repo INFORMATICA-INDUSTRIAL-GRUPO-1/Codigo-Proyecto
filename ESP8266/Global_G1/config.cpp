@@ -41,11 +41,11 @@ String OTAfingerprint("5d56095c5f7ba43f01b72231d3a7daa36e102e60"); // sustituir 
 //const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
 
-const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "Srmonline";// CLAVE DE LA RED WIFI
+//const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
+//const char* password = "Srmonline";// CLAVE DE LA RED WIFI
 
-//const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
-//const char* password = "pablovera"; // CLAVE DE LA RED WIFI
+const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "pablovera"; // CLAVE DE LA RED WIFI
 
 //const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "12345678"; // CLAVE DE LA RED WIFI
@@ -56,7 +56,7 @@ const char* mqtt_user = "infind";
 const char* mqtt_psw = "zancudo";
 
 const char* AP_ssid = "ESP8266"; //"ESP8266" SSid del AccesPoint para wificonfig
-const char* AP_password = "ESP8266_12 "; //psw del AccesPoint para wificonfig
+const char* AP_password = "ESP8266_12"; //psw del AccesPoint para wificonfig
 
 byte max_reconnect = 5; // intentos de reconexion antes de configurar el "AccesPoint"
 

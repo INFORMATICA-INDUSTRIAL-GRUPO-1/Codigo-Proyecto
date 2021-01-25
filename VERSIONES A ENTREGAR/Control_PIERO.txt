@@ -261,7 +261,7 @@
         "type": "function",
         "z": "474b40d3.7a9f2",
         "name": "Modo",
-        "func": "var m=global.get('Modo1')||0\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo1',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo1',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo1',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
+        "func": "var m=global.get('Modo1')\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo1',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo1',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo1',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 550,
@@ -1119,7 +1119,7 @@
         "type": "function",
         "z": "474b40d3.7a9f2",
         "name": "Modo",
-        "func": "var m=global.get('Modo2')||0\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo2',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo2',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo2',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
+        "func": "var m=global.get('Modo2')\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo2',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo2',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo2',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 613.7578353881836,
@@ -1754,7 +1754,7 @@
         "type": "function",
         "z": "474b40d3.7a9f2",
         "name": "Modo",
-        "func": "var m=global.get('Modo3')||0\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo3',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo3',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo3',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
+        "func": "var m=global.get('Modo3')\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo3',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo3',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo3',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 593.7578353881836,
@@ -2327,7 +2327,7 @@
         "type": "function",
         "z": "474b40d3.7a9f2",
         "name": "Modo",
-        "func": "var m=global.get('Modo5')||0\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo5',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo5',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo5',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
+        "func": "var m=global.get('Modo5')\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo5',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo5',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo5',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 570,
@@ -3057,7 +3057,7 @@
         "type": "function",
         "z": "474b40d3.7a9f2",
         "name": "Modo",
-        "func": "var m=global.get('Modo4')||0\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo4',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo4',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo4',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
+        "func": "var m=global.get('Modo4')\nif(m === 0)\n{\n    if(msg.payload===1)\n    {\n        global.set('Modo4',1);\n        msg.payload={};\n        msg.payload.Modo=1;\n        return msg;\n        \n    }\n    else if (msg.payload===2)\n    {\n        global.set('Modo4',2);\n        msg.payload={};\n        msg.payload.Modo=2;\n        return msg;\n    }\n}\nelse if (m!==0)\n{\n    if (msg.payload===0)\n    {\n        global.set('Modo4',0);\n        msg.payload={};\n        msg.payload.Modo=0;\n        return msg;\n    }\n}\nelse \n{\n    msg.payload=m;\n    return msg;\n}\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 650,
@@ -4197,7 +4197,7 @@
         "name": "Modo",
         "info": "Se controla el modo del PIERO. Hay 3: Reposo, Manual y Automático.\nPara pasar de un modo a otro hay que pasar por Reposo primero.",
         "x": 407.50781631469727,
-        "y": 278.5234432220459,
+        "y": 253.5234432220459,
         "wires": []
     },
     {
@@ -4249,6 +4249,106 @@
         "x": 71.50782012939453,
         "y": 3934.5234375,
         "wires": []
+    },
+    {
+        "id": "67fcfd17.399b34",
+        "type": "inject",
+        "z": "474b40d3.7a9f2",
+        "name": "Iniciar modo",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 353.3828125,
+        "y": 297.953125,
+        "wires": [
+            [
+                "88febe7e.67888"
+            ]
+        ]
+    },
+    {
+        "id": "3b8a1e1e.60cc52",
+        "type": "inject",
+        "z": "474b40d3.7a9f2",
+        "name": "Iniciar modo",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 396.765625,
+        "y": 1136.75,
+        "wires": [
+            [
+                "8bfac42a.b7dc38"
+            ]
+        ]
+    },
+    {
+        "id": "7f49c44b.14736c",
+        "type": "inject",
+        "z": "474b40d3.7a9f2",
+        "name": "Iniciar modo",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 392.765625,
+        "y": 1909.75,
+        "wires": [
+            [
+                "e7161272.917f9"
+            ]
+        ]
+    },
+    {
+        "id": "85269a36.253748",
+        "type": "inject",
+        "z": "474b40d3.7a9f2",
+        "name": "Iniciar modo",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 449.765625,
+        "y": 2744.75,
+        "wires": [
+            [
+                "2ea9a4f1.8f2e2c"
+            ]
+        ]
+    },
+    {
+        "id": "8f6a09d6.5dd278",
+        "type": "inject",
+        "z": "474b40d3.7a9f2",
+        "name": "Iniciar modo",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 377.765625,
+        "y": 3665.75,
+        "wires": [
+            [
+                "429fdcd.c487824"
+            ]
+        ]
     },
     {
         "id": "27af219f.da86de",
