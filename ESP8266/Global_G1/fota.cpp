@@ -14,7 +14,7 @@
 //    Aqui se recogen las distintas variables que requieren configuracion
 //
 
-////////////////////Seccion librerias y pestañas//////////////////////////////
+//-------------------------  Seccion librerias y pestañas  -------------------------  
 
 #include <Arduino.h>
 
@@ -24,11 +24,8 @@
 #include "debug.h"
 #include "fota.h"
 #include "config.h"
-////////////////////Declaraciones//////////////////////////////
 
-
-////////////////////Funciones//////////////////////////////
-
+//-------------------------  Funciones  -------------------------  
 
 void FuncionActualizacion()
 {
@@ -57,10 +54,6 @@ void FuncionActualizacion()
       Serial.println(F(" OK"));
       break;
     }
-
-
-
-  
 }
 
 

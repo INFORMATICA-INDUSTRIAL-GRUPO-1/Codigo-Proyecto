@@ -46,12 +46,6 @@ bool prim_F=false;
 unsigned long lastLed = 0;
 int inten_Led = 0;        //Valor de escritura en el Led.
 int valor_maped = 0;      //[0 1023] (primera inicializacion)
-//bool ledState = false; //No se encuentra esta variable por todo el código, borrar?
-//byte times = 0;
-
-
-
-
 
 //-------------------------  PESTAÑAS  ------------------------ 
 
@@ -199,21 +193,14 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
   
   serializa_datos_JSON ().toCharArray (msg,512);  // Serializacion de los datos del archivo json para su publicacion.
   client.publish(TOP_datos, msg, true);           // Publicacion del mensaje "datos" como retenido.
-  //Serial.print("Temp:");
-  //Serial.println(datos.temperatura);            // Debug, eliminar?
+
 
 }//END DATOS 
 
 //-------------------------  ENVIO SENSORES ROBOT  ------------------------
 
   sensores_arduino(); //Lee los datos de los sensores constantemente para que no se acumulen en el buffer.
-  /*
-  if(dato_sensor && now - lastSensores > 1000)
-   { 
-     sensores_mqtt();// envio a mqtt lectura sensores
-     lastSensores = now;//variable para actualizacion
-   }*/
-
+  
   if(dato_sensor)
    { 
      sensores_mqtt(); // Envio mediante mqtt la lectura de los sensores.

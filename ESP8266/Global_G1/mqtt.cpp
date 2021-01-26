@@ -14,7 +14,8 @@
 //    Aqui se recogen las distintas variables que requieren configuracion
 //
 
-////////////////////Seccion librerias y pestañas//////////////////////////////
+//-------------------------  Seccion librerias y pestañas  -------------------------  
+
 #include <Arduino.h>
 
 #include <PubSubClient.h>
@@ -28,12 +29,12 @@
 #include "wifi.h"
 String id; //inicializamos la id a 0
 
-/* ---------------------- Declaraciones ---------------------- */
+//-------------------------   DECLARACIONES  -------------------------  
 
 PubSubClient client(espClient);
 
 
-/* ---------------------- Funciones ---------------------- */
+//-------------------------  FUNCIONES  -------------------------  
 
 void callback(char* topic, byte* payload, unsigned int length) { // Funcion de callback (comprueba nuevas publicaciones en los topics suscritos)
   char *mensaje=(char *)malloc(length+1); // reservo memoria para copia del mensaje
@@ -46,63 +47,42 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     Serial.print((char)payload[i]);
   }
   Serial.println();
-*/
+Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
 
-/* ---------------------- LED_CMD ---------------------- */
 
-  if(strcmp(topic,TOP_ledCmd)==0) //Comprobacion topic para led
+//-------------------------  LED_CMD  -------------------------  
+
+  if(strcmp(topic,TOP_ledCmd)==0)     //Comprobacion topic para LED.
   {
-      StaticJsonDocument<500> root; // el tamaño tiene que ser adecuado para el mensaje
-    // Deserialize the JSON document
-    DeserializationError error = deserializeJson(root, mensaje);
+      StaticJsonDocument<500> root;   // El tamaño tiene que ser adecuado para el mensaje.
 
-    // Compruebo si no hubo error
+    DeserializationError error = deserializeJson(root, mensaje); //Deserializa el mensaje.
+
+    //Se omprueb si no hubo error.
     if (error) {
       debugFunction("Error deserializeJson() failed: ",0);
       debugFunction(error.c_str(),1);
     }
-    else if(root.containsKey("level"))  // comprobar si existe el campo/clave que estamos buscando
+    else if(root.containsKey("level"))        //Comprueba si existe el campo/clave que estamos buscando.
     {
-      
-     int valor_led_mqtt = root["level"];
-     String id_mqtt=root["id"];
-     id=id_mqtt;
+     int valor_led_mqtt = root["level"];      //Guarda en valor_led_mqtt el valor recibido desde MQTT.
+     String id_mqtt=root["id"];               //Guarda en id el valor recibido desde MQTT.
+     id=id_mqtt;                              //El valor de id_mqtt se pasa a una variable global.
      debugFunction("Mensaje OK, level = ",0);
      debugFunction(String(valor_led_mqtt),1);
-     led_actual = valor_led_mqtt;
+     led_actual = valor_led_mqtt;             //El valor_led_mqtt se pasa a una variable global.
      origen_led = "mqtt";
-     led_mqtt();
+     led_mqtt();                              //Funcion que publica por MQTT el nuevo valor de LED.
     }
     
-    else
+    else                                      //Mensaje recibido por el topic correcto pero con la palabra clave erronea.
     {
       debugFunction("Error : ",0);
-      debugFunction("\"level\" key not found in JSON",1);
+      debugFunction("\"level\" palbra clave no encontrada en JSON",1);
     }
   }
-    /////////////////////////
-   /* if(root.containsKey("id"))
-      {
-          String id_mqtt=root["id"];
-          id=id_mqtt;
-          
-        
-      }
-       else
-    {
-      debugFunction("Error : ",0);
-      debugFunction("\"id\" key not found in JSON",1);
-    }
-    */
-  
-  /*else //Topic erroneo 
-  {
-    Serial.print("Topic:");
-    Serial.println(topic);
-    Serial.println("Error: Topic desconocido");
-  }*/
 
-/* ---------------------- SWITCH_CMD ---------------------- */
+//-------------------------  SWITCH_CMD  ---------------------- 
 
     if(strcmp(topic,TOP_switchCmd)==0) //Comprobacion topic para led
   {
