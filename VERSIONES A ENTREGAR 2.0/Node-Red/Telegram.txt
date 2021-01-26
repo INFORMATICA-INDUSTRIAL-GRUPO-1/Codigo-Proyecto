@@ -3,7 +3,7 @@
         "id": "4f3a4e93.cc8bf",
         "type": "tab",
         "label": "TELEGRAM",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -2231,7 +2231,7 @@
         "bot": "2a1be692.da76fa",
         "saveDataDir": "",
         "filterCommands": false,
-        "x": 2710,
+        "x": 2670,
         "y": 2700,
         "wires": [
             [
