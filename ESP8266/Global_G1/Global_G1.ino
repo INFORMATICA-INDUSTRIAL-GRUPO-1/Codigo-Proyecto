@@ -58,7 +58,6 @@ int valor_maped = 0;      //[0 1023] (primera inicializacion)
 #include "debug.h"
 #include "pulsos.h"
 #include "interrupciones.h"
-#include "robot_2sens.h"
 #include "robot_5sens.h"
 #include "cont_vel.h"
 

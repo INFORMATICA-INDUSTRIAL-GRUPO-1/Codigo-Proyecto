@@ -13,7 +13,6 @@
 #include "config.h"
 #include "wifi.h"
 #include "mqtt.h"
-#include "robot_2sens.h"
 #include "robot_5sens.h"
 
 //Externalizacion de variables
