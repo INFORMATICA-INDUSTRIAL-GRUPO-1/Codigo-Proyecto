@@ -1,18 +1,21 @@
 // Programa Asignatura INFORMATICA INDUSTRIAL Grupo1
 // Codigo ESP8266
-// Version V.0.0.01a
+// Version V.1
+//
 // Autores
 //
+//  ANTONIO JESUS PEREZ BAZUELO
+//  MANUEL VALLE DELGADO
+//  MATHIAS LOFEUDO CLINCKSPOOR
+//  PABLO ROLDAN PEREZ
+//  PABLO VERA SOTO
 //
-//
-//
-//
-// Fecha de creacion: 28/11/2020
-// 
-// Pestaña:config.cpp
+// Pestaña: config
 // Descripcion del codigo
-//    Aqui se recogen las distintas variables que requieren configuracion
 //
+// Se encarga de declarar y gestionar todas las variables que tienen
+// que ver con la configuración del programa. 
+// Con respecto a los topics, se han preparado para ser flexibles
 
 
 #include <Arduino.h>
@@ -44,14 +47,14 @@ String OTAfingerprint("5d56095c5f7ba43f01b72231d3a7daa36e102e60"); // sustituir 
 //const char* ssid = "TOTOLINK_N300RH_Pri"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "AlHaMbRa_2.718"; // CLAVE DE LA RED WIFI
 
-//const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
-//const char* password = "Srmonline";// CLAVE DE LA RED WIFI
+const char* ssid = "Manu_2s"; // PONER EL NOMBRE DE LA RED WIFI
+const char* password = "Srmonline";// CLAVE DE LA RED WIFI
 
 //const char* ssid = "Pabloski587"; // PONER EL NOMBRE DE LA RED WIFI
 //const char* password = "pablovera"; // CLAVE DE LA RED WIFI
 
-const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "12345678"; // CLAVE DE LA RED WIFI
+//const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
+//const char* password = "12345678"; // CLAVE DE LA RED WIFI
 
 const char* mqtt_server = "iot.ac.uma.es" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
 int mqtt_port = 1883;
@@ -116,10 +119,10 @@ char TOP_Obstaculo[48] = "PIERO/Obstaculo";
 
 int dataSampRate = 5*60;  // Tiempo entre publicaciones de los datos en SEGUNDOS.
 int fotaSampRate = 0;     // Tiempo entre busqueda de nuevas actualizaciones en MINUTOS (0 para deshabilitar la comprobacion por tiempo).
-int ledspeed = 10 ;       // Velocidad a la que se modifica los cambios en la intensidad del LED, en milisegundos.
+int ledspeed = 10 ;       // Velocidad a la que se modifica los cambios en la intensidad del LED, en MILISEGUNDOS.
 
 
-bool logica_negativa=false;
+bool logica_negativa=true;
 
 int actualiza = 0; 
 int orden = -1;

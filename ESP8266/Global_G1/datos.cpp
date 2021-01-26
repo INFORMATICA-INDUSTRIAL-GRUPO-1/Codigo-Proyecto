@@ -1,23 +1,25 @@
 // Programa Asignatura INFORMATICA INDUSTRIAL Grupo1
 // Codigo ESP8266
-// Version V.0.0.02
+// Version V.1
+//
 // Autores
 //
+//  ANTONIO JESUS PEREZ BAZUELO
+//  MANUEL VALLE DELGADO
+//  MATHIAS LOFEUDO CLINCKSPOOR
+//  PABLO ROLDAN PEREZ
+//  PABLO VERA SOTO
 //
-//
-//
-//
-// Fecha de creacion: 28/11/2020
-// Ultima modificacion: 16/12/2020 (Manuel Valle Delgado)
-// 
-// Pestaña:datos.cpp
+// Pestaña: datos
 // Descripcion del codigo
-//    Aqui se recogen las distintas variables que requieren configuracion
 //
+// Contiene las funciones para gestionar los datos que se manejan en el programa
+// y las funciones necesarias para publicar por MQTT.
+//
+
 
 //-------------------------  Seccion librerias y pestañas  -------------------------  
 
-//Librerias
 #include <Arduino.h>
 #include "DHTesp.h"
 #include <ArduinoJson.h>
@@ -79,14 +81,15 @@ registro_datos datos ;  //Instancia el struct "datos".
 }
 
 
-float voltageSense () {
+float voltageSense () 
+{
   float voltage = 0;
   voltage =round (ESP.getVcc());  //Obtiene el valor en milivoltios de la tension de alimentacion. 
                                   //Se redondea para asi al convertirlo a voltios se obtienen menos decimales.
 
   voltage = (voltage/1000.0); // Transforma el valor a voltios.
   return voltage;
-  }
+}
 
 void tomaDatos (struct registro_datos &datos) //Funcion que toma los datos de los distintos sensores y los guarda en el struct "datos".
 {
@@ -98,7 +101,7 @@ void tomaDatos (struct registro_datos &datos) //Funcion que toma los datos de lo
   datos.humedad=dht.getHumidity();        //Toma de la humedad en el sensor DHT11.
   datos.SSID_wifi= ssid;                  //Toma del SSid del WiFi.
   datos.IP_wifi  = ip ;                   //Toma de la IP del ESP 8266 
-  datos.RSSI_wifi= ssidReq ();            // Toma del RSSI del WiFi. (Llamada a funcion ssidReq() en wifi.cpp).
+  datos.RSSI_wifi= ssidReq();            // Toma del RSSI del WiFi. (Llamada a funcion ssidReq() en wifi.cpp).
   }
 
 void led_mqtt()                       // Funcion que publica por MQTT el valor de LED.

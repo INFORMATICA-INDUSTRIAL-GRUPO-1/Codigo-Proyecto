@@ -1,25 +1,25 @@
 // Programa Asignatura INFORMATICA INDUSTRIAL Grupo1
 // Codigo ESP8266
-// Version V.0.0.02
+// Version V.1
+//
 // Autores
 //
+//  ANTONIO JESUS PEREZ BAZUELO
+//  MANUEL VALLE DELGADO
+//  MATHIAS LOFEUDO CLINCKSPOOR
+//  PABLO ROLDAN PEREZ
+//  PABLO VERA SOTO
 //
-//
-//
-//
-// Fecha de creacion: 28/11/2020
-// Ultima modificacion: 21/12/2020 a 21:09 (Manuel Valle Delgado)
-// 
-// Pestaña:Global
+// Pestaña: Global
 // Descripcion del codigo
 //
+// Este programa se encarga de administrar las diferentes partes del proyecto y servir de nexo entre ellas, logrando así una mejor organización.
 //
-
-
-
+// Este programa se encarga de administrar el estado de los leds incorporados en la placa,
+// de realizar actualizaciones de firmware cuando corresponda y de enviar datos de la placa 
+// y sensores al servidor MQTT. 
 
 //-------------------------  PESTAÑAS Y LIBRERIAS  ------------------------
- 
 
 // Incluir aqui las librerias//
 #include <ESP8266WiFi.h>
@@ -30,6 +30,7 @@
 
 
 //-------------------------  VARIABLES GLOBALES  ------------------------ 
+
 // Declarar aqui las variables globales
 
 // Envio de datos
@@ -72,19 +73,9 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), RTI, CHANGE); //Activacion de la interrupcion.
   Serial.begin(115200);               // Puerto serie Establecimiento.
   setup_wifi();                       // Llamada a la funcion de config del WiFi.
-
-  
-
-  //Configuracion servidor MQTT y topics.
-  debugFunction ("Establecimiento de MQTT",1);
   mqttSetup ();                       // Llamada a la funcion de setup de MQTT.
   mqttTopics();                       // Carga los topics.
   dht.setup(DHT_PIN, DHTesp::DHT11);  // Se establece el pin 2 como pin para hacer lectutra del sensor DHT.
-
-  //Indicador de la activación del modo debug (Se activa en config).
-  if(debug){                          //Establecer manualmente debug en true para activarlo.     
-    debugFunction ("Datos para debug",0); //Texto enviado para el debug
-    }
   
 }        // END SETUP
 
@@ -103,22 +94,21 @@ void loop() {
   client.loop();   // Comprueba si se reciben nuevos mensajes por MQTT.
   
   unsigned long now = millis();                     // Toma del tiempo actual en ms
+
+  
 //Primera actualización
 if(primera_FOTA && placa!=0)
 {
   prim_F=true;
   primerFOTA=now;
-  
   primera_FOTA=false;
 }
 
 if (((primerFOTA-now)>30000) && prim_F)
 {
-  FuncionActualizacion();             //LLamamos a la funcion para que actualice el programa
+  FuncionActualizacion();             //Llamamos a la funcion para que actualice el programa.
   prim_F=false;
 }
-  
-  
   
 // END comprobacion y reconexion
 
@@ -172,11 +162,11 @@ if (((primerFOTA-now)>30000) && prim_F)
 
 //-------------------------  FOTA  ------------------------
     
-if((now-lastFOTA > fotaSampRate*60000) && (fotaSampRate != 0)||(actualiza==1))
+if((now-lastFOTA > fotaSampRate*60000) && (fotaSampRate != 0)||(actualiza==1))    //Entra cuando transcurre el periodo indicado, siempre y cuadno no sea 0. Puede entrar si se ha solicitado por MQTT.
 {
-  FuncionActualizacion();
-  lastFOTA=now;
-  actualiza=0;
+  FuncionActualizacion();   //Llamada a la funcion de actualizacion.
+  lastFOTA=now;             //Se guarda la ultima vez que se actualizo.
+  actualiza=0;              //Para que no vuelva a entrar en el if.
 }
 
 //-------------------------  ENVIO DATOS  ------------------------
@@ -187,13 +177,11 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
 {
   lastMsg = now;
 
-  
   tomaDatos(datos); //actualiza los valores de "datos".
   
   serializa_datos_JSON ().toCharArray (msg,512);  // Serializacion de los datos del archivo json para su publicacion.
   client.publish(TOP_datos, msg, true);           // Publicacion del mensaje "datos" como retenido.
-
-
+  
 }//END DATOS 
 
 //-------------------------  ENVIO SENSORES ROBOT  ------------------------
@@ -201,9 +189,6 @@ if (now - lastMsg > dataSampRate*1000) //DATOS =>> ejecucion cada 5 min (por def
   sensores_arduino(); //Lee los datos de los sensores constantemente para que no se acumulen en el buffer.
   
   if(dato_sensor)
-   { 
      sensores_mqtt(); // Envio mediante mqtt la lectura de los sensores.
-   }
-
   
 }// END LOOP

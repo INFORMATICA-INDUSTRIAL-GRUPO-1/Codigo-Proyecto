@@ -1,17 +1,20 @@
 // Programa Asignatura INFORMATICA INDUSTRIAL Grupo1
 // Codigo ESP8266
-// Version V.0.0.01a
+// Version V.1
+//
 // Autores
 //
+//  ANTONIO JESUS PEREZ BAZUELO
+//  MANUEL VALLE DELGADO
+//  MATHIAS LOFEUDO CLINCKSPOOR
+//  PABLO ROLDAN PEREZ
+//  PABLO VERA SOTO
 //
+// Pestaña: fota
 //
-//
-//
-// Fecha de creacion: 28/11/2020
-// 
-// Pestaña:datos.cpp
 // Descripcion del codigo
-//    Aqui se recogen las distintas variables que requieren configuracion
+//
+// Se encarga de ejecutar la actualización FOTA.
 //
 
 //-------------------------  Seccion librerias y pestañas  -------------------------  
@@ -43,7 +46,9 @@ void FuncionActualizacion()
   ESPhttpUpdate.onError(error_OTA);
   ESPhttpUpdate.onProgress(progreso_OTA);
   ESPhttpUpdate.onEnd(final_OTA);
-  switch(ESPhttpUpdate.update(OTA_URL, HTTP_OTA_VERSION, OTAfingerprint)) {
+  
+  switch(ESPhttpUpdate.update(OTA_URL, HTTP_OTA_VERSION, OTAfingerprint))  //Para poder conectarse al servidor.
+  {
     case HTTP_UPDATE_FAILED:
       Serial.printf(" HTTP update failed: Error (%d): %s\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str());
       break;
@@ -56,15 +61,14 @@ void FuncionActualizacion()
     }
 }
 
-
 void final_OTA()
 {
   Serial.println("Fin OTA. Reiniciando...");
 }
 
-void inicio_OTA()
+void inicio_OTA()   
 {
-  actualiza_mqtt();
+  actualiza_mqtt();   //Se manda un mensaje por MQTT para que quede registro de la actualizacion.
   Serial.println("Nuevo Firmware encontrado. Actualizando...");
 }
 
