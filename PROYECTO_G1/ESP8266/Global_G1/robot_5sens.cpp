@@ -11,12 +11,11 @@
 //  PABLO VERA SOTO
 //
 // Pestaña: pulsos
-//
 // Descripcion del codigo
 //
 // Se encarga de leer los valores de todos los sensores recibidos desde Arduino por el puerto serie. 
 // Debido a que existen dos modelos diferentes de robot (uno equipado con 2 sensores y otro con 5 sensores)
-// se debe de introducir previamente de qué modelo se trata para no hacer lecturas falsas en un robot de 2 sensores. 
+// se debe de introducir previamente de que modelo se trata para no hacer lecturas falsas en un robot de 2 sensores. 
 //
 
 #include "robot_5sens.h"
@@ -44,7 +43,7 @@ void sensores_arduino ()
   if (Serial.available() > 0) //Se estan recibiendo datos del puerto serie.
   {
     dato_sensor = true;       //Se esta recibiendo informacion. Esta variable booleana habilita el envio de datos por MQTT.
-    incomingByte = Serial.read();   //Se guarda en la variable el los datos recibidos.
+    incomingByte = Serial.read();   //Se guarda en la variable los datos recibidos.
     switch (incomingByte)       //Dependiendo de la etiqueta recibida, el dato se corresponde a un sensor o a otro.
     {
         case 251:
@@ -111,7 +110,7 @@ void sensores_arduino ()
                 delay(10);
                 Serial.write(32); //stop
                 
-                // Mando por mqtt que hay obstáculo por la izquierda
+                // Mando por mqtt que hay obstáculo por la izquierda.
                 StaticJsonDocument<100> jsonRoot;
     
                 JsonObject Obstaculo=jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores"
@@ -162,7 +161,7 @@ void sensores_arduino ()
               delay(10);
               Serial.write(32); //stop
               
-              // Mando por mqtt que hay obstáculo por el centrol.
+              // Mando por mqtt que hay obstáculo por el centro.
               StaticJsonDocument<100> jsonRoot;
   
               JsonObject Obstaculo=jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores".

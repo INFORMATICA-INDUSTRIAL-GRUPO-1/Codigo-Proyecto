@@ -14,7 +14,7 @@
 //
 // Descripcion del codigo
 //
-// Esta función se encarga de establecer la conexión WiFi con un router
+// Esta funcion se encarga de establecer la conexión WiFi con un router
 // o para crear un punto de acceso desde la misma ESP8266.
 //
 
@@ -57,7 +57,7 @@ void setup_wifi()  // Funcion de conexion del WiFi
     delay(500);
     Serial.print(".");
     
-    if (attempt >= max_reconnect) // Comprueba los intentos de reconexion. Si superior a umbral configura un AP (Access Point o punto de acceso)
+    if (attempt >= max_reconnect) // Comprueba los intentos de reconexion. Si es superior al umbral, configura un AP (Access Point o punto de acceso)
     {
       debugFunction ("AP activado",1);
       debugFunction ("Nuevo WiFi creado: ", 0);

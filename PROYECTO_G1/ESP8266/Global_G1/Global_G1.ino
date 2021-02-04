@@ -13,7 +13,7 @@
 // Pestaña: Global
 // Descripcion del codigo
 //
-// Este programa se encarga de administrar las diferentes partes del proyecto y servir de nexo entre ellas, logrando así una mejor organización.
+// Este programa se encarga de administrar las diferentes partes del proyecto y servir de nexo entre ellas, logrando asi una mejor organizacion.
 //
 // Este programa se encarga de administrar el estado de los leds incorporados en la placa,
 // de realizar actualizaciones de firmware cuando corresponda y de enviar datos de la placa 
@@ -75,7 +75,7 @@ void setup() {
   setup_wifi();                       // Llamada a la funcion de config del WiFi.
   mqttSetup ();                       // Llamada a la funcion de setup de MQTT.
   mqttTopics();                       // Carga los topics.
-  dht.setup(DHT_PIN, DHTesp::DHT11);  // Se establece el pin 2 como pin para hacer lectutra del sensor DHT.
+  dht.setup(DHT_PIN, DHTesp::DHT11);  // Se establece el pin 2 como pin para hacer lectura del sensor DHT.
   
 }        // END SETUP
 
@@ -120,7 +120,7 @@ if (((primerFOTA-now)>30000) && prim_F)
       pulsos();                     // Interpreta los pulsos de la interrupcion.
       ultima_pulsacion = millis();  // Guarda en ultima_pulsación el tiempo de la ultima pulsacion.
       funcion_flash();              // Interpreta, con el "codigo pulso", que hacer en la placa (ON/OFF, FOTA...).
-      led_mqtt();                   // Publica el valor del led actualizado. (Función en DATOS).
+      led_mqtt();                   // Publica el valor del led actualizado. (Funcion en datos.cpp).
       ready_led = false;            // Variable para no volver a entrar en el IF.
   }
 
@@ -130,7 +130,7 @@ if (((primerFOTA-now)>30000) && prim_F)
       switch_valor=!switch_valor;
     }
     digitalWrite(SWITCH_PIN,switch_valor);
-    switch_mqtt();                  //Publica el valor del swtich (Funcón en DATOS).
+    switch_mqtt();                  //Publica el valor del swtich (Funcion en datos.cpp).
     ready_switch = false;           // Variable para no volver a entrar en el IF.
   }
   

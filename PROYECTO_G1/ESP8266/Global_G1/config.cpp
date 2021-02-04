@@ -23,10 +23,10 @@
 
 //-------------------------  GPIO's  -------------------------  
 
-byte DHT_PIN=5; ///Pin de conexion de datos del DHT11
-byte SWITCH_PIN = 16; //Pin de conexion del swich
-byte LED_PIN=BUILTIN_LED; // Led de la placa
-byte BUTTON_PIN = 0; // Boton de Flash de la placa ESP8266
+byte DHT_PIN=5;               //Pin de conexion de datos del DHT11
+byte SWITCH_PIN = 16;         //Pin de conexion del swich
+byte LED_PIN=BUILTIN_LED;     // Led de la placa
+byte BUTTON_PIN = 0;          // Boton de Flash de la placa ESP8266
 
 //-------------------------  Debug Por Puerto Serie  -------------------------  
 

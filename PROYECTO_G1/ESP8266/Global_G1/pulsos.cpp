@@ -14,7 +14,7 @@
 //
 // Descripcion del codigo
 //
-// contiene dos funciones relativas a la identificación de las pulsaciones del botón Flash
+// Contiene dos funciones relativas a la identificación de las pulsaciones del botón Flash
 // (corta, larga o doble) y la respuesta de la placa ante estos estímulos.
 //
 
@@ -61,7 +61,7 @@ void funcion_flash()
   switch (pulsacion)
   {
     case 1:                       // Pulsación Corta
-      if(!logica_negativa)        //Dependiendo del tipo de logica que se este usando en los actuaodes, escribe 1 o 0 dependiendo del valor anterior.
+      if(!logica_negativa)        //Dependiendo del tipo de logica que se este usando en los actuaodores, escribe 1 o 0 dependiendo del valor anterior.
         switch_valor = digitalRead(SWITCH_PIN);   //Escribe el valor en el pin del switch.
       else
         switch_valor = !digitalRead(SWITCH_PIN);

@@ -37,7 +37,7 @@ void control_modo()
     break;
     case 2:
       vel_envio[0]=88; //X
-      vel_envio[1]=69; //E (AUTOMÁTICO)
+      vel_envio[1]=69; //E (AUTOMATICO)
     break;
   }
   Serial.write(vel_envio[0]);  //Envia la etiqueta (X).
@@ -84,7 +84,7 @@ void velocidad()
         
      
       break;
-      case 2:           //Independientemente de los objetos detectados, siempre podrá ir hacia atras.
+      case 2:           //Independientemente de los objetos detectados, siempre podra ir hacia atras.
       
         vel_envio[0]=88;
         vel_envio[1]=83; // S (RETROCESO)

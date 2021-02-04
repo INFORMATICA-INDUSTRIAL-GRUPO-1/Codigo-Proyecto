@@ -95,13 +95,13 @@ void tomaDatos (struct registro_datos &datos) //Funcion que toma los datos de lo
 {
   datos.chipId = ESP.getChipId();
   datos.MAC = String(WiFi.macAddress());
-  datos.tiempo = millis();                //Tiempo de ejecucion desde el último reinicio.
+  datos.tiempo = millis();                //Tiempo de ejecucion desde el ultimo reinicio.
   datos.Vcc=voltageSense ();              //Toma de voltaje de entrada.
-  datos.temperatura=dht.getTemperature(); //Toma de la tempreatura en el sensor DHT11.
+  datos.temperatura=dht.getTemperature(); //Toma de la temperatura en el sensor DHT11.
   datos.humedad=dht.getHumidity();        //Toma de la humedad en el sensor DHT11.
   datos.SSID_wifi= ssid;                  //Toma del SSid del WiFi.
   datos.IP_wifi  = ip ;                   //Toma de la IP del ESP 8266 
-  datos.RSSI_wifi= ssidReq();            // Toma del RSSI del WiFi. (Llamada a funcion ssidReq() en wifi.cpp).
+  datos.RSSI_wifi= ssidReq();             //Toma del RSSI del WiFi. (Llamada a funcion ssidReq() en wifi.cpp).
   }
 
 void led_mqtt()                       // Funcion que publica por MQTT el valor de LED.
@@ -155,7 +155,7 @@ void switch_mqtt()                       // Funcion que publica por MQTT el valo
   StaticJsonDocument<100> jsonRoot;
  
    
-  jsonRoot["ultimaFOTA"] = 1;                           //Envía una señal para indicar que se va a actualizar.
+  jsonRoot["ultimaFOTA"] = 1;                           //Envia una señal para indicar que se va a actualizar.
   JsonObject ESP_=jsonRoot.createNestedObject("ESP_");  //Crea un subobjeto json para "ESP_"
     ESP_["placa"] = placa;
     ESP_["grupo"] = grupo;
