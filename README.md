@@ -1,4 +1,7 @@
-# Codigo-Proyecto
+
+# Descripción del proyecto
+Se ha desarrollado un software capaz de gestionar la información de los sensores de una placa ESP8266
+Se ha desarrollado un software que aplica “internet de las cosas” (IOT) como trabajo final de la asignatura de Informática Industrial. Se implementan diferentes tecnologías estudiadas durante el curso. Entre ellas cabe destacar el uso de comunicaciones MQTT, el diseño de flujos Node-RED y la programación en Arduino. 
 
 
 # Prerrequisitos Software
@@ -18,8 +21,10 @@ Para ejecutar también la parte del robot, este deberá tener como mínimo las s
   - Motores que permitan que el robot se mueva
 
 # Organizacion Proyecto
-Se incluye todo el software necesario para hacer funcionar el proyecto. Existen dos versiones del programa Simulink, dependiendo de la cantidad de sensores utilizados.
-
-  -  Documentos y manuales
+Se incluye todo el software necesario para hacer funcionar el proyecto. Existen dos versiones del programa Simulink, dependiendo de la cantidad de sensores utilizados
+  - Documentos y manuales: Contiene la guía del susuario, la memoria del proyecto, el esquema de conexionado y un par de turoriales.
+  - ESP8266/Global_G1 : Contiene el código Arduino. Descargar todo en la misma carpeta y ejecutar Global_G1.ino
+  - Node-Red: Contiene los flujos en formato Json. Importar cada uno individualmente
+  - PIERO_X_Sensores: Programas Simulink en función del número X de sensores del robot.
 
 
