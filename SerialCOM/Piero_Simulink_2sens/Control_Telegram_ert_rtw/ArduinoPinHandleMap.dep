@@ -1,5 +1,0 @@
-ArduinoPinHandleMap.o: \
- C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinobase/src/ArduinoPinHandleMap.cpp \
- C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rtwtypes.h
-
-C:/Users/Lenovo/Desktop/Piero_Simulink/Control_Telegram_ert_rtw/rtwtypes.h:

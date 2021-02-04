@@ -1,5 +1,0 @@
-1. Comandos directos desde Telegram
-2. Seguimiento de trayectoria (comandado por telegram o nodered)
-3. Evitar obstaculos (comandado por telegram o nodered)
-4. Enviar datos sensores (afinar)
-
