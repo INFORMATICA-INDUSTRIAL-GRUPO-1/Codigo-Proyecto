@@ -33,7 +33,7 @@ Se incluye todo el software necesario para hacer funcionar el proyecto. Existen 
   - Pablo Roldán Pérez            - https://github.com/Pablo-R-P-G1
   - Manuel Valle Delgado          - https://github.com/ManuelVD
   - Antonio Jesús Pérez Bazuelo   - https://github.com/AntonioJPerez87
-  - Pablo Vera Soto               - 
+  - Pablo Vera Soto               - https://github.com/Pabloski587
   - Mathias Lofeudo Clinckspoor   - 
   
   ## Galería
