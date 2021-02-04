@@ -17,18 +17,18 @@
 // Se encarga de ejecutar la actualización FOTA.
 //
 
-//-------------------------  Seccion librerias y pestañas  -------------------------  
+//-------------------------  Seccion librerias y pestañas  -------------------------
 
 #include <Arduino.h>
 
 #include <ESP8266httpUpdate.h>
-#include "datos.h"
-#include "mqtt.h"
-#include "debug.h"
+#include "../datos/datos.h"
+#include "../mqtt/mqtt.h"
+#include "../debug/debug.h"
 #include "fota.h"
-#include "config.h"
+#include "../config/config.h"
 
-//-------------------------  Funciones  -------------------------  
+//-------------------------  Funciones  -------------------------
 
 void FuncionActualizacion()
 {
@@ -40,13 +40,13 @@ void FuncionActualizacion()
   debugFunction (OTA_URL,0);
   debugFunction (":",0);
   debugFunction ("",1);
-  debugFunction ("--------------------",1);  
+  debugFunction ("--------------------",1);
   ESPhttpUpdate.setLedPin(16,LOW);
   ESPhttpUpdate.onStart(inicio_OTA);
   ESPhttpUpdate.onError(error_OTA);
   ESPhttpUpdate.onProgress(progreso_OTA);
   ESPhttpUpdate.onEnd(final_OTA);
-  
+
   switch(ESPhttpUpdate.update(OTA_URL, HTTP_OTA_VERSION, OTAfingerprint))  //Para poder conectarse al servidor.
   {
     case HTTP_UPDATE_FAILED:
@@ -66,7 +66,7 @@ void final_OTA()
   Serial.println("Fin OTA. Reiniciando...");
 }
 
-void inicio_OTA()   
+void inicio_OTA()
 {
   actualiza_mqtt();   //Se manda un mensaje por MQTT para que quede registro de la actualizacion.
   Serial.println("Nuevo Firmware encontrado. Actualizando...");

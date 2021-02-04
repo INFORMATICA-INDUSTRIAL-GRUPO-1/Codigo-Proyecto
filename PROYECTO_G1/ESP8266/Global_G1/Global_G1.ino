@@ -51,16 +51,16 @@ int valor_maped = 0;      //[0 1023] (primera inicializacion)
 //-------------------------  PESTAÑAS  ------------------------ 
 
 // Incluir aqui las pestañas ".h"//
-#include "config.h"
-#include "wifi.h"
-#include "mqtt.h"
-#include "fota.h"
-#include "datos.h"
-#include "debug.h"
-#include "pulsos.h"
-#include "interrupciones.h"
-#include "robot_5sens.h"
-#include "cont_vel.h"
+#include "src/config/config.h"
+#include "src/wifi/wifi.h"
+#include "src/mqtt/mqtt.h"
+#include "src/fota/fota.h"
+#include "src/datos/datos.h"
+#include "src/debug/debug.h"
+#include "src/pulsos/pulsos.h"
+#include "src/interrupciones/interrupciones.h"
+#include "src/robot_5sens/robot_5sens.h"
+#include "src/cont_vel/cont_vel.h"
 
 
 //-------------------------  SETUP  ------------------------

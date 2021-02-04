@@ -19,12 +19,12 @@
 
 
 #include <Arduino.h>
-#include "config.h"
-#include "pulsos.h"
+#include "../config/config.h"
+#include "../pulsos/pulsos.h"
 
 // Rutina de Tratamiento de la Interrupcion (RTI)
 
-//-------------------------  DECLARACIONES  -------------------------  
+//-------------------------  DECLARACIONES  -------------------------
 
 volatile unsigned long duracion = 0;
 volatile bool ready_led = false;
@@ -32,16 +32,16 @@ int estado_int=HIGH;                    // Por defecto HIGH (PULLUP). Cuando se 
 volatile unsigned long ultima_int = 0;
 volatile unsigned long inicio = 0;
 
-//-------------------------  INTERRUPCION  ------------------------- 
+//-------------------------  INTERRUPCION  -------------------------
 
-  ICACHE_RAM_ATTR void RTI() 
-  {    
+  ICACHE_RAM_ATTR void RTI()
+  {
     int lectura=digitalRead(0);
     unsigned long hora = millis(); //Iniciar 1 vez millis(), para no volver a preguntar otras 3 veces más dentro de la función. Se trata de una interrupción, no debe de demandar tanto.
-    
-    if(lectura == estado_int || hora - ultima_int<50) // Filtro rebotes 50ms. Cuidado con la segunda condicion que puede dar 0 y no entrar.    
-    return; 
-    
+
+    if(lectura == estado_int || hora - ultima_int<50) // Filtro rebotes 50ms. Cuidado con la segunda condicion que puede dar 0 y no entrar.
+    return;
+
     if(lectura == LOW)          //Boton pulsado.
     {
       estado_int = LOW;

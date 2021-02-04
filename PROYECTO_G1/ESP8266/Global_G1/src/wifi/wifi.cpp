@@ -18,7 +18,7 @@
 // o para crear un punto de acceso desde la misma ESP8266.
 //
 
-//-------------------------  Seccion librerias y pestañas  -------------------------  
+//-------------------------  Seccion librerias y pestañas  -------------------------
 
 #include <ESP8266WiFi.h>
 #include <DNSServer.h>
@@ -26,19 +26,19 @@
 #include <WiFiManager.h>
 
 #include <Arduino.h>
-#include "config.h"
-#include "datos.h"
-#include "debug.h"
+#include "../config/config.h"
+#include "../datos/datos.h"
+#include "../debug/debug.h"
 #include "wifi.h"
 
-//-------------------------  Declaraciones  -------------------------  
+//-------------------------  Declaraciones  -------------------------
 
 WiFiClient espClient;     // Cliente wifi para conexion generica.
 WiFiManager wifiManager;  // Crea un AccesPoint (nueva red wifi) para configurar la red wifi (de trabajo) desde otro dispositivo.
 String ip = "0.0.0.0";    // IP inicializada con "direccion" 0.
 long rssi = 0;
 
-//-------------------------  Funciones-------------------------  
+//-------------------------  Funciones-------------------------
 
 void setup_wifi()  // Funcion de conexion del WiFi
 {
@@ -56,7 +56,7 @@ void setup_wifi()  // Funcion de conexion del WiFi
     attempt ++;
     delay(500);
     Serial.print(".");
-    
+
     if (attempt >= max_reconnect) // Comprueba los intentos de reconexion. Si es superior al umbral, configura un AP (Access Point o punto de acceso)
     {
       debugFunction ("AP activado",1);
@@ -75,7 +75,7 @@ void setup_wifi()  // Funcion de conexion del WiFi
 
 
 void WiFiConfig()   //Funcion que crea el punto de acceso de la ESP8266.
-{ 
+{
   wifiManager.autoConnect(AP_ssid, AP_password);    //Punto de acceso con SSID y contraseña configurada en config.cpp.
   debugFunction ("Conectado",1);
 }

@@ -19,8 +19,8 @@
 //
 
 
-#include <Arduino.h> 
-#include "interrupciones.h"
+#include <Arduino.h>
+#include "../interrupciones/interrupciones.h"
 #include "pulsos.h"
 
 
@@ -31,16 +31,16 @@ unsigned long ultima_pulsacion = 0;
 int pulsacion = 0;
 
 void pulsos()                                 //Interpreta los pulsos del boton y la duración de la pulsacion.
-{   
+{
     unsigned long ahora = millis();
     unsigned long espera = ahora - ultima_pulsacion;
-    
+
     if (duracion < 2000 && espera <= 300)     //"pulsacion doble"
-      pulsacion = 2;  
-      
+      pulsacion = 2;
+
     else if (duracion < 2000)                //pulsacion corta.
-      pulsacion = 1;  
-       
+      pulsacion = 1;
+
     if (duracion >= 2000)                     //pulsacion larga.
       pulsacion = 100;
 }
@@ -65,12 +65,12 @@ void funcion_flash()
         switch_valor = digitalRead(SWITCH_PIN);   //Escribe el valor en el pin del switch.
       else
         switch_valor = !digitalRead(SWITCH_PIN);
-        
-      
+
+
       origen_switch = "pulsador";   //Procedencia de la señal de cambio.
       ready_switch = true;          //Datos preparados, puede enviar por MQTT los datos de switch.
 
-      
+
         if (led_actual != 0)        // Led encendido: se guarda el valor de intensidad en nueva variable y luego se apaga.
         {
            led_almacenado = led_actual; // Variable de reserva
@@ -78,10 +78,10 @@ void funcion_flash()
         }
         else                        // Led apagado: se enciende con el valor de intensidad guardado.
           led_actual = led_almacenado;
-      
+
       origen_led = "pulsador";      //Procedencia de la señal de cambio.
     break;
-    
+
     case 2:                       //Pulsación doble.
      switch_valor = LOW;          //Switch encendido.
      origen_switch = "pulsador";

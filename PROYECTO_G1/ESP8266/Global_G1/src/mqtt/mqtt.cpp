@@ -15,29 +15,29 @@
 // Descripcion del codigo
 //
 // Se encuentran las funciones correspondientes a la configuración de la conexión de la ESP al servidor MQTT,
-// configuración de los topics que van a utilizarse en todo el programa y recepción de información mediante suscripción a distintos topics. 
+// configuración de los topics que van a utilizarse en todo el programa y recepción de información mediante suscripción a distintos topics.
 //
 
-//-------------------------  Seccion librerias y pestañas  -------------------------  
+//-------------------------  Seccion librerias y pestañas  -------------------------
 
 #include <Arduino.h>
 
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 
-#include "config.h"
-#include "debug.h"
-#include "datos.h"
-#include "mqtt.h"
-#include "pulsos.h"
-#include "wifi.h"
+#include "../config/config.h"
+#include "../debug/debug.h"
+#include "../datos/datos.h"
+#include "../mqtt/mqtt.h"
+#include "../pulsos/pulsos.h"
+#include "../wifi/wifi.h"
 String id = ""; //Inicializamos la id a "vacio".
 
-//-------------------------   DECLARACIONES  -------------------------  
+//-------------------------   DECLARACIONES  -------------------------
 
 PubSubClient client(espClient);
 
-//-------------------------  FUNCIONES  -------------------------  
+//-------------------------  FUNCIONES  -------------------------
 
 void callback(char* topic, byte* payload, unsigned int length) { // Funcion de callback (comprueba nuevas publicaciones en los topics suscritos)
   char *mensaje=(char *)malloc(length+1); // reservo memoria para copia del mensaje
@@ -50,11 +50,11 @@ void callback(char* topic, byte* payload, unsigned int length) { // Funcion de c
     Serial.print((char)payload[i]);
   }
   Serial.println();
-  
+
 Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
 
 
-//-------------------------  LED_CMD  ------------------------- 
+//-------------------------  LED_CMD  -------------------------
 
   if(strcmp(topic,TOP_ledCmd)==0)     //Comprobacion topic para LED.
   {
@@ -62,7 +62,7 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
     DeserializationError error = deserializeJson(root, mensaje); //Deserializa el mensaje.
 
     //Se comprueba si hubo error.
-    if (error) 
+    if (error)
     {
       debugFunction("Error deserializeJson() failed: ",0);
       debugFunction(error.c_str(),1);
@@ -78,7 +78,7 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
        origen_led = "mqtt";
        led_mqtt();                              //Funcion que publica por MQTT el nuevo valor de LED.
     }
-    
+
     else                                      //Mensaje recibido por el topic correcto pero con la palabra clave erronea.
     {
       debugFunction("Error : ",0);
@@ -90,11 +90,11 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
 
   if(strcmp(topic,TOP_switchCmd)==0) //Comprobacion topic para switch.
   {
-    StaticJsonDocument<512> root;  
+    StaticJsonDocument<512> root;
     DeserializationError error = deserializeJson(root, mensaje); //Deserializa el mensaje.
 
     // Compruebo si hubo error.
-    if (error) 
+    if (error)
     {
       debugFunction("Error deserializeJson() failed: ",0);
       debugFunction(error.c_str(),1);
@@ -106,44 +106,44 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
        id=id_mqtt;                                  //El valor de id_mqtt se pasa a una variable global.
        debugFunction("Mensaje OK, level = ",0);
        debugFunction(String(valor_switch_mqtt),1);
-     
+
        if(valor_switch_mqtt)                        //Interpreta el valor recibido para escribirlo en el switch.
           switch_valor = 0;
        else
           switch_valor = 1;
-          
+
        origen_switch = "mqtt";
        ready_switch = true;                         //Datos preparados, puede escribirlo y enviar el mensaje por MQTT.
     }
- 
+
   else                                          //Mensaje recibido por el topic correcto pero con la palabra clave erronea.
   {
     debugFunction("Error : ",0);
     debugFunction("\"level\" palabra clave no encontrada en JSON",1);
   }
-   
+
 }
 
 //-------------------------  CONFIG  -------------------------
 
   if(strcmp(topic,TOP_config)==0) //Comprobacion topic para config.
   {
-    StaticJsonDocument<128> root; 
+    StaticJsonDocument<128> root;
     DeserializationError error = deserializeJson(root, mensaje); //Deserializa el mensaje.
 
     // Compruebo si hubo error.
-    if (error) 
+    if (error)
     {
       debugFunction("Error deserializeJson() failed: ",0);
       debugFunction(error.c_str(),1);
     }
     else
     {
-      // ---------------------- Actualiza ---------------------- 
-      
+      // ---------------------- Actualiza ----------------------
+
        if(root.containsKey("actualiza"))  //Comprueba si existe el campo/clave.
         {
-          if(root["actualiza"] == -1)       //En caso de enviar un dato no deseado, en Node-Red se envia "-1". 
+          if(root["actualiza"] == -1)       //En caso de enviar un dato no deseado, en Node-Red se envia "-1".
                                             //Esto hace que no se modifique el valor de ese campo. En el resto de campos se hace de forma identica.
             debugFunction("actualiza = null. No se han hecho modificaciones",1);
           else
@@ -159,9 +159,9 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
         debugFunction("Error : ",0);
         debugFunction("\"actualiza\" palabra clave no encontrada en JSON",1);
       }
-      
-      // ---------------------- Envia ---------------------- 
-      
+
+      // ---------------------- Envia ----------------------
+
       if(root.containsKey("envia"))  //Comprueba si existe el campo/clave.
        {
         if(root["envia"] == -1)
@@ -179,15 +179,15 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
         debugFunction("Error : ",0);
         debugFunction("\"envia\" palabra clave no encontrada en JSON",1);
       }
-      
-      // ---------------------- Velocidad ---------------------- 
-      
+
+      // ---------------------- Velocidad ----------------------
+
       if(root.containsKey("velocidad"))               //Comprueba si existe el campo/clave.
       {
         if(root["velocidad"] == -1)
           debugFunction("velocidad = null. No se han hecho modificaciones",1);
         else
-        { 
+        {
          int ledspeed_mqtt = root["velocidad"];       //Obtiene el valor recibido.
          debugFunction("Mensaje OK, velocidad = ",0);
          debugFunction(String(ledspeed_mqtt),1);
@@ -199,26 +199,26 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
         debugFunction("Error : ",0);
         debugFunction("\"velocidad\" palabra clave no encontrada en JSON",1);
       }
-      
-      // ---------------------- LED_config ---------------------- 
-      
+
+      // ---------------------- LED_config ----------------------
+
        if(root.containsKey("LED"))                //Comprueba si existe el campo/clave.
        {
         if(root["LED"] == -1)
           debugFunction("LED = null. No se han hecho modificaciones",1);
         else
-        { 
+        {
            int valor_led_mqtt_config = root["LED"];         //Obtiene el valor recibido.
            debugFunction("Mensaje OK, LED (config) = ",0);
            debugFunction(String(valor_led_mqtt_config),1);
-           
+
            if(valor_led_mqtt_config)         //Interpreta el valor recibido.
               led_actual = 100;
            else
              led_actual = 0;
-    
+
            origen_led = "mqtt_config";
-           led_mqtt();   
+           led_mqtt();
         }
       }
       else
@@ -226,26 +226,26 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
         debugFunction("Error : ",0);
         debugFunction("\"LED\" palabra clave no encontrada en JSON",1);
       }
-      
-       // ---------------------- SWITCH_config ---------------------- 
-       
+
+       // ---------------------- SWITCH_config ----------------------
+
        if(root.containsKey("SWITCH"))                //Comprueba si existe el campo/clave.
        {
         if(root["SWITCH"] == -1)
           debugFunction("SWITCH = null. No se han hecho modificaciones",1);
         else
-        {        
+        {
            int valor_switch_mqtt_config = root["SWITCH"];  //Obtiene el valor recibido.
            debugFunction("Mensaje OK, SWITCH (config) = ",0);
            debugFunction(String(valor_switch_mqtt_config),1);
-           
+
            if(valor_switch_mqtt_config)       //Interpreta el valor recibido.
               switch_valor = false;
            else
               switch_valor = true;
-              
+
            origen_switch = "mqtt_config";
-           ready_switch = true;       
+           ready_switch = true;
         }
       }
       else
@@ -253,18 +253,18 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
         debugFunction("Error : ",0);
         debugFunction("\"SWITCH\" palabra clave no encontrada en JSON",1);
       }
-      
+
       // ---------------------- Logica Negativa ----------------------
-       
+
       if(root.containsKey("Logica_negativa"))     //Comprueba si existe el campo/clave.
       {
         if(root["Logica_negativa"] == -1)
           debugFunction("Logica negativa = null. No se han hecho modificaciones",1);
         else
-        {        
+        {
            bool valor_Logica_negativa_mqtt_config = root["Logica_negativa"];  //Obtiene el valor recibido.
            debugFunction("Mensaje OK, Logica Negativa = ",0);
-           debugFunction(String(valor_Logica_negativa_mqtt_config),1); 
+           debugFunction(String(valor_Logica_negativa_mqtt_config),1);
            logica_negativa=valor_Logica_negativa_mqtt_config;                 //Se guarda el valor recibido en una variable global.
         }
       }
@@ -274,17 +274,17 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
         debugFunction("\"Logica Negativa\" palabra clave no encontrada en JSON",1);
       }
     }
-    
+
   }
-//-------------------------  FOTA  -------------------------  
+//-------------------------  FOTA  -------------------------
 
   if(strcmp(topic,TOP_FOTA)==0)
   {
-    StaticJsonDocument<24> root;          
+    StaticJsonDocument<24> root;
     DeserializationError error = deserializeJson(root, mensaje);    //Deserializa el mensaje.
 
     // Compruebo si hubo error.
-    if (error) 
+    if (error)
     {
       debugFunction("Error deserializeJson() failed: ",0);
       debugFunction(error.c_str(),1);
@@ -302,15 +302,15 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
     }
   }
 
-//-------------------------  MOVIMIENTO  -------------------------  
-  
+//-------------------------  MOVIMIENTO  -------------------------
+
   if(strcmp(topic,TOP_Movimiento)==0)
   {
-    StaticJsonDocument<24> root; 
+    StaticJsonDocument<24> root;
     DeserializationError error = deserializeJson(root, mensaje);  //Deserializa el mensaje.
 
     // Compruebo si hubo error.
-    if (error) 
+    if (error)
     {
       debugFunction("Error deserializeJson() failed: ",0);
       debugFunction(error.c_str(),1);
@@ -325,17 +325,17 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
       debugFunction("Error : ",0);
       debugFunction("\"orden\" palabra clave no encontrada en JSON",1);
     }
-  } 
+  }
 
-//-------------------------  MODO  -------------------------  
+//-------------------------  MODO  -------------------------
 
   if(strcmp(topic,TOP_Modo)==0)
   {
-    StaticJsonDocument<128> root; 
+    StaticJsonDocument<128> root;
     DeserializationError error = deserializeJson(root, mensaje);  //Deserializa el mensaje.
 
     // Compruebo si hubo error.
-    if (error) 
+    if (error)
     {
       debugFunction("Error deserializeJson() failed: ",1);
       debugFunction(error.c_str(),0);
@@ -351,16 +351,16 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
       debugFunction("\"modo\" palabra clave no encontrada en JSON",1);
     }
   }
-  
-//-------------------------  CONFIG_PLACA  ------------------------- 
+
+//-------------------------  CONFIG_PLACA  -------------------------
 
   if(strcmp(topic,TOP_configPlaca)==0)
   {
-    StaticJsonDocument<128> root; 
+    StaticJsonDocument<128> root;
     DeserializationError error = deserializeJson(root, mensaje);    //Deserializa el mensaje.
 
     // Compruebo si hubo error.
-    if (error) 
+    if (error)
     {
       debugFunction("Error deserializeJson() failed: ",1);
       debugFunction(error.c_str(),0);
@@ -368,23 +368,23 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
     else if(root.containsKey("placa"))  //Comprueba si existe el campo/clave.
       {
         if(root.containsKey("CHIPID"))  //Comprueba si existe el campo/clave.
-        { 
+        {
             String ID = root["CHIPID"];
             int aux;                    //Variable auxiliar.
             debugFunction("CHIPID recibida:",1);
             debugFunction(ID,1);
-            
+
             if (ID == datos.chipId)    // Compruebo que es el chipid correcto, es un topic de BROADCAST.
             {
               debugFunction("CHIPID coincide:",1);
               aux = root["placa"];
-              
+
               if (aux != placa)        //Solo actualizo la placa cuando ha cambiado.
               {
                 placa = root["placa"];
                 debugFunction("Actualizado el numero de placa:",1);
                 debugFunction(String(placa),1);
-                
+
                 if (client.connected())   //Se desconecta del servidor MQTT
                 {
                   debugFunction("cliente desconectado:",1);
@@ -393,19 +393,19 @@ Bucle necesario para determinar que mensaje esta entrando y por que topic.*/
                 }
                 mqttSetup (); //Funcion para conectarse al broker MQTT con el nuevo numero de placa.
                 mqttTopics(); //Reescribe los topics
-              }  
+              }
             }
             else
-              debugFunction("numero de placa coincide, no se actualiza",1); 
+              debugFunction("numero de placa coincide, no se actualiza",1);
        }
     }
     else
     {
       debugFunction("Error : ",0);
       debugFunction("\"placa\" palabra clave no encontrada en JSON",1);
-    } 
+    }
   }
-   
+
   free(mensaje); //Se libera memoria.
 
 }// END CALLBACK
@@ -420,19 +420,19 @@ void reconnect()  // Funcion de reconexion en caso de fallo (además de la prime
       datos.chipId= ESP.getChipId ();             // Asegura que el chipId sea el correcto antes de utilizarlo en cada reconexion.
       clientId += String(datos.chipId) ;          // Establece el id del cliente MQTT.
       debugFunction (clientId.c_str(),1);
-      
+
       sprintf (JSon_Msg,"{\"CHIPID\":\"%s\",\"online\":\"false\",\"grupo\":\"%i\",\"placa\":\"%i\"}",datos.chipId.c_str(),grupo,placa);   //Serializa en formato JSON el mensaje de ultima voluntad.
          //debugFunction("mqtt:set LWill to :",1);
          //debugFunction(JSon_Msg,1);
-        
-      if (client.connect(clientId.c_str(),mqtt_user,mqtt_psw,TOP_conexion,0 ,true ,(const char*)JSon_Msg ))  //Establece la conexion al mqtt y configura LWT: "conexion:false"  //ej:  boolean rc = mqttClient.connect("myClientID", willTopic, willQoS, willRetain, willMessage); 
+
+      if (client.connect(clientId.c_str(),mqtt_user,mqtt_psw,TOP_conexion,0 ,true ,(const char*)JSon_Msg ))  //Establece la conexion al mqtt y configura LWT: "conexion:false"  //ej:  boolean rc = mqttClient.connect("myClientID", willTopic, willQoS, willRetain, willMessage);
         {
           sprintf (JSon_Msg,"{\"CHIPID\":\"%s\",\"online\":\"true\",\"grupo\":\"%i\",\"placa\":\"%i\"}",datos.chipId.c_str(),grupo,placa);  //Serializa en formato JSON el mensaje de conexion.
           //debugFunction("mqtt:conectado",1);
           //debugFunction(JSon_Msg,1);
-  
+
           //Subscripciones a los diferentes topics:
-          
+
           client.setBufferSize(512); // Tamaño bufer 512bytes
           client.subscribe(TOP_ledCmd);
           client.subscribe(TOP_config);
@@ -442,7 +442,7 @@ void reconnect()  // Funcion de reconexion en caso de fallo (además de la prime
           client.subscribe(TOP_Movimiento);
           client.subscribe(TOP_Modo);
           client.publish(TOP_conexion,(const char*)JSon_Msg,true); //Publica el estado de la conexion=true en el topic "conexion"
-        } 
+        }
       else  // fallo en la conexion mqtt
       {
         Serial.print("failed, rc=");
@@ -456,9 +456,9 @@ void reconnect()  // Funcion de reconexion en caso de fallo (además de la prime
 void mqttSetup ()                 //Funcion para conectarse al broker MQTT.
   {
     debugFunction ("Servidor MQTT:",0);
-    debugFunction (mqtt_server,1);    
+    debugFunction (mqtt_server,1);
     client.setServer(mqtt_server, mqtt_port); // Establecimiento de la conexion al broker MQTT (Nombre y puerto declarados en config.cpp).
-    client.setCallback(callback); 
+    client.setCallback(callback);
   }
 
 void mqttTopics() // Funcion que establece los topics de conexion. Añade el numero de grupo y el numero de placa a cada topic.
@@ -473,7 +473,7 @@ void mqttTopics() // Funcion que establece los topics de conexion. Añade el num
   aux=s_TOP_datos;
   memset(TOP_datos, 0, sizeof(TOP_datos));
   sprintf(TOP_datos,TOP_generic,grupo,placa,aux.c_str());
-  
+
   aux=s_TOP_config;
   memset(TOP_config, 0, sizeof(TOP_config));
   sprintf(TOP_config,TOP_generic,grupo,placa,aux.c_str());
@@ -493,34 +493,34 @@ void mqttTopics() // Funcion que establece los topics de conexion. Añade el num
   aux=s_TOP_switchCmd;
   memset(TOP_switchCmd, 0, sizeof(TOP_switchCmd));
   sprintf(TOP_switchCmd,TOP_generic,grupo,placa,aux.c_str());
-  
+
   aux=s_TOP_switchStatus;
   memset(TOP_switchStatus, 0, sizeof(TOP_switchStatus));
   sprintf(TOP_switchStatus,TOP_generic,grupo,placa,aux.c_str());
 
   aux=s_TOP_FOTA;
-  memset(TOP_FOTA, 0, sizeof(TOP_FOTA)); 
+  memset(TOP_FOTA, 0, sizeof(TOP_FOTA));
   sprintf(TOP_FOTA,TOP_generic,grupo,placa,aux.c_str());
 
   aux=s_TOP_FOTA_updt;
-  memset(TOP_FOTA_updt, 0, sizeof(TOP_FOTA_updt)); 
+  memset(TOP_FOTA_updt, 0, sizeof(TOP_FOTA_updt));
   sprintf(TOP_FOTA_updt,TOP_generic,grupo,placa,aux.c_str());
 
   aux=s_TOP_sensores;
-  memset(TOP_sensores, 0, sizeof(TOP_sensores)); 
+  memset(TOP_sensores, 0, sizeof(TOP_sensores));
   sprintf(TOP_sensores,TOP_generic,grupo,placa,aux.c_str());
 
   aux=s_TOP_Movimiento;
-  memset(TOP_Movimiento, 0, sizeof(TOP_Movimiento)); 
+  memset(TOP_Movimiento, 0, sizeof(TOP_Movimiento));
   sprintf(TOP_Movimiento,TOP_generic,grupo,placa,aux.c_str());
 
   aux=s_TOP_Modo;
-  memset(TOP_Modo, 0, sizeof(TOP_Modo)); 
+  memset(TOP_Modo, 0, sizeof(TOP_Modo));
   sprintf(TOP_Modo,TOP_generic,grupo,placa,aux.c_str());
 
   aux=s_TOP_Obstaculo;
-  memset(TOP_Obstaculo, 0, sizeof(TOP_Obstaculo)); 
+  memset(TOP_Obstaculo, 0, sizeof(TOP_Obstaculo));
   sprintf(TOP_Obstaculo,TOP_generic,grupo,placa,aux.c_str());
 }
 
-  
+

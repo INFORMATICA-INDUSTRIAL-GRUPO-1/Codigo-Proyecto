@@ -1,19 +1,19 @@
 #ifndef interrupciones_h
 
   #define interrupciones_h
-  
-  #include <Arduino.h>
-  #include "config.h"
-  #include "pulsos.h"
 
-  //-------------------------  VARIABLES  -------------------------  
-  
+  #include <Arduino.h>
+  #include "../config/config.h"
+  #include "../pulsos/pulsos.h"
+
+  //-------------------------  VARIABLES  -------------------------
+
   extern volatile unsigned long duracion;
   extern volatile bool ready_led;
   extern byte BUTTON_PIN;
 
-  //-------------------------  FUNCIONES  -------------------------  
-  
+  //-------------------------  FUNCIONES  -------------------------
+
   ICACHE_RAM_ATTR void RTI();
 
 #endif
