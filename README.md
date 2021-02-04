@@ -39,5 +39,5 @@ Se incluye todo el software necesario para hacer funcionar el proyecto. Existen 
   
 ## Galería
   
-<img src="/Galería/IMG_20210204_125405.jpg" width="512"> 
+<img src="/Galería/IMG_20210204_130153" width="512"> 
 <img src="/Galería/IMG_20210204_125405.jpg" width="512">
