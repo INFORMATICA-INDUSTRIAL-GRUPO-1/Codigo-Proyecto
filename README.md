@@ -31,6 +31,6 @@ Se incluye todo el software necesario para hacer funcionar el proyecto. Existen 
 ## Autores
   - Pablo Roldán Pérez            - https://github.com/Pablo-R-P-G1
   - Manuel Valle Delgado          - 
-  - Antonio Jesús Pérez Bazuelo   - 
+  - Antonio Jesús Pérez Bazuelo   - https://github.com/AntonioJPerez87
   - Pablo Vera Soto               - 
   - Mathias Lofeudo Clinckspoor   - 
