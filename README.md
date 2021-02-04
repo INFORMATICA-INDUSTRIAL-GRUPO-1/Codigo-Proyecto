@@ -36,7 +36,9 @@ Se incluye todo el software necesario para hacer funcionar el proyecto. Existen 
   - Antonio Jesús Pérez Bazuelo   - https://github.com/AntonioJPerez87
   - Pablo Vera Soto               - https://github.com/Pabloski587
   - Mathias Lofeudo Clinckspoor   - https://github.com/m4ttnice
-  
+
+## Licencia
+This project is licensed under the GNU License - see the [LICENSE](LICENSE) file for details
 ## Galería
   
 <img src="/Galería/IMG_20210204_130153.jpg" width="512"> 
