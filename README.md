@@ -34,7 +34,7 @@ Se incluye todo el software necesario para hacer funcionar el proyecto. Existen 
   - Manuel Valle Delgado          - https://github.com/ManuelVD
   - Antonio Jesús Pérez Bazuelo   - https://github.com/AntonioJPerez87
   - Pablo Vera Soto               - https://github.com/Pabloski587
-  - Mathias Lofeudo Clinckspoor   - 
+  - Mathias Lofeudo Clinckspoor   - https://github.com/m4ttnice
   
   ## Galería
   
