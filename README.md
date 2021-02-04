@@ -19,6 +19,7 @@ Para ejecutar también la parte del robot, este deberá tener como mínimo las s
 
 # Organizacion Proyecto
 Se incluye todo el software necesario para hacer funcionar el proyecto. Existen dos versiones del programa Simulink, dependiendo de la cantidad de sensores utilizados.
-  -  
+
+  -  Documentos y manuales
 
 
