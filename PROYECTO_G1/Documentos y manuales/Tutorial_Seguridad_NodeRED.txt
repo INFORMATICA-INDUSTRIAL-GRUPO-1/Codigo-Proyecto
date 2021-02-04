@@ -1,0 +1,35 @@
+SEGURIDAD EN NODE RED
+
+DEJAR ESTO PARA APLICARLO AL FINAL.
+
+Para añadir la capa de seguridad a node red hay que configurar el archivo 
+settings.js
+Para llegar lo mejor es hacerlo directamente, es decir:
+cd /home/pi/.node-red
+
+Se puede abrir desde la ventana de comandos, para ello,
+desde la carpeta en la que se encuentra el archivo, usar el comando:
+geany settings.js
+
+El apartado que hay que configurar es el de "Securing node red"
+(linea 118). descomentar la linea httpNodeAuth e introducir los datos
+pertinentes en los apartados entre comillas (vienen rellenos como ejemplo)
+
+Las contraseñas se generan con un comando que las encripta.
+Se introduce la contraseña deseada y la devuelve encriptada. La que hay que introducir en 
+archivo de configuracion es la encriptada  (hacer copy paste).
+
+Para ejecutar el comando es importante estar en la ubicacion de la instalacion del archivo,
+es decir, irse a /usr/lib/node_modules/node-red. En el comando lo unico que hay que cambiar es la 
+palabra del final, que sera la contraseña deseada.
+comando: 
+ node  -e "console.log(require('bcryptjs').hashSync(process.argv[1], 8));" zancudo
+
+Una vez guardado y cerrado el archivo settings.js hay que apagar y encender la 
+máquina virtual para que se apliquen los cambios. 
+
+Al entrar de nuevo en el dashboard aparecerá una ventana de identificación.
+
+Por defecto la autenticacion es válida por una semana. Se puede cambiar.
+
+Pondremos el tipico InfInd zancudo que sirva para todos
