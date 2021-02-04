@@ -1,6 +1,5 @@
 
 # Descripción del proyecto
-Se ha desarrollado un software capaz de gestionar la información de los sensores de una placa ESP8266
 Se ha desarrollado un software que aplica “internet de las cosas” (IOT) como trabajo final de la asignatura de Informática Industrial. Se implementan diferentes tecnologías estudiadas durante el curso. Entre ellas cabe destacar el uso de comunicaciones MQTT, el diseño de flujos Node-RED y la programación en Arduino. 
 
 
