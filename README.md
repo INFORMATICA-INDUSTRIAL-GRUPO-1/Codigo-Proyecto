@@ -1,6 +1,16 @@
 # Robot Movil Sensorizado controlado y monitorizado mediante IoT
 Sensorized Mobile Robot controlled and monitorized through IoT
 
+## Tabla de Contenidos
+* [Descripción del proyecto](#descripción-del-proyecto)
+* [Prerrequisitos Software](#prerrequisitos-software)
+* [Prerrequisitos Hardware](#prerrequisitos-hardware)
+* [Organización Proyecto](#organización-proyecto)
+* [Autores](#autores)
+* [Licencia](#licencia)
+* [Galería](#galería)
+
+
 ## Descripción del proyecto
 Se ha desarrollado un software que aplica “internet de las cosas” (IOT) como trabajo final de la asignatura de Informática Industrial. Se implementan diferentes tecnologías estudiadas durante el curso. Entre ellas cabe destacar el uso de comunicaciones MQTT, el diseño de flujos Node-RED y la programación en Arduino. 
 
@@ -22,7 +32,7 @@ Para ejecutar también la parte del robot, este deberá tener como mínimo las s
   - Una placa Arduino MEGA 2560
   - Motores que permitan que el robot se mueva
 
-## Organizacion Proyecto
+## Organización Proyecto
 Se incluye todo el software necesario para hacer funcionar el proyecto. Existen dos versiones del programa Simulink, dependiendo de la cantidad de sensores utilizados
   - Documentos y manuales: Contiene la guía del susuario, la memoria del proyecto, el esquema de conexionado y un par de turoriales.
   - ESP8266/Global_G1 : Contiene el código Arduino. Descargar todo en la misma carpeta y ejecutar Global_G1.ino
