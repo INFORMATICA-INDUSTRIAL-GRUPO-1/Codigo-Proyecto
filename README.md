@@ -3,8 +3,7 @@
 ## Descripción del proyecto
 Se ha desarrollado un software que aplica “internet de las cosas” (IOT) como trabajo final de la asignatura de Informática Industrial. Se implementan diferentes tecnologías estudiadas durante el curso. Entre ellas cabe destacar el uso de comunicaciones MQTT, el diseño de flujos Node-RED y la programación en Arduino. 
 
-!(Robot Móvil)[/Galería/IMG_20210204_125405.jpg]
-!(Robot Móvil desde arriba)[/Galería/IMG_20210204_130153.jpg]
+
 
 ## Prerrequisitos Software
 Este proyecto necesita para funcionar la ejecución simultánea de código en los siguientes servicios:
@@ -36,3 +35,8 @@ Se incluye todo el software necesario para hacer funcionar el proyecto. Existen 
   - Antonio Jesús Pérez Bazuelo   - https://github.com/AntonioJPerez87
   - Pablo Vera Soto               - 
   - Mathias Lofeudo Clinckspoor   - 
+  
+  ## Galería
+  
+![Robot Móvil](/Galería/IMG_20210204_125405.jpg)
+![Robot Móvil desde arriba](/Galería/IMG_20210204_130153.jpg)
