@@ -39,5 +39,5 @@ Se incluye todo el software necesario para hacer funcionar el proyecto. Existen 
   
   ## Galería
   
-![Robot Móvil](/Galería/IMG_20210204_125405.jpg)
-![Robot Móvil desde arriba](/Galería/IMG_20210204_130153.jpg)
+![Robot Móvil](/Galería/IMG_20210204_125405.jpg | width=100))
+![Robot Móvil desde arriba](/Galería/IMG_20210204_130153.jpg | width=100))
