@@ -1,82 +1,59 @@
-Que esta hecho
+Hecho:
+
+	*Plantear memoria 		(PABLO R 21/12)
+	*Manual de usuario
+	*Rebautizar el bot de telegram
+	*Estilizar el código
 
 ESP
-	*Comunicacion serie
+	*Comunicación serie
 	*Control Led
 	*FOTA
 	*Datos
 	*Estructura proyecto	
 	*Topics
-	*boton
-	*wifi cambia parametros
-	*tiempo actualizacion led (MANU 14/12)
-	*tiempo actualizacion fota (Pablo V 14/12)
+	*Botón
+	*Wifi cambia parametros
+	*Tiempo actualizacion led (MANU 14/12)
+	*Tiempo actualizacion fota (Pablo V 14/12)
 	*Arreglar sprintf 		(MATHIAS 21/12)
+	*Topic Config 			(MATHIAS 21/12)
+	*Comprobar subscripciones topics
+	
 
 NODERED
-	*base datos configurada	
+	*Base datos configurada	
 	*Estructura dashboard
 	*Control dashboard
-	*tiempo actualizacion led (MANU 14/12)
-	*sesion nodered SEGURIDAD (Pablo R17/12)
-	*Mostrar Ultimo Dato
-	*identificacion de placas para control individual 
+	*Tiempo actualización led (MANU 14/12)
+	*Sesión nodered SEGURIDAD (Pablo R17/12)
+	*Mostrar Último Dato
+	*Identificación de placas para control individual
+	*Parte general 			(MATHIAS 14/12)
+	*Automatizar identificación de placas (MATHIAS 07/1)
+	*Administración de topics
+	*Enviar topic actualización FOTA
+	*Representación Gráfica
 
 TELEGRAM
-	*bot (temperatura, humedad (funciones extra))	
-	* temperatura
-	*humedad
-	*alertas (umbral)
-	*media datos
-	*led control
-	*led estado
-	*control potencia led (Antonio 14/12)
+	*Bot (temperatura, humedad (funciones extra))	
+	*Temperatura
+	*Humedad
+	*Alertas (umbral)
+	*Media datos
+	*Led control
+	*Led estado
+	*Control potencia led (Antonio 14/12)
 	*Calcular media y configurar rango (Antonio 21/12) 
-	*administrar diferentes placas 	(ANTONIO 07/1)
-	*topic STATUS ID telegram  - identificacion para evitar problemas de simultaneidad (Antoni)
+	*Administrar diferentes placas 	(ANTONIO 07/1)
+	*Topic STATUS ID telegram  - identificación para evitar problemas de simultaneidad (Antonio)
+	*Repasar y comprobar robustez telegram
 	
 ROBOT
-	*comunicacion serie
-	*programar comportamiento (PABLO V y MANU 21/12)
-	*datos (hablar funcionalidades datos)
-	*Programar obstaculos (forma manual)
-	*Programar via telegram modo automatico (simulink) (MANU07/1)
+	*Comunicación serie
+	*Programar comportamiento (PABLO V y MANU 21/12)
+	*Datos (hablar funcionalidades datos)
+	*Programar obstáculos (forma manual)
+	*Programar vía telegram modo automático (simulink) (MANU07/1)
 	*Mostrar en node red los datos que genera 	(PABLO V 07/1)
 	
-
-
-POR HACER
-
-	*Repaso total 			(PABLO R 21/12)
-	*Plantear memoria 		(PABLO R 21/12)
-	* Manual de usuario
-	*Comprobar Robustez
-	*Rebautizar UwU87Bot
-	* Poner cosas bonicas
-
-ESP
-	*SPIFF / EPROM  			(final)
-	*Topic Config 			(MATHIAS 21/12)
-	*comprobar subscripciones topics	
-
-NODERED
-	*parte general 			(MATHIAS 14/12)
-	*Automatizar identificacion de placas (MATHIAS 07/1)
-	*Administracion de topics
-	*Enviar topic actualizacion FOTA
-	*Representación Grafica
-
-TELEGRAM
- 	*Repasar y comprobar robustez telegram
-
-AMPLIACION (NO)
-	* Topic config desde telegram? AMPLIACION(?)
-
-DUDAS
-
-	CAMBIAR EL FUNCIONAMIENTO DEL LED POR MENSAJE MQTT
-	Base de datos para el estado del led
-
-habria que guardarlo en la misma
-
-
