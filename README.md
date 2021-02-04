@@ -12,7 +12,7 @@ Este proyecto necesita para funcionar la ejecución simultánea de código en lo
   - Arduino
   - Matlab2020 (Simulink)
 
-## Prerrequisios Hardware
+## Prerrequisitos Hardware
 Existe la posibilidad de ejecutar el código como si solo tuviera la funcionalidad de enviar datos de un sensor de temperatura y humedad (sin robot); en cuyo caso, el hardware mínimo necesarion será:
   - DHT11
   - ESP8266
