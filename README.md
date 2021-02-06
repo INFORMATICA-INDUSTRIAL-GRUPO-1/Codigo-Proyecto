@@ -23,12 +23,12 @@ Este proyecto necesita para funcionar la ejecución simultánea de código en lo
   - Matlab2020 (Simulink)
 
 ## Prerrequisitos Hardware
-Existe la posibilidad de ejecutar el código como si solo tuviera la funcionalidad de enviar datos de un sensor de temperatura y humedad (sin robot); en cuyo caso, el hardware mínimo necesarion será:
+Existe la posibilidad de ejecutar el código como si solo tuviera la funcionalidad de enviar datos de un sensor de temperatura y humedad (sin robot); en cuyo caso, el hardware mínimo necesario será:
   - DHT11
   - ESP8266
   
 Para ejecutar también la parte del robot, este deberá tener como mínimo las siguientes características:
-  - Dos sensores de distancia. Nosotros hemos utilizado dos configuraciones distintas, una con dos sensores láser y otra que añade además, un sensor láser más y dos sensores de ultrasonidos
+  - Dos sensores de distancia. Nosotros hemos utilizado dos configuraciones distintas, una con dos sensores láser y otra que añade además, un tercer sensor láser y dos sensores de ultrasonidos
   - Una placa Arduino MEGA 2560
   - Motores que permitan que el robot se mueva
 
