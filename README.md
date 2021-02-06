@@ -12,7 +12,7 @@ Sensorized Mobile Robot controlled and monitorized through IoT
 
 
 ## Descripción del proyecto
-Se ha desarrollado un software que aplica “internet de las cosas” (IOT) como trabajo final de la asignatura de Informática Industrial. Se implementan diferentes tecnologías estudiadas durante el curso. Entre ellas cabe destacar el uso de comunicaciones MQTT, el diseño de flujos Node-RED y la programación en Arduino. 
+Se ha desarrollado un software que aplica “internet de las cosas” (IoT) como trabajo final de la asignatura de Informática Industrial. Se implementan diferentes tecnologías estudiadas durante el curso. Entre ellas cabe destacar el uso de comunicaciones MQTT, el diseño de flujos Node-RED y la programación en Arduino. 
 
 This IoT software has been developed as the final project for the subject "Informática Industrial". Some technologies studied during the semester have been used in this project, for example, MQTT, Node-RED or Arduino.
 
