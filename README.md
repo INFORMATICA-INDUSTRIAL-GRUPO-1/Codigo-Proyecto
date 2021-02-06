@@ -1,4 +1,4 @@
-# Robot Movil Sensorizado controlado y monitorizado mediante IoT
+# Robot Móvil Sensorizado controlado y monitorizado mediante IoT
 Sensorized Mobile Robot controlled and monitorized through IoT
 
 ## Tabla de Contenidos
