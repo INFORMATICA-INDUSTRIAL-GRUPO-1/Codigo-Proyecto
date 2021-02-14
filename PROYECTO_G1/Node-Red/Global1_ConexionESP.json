@@ -1,32 +1,32 @@
 [
     {
-        "id": "b663a263.c3d16",
+        "id": "d3421838.3f2458",
         "type": "tab",
         "label": "Conexion",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "ce9375a8.f95258",
+        "id": "582f0ff6.0f2bc",
         "type": "mqtt in",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "topic": "infind/GRUPO1/ESP2/conexion",
         "qos": "2",
-        "broker": "a4c37cf8.c7d05",
+        "broker": "9e077711.1813b8",
         "x": 290,
         "y": 640,
         "wires": [
             [
-                "440a2c77.bf3134",
-                "8a55eeff.04313"
+                "9a96a4f9.d3f858",
+                "8f835556.a77588"
             ]
         ]
     },
     {
-        "id": "b118fb83.bf6848",
+        "id": "be0e9fb5.b63ee",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -38,9 +38,9 @@
         "wires": []
     },
     {
-        "id": "440a2c77.bf3134",
+        "id": "9a96a4f9.d3f858",
         "type": "json",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "property": "payload",
         "action": "",
@@ -49,14 +49,14 @@
         "y": 640,
         "wires": [
             [
-                "6953274e.afb268"
+                "f0b96bcb.686828"
             ]
         ]
     },
     {
-        "id": "8a55eeff.04313",
+        "id": "8f835556.a77588",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -68,9 +68,9 @@
         "wires": []
     },
     {
-        "id": "6953274e.afb268",
+        "id": "f0b96bcb.686828",
         "type": "function",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "+ fecha",
         "func": "\nmsg.payload.date = new Date();\n\n\n\nreturn msg;",
         "outputs": 1,
@@ -79,18 +79,18 @@
         "y": 640,
         "wires": [
             [
-                "b118fb83.bf6848",
-                "1cfe5800.d4e148",
-                "ba7a759f.f40578",
-                "a56795b7.80a008"
+                "be0e9fb5.b63ee",
+                "8b4c0fe9.60d19",
+                "d1e38ee.c9a3e7",
+                "9230d0af.3822b"
             ]
         ]
     },
     {
-        "id": "1cfe5800.d4e148",
+        "id": "8b4c0fe9.60d19",
         "type": "mongodb out",
-        "z": "b663a263.c3d16",
-        "mongodb": "be33f6e9.0df408",
+        "z": "d3421838.3f2458",
+        "mongodb": "3c9b84cf.c8d42c",
         "name": "",
         "collection": "_LOGS",
         "payonly": true,
@@ -102,9 +102,9 @@
         "wires": []
     },
     {
-        "id": "ba7a759f.f40578",
+        "id": "d1e38ee.c9a3e7",
         "type": "change",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "rules": [
             {
@@ -127,26 +127,26 @@
         ]
     },
     {
-        "id": "f2ec6ca8.dd4ed",
+        "id": "4de19bcc.d409b4",
         "type": "mqtt in",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "topic": "infind/GRUPO1/ESP1/conexion",
         "qos": "2",
-        "broker": "a4c37cf8.c7d05",
+        "broker": "9e077711.1813b8",
         "x": 290,
         "y": 340,
         "wires": [
             [
-                "37dc41a4.4f5d2e",
-                "f75319a9.01c338"
+                "2ffa843c.08d38c",
+                "e5847f6c.0de0e"
             ]
         ]
     },
     {
-        "id": "14f3c2b9.b70c2d",
+        "id": "7f8761d7.b05f9",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -158,9 +158,9 @@
         "wires": []
     },
     {
-        "id": "37dc41a4.4f5d2e",
+        "id": "2ffa843c.08d38c",
         "type": "json",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "property": "payload",
         "action": "",
@@ -169,14 +169,14 @@
         "y": 340,
         "wires": [
             [
-                "8c235099.ccae8"
+                "142dd1bd.9271fe"
             ]
         ]
     },
     {
-        "id": "f75319a9.01c338",
+        "id": "e5847f6c.0de0e",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -188,9 +188,9 @@
         "wires": []
     },
     {
-        "id": "8c235099.ccae8",
+        "id": "142dd1bd.9271fe",
         "type": "function",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "+ fecha",
         "func": "\nmsg.payload.date = new Date();\n\n\n\nreturn msg;",
         "outputs": 1,
@@ -199,18 +199,18 @@
         "y": 340,
         "wires": [
             [
-                "14f3c2b9.b70c2d",
-                "953657dc.f71088",
-                "7eecbd2.b1f0a44",
-                "e7a51994.e82fb8"
+                "7f8761d7.b05f9",
+                "93d750c5.69363",
+                "831a5af9.400328",
+                "1ffdb0f0.77d75f"
             ]
         ]
     },
     {
-        "id": "953657dc.f71088",
+        "id": "93d750c5.69363",
         "type": "mongodb out",
-        "z": "b663a263.c3d16",
-        "mongodb": "be33f6e9.0df408",
+        "z": "d3421838.3f2458",
+        "mongodb": "3c9b84cf.c8d42c",
         "name": "",
         "collection": "_LOGS",
         "payonly": true,
@@ -222,26 +222,26 @@
         "wires": []
     },
     {
-        "id": "1d75f009.a481d",
+        "id": "76b589e3.27e0f8",
         "type": "mqtt in",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "topic": "infind/GRUPO1/ESP3/conexion",
         "qos": "2",
-        "broker": "a4c37cf8.c7d05",
+        "broker": "9e077711.1813b8",
         "x": 290,
         "y": 960,
         "wires": [
             [
-                "5ec1a849.3a77d8",
-                "da1ff9c6.7349b8"
+                "de3dcf0a.ecffe",
+                "4ce5eb7f.1e6a84"
             ]
         ]
     },
     {
-        "id": "67f8f9e0.0e3b58",
+        "id": "2dedf591.f0ce3a",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -253,9 +253,9 @@
         "wires": []
     },
     {
-        "id": "5ec1a849.3a77d8",
+        "id": "de3dcf0a.ecffe",
         "type": "json",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "property": "payload",
         "action": "",
@@ -264,14 +264,14 @@
         "y": 960,
         "wires": [
             [
-                "15207124.e7a56f"
+                "a71f246b.e77398"
             ]
         ]
     },
     {
-        "id": "da1ff9c6.7349b8",
+        "id": "4ce5eb7f.1e6a84",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -283,9 +283,9 @@
         "wires": []
     },
     {
-        "id": "15207124.e7a56f",
+        "id": "a71f246b.e77398",
         "type": "function",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "+ fecha",
         "func": "\nmsg.payload.date = new Date();\n\n\n\nreturn msg;",
         "outputs": 1,
@@ -294,18 +294,18 @@
         "y": 960,
         "wires": [
             [
-                "67f8f9e0.0e3b58",
-                "944fe8b7.4bbfa8",
-                "747116ed.4f1ea8",
-                "e4bac9a.03b8338"
+                "2dedf591.f0ce3a",
+                "4f080f4a.9663",
+                "9d7121ab.4b352",
+                "968df0a.428a31"
             ]
         ]
     },
     {
-        "id": "944fe8b7.4bbfa8",
+        "id": "4f080f4a.9663",
         "type": "mongodb out",
-        "z": "b663a263.c3d16",
-        "mongodb": "be33f6e9.0df408",
+        "z": "d3421838.3f2458",
+        "mongodb": "3c9b84cf.c8d42c",
         "name": "",
         "collection": "_LOGS",
         "payonly": true,
@@ -317,26 +317,26 @@
         "wires": []
     },
     {
-        "id": "eb2200d4.b091a",
+        "id": "b51b6cba.634b9",
         "type": "mqtt in",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "topic": "infind/GRUPO1/ESP4/conexion",
         "qos": "2",
-        "broker": "a4c37cf8.c7d05",
+        "broker": "9e077711.1813b8",
         "x": 290,
         "y": 1260,
         "wires": [
             [
-                "eb653486.4ebec8",
-                "2569b51b.87e5ca"
+                "c068d79b.5d9218",
+                "a7768bc0.1ecb28"
             ]
         ]
     },
     {
-        "id": "435a7279.2bf0ac",
+        "id": "b8fd4086.23bf6",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -348,9 +348,9 @@
         "wires": []
     },
     {
-        "id": "eb653486.4ebec8",
+        "id": "c068d79b.5d9218",
         "type": "json",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "property": "payload",
         "action": "",
@@ -359,14 +359,14 @@
         "y": 1260,
         "wires": [
             [
-                "42614119.98edd"
+                "8adc03db.f9fcb"
             ]
         ]
     },
     {
-        "id": "2569b51b.87e5ca",
+        "id": "a7768bc0.1ecb28",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -378,9 +378,9 @@
         "wires": []
     },
     {
-        "id": "42614119.98edd",
+        "id": "8adc03db.f9fcb",
         "type": "function",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "+ fecha",
         "func": "\nmsg.payload.date = new Date();\n\n\n\nreturn msg;",
         "outputs": 1,
@@ -389,18 +389,18 @@
         "y": 1260,
         "wires": [
             [
-                "435a7279.2bf0ac",
-                "49164a5c.f40544",
-                "b493558e.64cf68",
-                "5d8f75ed.e8a32c"
+                "b8fd4086.23bf6",
+                "6fab7684.9424a8",
+                "cf04dda3.104ee",
+                "767c0bda.d21794"
             ]
         ]
     },
     {
-        "id": "49164a5c.f40544",
+        "id": "6fab7684.9424a8",
         "type": "mongodb out",
-        "z": "b663a263.c3d16",
-        "mongodb": "be33f6e9.0df408",
+        "z": "d3421838.3f2458",
+        "mongodb": "3c9b84cf.c8d42c",
         "name": "",
         "collection": "_LOGS",
         "payonly": true,
@@ -412,26 +412,26 @@
         "wires": []
     },
     {
-        "id": "5c5a56ae.fe5628",
+        "id": "a803529b.40a77",
         "type": "mqtt in",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "topic": "infind/GRUPO1/ESP5/conexion",
         "qos": "2",
-        "broker": "a4c37cf8.c7d05",
+        "broker": "9e077711.1813b8",
         "x": 310,
         "y": 1640,
         "wires": [
             [
-                "fe8566ae.e074a8",
-                "651161b.c2888a"
+                "9c23c114.90bcd",
+                "ab1cad12.680f"
             ]
         ]
     },
     {
-        "id": "f5b019c2.026ee8",
+        "id": "be36e8f3.7f2738",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -443,9 +443,9 @@
         "wires": []
     },
     {
-        "id": "fe8566ae.e074a8",
+        "id": "9c23c114.90bcd",
         "type": "json",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "property": "payload",
         "action": "",
@@ -454,14 +454,14 @@
         "y": 1640,
         "wires": [
             [
-                "eacc4824.45bda8"
+                "9fc5eb52.5573d8"
             ]
         ]
     },
     {
-        "id": "651161b.c2888a",
+        "id": "ab1cad12.680f",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -473,9 +473,9 @@
         "wires": []
     },
     {
-        "id": "eacc4824.45bda8",
+        "id": "9fc5eb52.5573d8",
         "type": "function",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "+ fecha",
         "func": "\nmsg.payload.date = new Date();\n\n\n\nreturn msg;",
         "outputs": 1,
@@ -484,18 +484,18 @@
         "y": 1640,
         "wires": [
             [
-                "f5b019c2.026ee8",
-                "5fe1bd3.c069144",
-                "9951b0b3.cdd56",
-                "3653e6cb.f7d8aa"
+                "be36e8f3.7f2738",
+                "fa72a77.ed45c58",
+                "48807436.a2c1ec",
+                "d1210b5c.9a9f28"
             ]
         ]
     },
     {
-        "id": "5fe1bd3.c069144",
+        "id": "fa72a77.ed45c58",
         "type": "mongodb out",
-        "z": "b663a263.c3d16",
-        "mongodb": "be33f6e9.0df408",
+        "z": "d3421838.3f2458",
+        "mongodb": "3c9b84cf.c8d42c",
         "name": "",
         "collection": "_LOGS",
         "payonly": true,
@@ -507,9 +507,9 @@
         "wires": []
     },
     {
-        "id": "7eecbd2.b1f0a44",
+        "id": "831a5af9.400328",
         "type": "change",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "rules": [
             {
@@ -532,9 +532,9 @@
         ]
     },
     {
-        "id": "747116ed.4f1ea8",
+        "id": "9d7121ab.4b352",
         "type": "change",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "rules": [
             {
@@ -557,9 +557,9 @@
         ]
     },
     {
-        "id": "b493558e.64cf68",
+        "id": "cf04dda3.104ee",
         "type": "change",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "rules": [
             {
@@ -582,9 +582,9 @@
         ]
     },
     {
-        "id": "9951b0b3.cdd56",
+        "id": "48807436.a2c1ec",
         "type": "change",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "rules": [
             {
@@ -607,9 +607,9 @@
         ]
     },
     {
-        "id": "e7a51994.e82fb8",
+        "id": "1ffdb0f0.77d75f",
         "type": "link out",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "E1_connexion",
         "links": [
             "983f2d68.e4d07",
@@ -620,9 +620,9 @@
         "wires": []
     },
     {
-        "id": "a56795b7.80a008",
+        "id": "9230d0af.3822b",
         "type": "link out",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "E2_connexion",
         "links": [
             "983f2d68.e4d07",
@@ -633,9 +633,9 @@
         "wires": []
     },
     {
-        "id": "e4bac9a.03b8338",
+        "id": "968df0a.428a31",
         "type": "link out",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "E3_connexion",
         "links": [
             "983f2d68.e4d07",
@@ -646,9 +646,9 @@
         "wires": []
     },
     {
-        "id": "5d8f75ed.e8a32c",
+        "id": "767c0bda.d21794",
         "type": "link out",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "E4_connexion",
         "links": [
             "983f2d68.e4d07",
@@ -659,9 +659,9 @@
         "wires": []
     },
     {
-        "id": "3653e6cb.f7d8aa",
+        "id": "d1210b5c.9a9f28",
         "type": "link out",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "E5_connexion",
         "links": [
             "983f2d68.e4d07",
@@ -672,26 +672,26 @@
         "wires": []
     },
     {
-        "id": "5e12a46c.3df2ac",
+        "id": "e1315c8c.f6edc",
         "type": "mqtt in",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "topic": "infind/GRUPO1/ESP0/conexion",
         "qos": "2",
-        "broker": "a4c37cf8.c7d05",
+        "broker": "9e077711.1813b8",
         "x": 290,
         "y": 1940,
         "wires": [
             [
-                "e6ae131d.f81d",
-                "cc5e1dcb.ce61f"
+                "3d599417.f7666c",
+                "dcdf6f3.a531c9"
             ]
         ]
     },
     {
-        "id": "e6ae131d.f81d",
+        "id": "3d599417.f7666c",
         "type": "json",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "property": "payload",
         "action": "",
@@ -700,14 +700,14 @@
         "y": 1940,
         "wires": [
             [
-                "9a4683ba.45ad5"
+                "2c914b5b.6d74f4"
             ]
         ]
     },
     {
-        "id": "a0074a31.d73af8",
+        "id": "bc859cac.a116b",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -719,9 +719,9 @@
         "wires": []
     },
     {
-        "id": "9a4683ba.45ad5",
+        "id": "2c914b5b.6d74f4",
         "type": "function",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "+ fecha",
         "func": "\nmsg.payload.date = new Date();\n\n\n\nreturn msg;",
         "outputs": 1,
@@ -730,15 +730,15 @@
         "y": 1940,
         "wires": [
             [
-                "f84fff84.24061",
-                "a0074a31.d73af8"
+                "acbf8679.a97388",
+                "bc859cac.a116b"
             ]
         ]
     },
     {
-        "id": "f84fff84.24061",
+        "id": "acbf8679.a97388",
         "type": "link out",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "E0_connexion",
         "links": [
             "983f2d68.e4d07",
@@ -749,9 +749,9 @@
         "wires": []
     },
     {
-        "id": "b0042de3.6fefa",
+        "id": "c0f80799.ba5c68",
         "type": "comment",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "Conexiones",
         "info": "Registra y almacena (DB y var global) el estado de las conexiones de las distintas ESP\n\nEnvia la constulta de numero de placa al flujo (LOG's) (NODO \"Link\")",
         "x": 230,
@@ -759,9 +759,9 @@
         "wires": []
     },
     {
-        "id": "124931f3.063c5e",
+        "id": "db0e457c.454048",
         "type": "comment",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "ESP1",
         "info": "Registra y almacena (DB y var global) el estado de las conexiones de las distintas ESP\n\nEnvia la constulta de numero de placa al flujo (LOG's) (NODO \"Link\")",
         "x": 490,
@@ -769,9 +769,9 @@
         "wires": []
     },
     {
-        "id": "d21f9ce0.d384",
+        "id": "494b0d8f.72f994",
         "type": "comment",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "ESP2",
         "info": "Registra y almacena (DB y var global) el estado de las conexiones de las distintas ESP\n\nEnvia la constulta de numero de placa al flujo (LOG's) (NODO \"Link\")",
         "x": 490,
@@ -779,9 +779,9 @@
         "wires": []
     },
     {
-        "id": "ad50aeda.5f76f",
+        "id": "5a9d307.8a3cad",
         "type": "comment",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "ESP3",
         "info": "Registra y almacena (DB y var global) el estado de las conexiones de las distintas ESP\n\nEnvia la constulta de numero de placa al flujo (LOG's) (NODO \"Link\")",
         "x": 490,
@@ -789,9 +789,9 @@
         "wires": []
     },
     {
-        "id": "84c3c7f7.94d0b8",
+        "id": "8e18ed86.6612",
         "type": "comment",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "ESP4",
         "info": "Registra y almacena (DB y var global) el estado de las conexiones de las distintas ESP\n\nEnvia la constulta de numero de placa al flujo (LOG's) (NODO \"Link\")",
         "x": 490,
@@ -799,9 +799,9 @@
         "wires": []
     },
     {
-        "id": "cc5e1dcb.ce61f",
+        "id": "dcdf6f3.a531c9",
         "type": "debug",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -813,9 +813,9 @@
         "wires": []
     },
     {
-        "id": "be5e07ed.c99548",
+        "id": "c981274d.079a18",
         "type": "comment",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "ESP5",
         "info": "Registra y almacena (DB y var global) el estado de las conexiones de las distintas ESP\n\nEnvia la constulta de numero de placa al flujo (LOG's) (NODO \"Link\")",
         "x": 510,
@@ -823,9 +823,9 @@
         "wires": []
     },
     {
-        "id": "6a05f830.a1b078",
+        "id": "1ce0db5a.d5e4f5",
         "type": "comment",
-        "z": "b663a263.c3d16",
+        "z": "d3421838.3f2458",
         "name": "ESP0 (Broadcast)",
         "info": "Registra y almacena (DB y var global) el estado de las conexiones de las distintas ESP\n\nEnvia la constulta de numero de placa al flujo (LOG's) (NODO \"Link\")",
         "x": 530,
@@ -833,150 +833,7 @@
         "wires": []
     },
     {
-        "id": "fc20c03b.ab65a",
-        "type": "mqtt in",
-        "z": "b663a263.c3d16",
-        "name": "",
-        "topic": "infind/GRUPO1/ESP6/conexion",
-        "qos": "2",
-        "broker": "a4c37cf8.c7d05",
-        "x": 1370,
-        "y": 1640,
-        "wires": [
-            [
-                "7ac1da97.1c1fe4",
-                "67b6f9a2.525d48"
-            ]
-        ]
-    },
-    {
-        "id": "cdaa72bd.5598e",
-        "type": "debug",
-        "z": "b663a263.c3d16",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 1910,
-        "y": 1600,
-        "wires": []
-    },
-    {
-        "id": "7ac1da97.1c1fe4",
-        "type": "json",
-        "z": "b663a263.c3d16",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 1570,
-        "y": 1640,
-        "wires": [
-            [
-                "8482ad34.667e9"
-            ]
-        ]
-    },
-    {
-        "id": "67b6f9a2.525d48",
-        "type": "debug",
-        "z": "b663a263.c3d16",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 1590,
-        "y": 1600,
-        "wires": []
-    },
-    {
-        "id": "8482ad34.667e9",
-        "type": "function",
-        "z": "b663a263.c3d16",
-        "name": "+ fecha",
-        "func": "\nmsg.payload.date = new Date();\n\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1700,
-        "y": 1640,
-        "wires": [
-            [
-                "cdaa72bd.5598e",
-                "cb233050.6307c",
-                "dfa72920.2d8018",
-                "d045b189.b2ff6"
-            ]
-        ]
-    },
-    {
-        "id": "cb233050.6307c",
-        "type": "mongodb out",
-        "z": "b663a263.c3d16",
-        "mongodb": "be33f6e9.0df408",
-        "name": "",
-        "collection": "_LOGS",
-        "payonly": true,
-        "upsert": false,
-        "multi": false,
-        "operation": "insert",
-        "x": 1970,
-        "y": 1640,
-        "wires": []
-    },
-    {
-        "id": "dfa72920.2d8018",
-        "type": "change",
-        "z": "b663a263.c3d16",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "ESP6online",
-                "pt": "global",
-                "to": "payload.online",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1940,
-        "y": 1680,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d045b189.b2ff6",
-        "type": "link out",
-        "z": "b663a263.c3d16",
-        "name": "E5_connexion",
-        "links": [
-            "983f2d68.e4d07",
-            "425968cf.b92028"
-        ],
-        "x": 1855,
-        "y": 1720,
-        "wires": []
-    },
-    {
-        "id": "adcb0344.a56d5",
-        "type": "comment",
-        "z": "b663a263.c3d16",
-        "name": "ESP6",
-        "info": "Registra y almacena (DB y var global) el estado de las conexiones de las distintas ESP\n\nEnvia la constulta de numero de placa al flujo (LOG's) (NODO \"Link\")",
-        "x": 1570,
-        "y": 1560,
-        "wires": []
-    },
-    {
-        "id": "a4c37cf8.c7d05",
+        "id": "9e077711.1813b8",
         "type": "mqtt-broker",
         "z": "",
         "name": "",
@@ -998,7 +855,7 @@
         "willPayload": ""
     },
     {
-        "id": "be33f6e9.0df408",
+        "id": "3c9b84cf.c8d42c",
         "type": "mongodb",
         "z": "",
         "hostname": "iot.ac.uma.es",

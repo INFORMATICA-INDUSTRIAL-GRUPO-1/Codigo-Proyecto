@@ -39,7 +39,7 @@ String OTAfingerprint("5d56095c5f7ba43f01b72231d3a7daa36e102e60"); // sustituir 
 //-------------------------  CONFIGURACION WiFi & MQTT  -------------------------  
 
 const char* ssid = "prueba"; // PONER EL NOMBRE DE LA RED WIFI
-const char* password = "12345678"; // CLAVE DE LA RED WIFI
+const char* password = "123456789"; // CLAVE DE LA RED WIFI
 
 const char* mqtt_server = "iot.ac.uma.es" ;//  IP DEL BROKER MQTT (IP de la maquina Fisica (PC,RPI,iot.uma...,etc) (NO de la maquina virtual)) 
 int mqtt_port = 1883;
