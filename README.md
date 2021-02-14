@@ -34,7 +34,7 @@ Para ejecutar también la parte del robot, este deberá tener como mínimo las s
 
 ## Organización Proyecto
 Se incluye todo el software necesario para hacer funcionar el proyecto. Existen dos versiones del programa Simulink, dependiendo de la cantidad de sensores utilizados
-  - Documentos y manuales: Contiene la guía del usuario, la memoria del proyecto, el esquema de conexionado y un par de turoriales.
+  - Documentos y manuales: Contiene la guía del susuario, la memoria del proyecto, el esquema de conexionado y un par de turoriales.
   - ESP8266/Global_G1 : Contiene el código Arduino. Descargar todo en la misma carpeta y ejecutar Global_G1.ino
   - Node-Red: Contiene los flujos en formato Json. Importar cada uno individualmente
   - PIERO_X_Sensores: Programas Simulink en función del número X de sensores del robot.
