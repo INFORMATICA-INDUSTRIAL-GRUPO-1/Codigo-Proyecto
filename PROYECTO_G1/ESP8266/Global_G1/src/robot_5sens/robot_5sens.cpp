@@ -13,9 +13,9 @@
 // Pestaña: pulsos
 // Descripcion del codigo
 //
-// Se encarga de leer los valores de todos los sensores recibidos desde Arduino por el puerto serie. 
+// Se encarga de leer los valores de todos los sensores recibidos desde Arduino por el puerto serie.
 // Debido a que existen dos modelos diferentes de robot (uno equipado con 2 sensores y otro con 5 sensores)
-// se debe de introducir previamente de que modelo se trata para no hacer lecturas falsas en un robot de 2 sensores. 
+// se debe de introducir previamente de que modelo se trata para no hacer lecturas falsas en un robot de 2 sensores.
 //
 
 #include "robot_5sens.h"
@@ -25,10 +25,10 @@ int sensor1;
 int sensor2;
 int sensor3;
 int sensor4;
-int sensor5; 
- 
+int sensor5;
+
 int incomingByte=0; //Variable que lee el dato recibido desde el puerto serie.
-bool dato_sensor; 
+bool dato_sensor;
 
 bool obs_izq = false;
 bool obs_dcha = false;
@@ -48,25 +48,25 @@ void sensores_arduino ()
     {
         case 251:
           sensor1=Serial.read();    //Tras identificar la etiqueta, se lee el valor del sensor. Se hace de forma identica en el resto de sensores.
-          if(sensor1 < 40 && sensor1 > 0) //Se ha detectado un objeto a la izquierda.
+          if(sensor1 < 30 && sensor1 > 0) //Se ha detectado un objeto a la izquierda.
             obs_izq = true;
           else
             obs_izq = false;
-            
+
         break;
-        
+
         case 252:
-          sensor2=Serial.read();    
-          if(sensor2 < 40 && sensor2 > 0)   //Se ha detectado un objeto a la derecha.
+          sensor2=Serial.read();
+          if(sensor2 < 30 && sensor2 > 0)   //Se ha detectado un objeto a la derecha.
               obs_dcha = true;
           else
               obs_dcha = false;
         break;
 
-        
+
         case 253:
-          if(num_sensores == 5)     //En caso de tener 5 sensores, lee el valor de los sensores restantes: 
-          {    
+          if(num_sensores == 5)     //En caso de tener 5 sensores, lee el valor de los sensores restantes:
+          {
             sensor3=Serial.read();    //Lectura del sensor laser izquierdo.
             if(sensor3 < 50 && sensor3 > 0)   //Se ha detectado un objeto a la izquierda.
                 obs_izq = true;
@@ -74,7 +74,7 @@ void sensores_arduino ()
                 obs_izq = false;
           }
         break;
-        
+
         case 254:
         if(num_sensores == 5)
         {
@@ -85,7 +85,7 @@ void sensores_arduino ()
               obs_cent = false;
         }
         break;
-        
+
         case 255:
         if(num_sensores == 5)
         {
@@ -94,10 +94,10 @@ void sensores_arduino ()
               obs_dcha = true;
           else
               obs_dcha = false;
-        }  
+        }
 
         //Tras la lectura de todos los sensores, se interpreta esa informacion:
-        
+
         //--------------------------- OBJ_IZQ ---------------------------
 
             if (obs_izq && !stop_izq)     //Entra cuando ha detectado un objeto en la izquierda y no se ha enviado aun la orden de stop.
@@ -109,13 +109,13 @@ void sensores_arduino ()
                 Serial.write(88); // etiqueta (X)
                 delay(10);
                 Serial.write(32); //stop
-                
+
                 // Mando por mqtt que hay obstáculo por la izquierda.
                 StaticJsonDocument<100> jsonRoot;
-    
+
                 JsonObject Obstaculo=jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores"
                 Obstaculo["1"] = "izquierda";
-                
+
                 serializeJson(jsonRoot,msg); //Guarda en msg el campo de jsonRoot.
                 client.publish(TOP_Obstaculo, msg); //Se publica por el topic adecuado.
               }
@@ -123,9 +123,9 @@ void sensores_arduino ()
 
           else if (!obs_izq)
             stop_izq=false;
-            
-        //--------------------------- OBJ_DCHA --------------------------- 
-           
+
+        //--------------------------- OBJ_DCHA ---------------------------
+
           if (obs_dcha && !stop_dcha)     //Entra cuando ha detectado un objeto en la derecha y no se ha enviado aun la orden de stop.
           {
             stop_dcha=true;     //Orden de stop. Bloquea los controles recibidos por MQTT para avanzar hacia la derecha.
@@ -135,22 +135,22 @@ void sensores_arduino ()
               Serial.write(88); // etiqueta (X)
               delay(10);
               Serial.write(32); //stop
-              
+
               // Mando por mqtt que hay obstáculo por la derecha.
               StaticJsonDocument<100> jsonRoot;
-  
+
               JsonObject Obstaculo=jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores"
               Obstaculo["1"] = "derecha";
-              
+
               serializeJson(jsonRoot,msg);
               client.publish(TOP_Obstaculo, msg);
-            } 
+            }
           }
           else if (!obs_dcha)
             stop_dcha=false;
-            
-        //--------------------------- OBJ_CENT ---------------------------      
-      
+
+        //--------------------------- OBJ_CENT ---------------------------
+
           if (obs_cent && !stop_cent && num_sensores == 5) //Entra cuando ha detectado un objeto por el centro, no se ha enviado aun la orden de stop y el robot dispone de 5 sensores.
           {
             stop_cent=true;     //Orden de stop. Bloquea los controles recibidos por MQTT para avanzar hacia adelante.
@@ -160,20 +160,20 @@ void sensores_arduino ()
               Serial.write(88); //etiqueta (X)
               delay(10);
               Serial.write(32); //stop
-              
+
               // Mando por mqtt que hay obstáculo por el centro.
               StaticJsonDocument<100> jsonRoot;
-  
+
               JsonObject Obstaculo=jsonRoot.createNestedObject("Sensores"); // crea un subobjeto json para "Sensores".
               Obstaculo["1"] = "centro";
-              
+
               serializeJson(jsonRoot,msg);
               client.publish(TOP_Obstaculo, msg);
             }
           }
           else if (!obs_cent)
             stop_cent=false;
-            
+
         break;
     }
   }
