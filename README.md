@@ -53,3 +53,6 @@ This project is licensed under the GNU License - see the [LICENSE](LICENSE) file
   
 <img src="/Galería/IMG_20210204_130153.jpg" width="512"> 
 <img src="/Galería/IMG_20210204_125405.jpg" width="512">
+<img src="/Galería/rob_esquina.jpg" width="512"> 
+<img src="/Galería/rob_frente_r.jpg" width="512">
+<img src="/Galería/rob_arriba_r.jpg" width="512">
